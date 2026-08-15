@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "targetLow": 1600,
+    "targetHigh": 1800,
+    "tdee": 2090,
+    "updatedAt": "2026-08-15T19:55:05+08:00"
+  },
+  "days": [
+    {
+      "date": "2026-08-15",
+      "intake": 950,
+      "records": [
+        {
+          "name": "米饭",
+          "calories": 230,
+          "meal": "午餐"
+        },
+        {
+          "name": "纯瘦卤牛肉",
+          "calories": 280,
+          "meal": "午餐"
+        },
+        {
+          "name": "清蒸鱼",
+          "calories": 110,
+          "meal": "午餐"
+        },
+        {
+          "name": "花蛤",
+          "calories": 50,
+          "meal": "午餐"
+        },
+        {
+          "name": "粉丝",
+          "calories": 120,
+          "meal": "午餐"
+        },
+        {
+          "name": "炒生菜",
+          "calories": 80,
+          "meal": "午餐"
+        },
+        {
+          "name": "红油蘸料",
+          "calories": 80,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 80,
+        "carbs": 85,
+        "fat": 35
+      }
+    }
+  ],
+  "trend": [
+    {
+      "date": "08-09",
+      "intake": 1720
+    },
+    {
+      "date": "08-10",
+      "intake": 1650
+    },
+    {
+      "date": "08-11",
+      "intake": 1810
+    },
+    {
+      "date": "08-12",
+      "intake": 1580
+    },
+    {
+      "date": "08-13",
+      "intake": 1750
+    },
+    {
+      "date": "08-14",
+      "intake": 1690
+    },
+    {
+      "date": "今日",
+      "intake": 950
+    }
+  ]
+}

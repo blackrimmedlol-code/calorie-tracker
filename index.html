@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="卡路里记录 · 16-8 减脂">
+<title>卡路里记录 · 16-8 减脂</title>
+<!-- 国内 CDN 主源（BootCDN），失败自动切 staticfile.org 备用 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>window.echarts || document.write('<script src="https://cdn.staticfile.org/echarts/5.5.0/echarts.min.js"><\/script>');</script>
+<style>
+  /* ============ Style B · 瑞士国际主义（柠檬绿主题） ============ */
+  :root{
+    --paper:#fafaf8;          /* 高级灰白底 */
+    --paper-rgb:250,250,248;
+    --ink:#0a0a0a;            /* 近黑文字 */
+    --ink-rgb:10,10,10;
+    --grey-1:#f0f0ee;         /* 浅灰底 */
+    --grey-2:#d4d4d2;         /* 中灰 · 分割线/边框 */
+    --grey-3:#737373;         /* 暗灰 · 辅助文字 */
+    --accent:#002FA7;         /* 克莱因蓝 IKB 高亮 */
+    --accent-rgb:0,47,167;
+    --accent-on:#ffffff;      /* accent 上的反色文字（IKB 用白） */
+    --accent-bright:#5B7BFF;  /* 暗底高亮: IKB 提亮版 */
+    --sans:"Inter","Helvetica Neue","Helvetica","Arial","Segoe UI Variable","Segoe UI",system-ui,-apple-system,sans-serif;
+    --sans-zh:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans SC","Microsoft YaHei UI","Microsoft YaHei","微软雅黑",sans-serif;
+    --mono:"SF Mono","JetBrains Mono","Consolas","Menlo","Courier New",monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body{ -webkit-text-size-adjust:100%; }
+  body{
+    font-family:var(--sans),var(--sans-zh);
+    background:var(--paper);
+    /* 点阵背景：瑞士风网格语言 */
+    background-image:radial-gradient(circle, rgba(var(--ink-rgb),.07) 1px, transparent 1px);
+    background-size:26px 26px;
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding:28px 18px 48px; }
+
+  /* ---------- 头部 ---------- */
+  header{ padding:6px 2px 20px; border-bottom:3px solid var(--ink); margin-bottom:22px; }
+  .kicker{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .kicker b{ background:var(--accent); padding:1px 6px; font-weight:700; }
+  header h1{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:-.02em;
+    line-height:1.05;
+  }
+  header .sub{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--grey-3);
+    margin-top:8px;
+    letter-spacing:.04em;
+  }
+  header .sub b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- 卡片：瑞士风 · 直角 · 细边框 · 无阴影 ---------- */
+  .card{
+    background:var(--paper);
+    border:1px solid var(--grey-2);
+    border-radius:0;
+    padding:18px 18px 16px;
+    margin-bottom:18px;
+  }
+  .card h2{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-bottom:2px;
+  }
+  .card .note{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--grey-3);
+    margin-bottom:14px;
+    letter-spacing:.02em;
+  }
+  .card .note b{ color:var(--ink); }
+
+  /* ---------- 今日概览 · Data Hero ---------- */
+  .overview{ padding-top:20px; }
+  .overview .hero{ text-align:left; padding:4px 0 18px; }
+  .overview .hero .label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--grey-3);
+    margin-bottom:6px;
+  }
+  .overview .hero .big{
+    font-size:72px;
+    font-weight:800;
+    color:var(--ink);
+    line-height:1;
+    letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;
+  }
+  .overview .hero .big small{
+    font-size:20px;
+    font-weight:600;
+    color:var(--grey-3);
+    margin-left:4px;
+  }
+  .overview .hero .hint{
+    font-size:13px;
+    color:var(--grey-3);
+    margin-top:8px;
+  }
+  .overview .hero .hint b{ color:var(--ink); }
+  .stats{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .stat{
+    flex:1 1 0;
+    min-width:100px;
+    background:var(--grey-1);
+    border-top:4px solid var(--ink);
+    padding:12px 10px;
+    text-align:left;
+  }
+  .stat .s-label{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--grey-3);
+  }
+  .stat .s-num{
+    font-size:24px;
+    font-weight:800;
+    color:var(--ink);
+    margin-top:4px;
+    letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stat .s-num small{ font-size:11px; font-weight:600; color:var(--grey-3); }
+  .stat.hl{ background:var(--accent); border-top-color:var(--ink); }
+  .stat.hl .s-num{ color:var(--accent-on); }
+  .stat.warn{ background:var(--accent); border-top-color:var(--ink); }
+  .stat.warn .s-label{ color:rgba(255,255,255,.75); }
+  .stat.warn .s-num{ color:var(--accent-on); }
+
+  /* ---------- 图表容器 ---------- */
+  .chart{ width:100%; }
+
+  /* ---------- 16-8 时间线 ---------- */
+  .timeline-wrap{ padding:6px 0 2px; }
+  .timeline-bar{
+    position:relative;
+    height:26px;
+    display:flex;
+    border:1px solid var(--ink);
+  }
+  .timeline-seg{ height:100%; }
+  .timeline-fasting{ background:var(--grey-1); flex:12; border-right:1px solid var(--ink); }
+  .timeline-window{ background:var(--accent); flex:8; }
+  .timeline-now{
+    position:absolute;
+    top:-5px; bottom:-5px;
+    width:3px;
+    background:var(--ink);
+    transform:translateX(-50%);
+    z-index:2;
+  }
+  .timeline-now::after{
+    content:'';
+    position:absolute;
+    top:-4px; left:50%;
+    transform:translateX(-50%);
+    border:4px solid transparent;
+    border-top:6px solid var(--ink);
+  }
+  .timeline-labels{
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--grey-3);
+    margin-top:6px;
+    letter-spacing:.04em;
+  }
+  .timeline-legend{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--grey-3);
+  }
+  .timeline-legend .dot{
+    display:inline-block;
+    width:10px; height:10px;
+    margin-right:5px;
+    vertical-align:-1px;
+  }
+  .timeline-legend .dot.fasting{ background:var(--grey-1); border:1px solid var(--ink); }
+  .timeline-legend .dot.window{ background:var(--accent); border:1px solid var(--ink); }
+  .timeline-legend .dot.now{ background:var(--ink); border-radius:50%; }
+
+  /* ---------- 页脚 ---------- */
+  footer{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--grey-3);
+    text-align:center;
+    border-top:1px solid var(--grey-2);
+    padding-top:14px;
+    margin-top:6px;
+  }
+  .tag-example{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.1em;
+    background:var(--accent);
+    color:var(--accent-on);
+    padding:2px 8px;
+    vertical-align:2px;
+    margin-left:6px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 头部 -->
+  <header>
+    <div class="kicker"><b>●</b> 卡路里观察 · CALORIE LOG</div>
+    <h1>16-8 减脂</h1>
+    <div class="sub">2026-08-15 · 进食窗口 <b>12:00–20:00</b> · 目标 <b>1600–1800</b> 大卡 · TDEE 2090</div>
+  </header>
+
+  <!-- 1. 今日概览 -->
+  <section class="card overview">
+    <div class="hero">
+      <div class="label">今日已摄入 · INTAKE</div>
+      <div class="big" id="intake-num">0<small>大卡</small></div>
+      <div class="hint" id="intake-hint"></div>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="s-label">目标区间</div>
+        <div class="s-num" id="target-num">1600–1800</div>
+      </div>
+      <div class="stat hl" id="remain-stat">
+        <div class="s-label">剩余额度</div>
+        <div class="s-num" id="remain-num">0<small>大卡</small></div>
+      </div>
+      <div class="stat" id="deficit-stat">
+        <div class="s-label">消耗缺口</div>
+        <div class="s-num" id="deficit-num">0<small>大卡</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 摄入 vs 目标 vs TDEE -->
+  <section class="card">
+    <h2>摄入 vs 目标 vs TDEE</h2>
+    <div class="note">单位 大卡 · 目标区间 1600–1800 · TDEE 2090</div>
+    <div id="chart1" class="chart"></div>
+  </section>
+
+  <!-- 3. 各食物热量拆分 -->
+  <section class="card">
+    <h2>各食物热量拆分</h2>
+    <div class="note">按热量降序 · 今日午餐</div>
+    <div id="chart2" class="chart"></div>
+  </section>
+
+  <!-- 4. 三大营养素 -->
+  <section class="card">
+    <h2>三大营养素占比</h2>
+    <div class="note">单位 克 · 蛋白质 80 / 碳水 85 / 脂肪 35</div>
+    <div id="chart3" class="chart"></div>
+  </section>
+
+  <!-- 5. 16-8 进食窗口 -->
+  <section class="card">
+    <h2>16-8 进食窗口</h2>
+    <div class="note">蓝色为进食窗口 12:00–20:00 · 灰色为断食期</div>
+    <div class="timeline-wrap">
+      <div class="timeline-bar">
+        <div class="timeline-seg timeline-fasting"></div>
+        <div class="timeline-seg timeline-window"></div>
+        <div class="timeline-now" id="timeline-now" style="display:none;"></div>
+      </div>
+      <div class="timeline-labels">
+        <span>0:00</span><span>6:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+      </div>
+      <div class="timeline-legend">
+        <span><i class="dot fasting"></i>断食期</span>
+        <span><i class="dot window"></i>进食窗口</span>
+        <span id="now-legend" style="display:none;"><i class="dot now"></i>现在</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 近7天趋势 -->
+  <section class="card">
+    <h2>近 7 天趋势<span class="tag-example">示例数据</span></h2>
+    <div class="note">摄入 vs 目标区间（虚线）· 记录积累后自动更新为真实数据</div>
+    <div id="chart5" class="chart"></div>
+  </section>
+
+  <footer>数据仅供参考 · 饮食观察面板 · 由养生 Agent 维护 · 16-8 减脂</footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------- 常量 ----------
+  var TARGET_LOW = 1600;
+  var TARGET_HIGH = 1800;
+  var TARGET_MID = 1700;
+  var TDEE = 2090;
+
+  // 三大营养素（中值，克）
+  var MACROS = [
+    { name: '蛋白质', value: 80 },
+    { name: '碳水', value: 85 },
+    { name: '脂肪', value: 35 }
+  ];
+
+  // 近 7 天趋势（末位由今日实际摄入填充）
+  var TREND_DAYS = ['08-09', '08-10', '08-11', '08-12', '08-13', '08-14', '今日'];
+  var TREND_INTAKE = [1720, 1650, 1810, 1580, 1750, 1690, 0];
+
+  // ---------- 今日数据（由养生 Agent 每日维护） ----------
+  var RECORDS = [
+    { name: '米饭',        calories: 230, meal: '午餐' },
+    { name: '纯瘦卤牛肉',   calories: 280, meal: '午餐' },
+    { name: '清蒸鱼',      calories: 110, meal: '午餐' },
+    { name: '花蛤',        calories: 50,  meal: '午餐' },
+    { name: '粉丝',        calories: 120, meal: '午餐' },
+    { name: '炒生菜',      calories: 80,  meal: '午餐' },
+    { name: '红油蘸料',    calories: 80,  meal: '午餐' }
+  ];
+
+  // ---------- 工具 ----------
+  function totalCalories() {
+    return RECORDS.reduce(function (s, r) { return s + (Number(r.calories) || 0); }, 0);
+  }
+
+  // ---------- 概览 ----------
+  function renderOverview(total) {
+    document.getElementById('intake-num').innerHTML = total + '<small>大卡</small>';
+    document.getElementById('target-num').textContent = TARGET_LOW + '–' + TARGET_HIGH;
+
+    var remain = TARGET_HIGH - total;
+    var remainStat = document.getElementById('remain-stat');
+    var remainNum = document.getElementById('remain-num');
+    if (remain >= 0) {
+      remainStat.classList.remove('warn');
+      remainStat.classList.add('hl');
+      remainStat.querySelector('.s-label').textContent = '剩余额度';
+      remainNum.innerHTML = remain + '<small>大卡</small>';
+    } else {
+      remainStat.classList.remove('hl');
+      remainStat.classList.add('warn');
+      remainStat.querySelector('.s-label').textContent = '已超出目标';
+      remainNum.innerHTML = Math.abs(remain) + '<small>大卡</small>';
+    }
+
+    var deficit = TDEE - total;
+    document.getElementById('deficit-num').innerHTML = deficit + '<small>大卡</small>';
+
+    var hint = document.getElementById('intake-hint');
+    if (total < TARGET_LOW) {
+      hint.innerHTML = '距目标下限还差 <b>' + (TARGET_LOW - total) + ' 大卡</b>，窗口内吃够更利于减脂';
+    } else if (total <= TARGET_HIGH) {
+      hint.innerHTML = '已达目标区间 <b>1600–1800</b>，保持即可';
+    } else {
+      hint.innerHTML = '已超出目标上限 <b>' + (total - TARGET_HIGH) + ' 大卡</b>';
+    }
+  }
+
+  // ---------- 图表（瑞士风配色） ----------
+  var charts = {};
+  var ACCENT = '#002FA7';
+  var ACCENT_ON = '#ffffff';
+  var PAPER = '#fafaf8';
+  var INK = '#0a0a0a';
+  var GREY_2 = '#d4d4d2';
+  var GREY_3 = '#737373';
+  var SPLIT = 'rgba(10,10,10,.08)';
+
+  function initCharts() {
+    if (typeof echarts === 'undefined') {
+      document.body.insertAdjacentHTML('afterbegin',
+        '<div style="padding:14px;background:#002FA7;color:#fff;font-family:monospace;font-size:13px;">ECharts 加载失败，请检查网络后刷新（已尝试 BootCDN → staticfile.org）。</div>');
+      return false;
+    }
+    charts.c1 = echarts.init(document.getElementById('chart1'));
+    charts.c2 = echarts.init(document.getElementById('chart2'));
+    charts.c3 = echarts.init(document.getElementById('chart3'));
+    charts.c5 = echarts.init(document.getElementById('chart5'));
+    window.addEventListener('resize', function () {
+      Object.keys(charts).forEach(function (k) { charts[k].resize(); });
+    });
+    return true;
+  }
+
+  function renderCharts(total) {
+    // 2. 摄入 vs 目标 vs TDEE
+    charts.c1.setOption({
+      grid: { left: 46, right: 16, top: 28, bottom: 28 },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      xAxis: {
+        type: 'category',
+        data: ['今日摄入', '目标下限', '目标上限', 'TDEE'],
+        axisLabel: { fontSize: 11, color: GREY_3, fontFamily: 'inherit' },
+        axisLine: { lineStyle: { color: INK } },
+        axisTick: { show: false }
+      },
+      yAxis: {
+        type: 'value',
+        name: '大卡',
+        nameTextStyle: { fontSize: 10, color: GREY_3 },
+        axisLabel: { fontSize: 10, color: GREY_3 },
+        splitLine: { lineStyle: { color: SPLIT } }
+      },
+      series: [{
+        type: 'bar',
+        barWidth: 34,
+        data: [
+          { value: total, itemStyle: { color: ACCENT } },
+          { value: TARGET_LOW, itemStyle: { color: GREY_2 } },
+          { value: TARGET_HIGH, itemStyle: { color: GREY_2 } },
+          { value: TDEE, itemStyle: { color: INK } }
+        ],
+        label: { show: true, position: 'top', fontSize: 11, fontWeight: 700, color: INK }
+      }]
+    });
+
+    // 3. 各食物热量拆分（横向条形图）
+    var sorted = RECORDS.slice().sort(function (a, b) { return b.calories - a.calories; });
+    var c2 = document.getElementById('chart2');
+    c2.style.height = Math.max(160, sorted.length * 38 + 30) + 'px';
+    charts.c2.setOption({
+      grid: { left: 86, right: 52, top: 8, bottom: 20 },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      xAxis: {
+        type: 'value',
+        axisLabel: { fontSize: 10, color: GREY_3 },
+        splitLine: { lineStyle: { color: SPLIT } }
+      },
+      yAxis: {
+        type: 'category',
+        data: sorted.map(function (r) { return r.name; }),
+        inverse: true,
+        axisLabel: { fontSize: 12, fontWeight: 600, color: INK },
+        axisLine: { show: false },
+        axisTick: { show: false }
+      },
+      series: [{
+        type: 'bar',
+        data: sorted.map(function (r) { return r.calories; }),
+        barMaxWidth: 16,
+        itemStyle: { color: ACCENT, borderColor: INK, borderWidth: 1, borderRadius: 0 },
+        label: { show: true, position: 'right', fontSize: 11, fontWeight: 700, color: INK, formatter: '{c}' }
+      }]
+    });
+    charts.c2.resize();
+
+    // 4. 三大营养素环形图
+    charts.c3.setOption({
+      tooltip: { trigger: 'item', formatter: '{b}: {c}g ({d}%)' },
+      legend: { bottom: 0, icon: 'circle', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 11, color: INK } },
+      color: [ACCENT, INK, GREY_3],
+      series: [{
+        type: 'pie',
+        radius: ['46%', '68%'],
+        center: ['50%', '44%'],
+        avoidLabelOverlap: true,
+        itemStyle: { borderColor: PAPER, borderWidth: 2 },
+        label: { fontSize: 11, fontWeight: 700, color: INK, formatter: '{b}\n{c}g' },
+        data: MACROS
+      }]
+    });
+
+    // 6. 近 7 天趋势
+    var intake = TREND_INTAKE.slice();
+    intake[intake.length - 1] = total;
+    charts.c5.setOption({
+      grid: { left: 46, right: 16, top: 32, bottom: 32 },
+      tooltip: { trigger: 'axis' },
+      legend: { bottom: 0, icon: 'circle', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 10, color: GREY_3 } },
+      xAxis: {
+        type: 'category',
+        data: TREND_DAYS,
+        boundaryGap: false,
+        axisLabel: { fontSize: 10, color: GREY_3 },
+        axisLine: { lineStyle: { color: INK } },
+        axisTick: { show: false }
+      },
+      yAxis: {
+        type: 'value',
+        name: '大卡',
+        min: 1200,
+        nameTextStyle: { fontSize: 10, color: GREY_3 },
+        axisLabel: { fontSize: 10, color: GREY_3 },
+        splitLine: { lineStyle: { color: SPLIT } }
+      },
+      series: [
+        {
+          name: '摄入',
+          type: 'line',
+          data: intake,
+          smooth: true,
+          symbol: 'circle',
+          symbolSize: 6,
+          itemStyle: { color: INK },
+          lineStyle: { width: 3, color: INK },
+          areaStyle: { color: ACCENT, opacity: 0.35 }
+        },
+        {
+          name: '目标下限',
+          type: 'line',
+          data: TREND_DAYS.map(function () { return TARGET_LOW; }),
+          symbol: 'none',
+          lineStyle: { type: 'dashed', color: GREY_3, width: 1.5 },
+          itemStyle: { color: GREY_3 }
+        },
+        {
+          name: '目标上限',
+          type: 'line',
+          data: TREND_DAYS.map(function () { return TARGET_HIGH; }),
+          symbol: 'none',
+          lineStyle: { type: 'dashed', color: GREY_3, width: 1.5 },
+          itemStyle: { color: GREY_3 }
+        }
+      ]
+    });
+  }
+
+  // ---------- 远程数据（在线版：拉取 data.json；失败回退内置） ----------
+  function applyRemoteData(data) {
+    if (!data) return false;
+    if (data.meta) {
+      if (data.meta.targetLow) TARGET_LOW = Number(data.meta.targetLow);
+      if (data.meta.targetHigh) TARGET_HIGH = Number(data.meta.targetHigh);
+      if (data.meta.tdee) TDEE = Number(data.meta.tdee);
+    }
+    var days = data.days || [];
+    if (days.length) {
+      var last = days[days.length - 1];
+      if (last.records && last.records.length) RECORDS = last.records;
+      if (last.macros) MACROS = [
+        { name: '蛋白质', value: last.macros.protein || 0 },
+        { name: '碳水', value: last.macros.carbs || 0 },
+        { name: '脂肪', value: last.macros.fat || 0 }
+      ];
+    }
+    if (data.trend && data.trend.length) {
+      TREND_DAYS = data.trend.map(function (t) { return t.date; });
+      TREND_INTAKE = data.trend.map(function (t) { return t.intake; });
+    }
+    return true;
+  }
+
+  function loadRemoteData(cb) {
+    if (typeof fetch !== 'function') { cb(false); return; }
+    fetch('data.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) { cb(applyRemoteData(data)); })
+      .catch(function () { cb(false); });
+  }
+
+  // ---------- 时间线（当前时刻标记） ----------
+  function renderTimeline() {
+    var now = new Date();
+    var h = now.getHours() + now.getMinutes() / 60;
+    var pct = (h / 24) * 100;
+    if (pct >= 0 && pct <= 100) {
+      var marker = document.getElementById('timeline-now');
+      marker.style.left = pct + '%';
+      marker.style.display = 'block';
+      document.getElementById('now-legend').style.display = 'inline-flex';
+    }
+  }
+
+  // ---------- 刷新 ----------
+  function refresh() {
+    var total = totalCalories();
+    renderOverview(total);
+    renderCharts(total);
+  }
+
+  // ---------- 启动 ----------
+  function bootstrap() {
+    if (initCharts()) {
+      // 在线版：先拉 data.json（成功用云端数据渲染，失败回退内置）
+      loadRemoteData(function () { refresh(); });
+    } else {
+      renderOverview(totalCalories());
+    }
+    renderTimeline();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrap);
+  } else {
+    bootstrap();
+  }
+})();
+</script>
+</body>
+</html>
