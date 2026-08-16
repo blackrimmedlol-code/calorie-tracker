@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-16T13:25:13+08:00"
+    "updatedAt": "2026-08-16T18:30:46+08:00"
   },
   "days": [
     {
@@ -54,7 +54,7 @@
     },
     {
       "date": "2026-08-16",
-      "intake": 1325,
+      "intake": 2055,
       "records": [
         {
           "name": "牛排（瘦·煎烤，含表面酱汁）",
@@ -75,12 +75,37 @@
           "name": "法棍1片",
           "calories": 140,
           "meal": "午餐"
+        },
+        {
+          "name": "番茄蛋汤",
+          "calories": 180,
+          "meal": "晚餐"
+        },
+        {
+          "name": "瘦牛肉蘸酱",
+          "calories": 200,
+          "meal": "晚餐"
+        },
+        {
+          "name": "梅菜肉饼",
+          "calories": 160,
+          "meal": "晚餐"
+        },
+        {
+          "name": "炒花椰菜",
+          "calories": 110,
+          "meal": "晚餐"
+        },
+        {
+          "name": "白米饭",
+          "calories": 80,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 75,
-        "carbs": 110,
-        "fat": 65
+        "protein": 138,
+        "carbs": 148,
+        "fat": 103
       }
     }
   ],
@@ -111,7 +136,7 @@
     },
     {
       "date": "今日",
-      "intake": 1325
+      "intake": 2055
     }
   ]
 }
