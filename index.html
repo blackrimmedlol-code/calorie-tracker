@@ -319,8 +319,8 @@
 
   <!-- 6. 近7天趋势 -->
   <section class="card">
-    <h2>近 7 天趋势<span class="tag-example">示例数据</span></h2>
-    <div class="note">摄入 vs 目标区间（虚线）· 记录积累后自动更新为真实数据</div>
+    <h2>近 7 天趋势</h2>
+    <div class="note">摄入 vs 目标区间（虚线）· 未记录的天自动留空 · 每日滚动</div>
     <div id="chart5" class="chart"></div>
   </section>
 
@@ -364,14 +364,31 @@
     return RECORDS.reduce(function (s, r) { return s + (Number(r.calories) || 0); }, 0);
   }
 
+  function todayStr() {
+    var d = new Date();
+    var m = ('0' + (d.getMonth() + 1)).slice(-2);
+    var day = ('0' + d.getDate()).slice(-2);
+    return d.getFullYear() + '-' + m + '-' + day;
+  }
+  var LAST_DATE = null; // 最近一条记录的日期（远程数据时设置）
+
   // ---------- 概览 ----------
-  function renderOverview(total) {
+  function renderOverview(total, hasToday) {
     document.getElementById('intake-num').innerHTML = total + '<small>大卡</small>';
     document.getElementById('target-num').textContent = TARGET_LOW + '–' + TARGET_HIGH;
 
     var remain = TARGET_HIGH - total;
     var remainStat = document.getElementById('remain-stat');
     var remainNum = document.getElementById('remain-num');
+    if (!hasToday) {
+      remainStat.classList.remove('warn');
+      remainStat.classList.add('hl');
+      remainStat.querySelector('.s-label').textContent = '剩余额度';
+      remainNum.innerHTML = TARGET_HIGH + '<small>大卡</small>';
+      document.getElementById('deficit-num').innerHTML = TARGET_HIGH + '<small>大卡</small>';
+      document.getElementById('intake-hint').innerHTML = '今日尚未记录 · 发一餐图给我，自动记账 📷';
+      return;
+    }
     if (remain >= 0) {
       remainStat.classList.remove('warn');
       remainStat.classList.add('hl');
@@ -423,7 +440,7 @@
     return true;
   }
 
-  function renderCharts(total) {
+  function renderCharts(total, hasToday) {
     // 2. 摄入 vs 目标 vs TDEE
     charts.c1.setOption({
       grid: { left: 46, right: 16, top: 28, bottom: 28 },
@@ -501,9 +518,15 @@
       }]
     });
 
-    // 6. 近 7 天趋势
+    // 6. 近 7 天趋势（真实数据滚动，null=未记录的天留空）
     var intake = TREND_INTAKE.slice();
-    intake[intake.length - 1] = total;
+    intake[intake.length - 1] = hasToday ? total : null;
+    var trendVals = intake.filter(function (v) { return v !== null && v !== undefined; });
+    var yMin = 0;
+    if (trendVals.length) {
+      var lo = Math.min.apply(null, trendVals);
+      yMin = Math.max(0, Math.floor((lo - 400) / 100) * 100);
+    }
     charts.c5.setOption({
       grid: { left: 46, right: 16, top: 32, bottom: 32 },
       tooltip: { trigger: 'axis' },
@@ -519,7 +542,7 @@
       yAxis: {
         type: 'value',
         name: '大卡',
-        min: 1200,
+        min: yMin,
         nameTextStyle: { fontSize: 10, color: GREY_3 },
         axisLabel: { fontSize: 10, color: GREY_3 },
         splitLine: { lineStyle: { color: SPLIT } }
@@ -567,6 +590,7 @@
     var days = data.days || [];
     if (days.length) {
       var last = days[days.length - 1];
+      LAST_DATE = last.date || null;
       if (last.records && last.records.length) RECORDS = last.records;
       if (last.macros) MACROS = [
         { name: '蛋白质', value: last.macros.protein || 0 },
@@ -604,9 +628,11 @@
 
   // ---------- 刷新 ----------
   function refresh() {
-    var total = totalCalories();
-    renderOverview(total);
-    renderCharts(total);
+    // 在线：LAST_DATE=最近记录日；无远程数据时视为今日（用内置兜底数据）
+    var hasToday = LAST_DATE ? (LAST_DATE === todayStr()) : true;
+    var total = hasToday ? totalCalories() : 0;
+    renderOverview(total, hasToday);
+    renderCharts(total, hasToday);
   }
 
   // ---------- 启动 ----------
@@ -615,7 +641,7 @@
       // 在线版：先拉 data.json（成功用云端数据渲染，失败回退内置）
       loadRemoteData(function () { refresh(); });
     } else {
-      renderOverview(totalCalories());
+      renderOverview(totalCalories(), true);
     }
     renderTimeline();
   }
