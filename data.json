@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-17T00:00:26+08:00"
+    "updatedAt": "2026-08-17T04:08:01+08:00"
   },
   "days": [
     {
@@ -50,6 +50,21 @@
         "protein": 80,
         "carbs": 85,
         "fat": 35
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-08-15T23:59:00+08:00",
+        "isFinal": true,
+        "activeCalories": 337,
+        "totalCalories": 2230,
+        "exerciseMinutes": 15,
+        "standHours": 11,
+        "steps": 3755,
+        "distanceKm": 2.76,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
       }
     },
     {
@@ -111,6 +126,25 @@
         "protein": 143,
         "carbs": 188,
         "fat": 112
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "workouts": [
+          {
+            "name": "户外步行",
+            "startTime": "21:42",
+            "endTime": "22:48",
+            "durationMin": 66,
+            "distanceKm": 1.78,
+            "activeCalories": 139,
+            "totalCalories": 251,
+            "averageHeartRate": 94,
+            "averagePace": "37′07″/公里",
+            "elevationGainM": 78,
+            "effort": 2,
+            "effortLabel": "轻松"
+          }
+        ]
       }
     }
   ],
