@@ -124,13 +124,12 @@
   }
   .overview .hero .hint b{ color:var(--ink); }
   .stats{
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:10px;
-    flex-wrap:wrap;
   }
   .stat{
-    flex:1 1 0;
-    min-width:100px;
+    min-width:0;
     background:var(--grey-1);
     border-top:4px solid var(--ink);
     padding:12px 10px;
@@ -153,14 +152,97 @@
   }
   .stat .s-num small{ font-size:11px; font-weight:600; color:var(--grey-3); }
   .stat.hl{ background:var(--accent); border-top-color:var(--ink); }
+  .stat.hl .s-label{ color:rgba(255,255,255,.75); }
   .stat.hl .s-num{ color:var(--accent-on); }
   .stat.warn{ background:var(--accent); border-top-color:var(--ink); }
   .stat.warn .s-label{ color:rgba(255,255,255,.75); }
   .stat.warn .s-num{ color:var(--accent-on); }
 
   /* ---------- 图表容器 ---------- */
-  .chart{ width:100%; height:260px; }
-  #chart5{ height:280px; }
+  .chart{ width:100%; height:250px; }
+  #chart5{ height:310px; }
+  #chart6{ height:250px; }
+
+  /* ---------- 数据摘要与账本 ---------- */
+  .source-tag{
+    display:inline-block;
+    margin-left:6px;
+    padding:1px 6px;
+    background:var(--grey-1);
+    border:1px solid var(--grey-2);
+    color:var(--grey-3);
+    font:700 9px/1.5 var(--mono);
+    letter-spacing:.06em;
+    vertical-align:1px;
+  }
+  .source-tag.live{ background:var(--accent); border-color:var(--accent); color:var(--accent-on); }
+  .status-line{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:9px 0 0;
+    margin-top:14px;
+    border-top:1px solid var(--grey-2);
+    color:var(--grey-3);
+    font:10px/1.5 var(--mono);
+  }
+  .summary-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1px;
+    background:var(--grey-2);
+    border:1px solid var(--grey-2);
+    margin:4px 0 16px;
+  }
+  .summary-item{ background:var(--paper); padding:11px 8px; min-height:70px; }
+  .summary-item .k{ color:var(--grey-3); font:9px/1.4 var(--mono); letter-spacing:.06em; text-transform:uppercase; }
+  .summary-item .v{ margin-top:4px; font-size:18px; font-weight:800; line-height:1.15; font-variant-numeric:tabular-nums; }
+  .summary-item .u{ font-size:9px; color:var(--grey-3); margin-left:2px; }
+  .empty-state{
+    padding:24px 14px;
+    border:1px dashed var(--grey-2);
+    color:var(--grey-3);
+    text-align:center;
+    font:11px/1.7 var(--mono);
+  }
+  .meal-group{ border-top:1px solid var(--ink); padding:12px 0 4px; }
+  .meal-group:first-child{ border-top:0; padding-top:0; }
+  .meal-head{ display:flex; justify-content:space-between; gap:12px; margin-bottom:7px; font-weight:800; }
+  .meal-head span:last-child{ font-family:var(--mono); }
+  .food-row{ display:flex; justify-content:space-between; gap:16px; padding:4px 0; color:var(--grey-3); font-size:12px; }
+  .food-row span:first-child{ color:var(--ink); }
+  .food-row span:last-child{ white-space:nowrap; font-family:var(--mono); }
+  .macro-strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:4px; }
+  .macro-box{ background:var(--grey-1); padding:10px 8px; border-top:3px solid var(--ink); }
+  .macro-box b{ display:block; font-size:19px; }
+  .macro-box span{ color:var(--grey-3); font:9px/1.4 var(--mono); }
+
+  /* ---------- Apple Fitness 活动 ---------- */
+  .activity-bars{ display:grid; gap:13px; margin-bottom:16px; }
+  .activity-row-head{ display:flex; justify-content:space-between; gap:12px; margin-bottom:5px; font-size:12px; }
+  .activity-row-head b{ font-family:var(--mono); }
+  .progress{ height:10px; background:var(--grey-1); border:1px solid var(--ink); overflow:hidden; }
+  .progress > i{ display:block; height:100%; background:var(--accent); border-right:1px solid var(--ink); }
+  .activity-facts{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--grey-2); border:1px solid var(--grey-2); }
+  .activity-fact{ padding:10px 7px; background:var(--paper); }
+  .activity-fact span{ display:block; color:var(--grey-3); font:9px/1.4 var(--mono); }
+  .activity-fact b{ display:block; margin-top:3px; font-size:16px; font-variant-numeric:tabular-nums; }
+  .workout-title{ margin:18px 0 8px; font:700 10px/1.4 var(--mono); letter-spacing:.08em; color:var(--grey-3); }
+  details.workout{ border-top:1px solid var(--ink); padding:11px 0; }
+  details.workout:last-child{ border-bottom:1px solid var(--ink); }
+  details.workout summary{ list-style:none; cursor:pointer; }
+  details.workout summary::-webkit-details-marker{ display:none; }
+  .workout-main{ display:flex; justify-content:space-between; gap:12px; }
+  .workout-main b{ font-size:14px; }
+  .workout-main strong{ color:var(--accent); font:800 17px/1 var(--mono); white-space:nowrap; }
+  .workout-sub{ margin-top:3px; color:var(--grey-3); font:10px/1.5 var(--mono); }
+  .workout-more{ display:grid; grid-template-columns:repeat(2,1fr); gap:7px; margin-top:10px; padding:10px; background:var(--grey-1); font:10px/1.5 var(--mono); }
+
+  @media (max-width:420px){
+    .overview .hero .big{ font-size:62px; }
+    .summary-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .activity-facts{ grid-template-columns:repeat(2,1fr); }
+  }
 
   /* ---------- 16-8 时间线 ---------- */
   .timeline-wrap{ padding:6px 0 2px; }
@@ -248,8 +330,8 @@
 
   <!-- 头部 -->
   <header>
-    <div class="kicker"><b>●</b> 卡路里观察 · CALORIE LOG</div>
-    <h1>16-8 减脂</h1>
+    <div class="kicker"><b>●</b> 能量与活动 · ENERGY LOG</div>
+    <h1>16-8 减脂观察</h1>
     <div class="sub" id="header-sub"></div>
   </header>
 
@@ -269,38 +351,53 @@
         <div class="s-label">剩余额度</div>
         <div class="s-num" id="remain-num">0<small>大卡</small></div>
       </div>
-      <div class="stat" id="deficit-stat">
-        <div class="s-label">消耗缺口</div>
-        <div class="s-num" id="deficit-num">0<small>大卡</small></div>
+      <div class="stat" id="burn-stat">
+        <div class="s-label" id="burn-label">预计总消耗</div>
+        <div class="s-num" id="burn-num">—</div>
+      </div>
+      <div class="stat" id="balance-stat">
+        <div class="s-label" id="balance-label">预计能量差</div>
+        <div class="s-num" id="balance-num">—</div>
       </div>
     </div>
+    <div class="status-line"><span id="burn-source">等待晚间活动数据</span><span id="data-freshness"></span></div>
   </section>
 
-  <!-- 2. 摄入 vs 目标 vs TDEE -->
+  <!-- 2. 今日能量账本 -->
   <section class="card">
-    <h2>摄入 vs 目标 vs TDEE</h2>
+    <h2>今日能量账本</h2>
     <div class="note" id="target-note"></div>
     <div id="chart1" class="chart"></div>
   </section>
 
-  <!-- 3. 各食物热量拆分 -->
+  <!-- 3. 饮食账本 -->
   <section class="card">
-    <h2>各食物热量拆分</h2>
+    <h2>今日饮食账本</h2>
     <div class="note" id="records-note"></div>
+    <div id="meal-ledger"></div>
     <div id="chart2" class="chart"></div>
   </section>
 
-  <!-- 4. 三大营养素 -->
+  <!-- 4. Apple Fitness -->
+  <section class="card">
+    <h2>活动与运动</h2>
+    <div class="note" id="activity-note">等待晚间同步 Apple Fitness</div>
+    <div id="activity-content"></div>
+    <div id="workout-list"></div>
+  </section>
+
+  <!-- 5. 三大营养素 -->
   <section class="card">
     <h2>三大营养素占比</h2>
     <div class="note" id="macros-note"></div>
+    <div class="macro-strip" id="macro-strip"></div>
     <div id="chart3" class="chart"></div>
   </section>
 
-  <!-- 5. 16-8 进食窗口 -->
+  <!-- 6. 16-8 进食窗口 -->
   <section class="card">
     <h2>16-8 进食窗口</h2>
-    <div class="note">蓝色为进食窗口 12:00–20:00 · 灰色为断食期</div>
+    <div class="note" id="window-note">蓝色为进食窗口 12:00–20:00 · 餐次时间尚未记录</div>
     <div class="timeline-wrap">
       <div class="timeline-bar">
         <div class="timeline-seg timeline-fasting"></div>
@@ -318,162 +415,530 @@
     </div>
   </section>
 
-  <!-- 6. 近7天趋势 -->
+  <!-- 7. 近7天趋势 -->
   <section class="card">
-    <h2>近 7 天趋势</h2>
-    <div class="note">摄入 vs 目标区间（虚线）· 未记录的天自动留空 · 每日滚动</div>
+    <h2>近 7 天复盘</h2>
+    <div class="note" id="weekly-note">摄入、总消耗与活动热量 · 无 Apple 数据时以 TDEE 估算</div>
+    <div class="summary-grid" id="weekly-summary"></div>
     <div id="chart5" class="chart"></div>
   </section>
 
-  <footer>数据仅供参考 · 饮食观察面板 · 由养生 Agent 维护 · 16-8 减脂</footer>
+  <!-- 8. 体重趋势 -->
+  <section class="card">
+    <h2>体重趋势</h2>
+    <div class="note" id="weight-note">近 30 天 · 7 日移动平均用于过滤水分波动</div>
+    <div class="summary-grid" id="weight-summary"></div>
+    <div id="chart6" class="chart"></div>
+  </section>
+
+  <footer>数据仅供参考 · 晚间收口 / 次日回顾 · 由养生 Agent 维护</footer>
 </div>
 
 <script>
 (function () {
   'use strict';
 
-  // ---------- 常量 ----------
+  // ---------- 配置与远程数据 ----------
   var TARGET_LOW = 1600;
   var TARGET_HIGH = 1800;
-  var TARGET_MID = 1700;
   var TDEE = 2090;
-
-  // 三大营养素（中值，克）
-  var MACROS = [
-    { name: '蛋白质', value: 80 },
-    { name: '碳水', value: 85 },
-    { name: '脂肪', value: 35 }
-  ];
-
-  // 近 7 天趋势（远程数据加载后由 days 按本地日期自动生成）
-  var TREND_DAYS = ['08-09', '08-10', '08-11', '08-12', '08-13', '08-14', '今日'];
-  var TREND_INTAKE = [1720, 1650, 1810, 1580, 1750, 1690, 0];
-  var TREND_FROM_DAYS = false;
-
-  // ---------- 今日数据（由养生 Agent 每日维护） ----------
-  var RECORDS = [
-    { name: '米饭',        calories: 230, meal: '午餐' },
-    { name: '纯瘦卤牛肉',   calories: 280, meal: '午餐' },
-    { name: '清蒸鱼',      calories: 110, meal: '午餐' },
-    { name: '花蛤',        calories: 50,  meal: '午餐' },
-    { name: '粉丝',        calories: 120, meal: '午餐' },
-    { name: '炒生菜',      calories: 80,  meal: '午餐' },
-    { name: '红油蘸料',    calories: 80,  meal: '午餐' }
-  ];
+  var MOVE_GOAL = 650;
+  var EXERCISE_GOAL = 30;
+  var STAND_GOAL = 12;
+  var UPDATED_AT = '';
+  var DAYS = [];
+  var DAY_BY_DATE = {};
+  var DATA_OK = false;
+  var CHARTS_READY = false;
+  var WEEKLY = null;
+  var WEIGHT_TREND = null;
 
   // ---------- 工具 ----------
-  function totalCalories() {
-    return RECORDS.reduce(function (s, r) { return s + (Number(r.calories) || 0); }, 0);
+  function asNumber(value) {
+    if (value === null || value === undefined || value === '') return null;
+    var n = Number(value);
+    return isFinite(n) ? n : null;
+  }
+
+  function sum(values) {
+    return values.reduce(function (total, value) {
+      return total + (asNumber(value) || 0);
+    }, 0);
+  }
+
+  function average(values) {
+    var clean = values.filter(function (value) { return asNumber(value) !== null; });
+    return clean.length ? sum(clean) / clean.length : null;
+  }
+
+  function round(value) {
+    return value === null || value === undefined ? null : Math.round(value);
+  }
+
+  function formatNumber(value, digits) {
+    var n = asNumber(value);
+    if (n === null) return '—';
+    return n.toLocaleString('zh-CN', {
+      minimumFractionDigits: digits || 0,
+      maximumFractionDigits: digits || 0
+    });
+  }
+
+  function signed(value, digits) {
+    var n = asNumber(value);
+    if (n === null) return '—';
+    if (n > 0) return '+' + formatNumber(n, digits || 0);
+    if (n < 0) return '−' + formatNumber(Math.abs(n), digits || 0);
+    return formatNumber(0, digits || 0);
+  }
+
+  function escapeHtml(value) {
+    return String(value === null || value === undefined ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function dateKey(date) {
+    var month = ('0' + (date.getMonth() + 1)).slice(-2);
+    var day = ('0' + date.getDate()).slice(-2);
+    return date.getFullYear() + '-' + month + '-' + day;
   }
 
   function todayStr() {
-    var d = new Date();
-    return dateKey(d);
+    return dateKey(new Date());
   }
 
-  function dateKey(d) {
-    var m = ('0' + (d.getMonth() + 1)).slice(-2);
-    var day = ('0' + d.getDate()).slice(-2);
-    return d.getFullYear() + '-' + m + '-' + day;
+  function localDate(key) {
+    var parts = String(key || '').split('-').map(Number);
+    return new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0, 0);
   }
 
-  function buildRecentTrend(days) {
-    var intakeByDate = {};
-    days.forEach(function (day) {
-      if (!day || !day.date || day.intake === null || day.intake === undefined) return;
-      var value = Number(day.intake);
-      if (isFinite(value)) intakeByDate[day.date] = value;
-    });
-
+  function recentKeys(count) {
     var today = new Date();
-    // 使用中午作为日期锚点，避免夏令时切换造成跨日偏移。
     today.setHours(12, 0, 0, 0);
-    TREND_DAYS = [];
-    TREND_INTAKE = [];
-    for (var offset = 6; offset >= 0; offset--) {
-      var d = new Date(today.getTime());
-      d.setDate(today.getDate() - offset);
-      var key = dateKey(d);
-      TREND_DAYS.push(offset === 0 ? '今日' : key.slice(5));
-      TREND_INTAKE.push(Object.prototype.hasOwnProperty.call(intakeByDate, key) ? intakeByDate[key] : null);
+    var keys = [];
+    for (var offset = count - 1; offset >= 0; offset--) {
+      var date = new Date(today.getTime());
+      date.setDate(today.getDate() - offset);
+      keys.push(dateKey(date));
     }
-    TREND_FROM_DAYS = true;
+    return keys;
   }
-  var LAST_DATE = null; // 最近一条记录的日期（远程数据时设置）
 
-  // ---------- 概览 ----------
-  function renderOverview(total, hasToday) {
-    document.getElementById('intake-num').innerHTML = total + '<small>大卡</small>';
-    document.getElementById('target-num').textContent = TARGET_LOW + '–' + TARGET_HIGH;
+  function displayDate(key, isToday) {
+    return isToday ? '今日' : String(key).slice(5);
+  }
 
+  function timeFromIso(value) {
+    if (!value) return '';
+    var match = String(value).match(/T(\d{2}:\d{2})/);
+    if (match) return match[1];
+    var plain = String(value).match(/\b(\d{1,2}:\d{2})\b/);
+    return plain ? plain[1] : '';
+  }
+
+  function formatUpdated(value) {
+    if (!value) return DATA_OK ? '已载入' : '读取失败';
+    var date = new Date(value);
+    if (!isNaN(date.getTime())) {
+      return ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + date.getDate()).slice(-2) + ' ' +
+        ('0' + date.getHours()).slice(-2) + ':' +
+        ('0' + date.getMinutes()).slice(-2) + ' 更新';
+    }
+    return String(value).slice(5, 16).replace('T', ' ') + ' 更新';
+  }
+
+  function activityOf(day) {
+    return day && day.activity && typeof day.activity === 'object' ? day.activity : null;
+  }
+
+  function bodyOf(day) {
+    if (!day) return null;
+    if (day.body && typeof day.body === 'object') return day.body;
+    if (asNumber(day.weightKg) !== null) return { weightKg: day.weightKg };
+    return null;
+  }
+
+  function totalBurnInfo(day) {
+    var activity = activityOf(day);
+    var actual = activity ? asNumber(
+      activity.totalCalories !== undefined ? activity.totalCalories : activity.totalBurn
+    ) : null;
+    if (actual !== null) {
+      return { value: actual, actual: true, activity: activity };
+    }
+    return { value: TDEE, actual: false, activity: activity };
+  }
+
+  function currentContext() {
+    var day = DAY_BY_DATE[todayStr()] || null;
+    var intake = day ? asNumber(day.intake) : null;
+    var records = day && Array.isArray(day.records) ? day.records : [];
+    var macros = day && day.macros ? [
+      { name: '蛋白质', value: asNumber(day.macros.protein) || 0, factor: 4 },
+      { name: '碳水', value: asNumber(day.macros.carbs) || 0, factor: 4 },
+      { name: '脂肪', value: asNumber(day.macros.fat) || 0, factor: 9 }
+    ] : [];
+    return {
+      day: day,
+      hasIntake: intake !== null,
+      intake: intake === null ? 0 : intake,
+      records: records,
+      macros: macros,
+      activity: activityOf(day),
+      body: bodyOf(day),
+      burn: totalBurnInfo(day)
+    };
+  }
+
+  function summaryItem(label, value, unit) {
+    return '<div class="summary-item"><div class="k">' + escapeHtml(label) +
+      '</div><div class="v">' + escapeHtml(value) +
+      (unit ? '<span class="u">' + escapeHtml(unit) + '</span>' : '') + '</div></div>';
+  }
+
+  // ---------- 今日总览 ----------
+  function renderOverview(context) {
+    var total = context.intake;
+    var hasToday = context.hasIntake;
+    var burn = context.burn;
+    var activity = context.activity;
+    var isFinal = !!(activity && activity.isFinal === true);
     var remain = TARGET_HIGH - total;
+
+    document.getElementById('intake-num').innerHTML =
+      formatNumber(total) + '<small>大卡</small>';
+    document.getElementById('target-num').textContent =
+      TARGET_LOW + '–' + TARGET_HIGH;
+
     var remainStat = document.getElementById('remain-stat');
+    var remainLabel = remainStat.querySelector('.s-label');
     var remainNum = document.getElementById('remain-num');
-    if (!hasToday) {
-      remainStat.classList.remove('warn');
+    remainStat.classList.remove('warn', 'hl');
+    if (!hasToday || remain >= 0) {
       remainStat.classList.add('hl');
-      remainStat.querySelector('.s-label').textContent = '剩余额度';
-      remainNum.innerHTML = TARGET_HIGH + '<small>大卡</small>';
-      document.getElementById('deficit-num').innerHTML = TARGET_HIGH + '<small>大卡</small>';
-      document.getElementById('intake-hint').innerHTML = '今日尚未记录 · 发一餐图给我，自动记账 📷';
-      return;
-    }
-    if (remain >= 0) {
-      remainStat.classList.remove('warn');
-      remainStat.classList.add('hl');
-      remainStat.querySelector('.s-label').textContent = '剩余额度';
-      remainNum.innerHTML = remain + '<small>大卡</small>';
+      remainLabel.textContent = '剩余额度';
+      remainNum.innerHTML = formatNumber(hasToday ? remain : TARGET_HIGH) + '<small>大卡</small>';
     } else {
-      remainStat.classList.remove('hl');
       remainStat.classList.add('warn');
-      remainStat.querySelector('.s-label').textContent = '已超出目标';
-      remainNum.innerHTML = Math.abs(remain) + '<small>大卡</small>';
+      remainLabel.textContent = '已超出目标';
+      remainNum.innerHTML = formatNumber(Math.abs(remain)) + '<small>大卡</small>';
     }
 
-    var deficit = TDEE - total;
-    document.getElementById('deficit-num').innerHTML = deficit + '<small>大卡</small>';
+    document.getElementById('burn-label').textContent =
+      burn.actual ? (isFinal ? '全天总消耗' : '当前总消耗') : '预计总消耗';
+    document.getElementById('burn-num').innerHTML =
+      formatNumber(burn.value) + '<small>大卡</small>';
+
+    var balance = hasToday ? total - burn.value : null;
+    document.getElementById('balance-label').textContent =
+      burn.actual ? (isFinal ? '全天能量差' : '当前能量差') : '预计能量差';
+    document.getElementById('balance-num').innerHTML =
+      signed(balance) + (balance === null ? '' : '<small>大卡</small>');
+
+    var balanceStat = document.getElementById('balance-stat');
+    balanceStat.classList.remove('hl', 'warn');
+    if (balance !== null) balanceStat.classList.add(balance <= 0 ? 'hl' : 'warn');
+
+    var source = document.getElementById('burn-source');
+    if (burn.actual) {
+      var snapshot = timeFromIso(activity.capturedAt);
+      source.innerHTML = '<span class="source-tag live">APPLE FITNESS</span> ' +
+        (isFinal ? '全天完成' : ('截至 ' + (snapshot || '当前')));
+    } else {
+      source.innerHTML = '<span class="source-tag">TDEE 估算</span> 等待晚间活动数据';
+    }
+    document.getElementById('data-freshness').textContent = formatUpdated(UPDATED_AT);
 
     var hint = document.getElementById('intake-hint');
-    if (total < TARGET_LOW) {
-      hint.innerHTML = '距目标下限还差 <b>' + (TARGET_LOW - total) + ' 大卡</b>，窗口内吃够更利于减脂';
+    if (!hasToday) {
+      hint.innerHTML = '今日尚未记录饮食 · 晚间同步后形成完整能量账本';
+    } else if (total < TARGET_LOW) {
+      hint.innerHTML = '距摄入目标下限还差 <b>' + formatNumber(TARGET_LOW - total) +
+        ' 大卡</b>' + (burn.actual ? '' : ' · 能量差暂用 TDEE 估算');
     } else if (total <= TARGET_HIGH) {
-      hint.innerHTML = '已达目标区间 <b>1600–1800</b>，保持即可';
+      hint.innerHTML = '摄入已达目标区间 <b>' + TARGET_LOW + '–' + TARGET_HIGH +
+        '</b>' + (burn.actual ? '' : ' · 等待晚间活动数据');
     } else {
-      hint.innerHTML = '已超出目标上限 <b>' + (total - TARGET_HIGH) + ' 大卡</b>';
+      hint.innerHTML = '摄入超出目标上限 <b>' + formatNumber(total - TARGET_HIGH) +
+        ' 大卡</b>' + (burn.actual ? '' : ' · 等待晚间活动数据');
     }
   }
 
-  // ---------- 动态说明文字 ----------
-  function renderMeta(hasToday) {
+  function renderMeta(context) {
     document.getElementById('header-sub').innerHTML =
-      todayStr() + ' · 进食窗口 <b>12:00–20:00</b> · 目标 <b>' +
-      TARGET_LOW + '–' + TARGET_HIGH + '</b> 大卡 · TDEE ' + TDEE;
-    document.getElementById('target-note').textContent =
-      '单位 大卡 · 目标区间 ' + TARGET_LOW + '–' + TARGET_HIGH + ' · TDEE ' + TDEE;
+      todayStr() + ' · 晚间收口 / 次日回顾 · 目标 <b>' +
+      TARGET_LOW + '–' + TARGET_HIGH + '</b> 大卡';
+    document.getElementById('target-note').innerHTML =
+      '摄入目标固定 · 总消耗优先使用 Apple Fitness ' +
+      (context.burn.actual ? '<span class="source-tag live">实测</span>' :
+        '<span class="source-tag">TDEE ' + TDEE + ' 估算</span>');
+  }
 
-    var recordsNote = document.getElementById('records-note');
-    var macrosNote = document.getElementById('macros-note');
-    if (!hasToday || !RECORDS.length) {
-      recordsNote.textContent = '今日尚未记录';
-      macrosNote.textContent = '今日暂无营养素记录';
+  // ---------- 饮食与营养 ----------
+  function renderMeals(context) {
+    var ledger = document.getElementById('meal-ledger');
+    var records = context.records;
+    if (!context.hasIntake || !records.length) {
+      ledger.innerHTML = '<div class="empty-state">今日尚未记录饮食<br>已有历史记录仍会计入近 7 天复盘</div>';
+      document.getElementById('records-note').textContent = '按餐次归档 · 当日数据为空';
       return;
     }
 
-    var meals = [];
-    RECORDS.forEach(function (record) {
-      var meal = record.meal ? String(record.meal).trim() : '';
-      if (meal && meals.indexOf(meal) === -1) meals.push(meal);
+    var groups = {};
+    var order = [];
+    records.forEach(function (record) {
+      var meal = String(record.meal || '未分类').trim() || '未分类';
+      if (!groups[meal]) {
+        groups[meal] = [];
+        order.push(meal);
+      }
+      groups[meal].push(record);
     });
-    recordsNote.textContent = '按热量降序 · 今日' + (meals.length ? meals.join(' · ') : '饮食记录');
-    macrosNote.textContent = '单位 克 · ' + MACROS.map(function (macro) {
-      return macro.name + ' ' + macro.value;
-    }).join(' / ');
+
+    ledger.innerHTML = order.map(function (meal) {
+      var items = groups[meal];
+      var subtotal = sum(items.map(function (item) { return item.calories; }));
+      return '<div class="meal-group"><div class="meal-head"><span>' +
+        escapeHtml(meal) + '</span><span>' + formatNumber(subtotal) +
+        ' 大卡</span></div>' + items.map(function (item) {
+          var time = item.time ? ' · ' + escapeHtml(item.time) : '';
+          return '<div class="food-row"><span>' + escapeHtml(item.name) + time +
+            '</span><span>' + formatNumber(item.calories) + '</span></div>';
+        }).join('') + '</div>';
+    }).join('');
+
+    document.getElementById('records-note').textContent =
+      order.length + ' 个餐次 · ' + records.length + ' 项食物 · 合计 ' +
+      formatNumber(context.intake) + ' 大卡';
   }
 
-  // ---------- 图表（瑞士风配色） ----------
+  function renderMacros(context) {
+    var strip = document.getElementById('macro-strip');
+    if (!context.macros.length) {
+      strip.innerHTML = '';
+      document.getElementById('macros-note').textContent = '今日暂无营养素记录';
+      return;
+    }
+    strip.innerHTML = context.macros.map(function (macro) {
+      return '<div class="macro-box"><b>' + formatNumber(macro.value) +
+        'g</b><span>' + escapeHtml(macro.name) + ' · ' +
+        formatNumber(macro.value * macro.factor) + ' 千卡</span></div>';
+    }).join('');
+    document.getElementById('macros-note').textContent =
+      '克数与换算热量 · 蛋白质/碳水 4 千卡每克 · 脂肪 9 千卡每克';
+  }
+
+  function renderMealWindow(context) {
+    var times = context.records.map(function (record) {
+      var match = String(record.time || '').match(/^(\d{1,2}):(\d{2})/);
+      if (!match) return null;
+      var hours = Number(match[1]);
+      var minutes = Number(match[2]);
+      if (hours > 23 || minutes > 59) return null;
+      return {
+        value: hours * 60 + minutes,
+        label: ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2)
+      };
+    }).filter(Boolean).sort(function (a, b) { return a.value - b.value; });
+
+    document.getElementById('window-note').textContent = times.length ?
+      '蓝色为进食窗口 12:00–20:00 · 首餐 ' + times[0].label +
+        ' / 末餐 ' + times[times.length - 1].label :
+      '蓝色为进食窗口 12:00–20:00 · 餐次时间尚未记录';
+  }
+
+  // ---------- Apple Fitness 与单次运动 ----------
+  function progressRow(label, value, goal, unit) {
+    var actual = asNumber(value);
+    var target = asNumber(goal);
+    var pct = actual !== null && target ? Math.min(100, Math.max(0, actual / target * 100)) : 0;
+    return '<div><div class="activity-row-head"><span>' + escapeHtml(label) +
+      '</span><b>' + formatNumber(actual) + ' / ' + formatNumber(target) + ' ' +
+      escapeHtml(unit) + '</b></div><div class="progress"><i style="width:' +
+      pct.toFixed(1) + '%"></i></div></div>';
+  }
+
+  function renderActivity(context) {
+    var content = document.getElementById('activity-content');
+    var list = document.getElementById('workout-list');
+    var activity = context.activity;
+
+    if (!activity) {
+      document.getElementById('activity-note').textContent =
+        '建议晚间活动结束后同步 · 未记录不等于 0';
+      content.innerHTML = '<div class="empty-state">尚未同步今日 Apple Fitness<br>能量差暂按 TDEE ' +
+        formatNumber(TDEE) + ' 大卡估算</div>';
+      list.innerHTML = '';
+      return;
+    }
+
+    var captured = timeFromIso(activity.capturedAt);
+    document.getElementById('activity-note').innerHTML =
+      (activity.isFinal === true ? '全天数据' : ('截至 ' + (captured || '当前'))) +
+      ' <span class="source-tag live">' + escapeHtml(activity.source || 'APPLE FITNESS') + '</span>';
+
+    var active = asNumber(activity.activeCalories);
+    var exercise = asNumber(activity.exerciseMinutes);
+    var stand = asNumber(activity.standHours);
+    var totalBurn = asNumber(
+      activity.totalCalories !== undefined ? activity.totalCalories : activity.totalBurn
+    );
+
+    content.innerHTML =
+      '<div class="activity-bars">' +
+      progressRow('活动', active, asNumber(activity.moveGoal) || MOVE_GOAL, '大卡') +
+      progressRow('锻炼', exercise, asNumber(activity.exerciseGoal) || EXERCISE_GOAL, '分钟') +
+      progressRow('站立', stand, asNumber(activity.standGoal) || STAND_GOAL, '小时') +
+      '</div><div class="activity-facts">' +
+      '<div class="activity-fact"><span>总消耗</span><b>' + formatNumber(totalBurn) + ' 大卡</b></div>' +
+      '<div class="activity-fact"><span>步数</span><b>' + formatNumber(activity.steps) + '</b></div>' +
+      '<div class="activity-fact"><span>距离</span><b>' + formatNumber(activity.distanceKm, 2) + ' 公里</b></div>' +
+      '</div>';
+
+    var workouts = Array.isArray(activity.workouts) ? activity.workouts : [];
+    if (!workouts.length) {
+      list.innerHTML = '<div class="workout-title">专项运动</div><div class="empty-state">休息日 / 无单次运动记录</div>';
+      return;
+    }
+
+    list.innerHTML = '<div class="workout-title">专项运动 · ' + workouts.length + ' 次</div>' +
+      workouts.map(function (workout) {
+        var duration = asNumber(workout.durationMin);
+        var time = [workout.startTime, workout.endTime].filter(Boolean).join('–');
+        var headline = [
+          time,
+          duration !== null ? formatNumber(duration) + ' 分钟' : '',
+          asNumber(workout.distanceKm) !== null ? formatNumber(workout.distanceKm, 2) + ' 公里' : ''
+        ].filter(Boolean).join(' · ');
+        var details = [
+          ['总卡路里', asNumber(workout.totalCalories) !== null ? formatNumber(workout.totalCalories) + ' 大卡' : '—'],
+          ['平均心率', asNumber(workout.averageHeartRate) !== null ? formatNumber(workout.averageHeartRate) + ' 次/分' : '—'],
+          ['平均配速', workout.averagePace || '—'],
+          ['爬升', asNumber(workout.elevationGainM) !== null ? formatNumber(workout.elevationGainM) + ' 米' : '—'],
+          ['体感强度', workout.effortLabel || workout.effort || '—']
+        ];
+        return '<details class="workout"><summary><div class="workout-main"><b>' +
+          escapeHtml(workout.name || '运动') + '</b><strong>' +
+          formatNumber(workout.activeCalories) + ' 大卡</strong></div><div class="workout-sub">' +
+          escapeHtml(headline || '点击查看详情') +
+          '</div></summary><div class="workout-more">' +
+          details.map(function (detail) {
+            return '<div><span>' + escapeHtml(detail[0]) + '</span><br><b>' +
+              escapeHtml(detail[1]) + '</b></div>';
+          }).join('') + '</div></details>';
+      }).join('');
+  }
+
+  // ---------- 近 7 天复盘 ----------
+  function buildWeekly() {
+    var keys = recentKeys(7);
+    var rows = keys.map(function (key, index) {
+      var day = DAY_BY_DATE[key] || null;
+      var intake = day ? asNumber(day.intake) : null;
+      var activity = activityOf(day);
+      var actualBurn = activity ? asNumber(
+        activity.totalCalories !== undefined ? activity.totalCalories : activity.totalBurn
+      ) : null;
+      var active = activity ? asNumber(activity.activeCalories) : null;
+      return {
+        key: key,
+        label: displayDate(key, index === keys.length - 1),
+        intake: intake,
+        burn: actualBurn !== null ? actualBurn : (intake !== null ? TDEE : null),
+        actualBurn: actualBurn !== null,
+        active: active
+      };
+    });
+
+    var recorded = rows.filter(function (row) { return row.intake !== null; });
+    var actualCount = recorded.filter(function (row) { return row.actualBurn; }).length;
+    var estimatedCount = recorded.length - actualCount;
+    var activeValues = rows.map(function (row) { return row.active; })
+      .filter(function (value) { return value !== null; });
+    var balance = recorded.length ? sum(recorded.map(function (row) {
+      return row.intake - row.burn;
+    })) : null;
+
+    WEEKLY = {
+      rows: rows,
+      recorded: recorded.length,
+      actualCount: actualCount,
+      estimatedCount: estimatedCount,
+      averageIntake: average(recorded.map(function (row) { return row.intake; })),
+      averageBurn: average(recorded.map(function (row) { return row.burn; })),
+      targetDays: recorded.filter(function (row) {
+        return row.intake >= TARGET_LOW && row.intake <= TARGET_HIGH;
+      }).length,
+      activeTotal: activeValues.length ? sum(activeValues) : null,
+      balance: balance
+    };
+  }
+
+  function renderWeekly() {
+    buildWeekly();
+    document.getElementById('weekly-summary').innerHTML =
+      summaryItem('有效记录', WEEKLY.recorded + '/7', '天') +
+      summaryItem('平均摄入', formatNumber(round(WEEKLY.averageIntake)), '大卡') +
+      summaryItem('平均总消耗', formatNumber(round(WEEKLY.averageBurn)), '大卡') +
+      summaryItem('摄入达标', formatNumber(WEEKLY.targetDays), '天') +
+      summaryItem('活动累计', formatNumber(round(WEEKLY.activeTotal)), WEEKLY.activeTotal === null ? '' : '大卡') +
+      summaryItem('累计能量差', signed(WEEKLY.balance), WEEKLY.balance === null ? '' : '大卡');
+
+    document.getElementById('weekly-note').textContent =
+      'Apple 实测 ' + WEEKLY.actualCount + ' 天 · TDEE 估算 ' +
+      WEEKLY.estimatedCount + ' 天 · 未记录日期不计入平均';
+  }
+
+  // ---------- 体重 ----------
+  function buildWeightTrend() {
+    var keys = recentKeys(30);
+    var weights = keys.map(function (key) {
+      var body = bodyOf(DAY_BY_DATE[key]);
+      return body ? asNumber(body.weightKg) : null;
+    });
+    var moving = weights.map(function (_, index) {
+      var start = Math.max(0, index - 6);
+      var windowValues = weights.slice(start, index + 1)
+        .filter(function (value) { return value !== null; });
+      return windowValues.length >= 2 ? round(average(windowValues) * 10) / 10 : null;
+    });
+    var known = [];
+    weights.forEach(function (weight, index) {
+      if (weight !== null) known.push({ value: weight, index: index, key: keys[index] });
+    });
+    WEIGHT_TREND = { keys: keys, weights: weights, moving: moving, known: known };
+  }
+
+  function renderWeight() {
+    buildWeightTrend();
+    var known = WEIGHT_TREND.known;
+    var latest = known.length ? known[known.length - 1] : null;
+    var previous = known.length > 1 ? known[known.length - 2] : null;
+    var latestAverage = null;
+    for (var i = WEIGHT_TREND.moving.length - 1; i >= 0; i--) {
+      if (WEIGHT_TREND.moving[i] !== null) {
+        latestAverage = WEIGHT_TREND.moving[i];
+        break;
+      }
+    }
+    document.getElementById('weight-summary').innerHTML =
+      summaryItem('最新体重', latest ? formatNumber(latest.value, 1) : '—', latest ? 'kg' : '') +
+      summaryItem('较上次', latest && previous ? signed(latest.value - previous.value, 1) : '—', latest && previous ? 'kg' : '') +
+      summaryItem('7日均线', latestAverage !== null ? formatNumber(latestAverage, 1) : '—', latestAverage !== null ? 'kg' : '');
+
+    document.getElementById('weight-note').textContent = known.length < 2 ?
+      '近 30 天 · 至少需要 2 次体重记录才能形成趋势' :
+      '近 30 天 · 已记录 ' + known.length + ' 次 · 7 日移动平均过滤短期水分波动';
+  }
+
+  // ---------- 图表 ----------
   var charts = {};
   var ACCENT = '#002FA7';
-  var ACCENT_ON = '#ffffff';
   var PAPER = '#fafaf8';
   var INK = '#0a0a0a';
   var GREY_2 = '#d4d4d2';
@@ -483,28 +948,31 @@
   function initCharts() {
     if (typeof echarts === 'undefined') {
       document.body.insertAdjacentHTML('afterbegin',
-        '<div style="padding:14px;background:#002FA7;color:#fff;font-family:monospace;font-size:13px;">ECharts 加载失败，请检查网络后刷新（已尝试 BootCDN → staticfile.org）。</div>');
+        '<div style="padding:14px;background:#002FA7;color:#fff;font-family:monospace;font-size:13px;">图表组件加载失败；文字账本仍可正常查看，请检查网络后刷新。</div>');
       return false;
     }
     charts.c1 = echarts.init(document.getElementById('chart1'));
     charts.c2 = echarts.init(document.getElementById('chart2'));
     charts.c3 = echarts.init(document.getElementById('chart3'));
     charts.c5 = echarts.init(document.getElementById('chart5'));
+    charts.c6 = echarts.init(document.getElementById('chart6'));
     window.addEventListener('resize', function () {
-      Object.keys(charts).forEach(function (k) { charts[k].resize(); });
+      Object.keys(charts).forEach(function (key) { charts[key].resize(); });
     });
     return true;
   }
 
-  function renderCharts(total, hasToday) {
-    // 2. 摄入 vs 目标 vs TDEE
+  function renderCharts(context) {
+    if (!CHARTS_READY) return;
+    var total = context.hasIntake ? context.intake : null;
+
     charts.c1.setOption({
-      grid: { left: 46, right: 16, top: 28, bottom: 28 },
+      grid: { left: 46, right: 16, top: 30, bottom: 28 },
       tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
       xAxis: {
         type: 'category',
-        data: ['今日摄入', '目标下限', '目标上限', 'TDEE'],
-        axisLabel: { fontSize: 11, color: GREY_3, fontFamily: 'inherit' },
+        data: ['摄入', '目标下限', '目标上限', context.burn.actual ? '总消耗' : 'TDEE估算'],
+        axisLabel: { fontSize: 10, color: GREY_3 },
         axisLine: { lineStyle: { color: INK } },
         axisTick: { show: false }
       },
@@ -517,23 +985,28 @@
       },
       series: [{
         type: 'bar',
-        barWidth: 34,
+        barWidth: 32,
         data: [
           { value: total, itemStyle: { color: ACCENT } },
           { value: TARGET_LOW, itemStyle: { color: GREY_2 } },
           { value: TARGET_HIGH, itemStyle: { color: GREY_2 } },
-          { value: TDEE, itemStyle: { color: INK } }
+          { value: context.burn.value, itemStyle: { color: INK } }
         ],
-        label: { show: true, position: 'top', fontSize: 11, fontWeight: 700, color: INK }
-      }]
-    });
+        label: { show: true, position: 'top', fontSize: 10, fontWeight: 700, color: INK }
+      }],
+      graphic: total === null ? [{
+        type: 'text', left: 'center', top: 'middle',
+        style: { text: '今日饮食尚未记录', fill: GREY_3, font: '12px monospace' }
+      }] : []
+    }, true);
 
-    // 3. 各食物热量拆分（横向条形图）
-    var sorted = (hasToday ? RECORDS : []).slice().sort(function (a, b) { return b.calories - a.calories; });
-    var c2 = document.getElementById('chart2');
-    c2.style.height = Math.max(160, sorted.length * 38 + 30) + 'px';
+    var sorted = context.records.slice().sort(function (a, b) {
+      return (asNumber(b.calories) || 0) - (asNumber(a.calories) || 0);
+    });
+    var chart2 = document.getElementById('chart2');
+    chart2.style.height = Math.max(160, sorted.length * 34 + 36) + 'px';
     charts.c2.setOption({
-      grid: { left: 86, right: 52, top: 8, bottom: 20 },
+      grid: { left: 92, right: 48, top: 8, bottom: 20 },
       tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
       xAxis: {
         type: 'value',
@@ -542,68 +1015,81 @@
       },
       yAxis: {
         type: 'category',
-        data: sorted.map(function (r) { return r.name; }),
+        data: sorted.map(function (record) { return record.name; }),
         inverse: true,
-        axisLabel: { fontSize: 12, fontWeight: 600, color: INK },
+        axisLabel: { fontSize: 11, fontWeight: 600, color: INK, overflow: 'truncate', width: 82 },
         axisLine: { show: false },
         axisTick: { show: false }
       },
       series: [{
         type: 'bar',
-        data: sorted.map(function (r) { return r.calories; }),
-        barMaxWidth: 16,
-        itemStyle: { color: ACCENT, borderColor: INK, borderWidth: 1, borderRadius: 0 },
-        label: { show: true, position: 'right', fontSize: 11, fontWeight: 700, color: INK, formatter: '{c}' }
+        data: sorted.map(function (record) { return asNumber(record.calories) || 0; }),
+        barMaxWidth: 15,
+        itemStyle: { color: ACCENT, borderColor: INK, borderWidth: 1 },
+        label: { show: true, position: 'right', fontSize: 10, fontWeight: 700, color: INK }
       }],
       graphic: sorted.length ? [] : [{
-        type: 'text',
-        left: 'center',
-        top: 'middle',
+        type: 'text', left: 'center', top: 'middle',
         style: { text: '今日尚未记录', fill: GREY_3, font: '12px monospace' }
       }]
-    });
+    }, true);
     charts.c2.resize();
 
-    // 4. 三大营养素环形图
     charts.c3.setOption({
       tooltip: { trigger: 'item', formatter: '{b}: {c}g ({d}%)' },
-      legend: { show: hasToday, bottom: 0, icon: 'circle', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 11, color: INK } },
+      legend: {
+        show: context.macros.length > 0,
+        bottom: 0,
+        icon: 'circle',
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: { fontSize: 10, color: INK }
+      },
       color: [ACCENT, INK, GREY_3],
       series: [{
         type: 'pie',
-        radius: ['46%', '68%'],
+        radius: ['44%', '67%'],
         center: ['50%', '44%'],
-        avoidLabelOverlap: true,
         itemStyle: { borderColor: PAPER, borderWidth: 2 },
-        label: { fontSize: 11, fontWeight: 700, color: INK, formatter: '{b}\n{c}g' },
-        data: hasToday ? MACROS : []
+        label: { fontSize: 10, fontWeight: 700, color: INK, formatter: '{b}\n{c}g' },
+        data: context.macros.map(function (macro) {
+          return { name: macro.name, value: macro.value };
+        })
       }],
-      graphic: hasToday ? [] : [{
-        type: 'text',
-        left: 'center',
-        top: 'middle',
+      graphic: context.macros.length ? [] : [{
+        type: 'text', left: 'center', top: 'middle',
         style: { text: '今日暂无营养素记录', fill: GREY_3, font: '12px monospace' }
       }]
-    });
+    }, true);
 
-    // 6. 近 7 天趋势（真实数据滚动，null=未记录的天留空）
-    var intake = TREND_INTAKE.slice();
-    // 仅内置兜底数据需要用今日总量补末位；远程 days 已按真实日期生成。
-    if (!TREND_FROM_DAYS && intake.length) intake[intake.length - 1] = hasToday ? total : null;
-    var trendVals = intake.filter(function (v) { return v !== null && v !== undefined; });
-    var yMin = 0;
-    if (trendVals.length) {
-      var lo = Math.min.apply(null, trendVals);
-      yMin = Math.max(0, Math.floor((lo - 400) / 100) * 100);
-    }
+    var rows = WEEKLY.rows;
     charts.c5.setOption({
-      grid: { left: 46, right: 16, top: 32, bottom: 32 },
-      tooltip: { trigger: 'axis' },
-      legend: { bottom: 0, icon: 'circle', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 10, color: GREY_3 } },
+      grid: { left: 46, right: 16, top: 38, bottom: 48 },
+      tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+          var lines = [params[0] ? params[0].axisValue : ''];
+          params.forEach(function (param) {
+            if (param.value === null || param.value === undefined || param.value === '-') return;
+            var value = typeof param.value === 'object' ? param.value.value : param.value;
+            lines.push(param.marker + param.seriesName + '：' + value + ' 大卡');
+          });
+          var row = rows[params[0] ? params[0].dataIndex : 0];
+          if (row && row.burn !== null) lines.push(row.actualBurn ? '总消耗：Apple 实测' : '总消耗：TDEE 估算');
+          return lines.join('<br>');
+        }
+      },
+      legend: {
+        bottom: 0,
+        icon: 'circle',
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: { fontSize: 10, color: GREY_3 }
+      },
       xAxis: {
         type: 'category',
-        data: TREND_DAYS,
-        boundaryGap: false,
+        data: rows.map(function (row) { return row.label; }),
+        boundaryGap: true,
         axisLabel: { fontSize: 10, color: GREY_3 },
         axisLine: { lineStyle: { color: INK } },
         axisTick: { show: false }
@@ -611,109 +1097,168 @@
       yAxis: {
         type: 'value',
         name: '大卡',
-        min: yMin,
+        min: 0,
         nameTextStyle: { fontSize: 10, color: GREY_3 },
         axisLabel: { fontSize: 10, color: GREY_3 },
         splitLine: { lineStyle: { color: SPLIT } }
       },
       series: [
         {
+          name: '活动',
+          type: 'bar',
+          barMaxWidth: 16,
+          data: rows.map(function (row) { return row.active; }),
+          itemStyle: { color: ACCENT, opacity: 0.65 }
+        },
+        {
           name: '摄入',
           type: 'line',
-          data: intake,
           smooth: true,
+          connectNulls: false,
           symbol: 'circle',
-          symbolSize: 6,
+          symbolSize: 7,
+          data: rows.map(function (row) { return row.intake; }),
           itemStyle: { color: INK },
           lineStyle: { width: 3, color: INK },
-          areaStyle: { color: ACCENT, opacity: 0.35 }
+          markArea: {
+            silent: true,
+            itemStyle: { color: ACCENT, opacity: 0.07 },
+            data: [[{ yAxis: TARGET_LOW }, { yAxis: TARGET_HIGH }]]
+          }
         },
         {
-          name: '目标下限',
+          name: '总消耗',
           type: 'line',
-          data: TREND_DAYS.map(function () { return TARGET_LOW; }),
-          symbol: 'none',
-          lineStyle: { type: 'dashed', color: GREY_3, width: 1.5 },
-          itemStyle: { color: GREY_3 }
-        },
-        {
-          name: '目标上限',
-          type: 'line',
-          data: TREND_DAYS.map(function () { return TARGET_HIGH; }),
-          symbol: 'none',
-          lineStyle: { type: 'dashed', color: GREY_3, width: 1.5 },
-          itemStyle: { color: GREY_3 }
+          smooth: true,
+          connectNulls: false,
+          symbol: 'diamond',
+          symbolSize: 7,
+          data: rows.map(function (row) { return row.burn; }),
+          itemStyle: { color: GREY_3 },
+          lineStyle: { width: 2, type: 'dashed', color: GREY_3 }
         }
-      ]
-    });
+      ],
+      graphic: WEEKLY.recorded ? [] : [{
+        type: 'text', left: 'center', top: 'middle',
+        style: { text: '近 7 天暂无饮食记录', fill: GREY_3, font: '12px monospace' }
+      }]
+    }, true);
+
+    var weight = WEIGHT_TREND;
+    charts.c6.setOption({
+      grid: { left: 45, right: 16, top: 22, bottom: 34 },
+      tooltip: { trigger: 'axis' },
+      legend: {
+        show: weight.known.length >= 2,
+        bottom: 0,
+        icon: 'circle',
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: { fontSize: 10, color: GREY_3 }
+      },
+      xAxis: {
+        type: 'category',
+        data: weight.keys.map(function (key) { return key.slice(5); }),
+        axisLabel: { fontSize: 9, color: GREY_3, interval: 4 },
+        axisLine: { lineStyle: { color: INK } },
+        axisTick: { show: false }
+      },
+      yAxis: {
+        type: 'value',
+        name: 'kg',
+        scale: true,
+        nameTextStyle: { fontSize: 10, color: GREY_3 },
+        axisLabel: { fontSize: 10, color: GREY_3 },
+        splitLine: { lineStyle: { color: SPLIT } }
+      },
+      series: [
+        {
+          name: '体重',
+          type: 'scatter',
+          symbolSize: 8,
+          data: weight.weights,
+          itemStyle: { color: INK }
+        },
+        {
+          name: '7日均线',
+          type: 'line',
+          smooth: true,
+          connectNulls: false,
+          showSymbol: false,
+          data: weight.moving,
+          lineStyle: { width: 3, color: ACCENT },
+          itemStyle: { color: ACCENT }
+        }
+      ],
+      graphic: weight.known.length ? [] : [{
+        type: 'text', left: 'center', top: 'middle',
+        style: { text: '体重尚未记录', fill: GREY_3, font: '12px monospace' }
+      }]
+    }, true);
   }
 
-  // ---------- 远程数据（在线版：拉取 data.json；失败回退内置） ----------
+  // ---------- 数据加载 ----------
   function applyRemoteData(data) {
-    if (!data) return false;
-    if (data.meta) {
-      if (data.meta.targetLow) TARGET_LOW = Number(data.meta.targetLow);
-      if (data.meta.targetHigh) TARGET_HIGH = Number(data.meta.targetHigh);
-      if (data.meta.tdee) TDEE = Number(data.meta.tdee);
+    if (!data || typeof data !== 'object') return false;
+    var meta = data.meta || {};
+    if (asNumber(meta.targetLow) !== null) TARGET_LOW = asNumber(meta.targetLow);
+    if (asNumber(meta.targetHigh) !== null) TARGET_HIGH = asNumber(meta.targetHigh);
+    if (asNumber(meta.tdee) !== null) TDEE = asNumber(meta.tdee);
+    if (meta.activityGoals) {
+      if (asNumber(meta.activityGoals.move) !== null) MOVE_GOAL = asNumber(meta.activityGoals.move);
+      if (asNumber(meta.activityGoals.exercise) !== null) EXERCISE_GOAL = asNumber(meta.activityGoals.exercise);
+      if (asNumber(meta.activityGoals.stand) !== null) STAND_GOAL = asNumber(meta.activityGoals.stand);
     }
-    var days = data.days || [];
-    if (days.length) {
-      var last = days[days.length - 1];
-      LAST_DATE = last.date || null;
-      if (last.records && last.records.length) RECORDS = last.records;
-      if (last.macros) MACROS = [
-        { name: '蛋白质', value: last.macros.protein || 0 },
-        { name: '碳水', value: last.macros.carbs || 0 },
-        { name: '脂肪', value: last.macros.fat || 0 }
-      ];
-      buildRecentTrend(days);
-    } else if (data.trend && data.trend.length) {
-      TREND_DAYS = data.trend.map(function (t) { return t.date; });
-      TREND_INTAKE = data.trend.map(function (t) { return t.intake; });
-      TREND_FROM_DAYS = false;
-    }
+    UPDATED_AT = meta.updatedAt || '';
+    DAYS = Array.isArray(data.days) ? data.days.slice().sort(function (a, b) {
+      return String(a.date || '').localeCompare(String(b.date || ''));
+    }) : [];
+    DAY_BY_DATE = {};
+    DAYS.forEach(function (day) {
+      if (day && day.date) DAY_BY_DATE[day.date] = day;
+    });
+    DATA_OK = true;
     return true;
   }
 
-  function loadRemoteData(cb) {
-    if (typeof fetch !== 'function') { cb(false); return; }
+  function loadRemoteData(callback) {
+    if (typeof fetch !== 'function') {
+      callback(false);
+      return;
+    }
     fetch('data.json', { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) { cb(applyRemoteData(data)); })
-      .catch(function () { cb(false); });
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (data) { callback(applyRemoteData(data)); })
+      .catch(function () { callback(false); });
   }
 
-  // ---------- 时间线（当前时刻标记） ----------
+  // ---------- 16-8 时间线 ----------
   function renderTimeline() {
     var now = new Date();
-    var h = now.getHours() + now.getMinutes() / 60;
-    var pct = (h / 24) * 100;
-    if (pct >= 0 && pct <= 100) {
-      var marker = document.getElementById('timeline-now');
-      marker.style.left = pct + '%';
-      marker.style.display = 'block';
-      document.getElementById('now-legend').style.display = 'inline-flex';
-    }
+    var hours = now.getHours() + now.getMinutes() / 60;
+    var marker = document.getElementById('timeline-now');
+    marker.style.left = (hours / 24 * 100) + '%';
+    marker.style.display = 'block';
+    document.getElementById('now-legend').style.display = 'inline-flex';
   }
 
-  // ---------- 刷新 ----------
+  // ---------- 刷新与启动 ----------
   function refresh() {
-    // 在线：LAST_DATE=最近记录日；无远程数据时视为今日（用内置兜底数据）
-    var hasToday = LAST_DATE ? (LAST_DATE === todayStr()) : true;
-    var total = hasToday ? totalCalories() : 0;
-    renderMeta(hasToday);
-    renderOverview(total, hasToday);
-    renderCharts(total, hasToday);
+    var context = currentContext();
+    renderMeta(context);
+    renderOverview(context);
+    renderMeals(context);
+    renderActivity(context);
+    renderMacros(context);
+    renderMealWindow(context);
+    renderWeekly();
+    renderWeight();
+    renderCharts(context);
   }
 
-  // ---------- 启动 ----------
   function bootstrap() {
-    if (initCharts()) {
-      // 在线版：先拉 data.json（成功用云端数据渲染，失败回退内置）
-      loadRemoteData(function () { refresh(); });
-    } else {
-      renderOverview(totalCalories(), true);
-    }
+    CHARTS_READY = initCharts();
+    loadRemoteData(function () { refresh(); });
     renderTimeline();
   }
 
