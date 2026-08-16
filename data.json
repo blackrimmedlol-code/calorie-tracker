@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-16T18:30:46+08:00"
+    "updatedAt": "2026-08-16T22:07:14+08:00"
   },
   "days": [
     {
@@ -54,7 +54,7 @@
     },
     {
       "date": "2026-08-16",
-      "intake": 2055,
+      "intake": 2321,
       "records": [
         {
           "name": "牛排（瘦·煎烤，含表面酱汁）",
@@ -100,12 +100,17 @@
           "name": "白米饭",
           "calories": 80,
           "meal": "晚餐"
+        },
+        {
+          "name": "奥利奥麦旋风",
+          "calories": 266,
+          "meal": "加餐"
         }
       ],
       "macros": {
-        "protein": 138,
-        "carbs": 148,
-        "fat": 103
+        "protein": 143,
+        "carbs": 188,
+        "fat": 112
       }
     }
   ],
@@ -136,7 +141,7 @@
     },
     {
       "date": "今日",
-      "intake": 2055
+      "intake": 2321
     }
   ]
 }
