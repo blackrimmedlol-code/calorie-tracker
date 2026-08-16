@@ -345,9 +345,10 @@
     { name: '脂肪', value: 35 }
   ];
 
-  // 近 7 天趋势（末位由今日实际摄入填充）
+  // 近 7 天趋势（远程数据加载后由 days 按本地日期自动生成）
   var TREND_DAYS = ['08-09', '08-10', '08-11', '08-12', '08-13', '08-14', '今日'];
   var TREND_INTAKE = [1720, 1650, 1810, 1580, 1750, 1690, 0];
+  var TREND_FROM_DAYS = false;
 
   // ---------- 今日数据（由养生 Agent 每日维护） ----------
   var RECORDS = [
@@ -367,9 +368,36 @@
 
   function todayStr() {
     var d = new Date();
+    return dateKey(d);
+  }
+
+  function dateKey(d) {
     var m = ('0' + (d.getMonth() + 1)).slice(-2);
     var day = ('0' + d.getDate()).slice(-2);
     return d.getFullYear() + '-' + m + '-' + day;
+  }
+
+  function buildRecentTrend(days) {
+    var intakeByDate = {};
+    days.forEach(function (day) {
+      if (!day || !day.date || day.intake === null || day.intake === undefined) return;
+      var value = Number(day.intake);
+      if (isFinite(value)) intakeByDate[day.date] = value;
+    });
+
+    var today = new Date();
+    // 使用中午作为日期锚点，避免夏令时切换造成跨日偏移。
+    today.setHours(12, 0, 0, 0);
+    TREND_DAYS = [];
+    TREND_INTAKE = [];
+    for (var offset = 6; offset >= 0; offset--) {
+      var d = new Date(today.getTime());
+      d.setDate(today.getDate() - offset);
+      var key = dateKey(d);
+      TREND_DAYS.push(offset === 0 ? '今日' : key.slice(5));
+      TREND_INTAKE.push(Object.prototype.hasOwnProperty.call(intakeByDate, key) ? intakeByDate[key] : null);
+    }
+    TREND_FROM_DAYS = true;
   }
   var LAST_DATE = null; // 最近一条记录的日期（远程数据时设置）
 
@@ -560,7 +588,8 @@
 
     // 6. 近 7 天趋势（真实数据滚动，null=未记录的天留空）
     var intake = TREND_INTAKE.slice();
-    intake[intake.length - 1] = hasToday ? total : null;
+    // 仅内置兜底数据需要用今日总量补末位；远程 days 已按真实日期生成。
+    if (!TREND_FROM_DAYS && intake.length) intake[intake.length - 1] = hasToday ? total : null;
     var trendVals = intake.filter(function (v) { return v !== null && v !== undefined; });
     var yMin = 0;
     if (trendVals.length) {
@@ -637,10 +666,11 @@
         { name: '碳水', value: last.macros.carbs || 0 },
         { name: '脂肪', value: last.macros.fat || 0 }
       ];
-    }
-    if (data.trend && data.trend.length) {
+      buildRecentTrend(days);
+    } else if (data.trend && data.trend.length) {
       TREND_DAYS = data.trend.map(function (t) { return t.date; });
       TREND_INTAKE = data.trend.map(function (t) { return t.intake; });
+      TREND_FROM_DAYS = false;
     }
     return true;
   }
