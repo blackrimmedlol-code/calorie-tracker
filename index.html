@@ -39,6 +39,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .wrap{ max-width:640px; margin:0 auto; padding:28px 18px 48px; }
+  .dashboard{ display:block; }
 
   /* ---------- 头部 ---------- */
   header{ padding:6px 2px 20px; border-bottom:3px solid var(--ink); margin-bottom:22px; }
@@ -244,6 +245,40 @@
     .activity-facts{ grid-template-columns:repeat(2,1fr); }
   }
 
+  /* ---------- 桌面端：多栏观察台 ---------- */
+  @media (min-width:900px){
+    .wrap{ max-width:1180px; padding:38px 28px 60px; }
+    header{ display:grid; grid-template-columns:1fr auto; align-items:end; column-gap:30px; }
+    header .kicker{ grid-column:1 / -1; }
+    header h1{ font-size:38px; }
+    header .sub{ margin:0 0 2px; text-align:right; }
+    .dashboard{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+    .dashboard > .card{ margin-bottom:0; min-width:0; }
+    .area-overview{ grid-column:1 / -1; }
+    .area-energy{ grid-column:span 5; }
+    .area-meals{ grid-column:span 7; }
+    .area-activity{ grid-column:span 7; }
+    .area-macros{ grid-column:span 5; }
+    .area-fasting{ grid-column:1 / -1; }
+    .area-weekly{ grid-column:span 7; }
+    .area-weight{ grid-column:span 5; }
+    .overview{
+      display:grid;
+      grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);
+      column-gap:28px;
+      align-items:center;
+    }
+    .overview .hero{ padding:4px 28px 18px 0; border-right:1px solid var(--grey-2); }
+    .overview .status-line{ grid-column:1 / -1; }
+    .area-meals #chart2{ min-height:250px; }
+    footer{ margin-top:18px; }
+  }
+
   /* ---------- 16-8 时间线 ---------- */
   .timeline-wrap{ padding:6px 0 2px; }
   .timeline-bar{
@@ -335,8 +370,10 @@
     <div class="sub" id="header-sub"></div>
   </header>
 
+  <main class="dashboard">
+
   <!-- 1. 今日概览 -->
-  <section class="card overview">
+  <section class="card overview area-overview">
     <div class="hero">
       <div class="label">今日已摄入 · INTAKE</div>
       <div class="big" id="intake-num">0<small>大卡</small></div>
@@ -364,14 +401,14 @@
   </section>
 
   <!-- 2. 今日能量账本 -->
-  <section class="card">
+  <section class="card area-energy">
     <h2>今日能量账本</h2>
     <div class="note" id="target-note"></div>
     <div id="chart1" class="chart"></div>
   </section>
 
   <!-- 3. 饮食账本 -->
-  <section class="card">
+  <section class="card area-meals">
     <h2>今日饮食账本</h2>
     <div class="note" id="records-note"></div>
     <div id="meal-ledger"></div>
@@ -379,7 +416,7 @@
   </section>
 
   <!-- 4. Apple Fitness -->
-  <section class="card">
+  <section class="card area-activity">
     <h2>活动与运动</h2>
     <div class="note" id="activity-note">等待晚间同步 Apple Fitness</div>
     <div id="activity-content"></div>
@@ -387,7 +424,7 @@
   </section>
 
   <!-- 5. 三大营养素 -->
-  <section class="card">
+  <section class="card area-macros">
     <h2>三大营养素占比</h2>
     <div class="note" id="macros-note"></div>
     <div class="macro-strip" id="macro-strip"></div>
@@ -395,7 +432,7 @@
   </section>
 
   <!-- 6. 16-8 进食窗口 -->
-  <section class="card">
+  <section class="card area-fasting">
     <h2>16-8 进食窗口</h2>
     <div class="note" id="window-note">蓝色为进食窗口 12:00–20:00 · 餐次时间尚未记录</div>
     <div class="timeline-wrap">
@@ -416,7 +453,7 @@
   </section>
 
   <!-- 7. 近7天趋势 -->
-  <section class="card">
+  <section class="card area-weekly">
     <h2>近 7 天复盘</h2>
     <div class="note" id="weekly-note">摄入、总消耗与活动热量 · 无 Apple 数据时以 TDEE 估算</div>
     <div class="summary-grid" id="weekly-summary"></div>
@@ -424,12 +461,14 @@
   </section>
 
   <!-- 8. 体重趋势 -->
-  <section class="card">
+  <section class="card area-weight">
     <h2>体重趋势</h2>
     <div class="note" id="weight-note">近 30 天 · 7 日移动平均用于过滤水分波动</div>
     <div class="summary-grid" id="weight-summary"></div>
     <div id="chart6" class="chart"></div>
   </section>
+
+  </main>
 
   <footer>数据仅供参考 · 晚间收口 / 次日回顾 · 由养生 Agent 维护</footer>
 </div>
