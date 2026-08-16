@@ -249,7 +249,7 @@
   <header>
     <div class="kicker"><b>●</b> 卡路里观察 · CALORIE LOG</div>
     <h1>16-8 减脂</h1>
-    <div class="sub">2026-08-15 · 进食窗口 <b>12:00–20:00</b> · 目标 <b>1600–1800</b> 大卡 · TDEE 2090</div>
+    <div class="sub" id="header-sub"></div>
   </header>
 
   <!-- 1. 今日概览 -->
@@ -278,21 +278,21 @@
   <!-- 2. 摄入 vs 目标 vs TDEE -->
   <section class="card">
     <h2>摄入 vs 目标 vs TDEE</h2>
-    <div class="note">单位 大卡 · 目标区间 1600–1800 · TDEE 2090</div>
+    <div class="note" id="target-note"></div>
     <div id="chart1" class="chart"></div>
   </section>
 
   <!-- 3. 各食物热量拆分 -->
   <section class="card">
     <h2>各食物热量拆分</h2>
-    <div class="note">按热量降序 · 今日午餐</div>
+    <div class="note" id="records-note"></div>
     <div id="chart2" class="chart"></div>
   </section>
 
   <!-- 4. 三大营养素 -->
   <section class="card">
     <h2>三大营养素占比</h2>
-    <div class="note">单位 克 · 蛋白质 80 / 碳水 85 / 脂肪 35</div>
+    <div class="note" id="macros-note"></div>
     <div id="chart3" class="chart"></div>
   </section>
 
@@ -414,6 +414,33 @@
     }
   }
 
+  // ---------- 动态说明文字 ----------
+  function renderMeta(hasToday) {
+    document.getElementById('header-sub').innerHTML =
+      todayStr() + ' · 进食窗口 <b>12:00–20:00</b> · 目标 <b>' +
+      TARGET_LOW + '–' + TARGET_HIGH + '</b> 大卡 · TDEE ' + TDEE;
+    document.getElementById('target-note').textContent =
+      '单位 大卡 · 目标区间 ' + TARGET_LOW + '–' + TARGET_HIGH + ' · TDEE ' + TDEE;
+
+    var recordsNote = document.getElementById('records-note');
+    var macrosNote = document.getElementById('macros-note');
+    if (!hasToday || !RECORDS.length) {
+      recordsNote.textContent = '今日尚未记录';
+      macrosNote.textContent = '今日暂无营养素记录';
+      return;
+    }
+
+    var meals = [];
+    RECORDS.forEach(function (record) {
+      var meal = record.meal ? String(record.meal).trim() : '';
+      if (meal && meals.indexOf(meal) === -1) meals.push(meal);
+    });
+    recordsNote.textContent = '按热量降序 · 今日' + (meals.length ? meals.join(' · ') : '饮食记录');
+    macrosNote.textContent = '单位 克 · ' + MACROS.map(function (macro) {
+      return macro.name + ' ' + macro.value;
+    }).join(' / ');
+  }
+
   // ---------- 图表（瑞士风配色） ----------
   var charts = {};
   var ACCENT = '#002FA7';
@@ -473,7 +500,7 @@
     });
 
     // 3. 各食物热量拆分（横向条形图）
-    var sorted = RECORDS.slice().sort(function (a, b) { return b.calories - a.calories; });
+    var sorted = (hasToday ? RECORDS : []).slice().sort(function (a, b) { return b.calories - a.calories; });
     var c2 = document.getElementById('chart2');
     c2.style.height = Math.max(160, sorted.length * 38 + 30) + 'px';
     charts.c2.setOption({
@@ -498,6 +525,12 @@
         barMaxWidth: 16,
         itemStyle: { color: ACCENT, borderColor: INK, borderWidth: 1, borderRadius: 0 },
         label: { show: true, position: 'right', fontSize: 11, fontWeight: 700, color: INK, formatter: '{c}' }
+      }],
+      graphic: sorted.length ? [] : [{
+        type: 'text',
+        left: 'center',
+        top: 'middle',
+        style: { text: '今日尚未记录', fill: GREY_3, font: '12px monospace' }
       }]
     });
     charts.c2.resize();
@@ -505,7 +538,7 @@
     // 4. 三大营养素环形图
     charts.c3.setOption({
       tooltip: { trigger: 'item', formatter: '{b}: {c}g ({d}%)' },
-      legend: { bottom: 0, icon: 'circle', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 11, color: INK } },
+      legend: { show: hasToday, bottom: 0, icon: 'circle', itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 11, color: INK } },
       color: [ACCENT, INK, GREY_3],
       series: [{
         type: 'pie',
@@ -514,7 +547,13 @@
         avoidLabelOverlap: true,
         itemStyle: { borderColor: PAPER, borderWidth: 2 },
         label: { fontSize: 11, fontWeight: 700, color: INK, formatter: '{b}\n{c}g' },
-        data: MACROS
+        data: hasToday ? MACROS : []
+      }],
+      graphic: hasToday ? [] : [{
+        type: 'text',
+        left: 'center',
+        top: 'middle',
+        style: { text: '今日暂无营养素记录', fill: GREY_3, font: '12px monospace' }
       }]
     });
 
@@ -631,6 +670,7 @@
     // 在线：LAST_DATE=最近记录日；无远程数据时视为今日（用内置兜底数据）
     var hasToday = LAST_DATE ? (LAST_DATE === todayStr()) : true;
     var total = hasToday ? totalCalories() : 0;
+    renderMeta(hasToday);
     renderOverview(total, hasToday);
     renderCharts(total, hasToday);
   }
