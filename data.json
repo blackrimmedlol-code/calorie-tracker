@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-16T12:18:13+08:00"
+    "updatedAt": "2026-08-16T13:20:43+08:00"
   },
   "days": [
     {
@@ -51,6 +51,32 @@
         "carbs": 85,
         "fat": 35
       }
+    },
+    {
+      "date": "2026-08-16",
+      "intake": 745,
+      "records": [
+        {
+          "name": "牛排（瘦·煎烤）",
+          "calories": 275,
+          "meal": "午餐"
+        },
+        {
+          "name": "黑椒/红酒酱汁",
+          "calories": 220,
+          "meal": "午餐"
+        },
+        {
+          "name": "烤配菜（萝卜/玉米笋/西兰花/番茄/烤蒜）",
+          "calories": 250,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 50,
+        "carbs": 32,
+        "fat": 45
+      }
     }
   ],
   "trend": [
@@ -80,7 +106,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 745
     }
   ]
 }
