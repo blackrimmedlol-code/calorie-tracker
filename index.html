@@ -288,8 +288,10 @@
     border:1px solid var(--ink);
   }
   .timeline-seg{ height:100%; }
-  .timeline-fasting{ background:var(--grey-1); flex:12; border-right:1px solid var(--ink); }
-  .timeline-window{ background:var(--accent); flex:8; }
+  .timeline-fasting{ background:var(--grey-1); }
+  .timeline-fasting.before{ flex:12; border-right:1px solid var(--ink); }
+  .timeline-window{ background:var(--accent); flex:8; border-right:1px solid var(--ink); }
+  .timeline-fasting.after{ flex:4; }
   .timeline-now{
     position:absolute;
     top:-5px; bottom:-5px;
@@ -437,8 +439,9 @@
     <div class="note" id="window-note">蓝色为进食窗口 12:00–20:00 · 餐次时间尚未记录</div>
     <div class="timeline-wrap">
       <div class="timeline-bar">
-        <div class="timeline-seg timeline-fasting"></div>
+        <div class="timeline-seg timeline-fasting before"></div>
         <div class="timeline-seg timeline-window"></div>
+        <div class="timeline-seg timeline-fasting after"></div>
         <div class="timeline-now" id="timeline-now" style="display:none;"></div>
       </div>
       <div class="timeline-labels">
