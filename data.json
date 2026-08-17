@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-17T23:42:00+08:00"
+    "updatedAt": "2026-08-18T00:00:37+08:00"
   },
   "days": [
     {
@@ -253,10 +253,6 @@
   ],
   "trend": [
     {
-      "date": "08-11",
-      "intake": null
-    },
-    {
       "date": "08-12",
       "intake": null
     },
@@ -277,8 +273,12 @@
       "intake": 2321
     },
     {
-      "date": "今日",
+      "date": "08-17",
       "intake": 1837
+    },
+    {
+      "date": "今日",
+      "intake": null
     }
   ]
 }
