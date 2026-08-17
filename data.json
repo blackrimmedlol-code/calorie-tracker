@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-17T12:51:54+08:00"
+    "updatedAt": "2026-08-17T12:56:04+08:00"
   },
   "days": [
     {
@@ -163,7 +163,7 @@
     },
     {
       "date": "2026-08-17",
-      "intake": 756,
+      "intake": 702,
       "records": [
         {
           "name": "白米饭",
@@ -186,15 +186,15 @@
           "meal": "午餐"
         },
         {
-          "name": "叉烧+酱汁",
-          "calories": 176,
+          "name": "黑金瘦叉烧",
+          "calories": 122,
           "meal": "午餐"
         }
       ],
       "macros": {
-        "protein": 31,
-        "carbs": 126,
-        "fat": 18
+        "protein": 30,
+        "carbs": 121,
+        "fat": 9
       },
       "body": {
         "weightKg": 78.5
