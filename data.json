@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-17T10:47:39+08:00"
+    "updatedAt": "2026-08-17T12:51:54+08:00"
   },
   "days": [
     {
@@ -163,9 +163,39 @@
     },
     {
       "date": "2026-08-17",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 756,
+      "records": [
+        {
+          "name": "白米饭",
+          "calories": 335,
+          "meal": "午餐"
+        },
+        {
+          "name": "酱油拌饭",
+          "calories": 170,
+          "meal": "午餐"
+        },
+        {
+          "name": "菜心（炒）",
+          "calories": 35,
+          "meal": "午餐"
+        },
+        {
+          "name": "煮蛋（半个）",
+          "calories": 40,
+          "meal": "午餐"
+        },
+        {
+          "name": "叉烧+酱汁",
+          "calories": 176,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 31,
+        "carbs": 126,
+        "fat": 18
+      },
       "body": {
         "weightKg": 78.5
       }
