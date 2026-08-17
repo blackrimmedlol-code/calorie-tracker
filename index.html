@@ -210,10 +210,53 @@
   .meal-group:first-child{ border-top:0; padding-top:0; }
   .meal-head{ display:flex; justify-content:space-between; gap:12px; font-weight:800; }
   .meal-head span:last-child{ font-family:var(--mono); }
-  .macro-strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:4px; }
+  .meal-nutrition{ margin-top:14px; padding-top:13px; border-top:2px solid var(--ink); }
+  .section-label{ font:700 10px/1.4 var(--mono); letter-spacing:.08em; color:var(--grey-3); }
+  .macro-strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0 10px; }
   .macro-box{ background:var(--grey-1); padding:10px 8px; border-top:3px solid var(--ink); }
+  .macro-box:nth-child(1){ border-top-color:var(--accent); }
+  .macro-box:nth-child(3){ border-top-color:var(--grey-3); }
   .macro-box b{ display:block; font-size:19px; }
   .macro-box span{ color:var(--grey-3); font:9px/1.4 var(--mono); }
+  .macro-composition{ display:flex; height:18px; border:1px solid var(--ink); overflow:hidden; }
+  .macro-composition i{ display:block; height:100%; min-width:0; }
+  .macro-composition .protein{ background:var(--accent); }
+  .macro-composition .carbs{ background:var(--ink); }
+  .macro-composition .fat{ background:var(--grey-3); }
+  .macro-legend{ display:flex; flex-wrap:wrap; gap:7px 14px; margin-top:7px; color:var(--grey-3); font:9px/1.4 var(--mono); }
+  .macro-legend span{ display:inline-flex; align-items:center; gap:5px; }
+  .macro-legend i{ width:8px; height:8px; border-radius:50%; }
+  .macro-legend .protein{ background:var(--accent); }
+  .macro-legend .carbs{ background:var(--ink); }
+  .macro-legend .fat{ background:var(--grey-3); }
+
+  /* ---------- 近 7 天饮食档案 ---------- */
+  .diet-history-note{ margin-bottom:8px !important; }
+  details.diet-day{ border-top:1px solid var(--grey-2); padding:11px 0; }
+  details.diet-day:last-child{ border-bottom:1px solid var(--grey-2); }
+  details.diet-day summary{ list-style:none; cursor:pointer; }
+  details.diet-day summary::-webkit-details-marker{ display:none; }
+  .diet-day-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .diet-day-date{ font:800 15px/1.25 var(--mono); }
+  .diet-day-date small{ display:block; margin-top:2px; color:var(--grey-3); font:9px/1.3 var(--mono); }
+  .diet-day-total{ text-align:right; white-space:nowrap; }
+  .diet-day-total b{ display:block; font:800 16px/1.2 var(--mono); }
+  .diet-status{ display:inline-block; margin-top:3px; padding:1px 5px; border:1px solid var(--grey-2); color:var(--grey-3); font:700 8px/1.4 var(--mono); letter-spacing:.04em; }
+  .diet-status.within{ background:var(--ink); border-color:var(--ink); color:var(--paper); }
+  .diet-status.above{ background:var(--accent); border-color:var(--accent); color:var(--accent-on); }
+  .diet-day-metrics{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:5px; margin-top:9px; }
+  .diet-day-metrics span{ padding:5px 3px; background:var(--grey-1); color:var(--grey-3); text-align:center; font:9px/1.35 var(--mono); }
+  .diet-day-metrics b{ display:block; color:var(--ink); font-size:12px; }
+  .diet-day-more{ margin-top:10px; padding:0 10px 9px; background:var(--grey-1); }
+  .diet-meal{ padding-top:9px; margin-top:9px; border-top:1px solid var(--grey-2); }
+  .diet-meal:first-child{ margin-top:0; border-top:0; }
+  .diet-meal-head{ display:flex; justify-content:space-between; gap:10px; margin-bottom:5px; font:700 10px/1.4 var(--mono); }
+  .diet-food{ display:flex; justify-content:space-between; gap:12px; padding:3px 0; color:var(--grey-3); font:10px/1.45 var(--mono); }
+  .diet-food span:first-child{ color:var(--ink); }
+  .diet-food span:last-child{ white-space:nowrap; }
+  .diet-empty-day{ display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-top:1px solid var(--grey-2); color:var(--grey-3); font:10px/1.5 var(--mono); }
+  .diet-empty-day:last-child{ border-bottom:1px solid var(--grey-2); }
+  .diet-empty-day b{ color:var(--ink); font-size:13px; }
 
   /* ---------- Apple Fitness 活动 ---------- */
   .activity-bars{ display:grid; gap:13px; margin-bottom:16px; }
@@ -262,6 +305,7 @@
     .summary-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
     .activity-facts{ grid-template-columns:repeat(2,1fr); }
     .history-day-metrics{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .diet-day-metrics{ grid-template-columns:repeat(5,minmax(44px,1fr)); overflow-x:auto; }
   }
 
   /* ---------- 桌面端：多栏观察台 ---------- */
@@ -282,7 +326,7 @@
     .area-energy{ grid-column:span 5; }
     .area-meals{ grid-column:span 7; }
     .area-activity{ grid-column:span 7; }
-    .area-macros{ grid-column:span 5; }
+    .area-diet-history{ grid-column:span 5; }
     .area-fasting{ grid-column:1 / -1; }
     .area-weekly{ grid-column:span 7; }
     .area-weight{ grid-column:span 5; }
@@ -428,12 +472,19 @@
     <div id="chart1" class="chart"></div>
   </section>
 
-  <!-- 3. 饮食账本 -->
+  <!-- 3. 今日饮食与营养 -->
   <section class="card area-meals">
-    <h2>今日饮食账本</h2>
+    <h2>今日饮食与营养</h2>
     <div class="note" id="records-note"></div>
     <div id="meal-ledger"></div>
     <div id="chart2" class="chart"></div>
+    <div class="meal-nutrition">
+      <div class="section-label">营养素构成</div>
+      <div class="note" id="macros-note"></div>
+      <div class="macro-strip" id="macro-strip"></div>
+      <div class="macro-composition" id="macro-composition"></div>
+      <div class="macro-legend" id="macro-legend"></div>
+    </div>
   </section>
 
   <!-- 4. Apple Fitness -->
@@ -449,12 +500,11 @@
     </div>
   </section>
 
-  <!-- 5. 三大营养素 -->
-  <section class="card area-macros">
-    <h2>三大营养素占比</h2>
-    <div class="note" id="macros-note"></div>
-    <div class="macro-strip" id="macro-strip"></div>
-    <div id="chart3" class="chart"></div>
+  <!-- 5. 近 7 天饮食档案 -->
+  <section class="card area-diet-history">
+    <h2>近 7 天饮食记录</h2>
+    <div class="note diet-history-note" id="diet-history-note"></div>
+    <div id="diet-history-days"></div>
   </section>
 
   <!-- 6. 16-8 进食窗口 -->
@@ -479,9 +529,9 @@
     </div>
   </section>
 
-  <!-- 7. 近7天趋势 -->
+  <!-- 7. 近7天能量趋势 -->
   <section class="card area-weekly">
-    <h2>近 7 天复盘</h2>
+    <h2>近 7 天能量复盘</h2>
     <div class="note" id="weekly-note">摄入、总消耗与活动热量 · 无 Apple 数据时以 TDEE 估算</div>
     <div class="summary-grid" id="weekly-summary"></div>
     <div id="chart5" class="chart"></div>
@@ -548,6 +598,11 @@
       minimumFractionDigits: digits || 0,
       maximumFractionDigits: digits || 0
     });
+  }
+
+  function formatMacroValue(value) {
+    var n = asNumber(value);
+    return formatNumber(n, n !== null && Math.abs(n % 1) > 0.001 ? 1 : 0);
   }
 
   function signed(value, digits) {
@@ -629,6 +684,15 @@
     return null;
   }
 
+  function macrosOf(day) {
+    if (!day || !day.macros || typeof day.macros !== 'object') return [];
+    return [
+      { name: '蛋白质', value: asNumber(day.macros.protein) || 0, factor: 4 },
+      { name: '碳水', value: asNumber(day.macros.carbs) || 0, factor: 4 },
+      { name: '脂肪', value: asNumber(day.macros.fat) || 0, factor: 9 }
+    ];
+  }
+
   function totalBurnInfo(day) {
     var activity = activityOf(day);
     var actual = activity ? asNumber(
@@ -644,11 +708,7 @@
     var day = DAY_BY_DATE[todayStr()] || null;
     var intake = day ? asNumber(day.intake) : null;
     var records = day && Array.isArray(day.records) ? day.records : [];
-    var macros = day && day.macros ? [
-      { name: '蛋白质', value: asNumber(day.macros.protein) || 0, factor: 4 },
-      { name: '碳水', value: asNumber(day.macros.carbs) || 0, factor: 4 },
-      { name: '脂肪', value: asNumber(day.macros.fat) || 0, factor: 9 }
-    ] : [];
+    var macros = macrosOf(day);
     return {
       day: day,
       hasIntake: intake !== null,
@@ -781,18 +841,119 @@
 
   function renderMacros(context) {
     var strip = document.getElementById('macro-strip');
+    var composition = document.getElementById('macro-composition');
+    var legend = document.getElementById('macro-legend');
     if (!context.macros.length) {
       strip.innerHTML = '';
+      composition.innerHTML = '';
+      legend.innerHTML = '';
       document.getElementById('macros-note').textContent = '今日暂无营养素记录';
       return;
     }
     strip.innerHTML = context.macros.map(function (macro) {
-      return '<div class="macro-box"><b>' + formatNumber(macro.value) +
+      return '<div class="macro-box"><b>' + formatMacroValue(macro.value) +
         'g</b><span>' + escapeHtml(macro.name) + ' · ' +
         formatNumber(macro.value * macro.factor) + ' 千卡</span></div>';
     }).join('');
+    var classes = ['protein', 'carbs', 'fat'];
+    var macroCalories = context.macros.map(function (macro) {
+      return macro.value * macro.factor;
+    });
+    var macroTotal = sum(macroCalories);
+    composition.innerHTML = context.macros.map(function (macro, index) {
+      var pct = macroTotal ? macroCalories[index] / macroTotal * 100 : 0;
+      return '<i class="' + classes[index] + '" style="width:' +
+        pct.toFixed(2) + '%" title="' + escapeHtml(macro.name) + ' ' +
+        Math.round(pct) + '%"></i>';
+    }).join('');
+    legend.innerHTML = context.macros.map(function (macro, index) {
+      var pct = macroTotal ? macroCalories[index] / macroTotal * 100 : 0;
+      return '<span><i class="' + classes[index] + '"></i>' +
+        escapeHtml(macro.name) + ' ' + Math.round(pct) + '%</span>';
+    }).join('');
     document.getElementById('macros-note').textContent =
-      '克数与换算热量 · 蛋白质/碳水 4 千卡每克 · 脂肪 9 千卡每克';
+      '按换算热量占比 · 与总摄入可能因估算及四舍五入略有差异';
+  }
+
+  function buildDietHistory() {
+    return recentKeys(7).map(function (key) {
+      var day = DAY_BY_DATE[key] || null;
+      var records = day && Array.isArray(day.records) ? day.records : [];
+      var intake = day ? asNumber(day.intake) : null;
+      var mealNames = [];
+      var meals = {};
+
+      records.forEach(function (record) {
+        var meal = String(record.meal || '未分类').trim() || '未分类';
+        if (!meals[meal]) {
+          meals[meal] = [];
+          mealNames.push(meal);
+        }
+        meals[meal].push(record);
+      });
+
+      return {
+        key: key,
+        recorded: intake !== null || records.length > 0,
+        intake: intake,
+        records: records,
+        mealNames: mealNames,
+        meals: meals,
+        macros: macrosOf(day)
+      };
+    });
+  }
+
+  function renderDietHistory() {
+    var rows = buildDietHistory();
+    var recorded = rows.filter(function (row) { return row.recorded; }).length;
+    document.getElementById('diet-history-note').textContent =
+      '已记录 ' + recorded + '/7 天 · 点击日期查看餐次 · 未记录日期不按 0 计算';
+
+    document.getElementById('diet-history-days').innerHTML = rows.reverse().map(function (row) {
+      var isToday = row.key === todayStr();
+      var dateLabel = isToday ? '今日' : row.key.slice(5);
+      if (!row.recorded) {
+        return '<div class="diet-empty-day"><b>' + escapeHtml(dateLabel) +
+          '</b><span>未记录</span></div>';
+      }
+
+      var status = row.intake === null ?
+        { label: '热量未汇总', className: 'unreported' } :
+        (row.intake < TARGET_LOW ?
+          { label: '低于目标', className: 'below' } :
+          (row.intake > TARGET_HIGH ?
+            { label: '高于目标', className: 'above' } :
+            { label: '目标内', className: 'within' }));
+      var protein = row.macros[0] ? row.macros[0].value : null;
+      var carbs = row.macros[1] ? row.macros[1].value : null;
+      var fat = row.macros[2] ? row.macros[2].value : null;
+
+      var mealsHtml = row.mealNames.length ? row.mealNames.map(function (meal) {
+        var items = row.meals[meal];
+        var subtotal = sum(items.map(function (item) { return item.calories; }));
+        return '<div class="diet-meal"><div class="diet-meal-head"><span>' +
+          escapeHtml(meal) + '</span><span>' + formatNumber(subtotal) +
+          ' 大卡</span></div>' + items.map(function (item) {
+            var time = item.time ? ' · ' + escapeHtml(item.time) : '';
+            return '<div class="diet-food"><span>' +
+              escapeHtml(item.name || '未命名食物') + time + '</span><span>' +
+              formatNumber(item.calories) + ' 大卡</span></div>';
+          }).join('') + '</div>';
+      }).join('') : '<div class="diet-food"><span>暂无食物明细</span><span>—</span></div>';
+
+      return '<details class="diet-day"><summary><div class="diet-day-head"><div class="diet-day-date">' +
+        escapeHtml(dateLabel) + (isToday ? '<small>' + escapeHtml(row.key.slice(5)) + '</small>' : '') +
+        '</div><div class="diet-day-total"><b>' + formatNumber(row.intake) +
+        ' 大卡</b><span class="diet-status ' + status.className + '">' +
+        status.label + '</span></div></div><div class="diet-day-metrics">' +
+        '<span><b>' + row.mealNames.length + '</b>餐次</span>' +
+        '<span><b>' + row.records.length + '</b>食物</span>' +
+        '<span><b>' + formatMacroValue(protein) + '</b>P / g</span>' +
+        '<span><b>' + formatMacroValue(carbs) + '</b>C / g</span>' +
+        '<span><b>' + formatMacroValue(fat) + '</b>F / g</span>' +
+        '</div></summary><div class="diet-day-more">' + mealsHtml + '</div></details>';
+    }).join('');
   }
 
   function renderMealWindow(context) {
@@ -1091,7 +1252,6 @@
   // ---------- 图表 ----------
   var charts = {};
   var ACCENT = '#002FA7';
-  var PAPER = '#fafaf8';
   var INK = '#0a0a0a';
   var GREY_2 = '#d4d4d2';
   var GREY_3 = '#737373';
@@ -1105,7 +1265,6 @@
     }
     charts.c1 = echarts.init(document.getElementById('chart1'));
     charts.c2 = echarts.init(document.getElementById('chart2'));
-    charts.c3 = echarts.init(document.getElementById('chart3'));
     charts.c5 = echarts.init(document.getElementById('chart5'));
     charts.c6 = echarts.init(document.getElementById('chart6'));
     window.addEventListener('resize', function () {
@@ -1186,33 +1345,6 @@
       }]
     }, true);
     charts.c2.resize();
-
-    charts.c3.setOption({
-      tooltip: { trigger: 'item', formatter: '{b}: {c}g ({d}%)' },
-      legend: {
-        show: context.macros.length > 0,
-        bottom: 0,
-        icon: 'circle',
-        itemWidth: 10,
-        itemHeight: 10,
-        textStyle: { fontSize: 10, color: INK }
-      },
-      color: [ACCENT, INK, GREY_3],
-      series: [{
-        type: 'pie',
-        radius: ['44%', '67%'],
-        center: ['50%', '44%'],
-        itemStyle: { borderColor: PAPER, borderWidth: 2 },
-        label: { fontSize: 10, fontWeight: 700, color: INK, formatter: '{b}\n{c}g' },
-        data: context.macros.map(function (macro) {
-          return { name: macro.name, value: macro.value };
-        })
-      }],
-      graphic: context.macros.length ? [] : [{
-        type: 'text', left: 'center', top: 'middle',
-        style: { text: '今日暂无营养素记录', fill: GREY_3, font: '12px monospace' }
-      }]
-    }, true);
 
     var rows = WEEKLY.rows;
     charts.c5.setOption({
@@ -1403,6 +1535,7 @@
     renderActivity(context);
     renderActivityHistory();
     renderMacros(context);
+    renderDietHistory();
     renderMealWindow(context);
     renderWeekly();
     renderWeight();
