@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-17T12:56:04+08:00"
+    "updatedAt": "2026-08-17T19:17:06+08:00"
   },
   "days": [
     {
@@ -163,7 +163,7 @@
     },
     {
       "date": "2026-08-17",
-      "intake": 702,
+      "intake": 1837,
       "records": [
         {
           "name": "白米饭",
@@ -189,12 +189,32 @@
           "name": "黑金瘦叉烧",
           "calories": 122,
           "meal": "午餐"
+        },
+        {
+          "name": "双层吉士汉堡",
+          "calories": 430,
+          "meal": "晚餐"
+        },
+        {
+          "name": "小杯玉米杯",
+          "calories": 65,
+          "meal": "晚餐"
+        },
+        {
+          "name": "麦辣大四角（4块）",
+          "calories": 530,
+          "meal": "晚餐"
+        },
+        {
+          "name": "北美招牌牧场酱",
+          "calories": 110,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 30,
-        "carbs": 121,
-        "fat": 9
+        "protein": 88,
+        "carbs": 184,
+        "fat": 78.5
       },
       "body": {
         "weightKg": 78.5
@@ -228,7 +248,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 1837
     }
   ]
 }
