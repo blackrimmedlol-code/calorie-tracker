@@ -228,6 +228,13 @@
   .activity-fact{ padding:10px 7px; background:var(--paper); }
   .activity-fact span{ display:block; color:var(--grey-3); font:9px/1.4 var(--mono); }
   .activity-fact b{ display:block; margin-top:3px; font-size:16px; font-variant-numeric:tabular-nums; }
+  .activity-wait{
+    padding:13px 14px;
+    border-left:4px solid var(--accent);
+    background:var(--grey-1);
+    color:var(--grey-3);
+    font:11px/1.65 var(--mono);
+  }
   .workout-title{ margin:18px 0 8px; font:700 10px/1.4 var(--mono); letter-spacing:.08em; color:var(--grey-3); }
   details.workout{ border-top:1px solid var(--ink); padding:11px 0; }
   details.workout:last-child{ border-bottom:1px solid var(--ink); }
@@ -238,11 +245,26 @@
   .workout-main strong{ color:var(--accent); font:800 17px/1 var(--mono); white-space:nowrap; }
   .workout-sub{ margin-top:3px; color:var(--grey-3); font:10px/1.5 var(--mono); }
   .workout-more{ display:grid; grid-template-columns:repeat(2,1fr); gap:7px; margin-top:10px; padding:10px; background:var(--grey-1); font:10px/1.5 var(--mono); }
+  .activity-history{ margin-top:18px; padding-top:1px; border-top:2px solid var(--ink); }
+  .activity-history .summary-grid{ margin-top:8px; }
+  details.history-day{ border-top:1px solid var(--grey-2); padding:11px 0; }
+  details.history-day:last-child{ border-bottom:1px solid var(--grey-2); }
+  details.history-day summary{ list-style:none; cursor:pointer; }
+  details.history-day summary::-webkit-details-marker{ display:none; }
+  .history-day-head{ display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .history-day-head b{ font:800 15px/1.3 var(--mono); }
+  .history-day-metrics{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; margin-top:9px; }
+  .history-day-metrics span{ color:var(--grey-3); font:9px/1.4 var(--mono); }
+  .history-day-metrics b{ display:block; color:var(--ink); font-size:13px; }
+  .history-day-more{ margin-top:10px; padding:10px; background:var(--grey-1); color:var(--grey-3); font:10px/1.6 var(--mono); }
+  .history-workout-row{ display:flex; justify-content:space-between; gap:12px; padding-top:7px; margin-top:7px; border-top:1px solid var(--grey-2); }
+  .history-workout-row b{ color:var(--ink); }
 
   @media (max-width:420px){
     .overview .hero .big{ font-size:62px; }
     .summary-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
     .activity-facts{ grid-template-columns:repeat(2,1fr); }
+    .history-day-metrics{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
 
   /* ---------- 桌面端：多栏观察台 ---------- */
@@ -423,6 +445,11 @@
     <div class="note" id="activity-note">等待晚间同步 Apple Fitness</div>
     <div id="activity-content"></div>
     <div id="workout-list"></div>
+    <div class="activity-history" id="activity-history">
+      <div class="workout-title" id="activity-history-title">近 7 天活动</div>
+      <div class="summary-grid" id="activity-history-summary"></div>
+      <div id="activity-history-days"></div>
+    </div>
   </section>
 
   <!-- 5. 三大营养素 -->
@@ -813,7 +840,7 @@
     if (!activity) {
       document.getElementById('activity-note').textContent =
         '建议晚间活动结束后同步 · 未记录不等于 0';
-      content.innerHTML = '<div class="empty-state">尚未同步今日 Apple Fitness<br>能量差暂按 TDEE ' +
+      content.innerHTML = '<div class="activity-wait">今日活动待晚间同步 · 能量差暂按 TDEE ' +
         formatNumber(TDEE) + ' 大卡估算</div>';
       list.innerHTML = '';
       return;
@@ -874,6 +901,96 @@
               escapeHtml(detail[1]) + '</b></div>';
           }).join('') + '</div></details>';
       }).join('');
+  }
+
+  function buildActivityHistory() {
+    var rows = recentKeys(7).map(function (key) {
+      var day = DAY_BY_DATE[key] || null;
+      var activity = activityOf(day);
+      if (!activity) return null;
+      var workouts = Array.isArray(activity.workouts) ? activity.workouts : [];
+      return {
+        key: key,
+        activity: activity,
+        complete: activity.isFinal === true || key < todayStr(),
+        active: asNumber(activity.activeCalories),
+        totalBurn: asNumber(
+          activity.totalCalories !== undefined ? activity.totalCalories : activity.totalBurn
+        ),
+        exercise: asNumber(activity.exerciseMinutes),
+        steps: asNumber(activity.steps),
+        distance: asNumber(activity.distanceKm),
+        workouts: workouts
+      };
+    }).filter(Boolean);
+
+    var complete = rows.filter(function (row) { return row.complete; });
+    function totalOf(field) {
+      var values = complete.map(function (row) { return row[field]; })
+        .filter(function (value) { return value !== null; });
+      return values.length ? sum(values) : null;
+    }
+    function averageOf(field) {
+      return average(complete.map(function (row) { return row[field]; }));
+    }
+    return {
+      rows: rows,
+      complete: complete,
+      averageActive: averageOf('active'),
+      averageBurn: averageOf('totalBurn'),
+      exerciseTotal: totalOf('exercise'),
+      stepsTotal: totalOf('steps'),
+      distanceTotal: totalOf('distance')
+    };
+  }
+
+  function renderActivityHistory() {
+    var history = buildActivityHistory();
+    var title = document.getElementById('activity-history-title');
+    var summary = document.getElementById('activity-history-summary');
+    var days = document.getElementById('activity-history-days');
+
+    title.textContent = '近 7 天活动 · 完整记录 ' + history.complete.length + '/7 天';
+    summary.innerHTML =
+      summaryItem('有效活动', history.complete.length + '/7', '天') +
+      summaryItem('平均活动', formatNumber(round(history.averageActive)), history.averageActive === null ? '' : '大卡') +
+      summaryItem('累计锻炼', formatNumber(round(history.exerciseTotal)), history.exerciseTotal === null ? '' : '分钟') +
+      summaryItem('累计步数', formatNumber(round(history.stepsTotal)), history.stepsTotal === null ? '' : '步') +
+      summaryItem('累计距离', formatNumber(history.distanceTotal, 2), history.distanceTotal === null ? '' : '公里') +
+      summaryItem('平均总消耗', formatNumber(round(history.averageBurn)), history.averageBurn === null ? '' : '大卡');
+
+    var pastRows = history.rows.filter(function (row) {
+      return row.key !== todayStr();
+    }).reverse();
+    if (!pastRows.length) {
+      days.innerHTML = '<div class="empty-state">暂无更早的活动记录</div>';
+      return;
+    }
+
+    days.innerHTML = pastRows.map(function (row) {
+      var activity = row.activity;
+      var source = activity.source || 'Apple Fitness';
+      var workoutHtml = row.workouts.length ? row.workouts.map(function (workout) {
+        var pieces = [
+          asNumber(workout.durationMin) !== null ? formatNumber(workout.durationMin) + ' 分钟' : '',
+          asNumber(workout.distanceKm) !== null ? formatNumber(workout.distanceKm, 2) + ' 公里' : '',
+          asNumber(workout.activeCalories) !== null ? formatNumber(workout.activeCalories) + ' 活动大卡' : ''
+        ].filter(Boolean).join(' · ');
+        return '<div class="history-workout-row"><b>' +
+          escapeHtml(workout.name || '运动') + '</b><span>' +
+          escapeHtml(pieces || '已记录') + '</span></div>';
+      }).join('') : '<div class="history-workout-row"><b>专项运动</b><span>无记录 / 休息日</span></div>';
+
+      return '<details class="history-day"><summary><div class="history-day-head"><b>' +
+        escapeHtml(row.key.slice(5)) + '</b><span class="source-tag">' +
+        escapeHtml(source.toUpperCase()) + '</span></div><div class="history-day-metrics">' +
+        '<span><b>' + formatNumber(row.active) + '</b>活动大卡</span>' +
+        '<span><b>' + formatNumber(row.exercise) + '</b>锻炼分钟</span>' +
+        '<span><b>' + formatNumber(row.steps) + '</b>步数</span>' +
+        '<span><b>' + formatNumber(row.distance, 2) + '</b>公里</span>' +
+        '</div></summary><div class="history-day-more">全天总消耗：' +
+        formatNumber(row.totalBurn) + ' 大卡' + workoutHtml + '</div></details>';
+    }).join('');
   }
 
   // ---------- 近 7 天复盘 ----------
@@ -1291,6 +1408,7 @@
     renderOverview(context);
     renderMeals(context);
     renderActivity(context);
+    renderActivityHistory();
     renderMacros(context);
     renderMealWindow(context);
     renderWeekly();
