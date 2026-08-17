@@ -206,13 +206,10 @@
     text-align:center;
     font:11px/1.7 var(--mono);
   }
-  .meal-group{ border-top:1px solid var(--ink); padding:12px 0 4px; }
+  .meal-group{ border-top:1px solid var(--ink); padding:10px 0; }
   .meal-group:first-child{ border-top:0; padding-top:0; }
-  .meal-head{ display:flex; justify-content:space-between; gap:12px; margin-bottom:7px; font-weight:800; }
+  .meal-head{ display:flex; justify-content:space-between; gap:12px; font-weight:800; }
   .meal-head span:last-child{ font-family:var(--mono); }
-  .food-row{ display:flex; justify-content:space-between; gap:16px; padding:4px 0; color:var(--grey-3); font-size:12px; }
-  .food-row span:first-child{ color:var(--ink); }
-  .food-row span:last-child{ white-space:nowrap; font-family:var(--mono); }
   .macro-strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:4px; }
   .macro-box{ background:var(--grey-1); padding:10px 8px; border-top:3px solid var(--ink); }
   .macro-box b{ display:block; font-size:19px; }
@@ -774,11 +771,7 @@
       var subtotal = sum(items.map(function (item) { return item.calories; }));
       return '<div class="meal-group"><div class="meal-head"><span>' +
         escapeHtml(meal) + '</span><span>' + formatNumber(subtotal) +
-        ' 大卡</span></div>' + items.map(function (item) {
-          var time = item.time ? ' · ' + escapeHtml(item.time) : '';
-          return '<div class="food-row"><span>' + escapeHtml(item.name) + time +
-            '</span><span>' + formatNumber(item.calories) + '</span></div>';
-        }).join('') + '</div>';
+        ' 大卡</span></div></div>';
     }).join('');
 
     document.getElementById('records-note').textContent =
