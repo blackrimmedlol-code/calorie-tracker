@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-18T14:43:58+08:00"
+    "updatedAt": "2026-08-18T20:12:31+08:00"
   },
   "days": [
     {
@@ -252,7 +252,7 @@
     },
     {
       "date": "2026-08-18",
-      "intake": 553,
+      "intake": 893,
       "records": [
         {
           "name": "牛肉（切片+炖块+酱汁）",
@@ -273,12 +273,17 @@
           "name": "芝麻海苔碎",
           "calories": 20,
           "meal": "午餐"
+        },
+        {
+          "name": "达美乐0.1薄脆牛肉多多披萨（半份）",
+          "calories": 340,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 38,
-        "carbs": 33,
-        "fat": 30
+        "protein": 60,
+        "carbs": 63,
+        "fat": 42
       }
     }
   ],
@@ -309,7 +314,7 @@
     },
     {
       "date": "今日",
-      "intake": 553
+      "intake": 893
     }
   ]
 }
