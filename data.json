@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-18T20:12:31+08:00"
+    "updatedAt": "2026-08-18T20:13:49+08:00"
   },
   "days": [
     {
@@ -252,7 +252,7 @@
     },
     {
       "date": "2026-08-18",
-      "intake": 893,
+      "intake": 1063,
       "records": [
         {
           "name": "牛肉（切片+炖块+酱汁）",
@@ -278,12 +278,17 @@
           "name": "达美乐0.1薄脆牛肉多多披萨（半份）",
           "calories": 340,
           "meal": "晚餐"
+        },
+        {
+          "name": "单面煎蛋x2",
+          "calories": 170,
+          "meal": "加餐"
         }
       ],
       "macros": {
-        "protein": 60,
-        "carbs": 63,
-        "fat": 42
+        "protein": 73,
+        "carbs": 64,
+        "fat": 54.5
       }
     }
   ],
@@ -314,7 +319,7 @@
     },
     {
       "date": "今日",
-      "intake": 893
+      "intake": 1063
     }
   ]
 }
