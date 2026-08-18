@@ -404,7 +404,6 @@
     .area-meals{ grid-column:span 7; }
     .area-activity{ grid-column:span 7; align-self:start; }
     .area-diet-history{ grid-column:span 5; align-self:start; }
-    .area-fasting{ grid-column:1 / -1; }
     .area-weekly{ grid-column:span 7; }
     .area-weight{ grid-column:span 5; }
     .activity-history .summary-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); }
@@ -419,71 +418,6 @@
     .area-meals #chart2{ min-height:250px; }
     footer{ margin-top:18px; }
   }
-
-  /* ---------- 16-8 时间线 ---------- */
-  .timeline-wrap{ padding:6px 0 2px; }
-  .timeline-bar{
-    position:relative;
-    height:26px;
-    display:flex;
-    border:1px solid var(--ink);
-  }
-  .timeline-seg{ height:100%; }
-  .timeline-fasting{ background:var(--grey-1); }
-  .timeline-fasting.before{ flex:12; border-right:1px solid var(--ink); }
-  .timeline-window{ background:var(--accent); flex:8; border-right:1px solid var(--ink); }
-  .timeline-fasting.after{ flex:4; }
-  .timeline-now{
-    position:absolute;
-    top:-5px; bottom:-5px;
-    width:3px;
-    background:var(--ink);
-    transform:translateX(-50%);
-    z-index:2;
-  }
-  .timeline-now::after{
-    content:'';
-    position:absolute;
-    top:-4px; left:50%;
-    transform:translateX(-50%);
-    border:4px solid transparent;
-    border-top:6px solid var(--ink);
-  }
-  .timeline-labels{
-    display:flex;
-    justify-content:space-between;
-    font-family:var(--mono);
-    font-size:10px;
-    color:var(--grey-3);
-    margin-top:6px;
-    letter-spacing:.04em;
-  }
-  .timeline-legend{
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-    margin-top:10px;
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--grey-3);
-  }
-  .timeline-legend .dot{
-    display:inline-block;
-    width:10px; height:10px;
-    margin-right:5px;
-    vertical-align:-1px;
-  }
-  .timeline-legend .dot.fasting{ background:var(--grey-1); border:1px solid var(--ink); }
-  .timeline-legend .dot.window{ background:var(--accent); border:1px solid var(--ink); }
-  .timeline-legend .dot.now{ background:var(--ink); border-radius:50%; }
-  .area-fasting.is-compact{ padding-top:14px; padding-bottom:13px; }
-  .area-fasting.is-compact .note{ margin-bottom:0; }
-  .area-fasting.is-compact .timeline-wrap{ display:none; }
-  .window-facts{ display:none; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; margin:10px 0 8px; background:var(--grey-2); border:1px solid var(--grey-2); }
-  .window-facts.is-visible{ display:grid; }
-  .window-fact{ padding:8px; background:var(--paper); }
-  .window-fact span{ display:block; color:var(--grey-3); font:9px/1.4 var(--mono); }
-  .window-fact b{ display:block; margin-top:2px; font-size:13px; }
 
   /* ---------- 周复盘双图 ---------- */
   .weekly-chart-block{ margin-top:12px; padding-top:12px; border-top:1px solid var(--grey-2); }
@@ -614,30 +548,7 @@
     <div id="diet-history-days"></div>
   </section>
 
-  <!-- 6. 16-8 进食窗口 -->
-  <section class="card area-fasting">
-    <h2>16-8 进食窗口</h2>
-    <div class="note" id="window-note">蓝色为进食窗口 12:00–20:00 · 餐次时间尚未记录</div>
-    <div class="window-facts" id="window-facts"></div>
-    <div class="timeline-wrap">
-      <div class="timeline-bar">
-        <div class="timeline-seg timeline-fasting before"></div>
-        <div class="timeline-seg timeline-window"></div>
-        <div class="timeline-seg timeline-fasting after"></div>
-        <div class="timeline-now" id="timeline-now" style="display:none;"></div>
-      </div>
-      <div class="timeline-labels">
-        <span>0:00</span><span>6:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
-      </div>
-      <div class="timeline-legend">
-        <span><i class="dot fasting"></i>断食期</span>
-        <span><i class="dot window"></i>进食窗口</span>
-        <span id="now-legend" style="display:none;"><i class="dot now"></i>现在</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. 近7天能量趋势 -->
+  <!-- 6. 近7天能量趋势 -->
   <section class="card area-weekly" id="week">
     <h2>近 7 天能量复盘</h2>
     <div class="note" id="weekly-note">摄入、总消耗与活动热量 · 无 Apple 数据时以 TDEE 估算</div>
@@ -646,7 +557,7 @@
     <div class="weekly-chart-block"><div class="weekly-chart-title">每日能量差</div><div id="weekly-balance-chart" class="chart" role="img"></div></div>
   </section>
 
-  <!-- 8. 体重趋势 -->
+  <!-- 7. 体重趋势 -->
   <section class="card area-weight" id="weight">
     <h2>体重趋势</h2>
     <div class="note" id="weight-note">近 30 天 · 7 日移动平均用于过滤水分波动</div>
@@ -1151,45 +1062,6 @@
         '<span><b>' + formatMacroValue(fat) + '</b>F / g</span>' +
         '</div></summary><div class="diet-day-more">' + mealsHtml + '</div></details>';
     }).join('');
-  }
-
-  function renderMealWindow(context) {
-    var times = context.records.map(function (record) {
-      var match = String(record.time || '').match(/^(\d{1,2}):(\d{2})/);
-      if (!match) return null;
-      var hours = Number(match[1]);
-      var minutes = Number(match[2]);
-      if (hours > 23 || minutes > 59) return null;
-      return {
-        value: hours * 60 + minutes,
-        label: ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2)
-      };
-    }).filter(Boolean).sort(function (a, b) { return a.value - b.value; });
-
-    var card = document.querySelector('.area-fasting');
-    var facts = document.getElementById('window-facts');
-    if (!times.length) {
-      card.classList.add('is-compact');
-      facts.classList.remove('is-visible');
-      facts.innerHTML = '';
-      document.getElementById('window-note').textContent =
-        '目标窗口 12:00–20:00 · 餐次时间尚未记录，时间轴已收起';
-      return;
-    }
-
-    card.classList.remove('is-compact');
-    facts.classList.add('is-visible');
-    var first = times[0];
-    var last = times[times.length - 1];
-    var spanMinutes = Math.max(0, last.value - first.value);
-    var within = first.value >= 12 * 60 && last.value <= 20 * 60;
-    facts.innerHTML =
-      '<div class="window-fact"><span>首餐</span><b>' + escapeHtml(first.label) + '</b></div>' +
-      '<div class="window-fact"><span>末餐</span><b>' + escapeHtml(last.label) + '</b></div>' +
-      '<div class="window-fact"><span>已记录跨度</span><b>' +
-        Math.floor(spanMinutes / 60) + '小时' + (spanMinutes % 60 ? (spanMinutes % 60) + '分' : '') + '</b></div>';
-    document.getElementById('window-note').textContent =
-      '目标窗口 12:00–20:00 · 已记录餐次' + (within ? '均在窗口内' : '存在窗口外时间');
   }
 
   // ---------- Apple Fitness 与单次运动 ----------
@@ -1795,16 +1667,6 @@
       .catch(function () { callback(false); });
   }
 
-  // ---------- 16-8 时间线 ----------
-  function renderTimeline() {
-    var now = new Date();
-    var hours = now.getHours() + now.getMinutes() / 60;
-    var marker = document.getElementById('timeline-now');
-    marker.style.left = (hours / 24 * 100) + '%';
-    marker.style.display = 'block';
-    document.getElementById('now-legend').style.display = 'inline-flex';
-  }
-
   // ---------- 刷新与启动 ----------
   function refresh() {
     var context = currentContext();
@@ -1816,7 +1678,6 @@
     renderActivityHistory();
     renderMacros(context);
     renderDietHistory();
-    renderMealWindow(context);
     renderWeekly();
     renderWeight();
     renderCharts(context);
@@ -1825,7 +1686,6 @@
   function bootstrap() {
     CHARTS_READY = initCharts();
     loadRemoteData(function () { refresh(); });
-    renderTimeline();
   }
 
   if (document.readyState === 'loading') {
