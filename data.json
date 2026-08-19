@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-19T12:40:22+08:00"
+    "updatedAt": "2026-08-19T12:43:18+08:00"
   },
   "days": [
     {
@@ -252,7 +252,7 @@
     },
     {
       "date": "2026-08-18",
-      "intake": 1648,
+      "intake": 1148,
       "records": [
         {
           "name": "牛肉（切片+炖块+酱汁）",
@@ -288,17 +288,12 @@
           "name": "沂蒙山大桃（拳头大）",
           "calories": 85,
           "meal": "加餐"
-        },
-        {
-          "name": "韩式紫菜包饭（10片）",
-          "calories": 500,
-          "meal": "加餐"
         }
       ],
       "macros": {
-        "protein": 93,
-        "carbs": 152,
-        "fat": 72
+        "protein": 74.5,
+        "carbs": 84,
+        "fat": 54.8
       },
       "body": {
         "weightKg": 78.2
@@ -318,13 +313,28 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-08-19",
+      "intake": 500,
+      "records": [
+        {
+          "name": "牛肉紫菜包饭（10片）",
+          "calories": 500,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 18,
+        "carbs": 68,
+        "fat": 17
+      },
+      "body": {
+        "weightKg": 77.8
+      }
     }
   ],
   "trend": [
-    {
-      "date": "08-12",
-      "intake": null
-    },
     {
       "date": "08-13",
       "intake": null
@@ -346,8 +356,12 @@
       "intake": 1837
     },
     {
+      "date": "08-18",
+      "intake": 1148
+    },
+    {
       "date": "今日",
-      "intake": 1648
+      "intake": 500
     }
   ]
 }
