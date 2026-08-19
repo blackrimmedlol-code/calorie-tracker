@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-19T23:14:08+08:00"
+    "updatedAt": "2026-08-19T23:15:02+08:00"
   },
   "days": [
     {
@@ -316,7 +316,7 @@
     },
     {
       "date": "2026-08-19",
-      "intake": 2340,
+      "intake": 1338,
       "records": [
         {
           "name": "牛肉紫菜包饭（10片）",
@@ -324,35 +324,35 @@
           "meal": "午餐"
         },
         {
-          "name": "炭烤混合菌菇",
-          "calories": 120,
+          "name": "炭烤混合菌菇（半份）",
+          "calories": 60,
           "meal": "晚餐"
         },
         {
-          "name": "海虾仁橙子沙拉",
-          "calories": 350,
+          "name": "海虾仁橙子沙拉（半份）",
+          "calories": 175,
           "meal": "晚餐"
         },
         {
-          "name": "丹佛牛排230g七分熟",
-          "calories": 570,
+          "name": "丹佛牛排半份+黑椒汁+半配菜",
+          "calories": 320,
           "meal": "晚餐"
         },
         {
-          "name": "千层火腿芝士开放三明治",
-          "calories": 470,
+          "name": "开放三明治（1/4份）",
+          "calories": 118,
           "meal": "晚餐"
         },
         {
-          "name": "手作提拉米苏",
-          "calories": 330,
+          "name": "手作提拉米苏（半份）",
+          "calories": 165,
           "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 136,
-        "carbs": 196,
-        "fat": 108
+        "protein": 71,
+        "carbs": 129,
+        "fat": 58
       },
       "body": {
         "weightKg": 77.8
@@ -416,7 +416,7 @@
     },
     {
       "date": "今日",
-      "intake": 2340
+      "intake": 1338
     }
   ]
 }
