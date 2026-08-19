@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "updatedAt": "2026-08-20T03:33:00+08:00",
+    "latestSession": "intraday",
+    "sessionDate": "2026-08-19",
+    "nextUpdate": "2026-08-20T19:30:00+08:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "snapshot": [
+    {"symbol":"SPY","name":"标普500","price":770.01,"changePct":0.33,"tone":"up"},
+    {"symbol":"QQQ","name":"纳指100","price":717.54,"changePct":0.00,"tone":"flat"},
+    {"symbol":"SOXX","name":"半导体","price":521.33,"changePct":-1.89,"tone":"down"},
+    {"symbol":"DRAM","name":"存储ETF","price":55.17,"changePct":0.13,"tone":"flat"},
+    {"symbol":"MSTR","name":"Strategy","price":103.50,"changePct":11.87,"tone":"up"},
+    {"symbol":"BTC","name":"Bitcoin","price":68364,"changePct":5.78,"tone":"up"}
+  ],
+  "premarket": {
+    "updatedAt": null,
+    "regime": "待更新",
+    "confidence": "低",
+    "thesis": "页面已部署；下一次 19:30 任务将写入正式盘前判断、信号矩阵与情景树。",
+    "watchVariable": "长端美债收益率能否继续回落",
+    "reviewStatus": "等待生成",
+    "reviewNote": "盘前版将在每个美股交易日 19:30 更新",
+    "riskAppetite": "待确认",
+    "riskNote": "不以单一指数涨跌替代持仓判断",
+    "snapshot": [],
+    "watchlist": [],
+    "news": [],
+    "matrix": [],
+    "scenarios": [],
+    "sources": []
+  },
+  "intraday": {
+    "updatedAt": "2026-08-20T03:33:00+08:00",
+    "regime": "轮动",
+    "confidence": "中",
+    "thesis": "大盘温和修复，但半导体继续明显落后；BTC 与 MSTR 共振上行，DRAM 则出现利好与价格确认不足的分化。当前不是全面 risk-on，而是跨板块强轮动。",
+    "watchVariable": "SOXX 能否止跌，以及 DRAM 能否重新站回 57.00",
+    "reviewStatus": "部分确认",
+    "reviewNote": "宏观压力缓和，但持仓内部走势显著分化",
+    "riskAppetite": "震荡偏强",
+    "riskNote": "广度改善，科技与半导体仍构成拖累",
+    "snapshot": [
+      {"symbol":"SPY","name":"标普500","price":770.01,"changePct":0.33,"tone":"up"},
+      {"symbol":"QQQ","name":"纳指100","price":717.54,"changePct":0.00,"tone":"flat"},
+      {"symbol":"SOXX","name":"半导体","price":521.33,"changePct":-1.89,"tone":"down"},
+      {"symbol":"DRAM","name":"存储ETF","price":55.17,"changePct":0.13,"tone":"flat"},
+      {"symbol":"MSTR","name":"Strategy","price":103.50,"changePct":11.87,"tone":"up"},
+      {"symbol":"BTC","name":"Bitcoin","price":68364,"changePct":5.78,"tone":"up"}
+    ],
+    "watchlist": [
+      {
+        "symbol":"DRAM","name":"Roundhill Memory ETF","price":55.17,"changePct":0.13,"tone":"flat",
+        "timeframes":{"15m":"bear","30m":"bear","1h":"bear","4h":"unknown"},
+        "verdict":"基本面利好，但价格确认不足；短周期偏弱",
+        "fundamental":"SK Hynix 回购构成直接利好，存储景气逻辑仍在",
+        "priceAction":"57.00 高开后回落，接近日内低位；好消息未转化为持续上涨",
+        "relativeStrength":"强于 SOXX，但盘中承接弱于消息强度",
+        "invalidation":"重新站稳 57.00–57.41 才能推翻短周期偏弱判断",
+        "support":"54.38（日内低）","resistance":"57.00–57.41（开盘/日高）"
+      },
+      {
+        "symbol":"MSTR","name":"Strategy Inc.","price":103.50,"changePct":11.87,"tone":"up",
+        "timeframes":{"15m":"neutral","30m":"bull","1h":"bull","4h":"unknown"},
+        "verdict":"BTC-MSTR 正向共振，价格确认强；短线防范冲高回吐",
+        "fundamental":"本时段主要驱动来自 BTC beta 与风险偏好，未确认新增公司结构催化",
+        "priceAction":"从 94.43 开盘上行至 106.88，现仍显著高于开盘价",
+        "relativeStrength":"显著强于 SPY/QQQ，与 BTC 同向且 beta 放大",
+        "invalidation":"跌回 94.43 下方并伴随 BTC 转弱，则日内强势结构失效",
+        "support":"94.43（开盘）/ 92.45（日低）","resistance":"106.88（日内高）"
+      }
+    ],
+    "news": [
+      {"directness":"宏观直接","title":"美国财政部提高长债回购操作规模，长端收益率回落","summary":"长债流动性支持缓和折现率压力，利于大盘估值修复；但未能带动半导体同步转强。","impact":"中性偏多","tone":"positive","url":"https://www.reuters.com/world/china/global-markets-global-markets-2026-08-19/"},
+      {"directness":"DRAM直接","title":"SK Hynix 宣布大规模股票回购与注销计划","summary":"公司层面利好明确，但 DRAM 高开回落，形成“好消息、弱价格”的警示信号。","impact":"利好 / 价格背离","tone":"flat","url":"https://www.reuters.com/legal/transactional/sk-hynix-buy-back-cancel-29-billion-worth-treasury-shares-2026-08-19/"},
+      {"directness":"MSTR直接","title":"Bitcoin 上破 68,000 美元，MSTR beta 明显放大","summary":"BTC 约涨 5.8%，MSTR 约涨 11.9%，属于 BTC 强、MSTR 更强的正向共振。","impact":"利好","tone":"positive","url":"https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-08-19-2026/card/bitcoin-rises-above-68-000-crypto-stocks-surge-RzCkPHMLFjojfHSUhlTJ"}
+    ],
+    "matrix": [
+      {"asset":"市场","macro":"+","fundamental":"0","positioning":"0","price":"+","verdict":"轮动 / 温和修复"},
+      {"asset":"DRAM","macro":"+","fundamental":"+","positioning":"-","price":"-","verdict":"冲突，待价格确认"},
+      {"asset":"MSTR","macro":"+","fundamental":"0","positioning":"0","price":"+","verdict":"趋势偏强"}
+    ],
+    "scenarios": [
+      {"label":"基准","text":"指数维持温和修复，半导体继续落后；DRAM 震荡，MSTR 随 BTC 保持高 beta。"},
+      {"label":"偏多触发","text":"SOXX 止跌、DRAM 重回 57.00 上方；BTC 守住 68,000 且 MSTR 不跌回开盘价。"},
+      {"label":"偏空 / 失效","text":"长端收益率重新快速上行，SOXX 再破日低；或 BTC 回落且 MSTR 跌回 94.43 下方。"},
+      {"label":"唯一确认项","text":"观察 SOXX 与 DRAM 是否从“利好不涨”切换为价格同步确认。"}
+    ],
+    "sources": [
+      {"label":"行情","name":"市场行情快照（约 2026-08-20 03:33 中国时间）","note":"价格为准实时快照，非收盘价"},
+      {"label":"宏观","name":"Reuters · Global yields fall after Treasury boosts debt buybacks","url":"https://www.reuters.com/world/china/global-markets-global-markets-2026-08-19/"},
+      {"label":"存储","name":"Reuters · SK Hynix buyback plan","url":"https://www.reuters.com/legal/transactional/sk-hynix-buy-back-cancel-29-billion-worth-treasury-shares-2026-08-19/"},
+      {"label":"边界","name":"15m/30m/1h 为依据开盘、高低点与当前价格的结构判断；4h 指标未可靠获取，未编造 EMA/RSI/MACD"}
+    ]
+  },
+  "sources": []
+}
