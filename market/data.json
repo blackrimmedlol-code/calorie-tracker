@@ -18,7 +18,9 @@
     {"group":"行情 / K线","status":"多源交叉","method":"交易所与基金官网优先；TradingView、Barchart、Yahoo/Nasdaq 补充分钟、小时和日线 OHLC。"},
     {"group":"宏观 / 波动","status":"官方优先","method":"美联储、财政部、FRED、CME FedWatch、Cboe VIX 与 Reuters 交叉验证。"},
     {"group":"DRAM 链条","status":"持仓穿透","method":"Roundhill 持仓 + Micron、SK Hynix、Samsung、SanDisk/Kioxia 与 TrendForce。"},
-    {"group":"MSTR / BTC","status":"联动校验","method":"Strategy/SEC + BTC 价格、现货 ETF 资金流、COIN/IBIT 与加密市场新闻。"}
+    {"group":"MSTR / BTC","status":"联动校验","method":"Strategy/SEC + BTC 价格、现货 ETF 资金流、COIN/IBIT 与加密市场新闻。"},
+    {"group":"期权 / 仓位","status":"条件使用","method":"Cboe、CME、Nasdaq 期权链与可靠的成交/未平仓数据；没有完整序列时只说明边界，不虚构 gamma、IV 或挤压结论。"},
+    {"group":"跨资产 / 广度","status":"机制校验","method":"2Y/10Y/30Y、DXY、VIX、油金与行业广度共同验证；市场指数、SOXX、同业与持仓价格必须分层观察。"}
   ],
   "premarket": {
     "updatedAt": null,
@@ -35,7 +37,16 @@
     "news": [],
     "matrix": [],
     "scenarios": [],
-    "sources": []
+    "sources": [],
+    "horizons": {
+      "MARKET":{"short":{"bias":"待确认","confidence":"低","posture":"等待盘前数据","driver":"19:30 任务将建立当日先验","trigger":"至少两层信号同向","invalidation":"价格确认推翻宏观先验"},"medium":{"bias":"待确认","posture":"保留风险预算","driver":"增长、通胀、流动性与风险定价待更新","trigger":"跨资产与日线结构同向","invalidation":"因果链关键环节失效"}},
+      "DRAM":{"short":{"bias":"待确认","posture":"等待五周期更新","driver":"价格与 SOXX/同业广度待交叉验证","trigger":"关键位与小时结构确认","invalidation":"价格背离基本面"},"medium":{"bias":"待确认","posture":"控制隔夜仓位","driver":"存储景气、库存、CapEx 与日线结构待更新","trigger":"基本面与日线共振","invalidation":"景气证据或价格结构恶化"}},
+      "MSTR":{"short":{"bias":"待确认","posture":"等待 BTC-MSTR 联动","driver":"BTC、mNAV 与价格相对强弱待更新","trigger":"BTC 与 MSTR 同向确认","invalidation":"BTC-MSTR 负面背离"},"medium":{"bias":"待确认","posture":"控制高 beta 风险","driver":"BTC 流动性、ETF 流与融资供给待更新","trigger":"BTC 趋势与 mNAV 结构同向","invalidation":"融资供给压过 BTC beta"}}
+    },
+    "macroFramework":{"pillars":[],"chain":[]},
+    "expectationGaps":[],
+    "odds":[],
+    "oddsMethod":"60 日分位判断短线延伸，252 日分位判断中期位置；只使用真实历史序列。极端分位必须叠加新催化与价格确认。"
   },
   "intraday": {
     "updatedAt": "2026-08-20T03:33:00+08:00",
@@ -47,6 +58,33 @@
     "reviewNote": "宏观压力缓和，但持仓内部走势显著分化",
     "riskAppetite": "震荡偏强",
     "riskNote": "广度改善，科技与半导体仍构成拖累",
+    "horizons": {
+      "MARKET":{"short":{"bias":"中性","confidence":"中","posture":"按轮动交易，不追指数","driver":"SPY 温和修复，但 QQQ 与 SOXX 未形成全面 risk-on","trigger":"SOXX 止跌且广度继续改善","invalidation":"长端收益率回升并伴随指数破位"},"medium":{"bias":"中性","posture":"保留风险预算，谨慎隔夜","driver":"流动性边际改善，但行业定价分化，尚不足以确认新趋势","trigger":"利率、波动率、行业广度与日线结构持续同向","invalidation":"流动性改善未传导到盈利敏感板块"}},
+      "DRAM":{"short":{"bias":"偏空","confidence":"中","posture":"只按反弹看，等待重回 57","driver":"利好后高开回落，15m 至 4h 均未给价格确认","trigger":"重新站稳 57.00–57.41 且相对 SOXX 转强","invalidation":"跌破 54.38 并扩大弱势"},"medium":{"bias":"中性偏空","posture":"降低隔夜权限","driver":"存储景气逻辑仍在，但日线与消息兑现效率偏弱","trigger":"日线收回 57.41 并由同业广度确认","invalidation":"基本面利好持续被卖出或日线继续走低"}},
+      "MSTR":{"short":{"bias":"偏多","confidence":"中","posture":"等回踩，不追高位扩张","driver":"BTC 上行、MSTR beta 放大，30m/1h/4h 同向","trigger":"守住 94.43 且 BTC 维持 68,000 附近强势","invalidation":"跌回 94.43 下方并伴随 BTC 转弱"},"medium":{"bias":"偏多","posture":"允许小仓隔夜，限制高 beta","driver":"BTC-MSTR 正向共振，但仍需 mNAV 与融资供给确认","trigger":"BTC 日线趋势与 MSTR 相对 IBIT/COIN 强势延续","invalidation":"BTC 稳定而 MSTR 持续落后，显示 mNAV 压缩或供给压力"}}
+    },
+    "macroFramework": {
+      "pillars": [
+        {"key":"growth","label":"增长","state":"中性","direction":"neutral","evidence":"本时段未见足以改变增长预期的新数据；大盘修复但行业表现分化。","transmission":"增长预期暂未成为当晚主要驱动。","invalidation":"新增硬数据或盈利指引显著改变增长定价。"},
+        {"key":"inflation","label":"通胀","state":"待确认","direction":"neutral","evidence":"当前简报没有取得新的完整通胀序列，不用油价或单项价格替代结论。","transmission":"暂不调整 Fed 路径先验。","invalidation":"新数据或 Fed 定价出现可验证跳变。"},
+        {"key":"liquidity","label":"流动性","state":"边际改善","direction":"positive","evidence":"财政部长债回购规模提高，长端收益率回落，缓和折现率压力。","transmission":"先支持久期估值，再观察能否扩散到半导体与持仓。","invalidation":"长端收益率重新快速上行。"},
+        {"key":"risk-pricing","label":"风险定价","state":"明显分化","direction":"neutral","evidence":"SPY 温和上涨、SOXX 下跌，而 BTC 与 MSTR 强势共振。","transmission":"只提高 MSTR 的短线 beta 预算，不上调所有风险资产。","invalidation":"SOXX 与 DRAM 同步转强，或 BTC/MSTR 共振破坏。"}
+      ],
+      "chain": [
+        {"from":"长债回购规模提高","through":"长端收益率回落 / 折现率缓和","to":"SPY 修复，但 SOXX 未确认","verdict":"部分确认","tone":"flat"},
+        {"from":"SK Hynix 回购利好","through":"存储链基本面预期改善","to":"DRAM 高开回落、价格未确认","verdict":"负面背离","tone":"negative"},
+        {"from":"BTC 上破 68,000","through":"beta 放大 / mNAV 扩张预期","to":"MSTR 涨幅显著高于 BTC","verdict":"确认","tone":"positive"}
+      ]
+    },
+    "expectationGaps": [
+      {"event":"长端流动性边际变化","kind":"宏观预期差","expected":"期限溢价与长端供给压力延续","actual":"财政部提高长债回购操作规模","reaction":"长端收益率回落，SPY 修复；SOXX 未同步","implication":"只能上调大盘估值支持，不能宣称全面 risk-on"},
+      {"event":"存储链消息兑现","kind":"持仓预期差","expected":"SK Hynix 回购利好带动存储链持续走强","actual":"DRAM 高开后回落至接近日内低位","reaction":"利好没有转化为持续价格确认","implication":"短线下调 DRAM，等待重新站稳 57.00–57.41"}
+    ],
+    "odds": [
+      {"asset":"DRAM","window":"60D","percentile":null},{"asset":"DRAM","window":"252D","percentile":null},
+      {"asset":"MSTR","window":"60D","percentile":null},{"asset":"MSTR","window":"252D","percentile":null}
+    ],
+    "oddsMethod":"当前数据文件没有足够历史序列，因此不编造分位。下一轮从真实日线计算 60 日短线延伸与 252 日中期位置；进入前/后 10% 仍需新催化和价格确认。",
     "snapshot": [
       {"symbol":"SPY","name":"标普500","price":770.01,"changePct":0.33,"tone":"up"},
       {"symbol":"QQQ","name":"纳指100","price":717.54,"changePct":0.00,"tone":"flat"},
@@ -122,6 +160,11 @@
       "failedAssumption":"公司层面的 DRAM 链利好会自然扩散为 ETF 的持续价格确认。",
       "modelChange":"半导体拥挤阶段提高“价格确认、相对 SOXX 强弱、利好兑现效率”的权重；消息本身不再等同于方向。"
     }
+  ],
+  "mediumLedger": [
+    {"openedAt":"2026-08-19","asset":"市场","thesis":"流动性边际改善只支持估值修复，尚未形成全面 risk-on。","evidenceFor":"长端收益率回落、SPY 修复。","evidenceAgainst":"SOXX 明显落后，QQQ 近乎持平。","status":"观察"},
+    {"openedAt":"2026-08-19","asset":"DRAM","thesis":"存储景气逻辑存在，但价格兑现效率下降，中期先降为中性偏空。","evidenceFor":"SK Hynix 回购与存储景气叙事。","evidenceAgainst":"DRAM 利好高开回落、日线结构偏弱。","status":"降级"},
+    {"openedAt":"2026-08-19","asset":"MSTR","thesis":"BTC 流动性与 beta 仍占主导，但需持续检查 mNAV 与融资供给。","evidenceFor":"BTC 与 MSTR 同向，MSTR 弹性更强。","evidenceAgainst":"尚未确认新增公司结构催化。","status":"有效"}
   ],
   "sources": []
 }
