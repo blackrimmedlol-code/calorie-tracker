@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-20T10:19:54+08:00"
+    "updatedAt": "2026-08-20T14:16:02+08:00"
   },
   "days": [
     {
@@ -390,9 +390,19 @@
     },
     {
       "date": "2026-08-20",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 665,
+      "records": [
+        {
+          "name": "三文鱼饭（煎三文鱼+溏心蛋+米饭+鱼籽）",
+          "calories": 665,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 38,
+        "carbs": 50,
+        "fat": 33
+      },
       "body": {
         "weightKg": 77.5
       }
@@ -425,7 +435,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 665
     }
   ]
 }
