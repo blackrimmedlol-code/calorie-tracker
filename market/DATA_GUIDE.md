@@ -2,7 +2,7 @@
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
-页面是纯静态 GitHub Pages：`index.html` 负责渲染，`data.json` 由四个策略任务更新。中国时间 19:30 建立先验、23:00 初次价格复核、02:00 午后盘再验证、美国收盘时最终收口。不要改动仓库根目录的卡路里 `data.json`。
+页面是纯静态 GitHub Pages：`index.html` 负责渲染，`data.json` 由四个策略任务更新。美东 09:00 建立先验（北京时间夏令时 21:00、冬令时 22:00）、北京时间 23:00 初次价格复核、02:00 午后盘再验证、美国收盘时最终收口。不要改动仓库根目录的卡路里 `data.json`。
 
 > 收盘以美东时间 16:00 为准：美国夏令时对应中国时间 04:00，冬令时对应 05:00。任务必须服从“收盘”而不是全年写死 04:00。
 
@@ -11,7 +11,7 @@
 重点标的唯一排序常量：`TARGET_ORDER = ["DRAM", "LITE", "SPCX", "MSTR"]`。动作板、快照、watchlist、分位、信号矩阵、复盘和中期账本只要同时出现这些标的，都必须按此顺序输出；市场基准可放在它们之前，BTC 等联动资产可放在之后。
 
 1. 更新前先读取 `market/data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
-2. 四个任务只替换各自对象：19:30=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
+2. 四个任务只替换各自对象：09:00 ET=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
 5. `snapshot` 最多 8 项，固定优先级为 SPY、QQQ、SOXX、DRAM、LITE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
@@ -24,10 +24,10 @@
 
 | 时段对象 | 名义时间 | 核心职责 | `meta.nextUpdate` |
 |---|---:|---|---|
-| `premarket` | 中国时间 19:30 | 建立可证伪先验、事件表与盘前风险预算 | 当日 23:00 |
-| `intraday` | 中国时间 23:00 | 用开盘后价格初验 19:30 判断 | 次日 02:00 |
+| `premarket` | 美东 09:00（北京夏令时 21:00 / 冬令时 22:00） | 建立可证伪先验、事件表与盘前风险预算 | 当日 23:00 |
+| `intraday` | 中国时间 23:00 | 用开盘后价格初验盘前判断 | 次日 02:00 |
 | `late` | 中国时间 02:00 | 检查午后延续/反转、量价和关键位 | 当日美股收盘 |
-| `close` | 美东 16:00 | 用完整日线最终收口、更新复盘 | 下一美股交易日 19:30 |
+| `close` | 美东 16:00 | 用完整日线最终收口、更新复盘 | 下一美股交易日 09:00 ET |
 
 - 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
 - `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
@@ -130,10 +130,10 @@ DRAM、LITE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为
 
 ## 复盘逻辑
 
-- 23:00：初次复核 19:30 判断。
+- 23:00：初次复核 09:00 ET 盘前判断。
 - 02:00：只记录相对 23:00 新出现的延续、反转或关键位破坏，不重复整份新闻。
 - 收盘：用完整日线最终复核当天判断，写入有效驱动、失效假设和模型调整；相同交易日的盘中复盘可以保留，但阶段必须不同。
-- 下一交易日 19:30：引用上一收盘复盘建立新先验，不重复造一份同义复盘。
+- 下一交易日 09:00 ET：引用上一收盘复盘建立新先验，不重复造一份同义复盘。
 - 复盘资产顺序固定为市场、DRAM、LITE、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
@@ -156,7 +156,7 @@ DRAM、LITE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为
 - DRAM、LITE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
-- 盘中版必须复核 19:30 判断，不得只是重复新闻。
+- 盘中版必须复核 09:00 ET 盘前判断，不得只是重复新闻。
 - DRAM/LITE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
 - `MARKET / DRAM / LITE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。

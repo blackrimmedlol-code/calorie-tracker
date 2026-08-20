@@ -3,7 +3,7 @@
     "updatedAt": "2026-08-20T14:48:00+08:00",
     "latestSession": "intraday",
     "sessionDate": "2026-08-19",
-    "nextUpdate": "2026-08-20T19:30:00+08:00",
+    "nextUpdate": "2026-08-20T21:00:00+08:00",
     "timezone": "Asia/Shanghai"
   },
   "snapshot": [
@@ -32,7 +32,7 @@
     "updateStatus": "尚未生成",
     "regime": "待更新",
     "confidence": "低",
-    "thesis": "页面结构与数据规则已升级；下一次 19:30 任务将写入五周期判断、日线结构和上一交易日复盘。",
+    "thesis": "页面结构与数据规则已升级；下一次 09:00 ET 盘前任务将写入五周期判断、日线结构和上一交易日复盘。",
     "watchVariable": "长端美债收益率能否继续回落",
     "reviewStatus": "等待生成",
     "reviewNote": "盘前版将承接上一交易日收盘复盘",
@@ -45,7 +45,7 @@
     "scenarios": [],
     "sources": [],
     "horizons": {
-      "MARKET":{"short":{"bias":"待确认","confidence":"低","posture":"等待盘前数据","driver":"19:30 任务将建立当日先验","trigger":"至少两层信号同向","invalidation":"价格确认推翻宏观先验"},"medium":{"bias":"待确认","posture":"保留风险预算","driver":"增长、通胀、流动性与风险定价待更新","trigger":"跨资产与日线结构同向","invalidation":"因果链关键环节失效"}},
+      "MARKET":{"short":{"bias":"待确认","confidence":"低","posture":"等待盘前数据","driver":"09:00 ET 任务将建立当日先验","trigger":"至少两层信号同向","invalidation":"价格确认推翻宏观先验"},"medium":{"bias":"待确认","posture":"保留风险预算","driver":"增长、通胀、流动性与风险定价待更新","trigger":"跨资产与日线结构同向","invalidation":"因果链关键环节失效"}},
       "DRAM":{"short":{"bias":"待确认","posture":"等待五周期更新","driver":"价格与 SOXX/同业广度待交叉验证","trigger":"关键位与小时结构确认","invalidation":"价格背离基本面"},"medium":{"bias":"待确认","posture":"控制隔夜仓位","driver":"存储景气、库存、CapEx 与日线结构待更新","trigger":"基本面与日线共振","invalidation":"景气证据或价格结构恶化"}},
       "LITE":{"short":{"bias":"待确认","posture":"等待五周期更新","driver":"Lumentum 价格、COHR 与光通信链广度待交叉验证","trigger":"关键位与小时结构确认","invalidation":"AI 光连接逻辑未获价格确认"},"medium":{"bias":"待确认","posture":"控制高波动隔夜仓位","driver":"云厂商 CapEx、光连接需求与日线结构待更新","trigger":"基本面与日线共振","invalidation":"需求证据或价格结构恶化"}},
       "SPCX":{"short":{"bias":"待确认","posture":"按 IPO 高波动标的处理","driver":"上市后价格发现、成交量与催化待更新","trigger":"关键位与量价结构确认","invalidation":"跌破上市后有效结构"},"medium":{"bias":"待确认","posture":"限制隔夜与单笔风险","driver":"Starlink、发射、AI 业务与上市后估值消化待更新","trigger":"基本面催化与日线共振","invalidation":"估值压缩或业务催化失效"}},
