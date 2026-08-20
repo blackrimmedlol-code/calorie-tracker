@@ -1,13 +1,15 @@
-# 美股策略台数据维护指南 · v4
+# 美股策略台数据维护指南 · v5
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
-页面是纯静态 GitHub Pages：`index.html` 负责渲染，`data.json` 由 19:30 盘前任务与 23:00 盘中任务更新。不要改动仓库根目录的卡路里 `data.json`。
+页面是纯静态 GitHub Pages：`index.html` 负责渲染，`data.json` 由四个策略任务更新。中国时间 19:30 建立先验、23:00 初次价格复核、02:00 午后盘再验证、美国收盘时最终收口。不要改动仓库根目录的卡路里 `data.json`。
+
+> 收盘以美东时间 16:00 为准：美国夏令时对应中国时间 04:00，冬令时对应 05:00。任务必须服从“收盘”而不是全年写死 04:00。
 
 ## 写入规则
 
-1. 更新前先读取 `market/data.json`，保留另一时段、`sourceGroups` 和历史 `reviews`。
-2. 盘前任务只替换 `premarket`，盘中任务只替换 `intraday`；两者都要维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
+1. 更新前先读取 `market/data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
+2. 四个任务只替换各自对象：19:30=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
 5. `snapshot` 最多 6 项，固定优先级为 SPY、QQQ、SOXX、DRAM、MSTR、BTC。
@@ -16,9 +18,39 @@
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
 9. 每次更新直接提交到 `main`，GitHub Pages 通常 1–2 分钟后生效。
 
+## 四时段链路与 nextUpdate
+
+| 时段对象 | 名义时间 | 核心职责 | `meta.nextUpdate` |
+|---|---:|---|---|
+| `premarket` | 中国时间 19:30 | 建立可证伪先验、事件表与盘前风险预算 | 当日 23:00 |
+| `intraday` | 中国时间 23:00 | 用开盘后价格初验 19:30 判断 | 次日 02:00 |
+| `late` | 中国时间 02:00 | 检查午后延续/反转、量价和关键位 | 当日美股收盘 |
+| `close` | 美东 16:00 | 用完整日线最终收口、更新复盘 | 下一美股交易日 19:30 |
+
+- 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
+- `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
+- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、MSTR。字段：`asset / from / to / reason / tone`，只写相对上一有效时段真正改变的判断。
+
+## 数据时效与价格地图
+
+每个时段固定写 `freshness`：
+
+- `quotes`：盘前/盘中/收盘行情的实际 `asOf`；
+- `timeframes`：15m/30m/1h/4h 的获取或聚合时点；
+- `daily`：日线与分位数据的截止交易日，不能和盘中现价混写；
+- `macro`：宏观信息的截止时点。
+
+DRAM、MSTR 的 watchlist 项必须额外写：
+
+- `priceStatus`：例如 `盘中价 · 23:00`、`收盘价 · 04:00`；
+- `supportValue / resistanceValue`：用于计算现价到一级支撑、阻力的距离；对应文字仍放在 `support / resistance`；
+- 结构化数值必须与文字价位一致。支撑或阻力为区间时，用最近、最可执行的一侧作为 value，并在文字中保留完整区间。
+
 ## 双周期操作卡
 
 每个时段的 `horizons` 固定包含 `MARKET / DRAM / MSTR`，每个对象分别包含：
+
+- `permissions`：`chase / overnight / beta`，把宏观框架压缩为追价权限、隔夜权限和 beta 预算；
 
 - `short`：0–3 个交易日，字段为 `bias / confidence / posture / driver / trigger / invalidation`。
 - `medium`：1–6 周，字段为 `bias / posture / driver / trigger / invalidation`。
@@ -79,8 +111,10 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 
 ## 复盘逻辑
 
-- 23:00：复核当天 19:30 判断，分别记录市场、DRAM、MSTR 的“原判断 → 实际表现 → 确认/部分确认/失效”。
-- 下一交易日 19:30：用前一交易日收盘数据完成最终复盘，并写入有效驱动、失效假设和模型调整。
+- 23:00：初次复核 19:30 判断。
+- 02:00：只记录相对 23:00 新出现的延续、反转或关键位破坏，不重复整份新闻。
+- 收盘：用完整日线最终复核当天判断，写入有效驱动、失效假设和模型调整；相同交易日的盘中复盘可以保留，但阶段必须不同。
+- 下一交易日 19:30：引用上一收盘复盘建立新先验，不重复造一份同义复盘。
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
 - 历史最新在前；相同日期与阶段应更新原条目，不重复追加。满 20 条短线样本前只展示样本数，不展示命中率。
@@ -91,11 +125,16 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 - `timeframes`: `bull | bear | neutral | unknown`
 - 复盘结果：`确认 | 部分确认 | 失效`
 - 矩阵信号：`+ | 0 | -`
-- `latestSession`: `premarket | intraday`
+- `latestSession`: `premarket | intraday | late | close`
+- `updateStatus`: `按时更新 | 延迟补跑 | 数据不完整`
 
 ## 质量检查
 
 - JSON 可解析，且未覆盖另一时段内容或复盘历史。
+- 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
+- 市场、DRAM、MSTR 的 `changes` 完整；每个数据模块都有实际时点和状态标签。
+- DRAM、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
+- 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
 - 盘中版必须复核 19:30 判断，不得只是重复新闻。
 - DRAM/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
 - `MARKET / DRAM / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。

@@ -23,7 +23,9 @@
     {"group":"跨资产 / 广度","status":"机制校验","method":"2Y/10Y/30Y、DXY、VIX、油金与行业广度共同验证；市场指数、SOXX、同业与持仓价格必须分层观察。"}
   ],
   "premarket": {
+    "available": false,
     "updatedAt": null,
+    "updateStatus": "尚未生成",
     "regime": "待更新",
     "confidence": "低",
     "thesis": "页面结构与数据规则已升级；下一次 19:30 任务将写入五周期判断、日线结构和上一交易日复盘。",
@@ -49,7 +51,22 @@
     "oddsMethod":"60 日分位判断短线延伸，252 日分位判断中期位置；只使用真实历史序列。极端分位必须叠加新催化与价格确认。"
   },
   "intraday": {
+    "available": true,
     "updatedAt": "2026-08-20T03:33:00+08:00",
+    "updateStatus": "延迟补跑",
+    "sessionContext": "名义 23:00 盘中版 · 实际 03:33 补跑 · 接近收盘",
+    "deltaLabel": "19:30 先验 → 本轮价格复核",
+    "changes": [
+      {"asset":"市场","from":"宏观支持修复","to":"轮动","tone":"flat","reason":"SPY 修复，但 QQQ 近持平、SOXX 明显落后，未形成全面 risk-on。"},
+      {"asset":"DRAM","from":"利好待确认","to":"偏空","tone":"negative","reason":"SK Hynix 利好后高开回落，价格兑现效率不足。"},
+      {"asset":"MSTR","from":"BTC 方向锚","to":"偏多","tone":"positive","reason":"BTC +5.78%、MSTR +11.87%，方向与 beta 同步确认。"}
+    ],
+    "freshness": {
+      "quotes":{"status":"盘中补跑","asOf":"2026-08-20 03:33 中国时间"},
+      "timeframes":{"status":"直接 + 聚合","asOf":"15m/30m/1h 直接；4h 小时聚合"},
+      "daily":{"status":"延迟日线","asOf":"2026-08-19 收盘；与盘中现价分离"},
+      "macro":{"status":"本轮交叉验证","asOf":"截至本轮补跑可确认信息"}
+    },
     "regime": "轮动",
     "confidence": "中",
     "thesis": "大盘温和修复，但半导体继续明显落后；BTC 与 MSTR 共振上行，DRAM 则出现利好与价格确认不足的分化。当前不是全面 risk-on，而是跨板块强轮动。",
@@ -59,9 +76,9 @@
     "riskAppetite": "震荡偏强",
     "riskNote": "广度改善，科技与半导体仍构成拖累",
     "horizons": {
-      "MARKET":{"short":{"bias":"中性","confidence":"中","posture":"按轮动交易，不追指数","driver":"SPY 温和修复，但 QQQ 与 SOXX 未形成全面 risk-on","trigger":"SOXX 止跌且广度继续改善","invalidation":"长端收益率回升并伴随指数破位"},"medium":{"bias":"中性","posture":"保留风险预算，谨慎隔夜","driver":"流动性边际改善，但行业定价分化，尚不足以确认新趋势","trigger":"利率、波动率、行业广度与日线结构持续同向","invalidation":"流动性改善未传导到盈利敏感板块"}},
-      "DRAM":{"short":{"bias":"偏空","confidence":"中","posture":"只按反弹看，等待重回 57","driver":"利好后高开回落，15m 至 4h 均未给价格确认","trigger":"重新站稳 57.00–57.41 且相对 SOXX 转强","invalidation":"跌破 54.38 并扩大弱势"},"medium":{"bias":"中性偏空","posture":"降低隔夜权限","driver":"存储景气逻辑仍在，但日线与消息兑现效率偏弱","trigger":"日线收回 57.41 并由同业广度确认","invalidation":"基本面利好持续被卖出或日线继续走低"}},
-      "MSTR":{"short":{"bias":"偏多","confidence":"中","posture":"等回踩，不追高位扩张","driver":"BTC 上行、MSTR beta 放大，30m/1h/4h 同向","trigger":"守住 94.43 且 BTC 维持 68,000 附近强势","invalidation":"跌回 94.43 下方并伴随 BTC 转弱"},"medium":{"bias":"偏多","posture":"允许小仓隔夜，限制高 beta","driver":"BTC-MSTR 正向共振，但仍需 mNAV 与融资供给确认","trigger":"BTC 日线趋势与 MSTR 相对 IBIT/COIN 强势延续","invalidation":"BTC 稳定而 MSTR 持续落后，显示 mNAV 压缩或供给压力"}}
+      "MARKET":{"permissions":{"chase":"禁止","overnight":"谨慎","beta":"标准"},"short":{"bias":"中性","confidence":"中","posture":"按轮动交易，不追指数","driver":"SPY 温和修复，但 QQQ 与 SOXX 未形成全面 risk-on","trigger":"SOXX 止跌且广度继续改善","invalidation":"长端收益率回升并伴随指数破位"},"medium":{"bias":"中性","posture":"保留风险预算，谨慎隔夜","driver":"流动性边际改善，但行业定价分化，尚不足以确认新趋势","trigger":"利率、波动率、行业广度与日线结构持续同向","invalidation":"流动性改善未传导到盈利敏感板块"}},
+      "DRAM":{"permissions":{"chase":"禁止","overnight":"降低","beta":"收缩"},"short":{"bias":"偏空","confidence":"中","posture":"只按反弹看，等待重回 57","driver":"利好后高开回落，15m 至 4h 均未给价格确认","trigger":"重新站稳 57.00–57.41 且相对 SOXX 转强","invalidation":"跌破 54.38 并扩大弱势"},"medium":{"bias":"中性偏空","posture":"降低隔夜权限","driver":"存储景气逻辑仍在，但日线与消息兑现效率偏弱","trigger":"日线收回 57.41 并由同业广度确认","invalidation":"基本面利好持续被卖出或日线继续走低"}},
+      "MSTR":{"permissions":{"chase":"禁止","overnight":"小仓允许","beta":"受限"},"short":{"bias":"偏多","confidence":"中","posture":"等回踩，不追高位扩张","driver":"BTC 上行、MSTR beta 放大，30m/1h/4h 同向","trigger":"守住 94.43 且 BTC 维持 68,000 附近强势","invalidation":"跌回 94.43 下方并伴随 BTC 转弱"},"medium":{"bias":"偏多","posture":"允许小仓隔夜，限制高 beta","driver":"BTC-MSTR 正向共振，但仍需 mNAV 与融资供给确认","trigger":"BTC 日线趋势与 MSTR 相对 IBIT/COIN 强势延续","invalidation":"BTC 稳定而 MSTR 持续落后，显示 mNAV 压缩或供给压力"}}
     },
     "macroFramework": {
       "pillars": [
@@ -97,7 +114,7 @@
     ],
     "watchlist": [
       {
-        "symbol":"DRAM","name":"Roundhill Memory ETF","price":55.17,"changePct":0.13,"tone":"flat",
+        "symbol":"DRAM","name":"Roundhill Memory ETF","price":55.17,"changePct":0.13,"tone":"flat","priceStatus":"盘中价 · 03:33 补跑",
         "timeframes":{"15m":"bear","30m":"bear","1h":"bear","4h":"bear","1d":"bear"},
         "timeframeMethods":{"15m":"direct","30m":"direct","1h":"direct","4h":"aggregate","1d":"daily"},
         "timeframeNotes":{"15m":"高开回落后仍靠近日内低位","30m":"反弹未收复开盘区","1h":"小时结构低于日内中枢","4h":"由盘中小时结构与前一交易日走势聚合判断","1d":"日线高开回落，未收复前一交易日弱势结构"},
@@ -106,10 +123,10 @@
         "priceAction":"57.00 高开后回落，接近日内低位；好消息未转化为持续上涨",
         "relativeStrength":"强于 SOXX，但盘中承接弱于消息强度",
         "invalidation":"重新站稳 57.00–57.41 才能推翻短周期偏弱判断",
-        "support":"54.38（日内低）","resistance":"57.00–57.41（开盘/日高）"
+        "support":"54.38（日内低）","supportValue":54.38,"resistance":"57.00–57.41（开盘/日高）","resistanceValue":57.00
       },
       {
-        "symbol":"MSTR","name":"Strategy Inc.","price":103.50,"changePct":11.87,"tone":"up",
+        "symbol":"MSTR","name":"Strategy Inc.","price":103.50,"changePct":11.87,"tone":"up","priceStatus":"盘中价 · 03:33 补跑",
         "timeframes":{"15m":"neutral","30m":"bull","1h":"bull","4h":"bull","1d":"bull"},
         "timeframeMethods":{"15m":"direct","30m":"direct","1h":"direct","4h":"aggregate","1d":"daily"},
         "timeframeNotes":{"15m":"高位震荡，动能有所收敛","30m":"仍保持开盘价上方的上行结构","1h":"小时级别高点与低点同步抬升","4h":"由连续小时 K 线和当日 OHLC 聚合判断","1d":"日线大阳且显著高于开盘，延续近期修复"},
@@ -118,7 +135,7 @@
         "priceAction":"从 94.43 开盘上行至 106.88，现仍显著高于开盘价",
         "relativeStrength":"显著强于 SPY/QQQ，与 BTC 同向且 beta 放大",
         "invalidation":"跌回 94.43 下方并伴随 BTC 转弱，则日内强势结构失效",
-        "support":"94.43（开盘）/ 92.45（日低）","resistance":"106.88（日内高）"
+        "support":"94.43（开盘）/ 92.45（日低）","supportValue":94.43,"resistance":"106.88（日内高）","resistanceValue":106.88
       }
     ],
     "news": [
@@ -146,6 +163,16 @@
       {"label":"资金流","name":"Farside Bitcoin ETF Flow","url":"https://farside.co.uk/btc/","note":"只使用已确认完整交易日"},
       {"label":"方法","name":"4h 由连续小时 K 线聚合；1d 使用日线 OHLC 与近 5–20 个交易日结构","note":"不把“平台没有现成按钮”当成缺失理由"}
     ]
+  },
+  "late": {
+    "available": false,
+    "updatedAt": null,
+    "updateStatus": "等待首轮 02:00 更新"
+  },
+  "close": {
+    "available": false,
+    "updatedAt": null,
+    "updateStatus": "等待首轮收盘更新"
   },
   "reviews": [
     {
