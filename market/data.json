@@ -15,7 +15,7 @@
     {"symbol":"BTC","name":"Bitcoin","price":68364,"changePct":5.78,"tone":"up"}
   ],
   "sourceGroups": [
-    {"group":"行情 / K线","status":"多源交叉","method":"交易所与基金官网优先；TradingView、Barchart、Yahoo/Nasdaq 补充分钟、小时和日线 OHLC。"},
+    {"group":"行情 / K线","status":"多源交叉","method":"WeStock/腾讯自选股补齐结构化日线；交易所与基金官网优先，TradingView、Barchart、Yahoo/Nasdaq 补充分钟与小时 OHLC。"},
     {"group":"宏观 / 波动","status":"官方优先","method":"美联储、财政部、FRED、CME FedWatch、Cboe VIX 与 Reuters 交叉验证。"},
     {"group":"DRAM 链条","status":"持仓穿透","method":"Roundhill 持仓 + Micron、SK Hynix、Samsung、SanDisk/Kioxia 与 TrendForce。"},
     {"group":"MSTR / BTC","status":"联动校验","method":"Strategy/SEC + BTC 价格、现货 ETF 资金流、COIN/IBIT 与加密市场新闻。"},
@@ -81,10 +81,12 @@
       {"event":"存储链消息兑现","kind":"持仓预期差","expected":"SK Hynix 回购利好带动存储链持续走强","actual":"DRAM 高开后回落至接近日内低位","reaction":"利好没有转化为持续价格确认","implication":"短线下调 DRAM，等待重新站稳 57.00–57.41"}
     ],
     "odds": [
-      {"asset":"DRAM","window":"60D","percentile":null},{"asset":"DRAM","window":"252D","percentile":null},
-      {"asset":"MSTR","window":"60D","percentile":null},{"asset":"MSTR","window":"252D","percentile":null}
+      {"asset":"DRAM","window":"60D","percentile":30.8,"asOf":"2026-08-19","referencePrice":55.14,"sampleSize":60,"basis":"基金自身日线","source":"WeStock / 腾讯自选股","rangeLow":44.85,"rangeHigh":80.72},
+      {"asset":"DRAM","window":"252D","percentile":84.0,"asOf":"2026-08-19","referencePrice":55.14,"sampleSize":252,"basis":"代理：可追溯核心持仓按基金发行权重归一","source":"WeStock 日线 + Roundhill 发行持仓","proxy":true,"components":"MU / SNDK / WDC / STX","actualSinceLaunchPercentile":56.8,"actualSinceLaunchSample":96},
+      {"asset":"MSTR","window":"60D","percentile":67.5,"asOf":"2026-08-19","referencePrice":104.25,"sampleSize":60,"basis":"标的自身日线","source":"WeStock / 腾讯自选股","rangeLow":82.31,"rangeHigh":159.93},
+      {"asset":"MSTR","window":"252D","percentile":16.1,"asOf":"2026-08-19","referencePrice":104.25,"sampleSize":252,"basis":"标的自身日线","source":"WeStock / 腾讯自选股","rangeLow":82.31,"rangeHigh":359.69}
     ],
-    "oddsMethod":"当前数据文件没有足够历史序列，因此不编造分位。下一轮从真实日线计算 60 日短线延伸与 252 日中期位置；进入前/后 10% 仍需新催化和价格确认。",
+    "oddsMethod":"价格位置分位 =（窗口内低于参考收盘价的样本数 + 0.5 × 等于参考价的样本数）÷ 样本数。日线截至 2026-08-19，属于延迟 K 线，不等同盘中现价。DRAM 于 2026-04-02 上市：60D 用基金自身日线；252D 用发行时可追溯的核心美股持仓 MU、SNDK、WDC、STX 按发行权重归一后的分位代理，基金自身上市以来 96 根日线分位为 56.8%。代理只判断中期拥挤位置，不直接触发买卖。",
     "snapshot": [
       {"symbol":"SPY","name":"标普500","price":770.01,"changePct":0.33,"tone":"up"},
       {"symbol":"QQQ","name":"纳指100","price":717.54,"changePct":0.00,"tone":"flat"},
@@ -137,6 +139,7 @@
     ],
     "sources": [
       {"label":"行情","name":"TradingView · MSTR 图表与多周期技术概览","url":"https://www.tradingview.com/symbols/NASDAQ-MSTR/technicals/","note":"与交易所/历史 OHLC 交叉验证"},
+      {"label":"日线","name":"WeStock / 腾讯自选股 · DRAM、MSTR 与核心持仓历史 K 线","note":"数据截至 2026-08-19；用于 60D / 252D 价格位置分位，不称实时行情"},
       {"label":"DRAM","name":"Roundhill DRAM 官方基金页与持仓","url":"https://www.roundhillinvestments.com/etf/dram/","note":"用于持仓穿透和链条归因"},
       {"label":"宏观","name":"Cboe VIX 官方数据","url":"https://www.cboe.com/tradable-products/vix/","note":"波动率环境"},
       {"label":"利率","name":"CME FedWatch","url":"https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html","note":"政策预期"},
