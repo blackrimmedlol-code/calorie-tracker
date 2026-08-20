@@ -521,7 +521,23 @@
     </div>
   </section>
 
-  <!-- 4. Apple Fitness -->
+  <!-- 4. 近7天能量趋势 -->
+  <section class="card area-weekly" id="week">
+    <h2>近 7 天能量复盘</h2>
+    <div class="note" id="weekly-note">摄入、总消耗与活动热量 · 无 Apple 数据时以 TDEE 估算</div>
+    <div class="summary-grid" id="weekly-summary"></div>
+    <div class="weekly-chart-block"><div class="weekly-chart-title">摄入与目标区间</div><div id="weekly-intake-chart" class="chart" role="img"></div></div>
+    <div class="weekly-chart-block"><div class="weekly-chart-title">每日能量差</div><div id="weekly-balance-chart" class="chart" role="img"></div></div>
+  </section>
+
+  <!-- 5. 近 7 天饮食档案 -->
+  <section class="card area-diet-history">
+    <h2>近 7 天饮食记录</h2>
+    <div class="note diet-history-note" id="diet-history-note"></div>
+    <div id="diet-history-days"></div>
+  </section>
+
+  <!-- 6. Apple Fitness -->
   <section class="card area-activity">
     <h2>活动与运动</h2>
     <div class="note" id="activity-note">等待晚间同步 Apple Fitness</div>
@@ -539,22 +555,6 @@
         <div class="activity-ledger-body" id="activity-history-days"></div>
       </details>
     </div>
-  </section>
-
-  <!-- 5. 近 7 天饮食档案 -->
-  <section class="card area-diet-history">
-    <h2>近 7 天饮食记录</h2>
-    <div class="note diet-history-note" id="diet-history-note"></div>
-    <div id="diet-history-days"></div>
-  </section>
-
-  <!-- 6. 近7天能量趋势 -->
-  <section class="card area-weekly" id="week">
-    <h2>近 7 天能量复盘</h2>
-    <div class="note" id="weekly-note">摄入、总消耗与活动热量 · 无 Apple 数据时以 TDEE 估算</div>
-    <div class="summary-grid" id="weekly-summary"></div>
-    <div class="weekly-chart-block"><div class="weekly-chart-title">摄入与目标区间</div><div id="weekly-intake-chart" class="chart" role="img"></div></div>
-    <div class="weekly-chart-block"><div class="weekly-chart-title">每日能量差</div><div id="weekly-balance-chart" class="chart" role="img"></div></div>
   </section>
 
   <!-- 7. 体重趋势 -->
