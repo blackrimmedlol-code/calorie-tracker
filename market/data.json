@@ -1,9 +1,9 @@
 {
   "meta": {
-    "updatedAt": "2026-08-20T23:00:45+08:00",
-    "latestSession": "intraday",
+    "updatedAt": "2026-08-21T02:01:51+08:00",
+    "latestSession": "late",
     "sessionDate": "2026-08-20",
-    "nextUpdate": "2026-08-21T02:00:00+08:00",
+    "nextUpdate": "2026-08-21T04:00:00+08:00",
     "timezone": "Asia/Shanghai"
   },
   "snapshot": [
@@ -1681,9 +1681,765 @@
     ]
   },
   "late": {
-    "available": false,
-    "updatedAt": null,
-    "updateStatus": "等待首轮 02:00 更新"
+    "available": true,
+    "updatedAt": "2026-08-21T02:01:51+08:00",
+    "updateStatus": "按时更新",
+    "sessionContext": "北京时间 02:00 午后盘再验证 · 美东约 14:00 · 行情截至 13:46–13:47 ET",
+    "deltaLabel": "相对 23:00 盘中初验的新增变化",
+    "regime": "大盘继续走弱 / 个股分化扩大",
+    "confidence": "中",
+    "thesis": "相对 23:00，指数和市场广度继续恶化，SOXX 也从 +0.80% 回落至 +0.18%；DRAM 跌回 57 下方但仍高于开盘，同业保持上涨，突破由“确认”降为“待收盘”；LITE 逆势站上 873.31，但 COHR 转跌，属于个股强于行业；SPCX 放量跌破 132.40并刷新 130.43 低点，供给压力延续；MSTR 随 BTC 回升，beta 边际恢复。",
+    "watchVariable": "收盘前 DRAM 能否重回 57、LITE 能否守住 873.31、SPCX 能否停止在 130.43 下方扩量，以及 MSTR 能否收复 112.99",
+    "largestChange": "SPCX 成交从约 4227 万股扩大至约 8291 万股并刷新日低，负向趋势延续最明确；LITE 则在大盘走弱时站上关键位，形成最强正向反转。",
+    "reviewStatus": "分化延续",
+    "reviewNote": "23:00 的市场偏弱和 SPCX 风险继续确认；DRAM 突破强度下降，LITE 与 MSTR 改善。",
+    "riskAppetite": "进一步收缩 / 个股选择性",
+    "riskNote": "SPY、QQQ、DIA、IWM 均扩大跌幅，SOXX 仅勉强为正；只保留 LITE 与加密链的条件性权限。",
+    "freshness": {
+      "quotes": {
+        "status": "正式盘近实时",
+        "asOf": "2026-08-20 13:46–13:47 ET；BTC 为同期连续市场报价"
+      },
+      "timeframes": {
+        "status": "午后 OHLC 结构推断",
+        "asOf": "15m/30m/1h 依据 23:00 后价格变化、开盘区和日内高低；4h 依据当日小时结构与前 3–5 日；精确 VWAP 未取得"
+      },
+      "daily": {
+        "status": "日线仍未收盘",
+        "asOf": "完整日线与 60D/252D 分位仍截至 2026-08-19；08-20 盘中价不计入历史窗口"
+      },
+      "macro": {
+        "status": "新增证据已更新",
+        "asOf": "截至 2026-08-20 13:47 ET；10Y 约 4.688%、30Y 约 5.225%，油价代理 USO +2.85%"
+      }
+    },
+    "changes": [
+      {
+        "asset": "市场",
+        "from": "指数承压、半导体逆势",
+        "to": "指数继续走弱、半导体优势收窄",
+        "tone": "down",
+        "reason": "SPY 767.38→764.66、QQQ 713.77→710.96、SOXX 523.85→520.60；DIA -1.01%、IWM -1.35%，广度进一步恶化。"
+      },
+      {
+        "asset": "DRAM",
+        "from": "57 突破确认",
+        "to": "跌回确认位下方 / 待收盘",
+        "tone": "flat",
+        "reason": "57.47→56.92，低于 57.00–57.10，但仍高于开盘 56.35；MU/SNDK/WDC/STX 仍全部上涨，行业逻辑未失效。"
+      },
+      {
+        "asset": "LITE",
+        "from": "深 V 修复但 873.31 未收复",
+        "to": "站上 873.31",
+        "tone": "up",
+        "reason": "862.82→875.08，并刷新高点至 878.17；但 COHR 从 +0.42% 转为 -0.74%，本轮更偏个股强势而非光通信链全面共振。"
+      },
+      {
+        "asset": "SPCX",
+        "from": "放量跌破 136.72",
+        "to": "跌破 132.40并继续扩量",
+        "tone": "down",
+        "reason": "133.47→131.46，新低 130.43；成交从约 4227 万股增至约 8291 万股，解禁供给压力继续兑现。"
+      },
+      {
+        "asset": "MSTR",
+        "from": "高开回落 / beta 压缩",
+        "to": "午后回升 / beta 恢复",
+        "tone": "up",
+        "reason": "109.30→111.65，BTC 71,736→72,758；MSTR +7.10%、BTC +6.72%、IBIT +6.24%、COIN +7.62%，方向和相对弹性重新接近同步。"
+      }
+    ],
+    "horizons": {
+      "MARKET": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "谨慎",
+          "beta": "收缩 / 仅个股"
+        },
+        "short": {
+          "bias": "偏空",
+          "confidence": "中",
+          "posture": "不抄指数午后下跌，等待收盘结构",
+          "driver": "长端收益率与油价高位，指数和小盘跌幅扩大，SOXX 正向背离显著收窄",
+          "trigger": "SPY 收回 766.04开盘、QQQ 收回 712.36开盘且 SOXX 重新扩大领先",
+          "invalidation": "SPY 跌破 764.27且 VIX 继续上升"
+        },
+        "medium": {
+          "bias": "中性偏空",
+          "posture": "降低整体 beta，保留结构性仓位",
+          "driver": "流动性缓冲不足，油价和期限溢价继续限制估值扩张",
+          "trigger": "10Y/30Y 回落、油价降温并出现 IWM/DIA 广度修复",
+          "invalidation": "收益率与油价继续共振上行"
+        }
+      },
+      "DRAM": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "小仓 / 需收盘确认",
+          "beta": "标准以下"
+        },
+        "short": {
+          "bias": "中性偏多",
+          "confidence": "中",
+          "posture": "不追，等重新站回 57或回踩 56.35",
+          "driver": "行业同业仍涨，但价格从 57.47 回到 56.92，突破承接减弱",
+          "trigger": "收盘前重新站稳 57.00–57.10并挑战 57.72",
+          "invalidation": "跌破开盘 56.35；失守 55.39则本轮修复失效"
+        },
+        "medium": {
+          "bias": "中性偏多",
+          "posture": "隔夜只留小仓，等待完整日线",
+          "driver": "存储景气与同业广度仍支持，但 ETF 价格尚未把突破锁定到收盘",
+          "trigger": "完整日线收于 57.10上方且核心持仓保持正向广度",
+          "invalidation": "收盘跌回 55.14附近或再次出现利好高开低走"
+        }
+      },
+      "LITE": {
+        "permissions": {
+          "chase": "降低 / 不追直线",
+          "overnight": "小仓允许",
+          "beta": "标准以下"
+        },
+        "short": {
+          "bias": "偏多",
+          "confidence": "中",
+          "posture": "等 873.31 回踩承接，不追 878 附近",
+          "driver": "午后站上 873.31并接近日高，但 COHR 转跌，个股与行业广度背离",
+          "trigger": "守住 873.31并突破 878.17",
+          "invalidation": "跌回 868.83下方先降级；失守 827.60则修复失效"
+        },
+        "medium": {
+          "bias": "中性偏多",
+          "posture": "允许小仓观察，等待日线与同业确认",
+          "driver": "AI 光连接逻辑未变，LITE 自身价格确认增强，但 COHR/光通信链未同步",
+          "trigger": "日线收于 873.31上方且后续 COHR/同业转强",
+          "invalidation": "日线重新跌破 827.60或公司/云厂商需求证据转弱"
+        }
+      },
+      "SPCX": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "禁止",
+          "beta": "严格受限"
+        },
+        "short": {
+          "bias": "偏空",
+          "confidence": "中",
+          "posture": "不接下跌，等待成交缩量和低点重建",
+          "driver": "130.43 新低与 8291 万股成交共同确认供给压力延续",
+          "trigger": "守住 130.43并收回 132.40；进一步需站回 136.72",
+          "invalidation": "持续低于 130.43并扩量，下一观察区 125–130被破坏"
+        },
+        "medium": {
+          "bias": "中性偏空",
+          "posture": "只保留极小观察仓",
+          "driver": "业务基本面未见新失效证据，但上市后筹码和价格发现继续主导",
+          "trigger": "多轮解禁被吸收、成交降温且日线重回 139.79–145.01",
+          "invalidation": "持续滑向 108–115上市后低位区"
+        }
+      },
+      "MSTR": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "小仓允许",
+          "beta": "严格受限"
+        },
+        "short": {
+          "bias": "偏多",
+          "confidence": "中",
+          "posture": "等 108.38–109 区域承接或 112.99 突破",
+          "driver": "午后随 BTC 回升，MSTR、IBIT、COIN 涨幅重新接近同步",
+          "trigger": "站回开盘 112.99并维持 BTC 72,000上方",
+          "invalidation": "跌破 108.38且 BTC 同时失守 70,000"
+        },
+        "medium": {
+          "bias": "偏多",
+          "posture": "允许小仓隔夜，控制 mNAV 与融资风险",
+          "driver": "监管预期与 BTC 趋势支持加密链，但仍需观察 MSTR 相对 IBIT 的持续弹性",
+          "trigger": "收复 116.09且相对 IBIT/COIN 保持强势",
+          "invalidation": "BTC 稳定而 MSTR 再次持续落后"
+        }
+      }
+    },
+    "macroFramework": {
+      "pillars": [
+        {
+          "key": "growth",
+          "label": "增长",
+          "state": "韧性但消费与小盘偏弱",
+          "direction": "neutral",
+          "evidence": "午后没有新的硬数据改变增长判断；DIA -1.01%、IWM -1.35% 显示周期与广度继续承压。",
+          "transmission": "增长韧性不足以抵消高折现率，弱广度限制全面 beta。",
+          "invalidation": "后续增长数据转弱并推动收益率持续回落，或盈利广度重新扩散。"
+        },
+        {
+          "key": "inflation",
+          "label": "通胀",
+          "state": "尾部风险继续上升",
+          "direction": "negative",
+          "evidence": "USO 涨幅由约 +2.25% 扩大至 +2.85%；Reuters 报 10Y 约 4.688%、30Y 约 5.225%。",
+          "transmission": "能源与期限溢价共同抬高折现率，压制指数和小盘。",
+          "invalidation": "油价快速回落且长端收益率同步下行。"
+        },
+        {
+          "key": "liquidity",
+          "label": "流动性/信用",
+          "state": "长债回购缓冲进一步消退",
+          "direction": "negative",
+          "evidence": "TLT 由 -0.66% 扩大至 -0.88%，长端债券继续走弱。",
+          "transmission": "资金成本上升抑制广度，只允许强催化链条保持价格溢价。",
+          "invalidation": "TLT 转正并伴随 10Y/30Y 跌破盘前水平。"
+        },
+        {
+          "key": "risk-pricing",
+          "label": "风险定价",
+          "state": "风险收缩 / 个股分化",
+          "direction": "negative",
+          "evidence": "VIX 约 15.94、+7.04%；SPY/QQQ/DIA/IWM 扩大跌幅，LITE和加密链逆势。",
+          "transmission": "指数 beta 继续收缩，资金集中到少数个股和加密链。",
+          "invalidation": "VIX 回落且 SPY/QQQ 收回开盘区。"
+        }
+      ],
+      "chain": [
+        {
+          "from": "油价与长端收益率维持高位",
+          "through": "折现率与通胀尾部风险",
+          "to": "指数、小盘和市场广度午后继续走弱",
+          "verdict": "延续确认",
+          "tone": "down"
+        },
+        {
+          "from": "存储景气与同业广度",
+          "through": "早盘突破后的获利回吐",
+          "to": "DRAM 跌回 57 下方但仍守开盘",
+          "verdict": "逻辑有效 / 价格降级",
+          "tone": "flat"
+        },
+        {
+          "from": "LITE 个股买盘",
+          "through": "收复 873.31而 COHR 转跌",
+          "to": "个股确认强于行业确认",
+          "verdict": "部分升级",
+          "tone": "up"
+        },
+        {
+          "from": "SPCX 解禁供给",
+          "through": "成交量近翻倍与新低",
+          "to": "130.43 支撑被测试",
+          "verdict": "延续确认",
+          "tone": "down"
+        },
+        {
+          "from": "BTC 站上 72,000",
+          "through": "IBIT/COIN/MSTR 同向回升",
+          "to": "MSTR beta 边际恢复",
+          "verdict": "改善",
+          "tone": "up"
+        }
+      ]
+    },
+    "expectationGaps": [
+      {
+        "event": "半导体相对强势持续性",
+        "kind": "市场预期差",
+        "expected": "SOXX 可在指数承压时保持明显逆势",
+        "actual": "SOXX 从 +0.80% 回落至 +0.18%，仍优于 QQQ 但优势缩窄",
+        "reaction": "结构性强势未失效，扩散能力下降",
+        "implication": "继续限制整体 beta，不把 DRAM 早盘突破外推为全面半导体趋势"
+      },
+      {
+        "event": "DRAM 57 突破承接",
+        "kind": "持仓预期差",
+        "expected": "57.00–57.10 回踩不破才确认延续",
+        "actual": "午后回到 56.92，暂时跌回确认区下方",
+        "reaction": "突破由确认降级为待收盘",
+        "implication": "禁止追价，隔夜权限取决于收盘能否重回 57"
+      },
+      {
+        "event": "LITE 873.31 反转位",
+        "kind": "个股预期差",
+        "expected": "收复 873.31才从深 V 修复升级",
+        "actual": "午后升至 875.08、高 878.17",
+        "reaction": "价格触发已满足，但 COHR -0.74%",
+        "implication": "短线升级偏多，仍需日线和同业确认"
+      },
+      {
+        "event": "SPCX 132.40 承接",
+        "kind": "筹码预期差",
+        "expected": "守住 132.40并缩量才可能形成供给吸收",
+        "actual": "跌至 131.46、低 130.43，成交扩大至约 8291 万股",
+        "reaction": "支撑与缩量条件同时失败",
+        "implication": "保持偏空与禁止隔夜，观察 125–130区域"
+      },
+      {
+        "event": "MSTR 相对 BTC 弹性",
+        "kind": "跨资产预期差",
+        "expected": "守住 108.59后重新站上 112.99才恢复加速",
+        "actual": "回升至 111.65，BTC 72,758；MSTR 与加密链涨幅重新接近",
+        "reaction": "beta 恢复但尚未突破开盘",
+        "implication": "偏多但仍不追，112.99 是下一确认位"
+      }
+    ],
+    "odds": [
+      {
+        "asset": "DRAM",
+        "window": "60D",
+        "percentile": 30.8,
+        "asOf": "2026-08-19",
+        "referencePrice": 55.14,
+        "sampleSize": 60,
+        "basis": "基金自身日线",
+        "source": "WeStock / 腾讯自选股",
+        "rangeLow": 44.85,
+        "rangeHigh": 80.72
+      },
+      {
+        "asset": "DRAM",
+        "window": "252D",
+        "percentile": 84,
+        "asOf": "2026-08-19",
+        "referencePrice": 55.14,
+        "sampleSize": 252,
+        "basis": "代理：可追溯核心持仓按基金发行权重归一",
+        "source": "WeStock 日线 + Roundhill 发行持仓",
+        "proxy": true,
+        "components": "MU / SNDK / WDC / STX",
+        "actualSinceLaunchPercentile": 56.8,
+        "actualSinceLaunchSample": 96
+      },
+      {
+        "asset": "LITE",
+        "window": "60D",
+        "percentile": 42.5,
+        "asOf": "2026-08-19",
+        "referencePrice": 827.6,
+        "sampleSize": 60,
+        "basis": "标的自身日线",
+        "source": "WeStock / 腾讯自选股",
+        "rangeLow": 602.35,
+        "rangeHigh": 1029.15
+      },
+      {
+        "asset": "LITE",
+        "window": "252D",
+        "percentile": 74,
+        "asOf": "2026-08-19",
+        "referencePrice": 827.6,
+        "sampleSize": 252,
+        "basis": "标的自身日线",
+        "source": "WeStock / 腾讯自选股",
+        "rangeLow": 115.89,
+        "rangeHigh": 1053.09
+      },
+      {
+        "asset": "SPCX",
+        "window": "60D",
+        "percentile": 47.9,
+        "asOf": "2026-08-19",
+        "referencePrice": 139.65,
+        "sampleSize": 47,
+        "basis": "SpaceX 上市后有效日线",
+        "source": "WeStock / 腾讯自选股 + SpaceX IR",
+        "rangeLow": 108.27,
+        "rangeHigh": 201.8,
+        "sampleNote": "有效样本 47/60；未混入代码换主前的旧 ETF 历史"
+      },
+      {
+        "asset": "SPCX",
+        "window": "252D",
+        "percentile": 47.9,
+        "asOf": "2026-08-19",
+        "referencePrice": 139.65,
+        "sampleSize": 47,
+        "basis": "SpaceX 上市后全部有效日线",
+        "source": "WeStock / 腾讯自选股 + SpaceX IR",
+        "rangeLow": 108.27,
+        "rangeHigh": 201.8,
+        "sampleNote": "有效样本 47/252；当前仅作上市后位置参考，不与完整 252D 样本等权解释"
+      },
+      {
+        "asset": "MSTR",
+        "window": "60D",
+        "percentile": 67.5,
+        "asOf": "2026-08-19",
+        "referencePrice": 104.25,
+        "sampleSize": 60,
+        "basis": "标的自身日线",
+        "source": "WeStock / 腾讯自选股",
+        "rangeLow": 82.31,
+        "rangeHigh": 159.93
+      },
+      {
+        "asset": "MSTR",
+        "window": "252D",
+        "percentile": 16.1,
+        "asOf": "2026-08-19",
+        "referencePrice": 104.25,
+        "sampleSize": 252,
+        "basis": "标的自身日线",
+        "source": "WeStock / 腾讯自选股",
+        "rangeLow": 82.31,
+        "rangeHigh": 359.69
+      }
+    ],
+    "oddsMethod": "价格位置分位 =（窗口内低于参考收盘价的样本数 + 0.5 × 等于参考价的样本数）÷ 样本数。日线截至 2026-08-19，不等同盘中现价。DRAM 的 252D 仍使用发行核心持仓代理；SPCX 是 2026-06-12 上市的 SpaceX，代码换主前属于旧 ETF 的历史必须剔除，因此当前 60D/252D 都只基于 47 根有效日线并明确样本不足。分位只判断位置，不直接触发买卖。",
+    "snapshot": [
+      {
+        "symbol": "SPY",
+        "name": "标普500",
+        "price": 764.66,
+        "changePct": -0.57,
+        "tone": "down"
+      },
+      {
+        "symbol": "QQQ",
+        "name": "纳指100",
+        "price": 710.96,
+        "changePct": -0.72,
+        "tone": "down"
+      },
+      {
+        "symbol": "SOXX",
+        "name": "半导体",
+        "price": 520.6,
+        "changePct": 0.18,
+        "tone": "flat"
+      },
+      {
+        "symbol": "DRAM",
+        "name": "存储ETF",
+        "price": 56.92,
+        "changePct": 3.23,
+        "tone": "up"
+      },
+      {
+        "symbol": "LITE",
+        "name": "Lumentum",
+        "price": 875.08,
+        "changePct": 5.74,
+        "tone": "up"
+      },
+      {
+        "symbol": "SPCX",
+        "name": "SpaceX",
+        "price": 131.46,
+        "changePct": -5.86,
+        "tone": "down"
+      },
+      {
+        "symbol": "MSTR",
+        "name": "Strategy",
+        "price": 111.65,
+        "changePct": 7.1,
+        "tone": "up"
+      },
+      {
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "price": 72758,
+        "changePct": 6.72,
+        "tone": "up"
+      }
+    ],
+    "extendedAsOf": null,
+    "extendedHours": [],
+    "watchlist": [
+      {
+        "symbol": "DRAM",
+        "name": "Roundhill Memory ETF",
+        "price": 56.92,
+        "changePct": 3.23,
+        "tone": "up",
+        "priceStatus": "午后盘中价 · 13:47 ET",
+        "timeframes": {
+          "15m": "bear",
+          "30m": "neutral",
+          "1h": "bull",
+          "4h": "neutral",
+          "1d": "bear"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "相对 23:00 的 57.47 回落至 56.92，跌回 57 确认位下方，短周期转弱。",
+          "30m": "仍高于开盘 56.35，未破坏整段日内修复，列中性。",
+          "1h": "MU/SNDK/WDC/STX 仍全部上涨，行业价格重心仍高于前收。",
+          "4h": "用当日小时结构与前 3–5 日推断：早盘突破后回吐，尚未形成完整 4h 突破收口。",
+          "1d": "完整日线仍截至 08-19且偏弱；08-20 盘中 +3.23% 尚未收盘，不能改写日线结论。"
+        },
+        "verdict": "行业逻辑延续，但 ETF 跌回 57 下方；由突破确认降为等待收盘确认。",
+        "fundamental": "存储景气与股东回报证据未变；MU +1.84%、SNDK +1.23%、WDC +1.25%、STX +2.35% 保持正向广度。",
+        "priceAction": "开 56.35、高 57.72、低 55.39、现 56.92；相对 23:00 回落 0.55。",
+        "relativeStrength": "仍显著强于 SPY/QQQ并强于 SOXX，但午后相对强度收窄。",
+        "vwap": null,
+        "vwapNote": "未取得可审计精确 VWAP；用开盘 56.35、日内区间和 23:00 后价格变化代理判断。",
+        "invalidation": "收盘无法重回 57先降级；跌破 56.35进一步转弱，失守 55.39则本轮修复失效。",
+        "support": "56.35（开盘）/55.39（日低）",
+        "supportValue": 56.35,
+        "resistance": "57.00–57.10（确认区）/57.72（日高）",
+        "resistanceValue": 57
+      },
+      {
+        "symbol": "LITE",
+        "name": "Lumentum Holdings Inc.",
+        "price": 875.08,
+        "changePct": 5.74,
+        "tone": "up",
+        "priceStatus": "午后盘中价 · 13:47 ET",
+        "timeframes": {
+          "15m": "bull",
+          "30m": "bull",
+          "1h": "bull",
+          "4h": "neutral",
+          "1d": "neutral"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "相对 23:00 的 862.82 上升至 875.08，接近 878.17 日高。",
+          "30m": "已收复 873.31关键位并保持其上，短周期转强。",
+          "1h": "从 814.36 深 V 回升至 875上方，小时结构完成反转尝试。",
+          "4h": "结合 08-19 长阴和 08-20 深 V 推断为中性修复；尚无完整 4h 收口。",
+          "1d": "完整日线仍截至 08-19；08-20 盘中 +5.74% 未收盘，且 COHR -0.74%，日线与行业确认仍不足。"
+        },
+        "verdict": "873.31 触发已满足，价格由修复升级为偏多；但 COHR 转跌，光通信链没有同步确认。",
+        "fundamental": "未发现新的 Lumentum IR/SEC 或云厂商 CapEx 事实改变；AI 数据中心光连接需求仍是中期驱动。",
+        "priceAction": "开 827.82、高 878.17、低 814.36、现 875.08；相对 23:00 上升 12.26。",
+        "relativeStrength": "显著强于 QQQ/SOXX与 COHR，当前更像个股资金回流而非全链共振。",
+        "vwap": null,
+        "vwapNote": "未取得可审计精确 VWAP；以开盘 827.82、关键位 873.31和日内高低判断。",
+        "invalidation": "跌回 873.31下方先降级；失守 868.83进一步削弱，跌回 827.60则深 V 失效。",
+        "support": "873.31（已收复关键位）/868.83（早盘高点）",
+        "supportValue": 873.31,
+        "resistance": "878.17（日内高）/893.85（08-19 日高）",
+        "resistanceValue": 878.17
+      },
+      {
+        "symbol": "SPCX",
+        "name": "Space Exploration Technologies Corp.",
+        "price": 131.46,
+        "changePct": -5.86,
+        "tone": "down",
+        "priceStatus": "午后盘中价 · 13:46 ET · 上市后短历史",
+        "timeframes": {
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "neutral"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "相对 23:00 的 133.47 继续回落至 131.46，靠近新低 130.43。",
+          "30m": "132.40 早盘低点被跌破，反抽没有收回。",
+          "1h": "成交从约 4227 万股扩大至约 8291 万股，价格与量同步向下。",
+          "4h": "仅用 2026-06-12 上市后的小时/日线和近 3–5 日结构推断；没有拼接旧 SPCX ETF。",
+          "1d": "完整日线仍只有截至 08-19 的 47 根有效样本；08-20 尚未收盘，不计入分位。"
+        },
+        "verdict": "23:00 的解禁供给压力继续延伸，132.40 支撑与缩量条件均失败。",
+        "fundamental": "本时段未见 Starlink、发射、政府/商业订单或 AI 业务的新基本面失效；短线仍由流通筹码和上市后价格发现主导。",
+        "priceAction": "开 137.25、高 139.79、低 130.43、现 131.46；成交约 8291 万股。",
+        "relativeStrength": "继续显著弱于 SPY/QQQ及其他重点标的，负向趋势最明确。",
+        "vwap": null,
+        "vwapNote": "未取得可审计精确 VWAP；现价低于开盘并靠近日低，足以确认价格重心偏下。",
+        "invalidation": "收回 132.40先缓和，站回 136.72才说明供给开始被吸收；持续破 130.43则观察 125–130。",
+        "support": "130.43（日内新低）/125–130（下一观察区）",
+        "supportValue": 130.43,
+        "resistance": "132.40（早盘低点）/136.72（前低）",
+        "resistanceValue": 132.4
+      },
+      {
+        "symbol": "MSTR",
+        "name": "Strategy Inc.",
+        "price": 111.65,
+        "changePct": 7.1,
+        "tone": "up",
+        "priceStatus": "午后盘中价 · 13:47 ET",
+        "timeframes": {
+          "15m": "bull",
+          "30m": "bull",
+          "1h": "bull",
+          "4h": "bull",
+          "1d": "bull"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "相对 23:00 的 109.30 回升至 111.65，脱离 108.38 日低。",
+          "30m": "与 BTC、IBIT、COIN 同步改善，短周期 beta 恢复。",
+          "1h": "仍低于开盘 112.99，但已修复早盘大部分回落。",
+          "4h": "结合 08-19 大阳与 08-20 午后回升，4h 结构保持偏多；未虚构技术指标。",
+          "1d": "08-19 完整日线偏多；08-20 盘中 +7.10% 尚未收盘，不能作为最终日线确认。"
+        },
+        "verdict": "BTC-MSTR 共振延续，午后 beta 边际恢复；112.99 仍是加速确认位。",
+        "fundamental": "Reuters 指加密监管支持与 BTC 上破 70,000继续推动加密链；未发现 Strategy IR/SEC 新结构催化。",
+        "priceAction": "开 112.99、高 116.09、低 108.38、现 111.65；相对 23:00 回升 2.35。",
+        "relativeStrength": "MSTR +7.10%、BTC +6.72%、IBIT +6.24%、COIN +7.62%，相对弹性重新接近同步。",
+        "vwap": null,
+        "vwapNote": "未取得可审计精确 VWAP；以开盘 112.99、日低 108.38和加密链相对涨幅判断。",
+        "invalidation": "跌破 108.38且 BTC 失守 70,000则强势失效；站上 112.99后再看 116.09。",
+        "support": "108.38（日内低）/106.90（前高）",
+        "supportValue": 108.38,
+        "resistance": "112.99（开盘）/116.09（日内高）",
+        "resistanceValue": 112.99
+      }
+    ],
+    "news": [
+      {
+        "directness": "宏观新增",
+        "title": "长债与油价压力午后未缓解",
+        "summary": "Reuters 报 10Y 约 4.688%、30Y 约 5.225%；TLT 跌幅扩大至 -0.88%，USO 涨幅扩大至 +2.85%，指数与广度继续走弱。",
+        "impact": "整体 beta 收缩",
+        "tone": "down",
+        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-20/"
+      },
+      {
+        "directness": "加密新增",
+        "title": "BTC 站上 72,000，MSTR 午后重新跟随",
+        "summary": "BTC 约 72,758，MSTR、IBIT、COIN 涨幅重新接近同步；监管支持仍是当日催化，但 MSTR 尚未收复 112.99 开盘。",
+        "impact": "beta 恢复",
+        "tone": "up",
+        "url": "https://www.reuters.com/legal/government/bitcoin-crypto-shares-climb-after-trump-pushes-clarity-act-2026-08-20/"
+      },
+      {
+        "directness": "SPCX新增",
+        "title": "解禁日成交继续扩大，SPCX 刷新 130.43 低点",
+        "summary": "约 319M 股进入可售资格后，成交扩大至约 8291 万股；不能推断全部解禁股出售，但量价压力仍在延续。",
+        "impact": "筹码压力延续",
+        "tone": "down",
+        "url": "https://www.marketwatch.com/story/more-spacex-stock-is-about-to-hit-the-market-heres-what-to-know-789923d4"
+      }
+    ],
+    "matrix": [
+      {
+        "asset": "市场",
+        "macro": "-",
+        "fundamental": "0",
+        "positioning": "-",
+        "price": "-",
+        "verdict": "指数与广度继续恶化"
+      },
+      {
+        "asset": "DRAM",
+        "macro": "-",
+        "fundamental": "+",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "跌回 57 下 / 待收盘"
+      },
+      {
+        "asset": "LITE",
+        "macro": "-",
+        "fundamental": "+",
+        "positioning": "+",
+        "price": "+",
+        "verdict": "站上 873.31 / 同业未确认"
+      },
+      {
+        "asset": "SPCX",
+        "macro": "-",
+        "fundamental": "0",
+        "positioning": "-",
+        "price": "-",
+        "verdict": "新低与扩量延续"
+      },
+      {
+        "asset": "MSTR",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "+",
+        "price": "+",
+        "verdict": "beta 恢复 / 112.99 未破"
+      }
+    ],
+    "scenarios": [
+      {
+        "label": "基准",
+        "text": "指数弱势延续至收盘；DRAM 在 56.35–57.10 整理，LITE 尝试守 873.31，SPCX 测试 125–130，MSTR 随 BTC 维持高位。"
+      },
+      {
+        "label": "改善触发",
+        "text": "SPY/QQQ 收回开盘，DRAM 重站 57.10，LITE 突破 878.17，SPCX 收回 132.40，MSTR 站上 112.99。"
+      },
+      {
+        "label": "恶化触发",
+        "text": "SPY 跌破 764.27；DRAM 破 56.35、LITE 失守 868.83、SPCX 破 130.43、MSTR 跌破 108.38且 BTC 回落。"
+      },
+      {
+        "label": "午后最大变化",
+        "text": "LITE 站上 873.31 与 SPCX 放量新低形成最强正负分化；DRAM 早盘突破则进入收盘确认阶段。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "午后行情",
+        "name": "市场行情聚合 · 13:46–13:47 ET",
+        "url": "https://www.google.com/finance/",
+        "note": "用于指数、四标的、同业与加密链的盘中价、开高低、成交量；未将盘中价混入日线分位。"
+      },
+      {
+        "label": "宏观",
+        "name": "Reuters · Bond relief ebbs, stocks fall",
+        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-20/",
+        "note": "用于午后 10Y/30Y、油价、美元与风险定价变化。"
+      },
+      {
+        "label": "波动",
+        "name": "Yahoo Finance / Reuters VIX",
+        "url": "https://finance.yahoo.com/",
+        "note": "VIX 约 15.94、+7.04%；用于风险预算，不作为单一入场信号。"
+      },
+      {
+        "label": "LITE",
+        "name": "Lumentum Investor Relations",
+        "url": "https://investor.lumentum.com/",
+        "note": "未发现本时段新公司事实；COHR 用于光通信同业验证。"
+      },
+      {
+        "label": "SPCX",
+        "name": "SpaceX IR 与 MarketWatch 解禁报道",
+        "url": "https://ir.spacex.com/",
+        "note": "技术与分位只使用 2026-06-12 上市后的 47 根完整日线，不拼接旧 ETF。"
+      },
+      {
+        "label": "加密",
+        "name": "Reuters · Bitcoin and crypto shares rally",
+        "url": "https://www.reuters.com/legal/government/bitcoin-crypto-shares-climb-after-trump-pushes-clarity-act-2026-08-20/",
+        "note": "用于 BTC、MSTR、IBIT、COIN 联动及监管催化。"
+      },
+      {
+        "label": "日线",
+        "name": "WeStock / 腾讯自选股历史日线",
+        "note": "仍截至 2026-08-19；60D/252D 分位沿用已验证窗口，当前盘中价不重算。"
+      },
+      {
+        "label": "方法",
+        "name": "4h 使用当日小时结构与多日结构推断",
+        "note": "精确 VWAP 未取得时明确写 null；不虚构 RSI、MACD、EMA。"
+      }
+    ]
   },
   "close": {
     "available": false,
@@ -1691,6 +2447,48 @@
     "updateStatus": "等待首轮收盘更新"
   },
   "reviews": [
+    {
+      "date": "2026-08-20",
+      "stage": "02:00 午后复核",
+      "title": "指数继续恶化，LITE 逆势升级，SPCX 放量延续",
+      "status": "部分确认",
+      "summary": "相对 23:00，市场弱势扩大；DRAM 跌回 57 下方使突破降级为待收盘；LITE 站上 873.31但 COHR 转跌；SPCX 新低与成交扩张继续确认供给压力；MSTR 随 BTC 回升，beta 恢复。",
+      "assets": [
+        {
+          "asset": "市场",
+          "expected": "指数偏弱、半导体相对强",
+          "actual": "SPY/QQQ 扩大跌幅，SOXX 从 +0.80% 收窄至 +0.18%",
+          "result": "确认"
+        },
+        {
+          "asset": "DRAM",
+          "expected": "57.00–57.10 回踩不破才延续",
+          "actual": "回落至 56.92，但仍高于开盘 56.35且同业全涨",
+          "result": "部分确认"
+        },
+        {
+          "asset": "LITE",
+          "expected": "收复 873.31才升级",
+          "actual": "升至 875.08、高 878.17，COHR -0.74%",
+          "result": "部分确认"
+        },
+        {
+          "asset": "SPCX",
+          "expected": "130.43–132.40需要缩量承接",
+          "actual": "131.46、低 130.43，成交约 8291 万股",
+          "result": "失效"
+        },
+        {
+          "asset": "MSTR",
+          "expected": "站回 112.99才恢复加速",
+          "actual": "回升至 111.65，BTC 72,758，beta 已改善但未触发",
+          "result": "部分确认"
+        }
+      ],
+      "validDriver": "宏观压力继续压制广度；LITE 自身买盘和加密监管/BTC 是少数正向驱动；SPCX 的筹码供给继续主导价格。",
+      "failedAssumption": "DRAM 突破会稳定守住 57，以及 SPCX 会在 132.40 附近出现缩量承接。",
+      "modelChange": "将早盘突破分为“触发、回踩、收盘锁定”三阶段；午后必须降低对未收盘突破的权重，并把成交量扩张与关键位破坏同时作为风险升级条件。"
+    },
     {
       "date": "2026-08-20",
       "stage": "23:00 盘中复核",
