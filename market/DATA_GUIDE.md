@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v6
+# 美股策略台数据维护指南 · v7
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -14,7 +14,7 @@
 2. 四个任务只替换各自对象：19:30=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
-5. `snapshot` 最多 8 项，固定优先级为 SPY、QQQ、SOXX、DRAM、LITE、SPCX、MSTR、BTC。
+5. `snapshot` 最多 8 项，固定优先级为 SPY、QQQ、SOXX、DRAM、LITE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
 6. `news` 仅保留 3–5 条真正影响价格的信息；外链必须指向实际来源。
 7. `reviews` 最新在前，最多保留 20 条；短线复盘样本不足 20 条时不得展示命中率。
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
@@ -41,6 +41,20 @@
 - `timeframes`：15m/30m/1h/4h 的获取或聚合时点；
 - `daily`：日线与分位数据的截止交易日，不能和盘中现价混写；
 - `macro`：宏观信息的截止时点。
+
+每个可用时段应尽量维护 `extendedHours`，标的顺序固定为 DRAM、LITE、SPCX、MSTR。每条包含：
+
+- `symbol / session / price / regularClose / changePct / tone`；
+- `asOf / status / source / sourceUrl`；
+- `state / note / nextConfirmation`。
+
+延长交易必须分清三个口径：
+
+- `盘后`：16:00–20:00 ET，可使用统一可审计的交易所/UTP/Cboe/S&P Global 报价；
+- `夜盘`：20:00–04:00 ET，通常来自经纪商或替代交易系统，只有同时写清提供商、成交时点和报价状态时才能展示；
+- `盘前`：04:00–09:30 ET，必须与前一晚盘后锚点分开。
+
+不得把 20:00 ET 的盘后收口继续标成“当前夜盘价”，也不得把单一经纪商的稀疏打印当成全市场统一价格。没有可审计夜盘价时，保留最近可验证盘后锚点并写清边界；价格地图可用 `status:"verified"` 的最新延长交易价，但标题必须显示对应 session。盘后/夜盘突破只能提高下一正式时段的确认优先级，不能单独升级为完整交易信号。
 
 DRAM、LITE、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDER` 排序：
 
@@ -140,6 +154,7 @@ DRAM、LITE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
 - 市场、DRAM、LITE、SPCX、MSTR 的 `changes` 完整，四个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - DRAM、LITE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
+- `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
 - 盘中版必须复核 19:30 判断，不得只是重复新闻。
 - DRAM/LITE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
