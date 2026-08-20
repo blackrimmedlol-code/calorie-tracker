@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v5
+# 美股策略台数据维护指南 · v6
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -8,11 +8,13 @@
 
 ## 写入规则
 
+重点标的唯一排序常量：`TARGET_ORDER = ["DRAM", "LITE", "SPCX", "MSTR"]`。动作板、快照、watchlist、分位、信号矩阵、复盘和中期账本只要同时出现这些标的，都必须按此顺序输出；市场基准可放在它们之前，BTC 等联动资产可放在之后。
+
 1. 更新前先读取 `market/data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
 2. 四个任务只替换各自对象：19:30=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
-5. `snapshot` 最多 6 项，固定优先级为 SPY、QQQ、SOXX、DRAM、MSTR、BTC。
+5. `snapshot` 最多 8 项，固定优先级为 SPY、QQQ、SOXX、DRAM、LITE、SPCX、MSTR、BTC。
 6. `news` 仅保留 3–5 条真正影响价格的信息；外链必须指向实际来源。
 7. `reviews` 最新在前，最多保留 20 条；短线复盘样本不足 20 条时不得展示命中率。
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
@@ -29,7 +31,7 @@
 
 - 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
 - `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
-- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、MSTR。字段：`asset / from / to / reason / tone`，只写相对上一有效时段真正改变的判断。
+- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、SPCX、MSTR。字段：`asset / from / to / reason / tone`，只写相对上一有效时段真正改变的判断。
 
 ## 数据时效与价格地图
 
@@ -40,7 +42,7 @@
 - `daily`：日线与分位数据的截止交易日，不能和盘中现价混写；
 - `macro`：宏观信息的截止时点。
 
-DRAM、MSTR 的 watchlist 项必须额外写：
+DRAM、LITE、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDER` 排序：
 
 - `priceStatus`：例如 `盘中价 · 23:00`、`收盘价 · 04:00`；
 - `supportValue / resistanceValue`：用于计算现价到一级支撑、阻力的距离；对应文字仍放在 `support / resistance`；
@@ -48,7 +50,7 @@ DRAM、MSTR 的 watchlist 项必须额外写：
 
 ## 双周期操作卡
 
-每个时段的 `horizons` 固定包含 `MARKET / DRAM / MSTR`，每个对象分别包含：
+每个时段的 `horizons` 固定包含 `MARKET / DRAM / LITE / SPCX / MSTR`，每个对象分别包含：
 
 - `permissions`：`chase / overnight / beta`，把宏观框架压缩为追价权限、隔夜权限和 beta 预算；
 
@@ -81,11 +83,12 @@ DRAM、MSTR 的 watchlist 项必须额外写：
 - 每条必须写 `asOf / referencePrice / sampleSize / basis / source`；历史 K 线有延迟，不得称为盘中现价；
 - `percentile` 无法可靠计算时必须为 `null`；
 - 新基金不足 252 个交易日时，不得把上市以来样本冒充 252 日。只有能从发行文件确认核心持仓、且成份股有完整日线时，才允许输出显式标记 `proxy:true` 的核心持仓代理；同时保留基金自身上市以来的样本数与分位；
+- SPCX 存在代码换主：旧的 SPAC and New Issue ETF 已于 2026-04-07 改为 SPCK，SpaceX 自 2026-06-12 才以 SPCX 上市。SPCX 的历史序列必须从 2026-06-12 重启，剔除旧 ETF 以及 IPO 前无成交的占位记录。样本不足 60/252 时仍可展示“上市后位置”，但必须写 `sampleNote` 和真实 `sampleSize`，不得把 47 根样本包装成完整窗口；
 - 只有进入前/后 10%，同时出现新催化，并被反转或突破确认，才升级为交易信号。
 
 ## 五周期规则
 
-DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台没有现成 4h 图而跳过。
+DRAM、LITE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台没有现成 4h 图而跳过。
 
 - 15m、30m、1h：优先直接读取对应 K 线。
 - 4h：优先直接 4h K 线；其次聚合连续四根 1h K 线；再其次结合小时结构、当日 OHLC 和前 3–5 个交易日日线判断。
@@ -104,6 +107,8 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 - 行情 / K 线：WeStock / 腾讯自选股用于结构化日线和历史窗口计算；交易所、基金官网优先校验，TradingView、Barchart、Nasdaq、Yahoo Finance 补充分时与小时行情。
 - 宏观 / 波动：美联储、美国财政部、FRED、CME FedWatch、Cboe VIX、Reuters。
 - DRAM：Roundhill 官方持仓，Micron、SK Hynix、Samsung、SanDisk/Kioxia IR，TrendForce/DRAMeXchange。
+- LITE：Lumentum IR 与 SEC 为公司事实源；云厂商 CapEx、AI 数据中心光连接需求、COHR 和光模块链用于验证行业广度与相对强弱。
+- SPCX：SpaceX IR 与 SEC、Nasdaq 为身份和公司事实源；发射节奏、Starlink 运营、政府/商业订单、AI 业务资本开支与成交量用于验证。严禁使用旧 SPCX ETF 历史；旧基金只可用于解释代码换主。
 - MSTR / BTC：Strategy IR 与 SEC，BTC 多市场价格，现货 ETF 资金流，IBIT/COIN 相对表现。
 - 期权 / 仓位：Cboe、CME、Nasdaq 期权链及可靠成交/未平仓数据；缺少完整序列时不得虚构 gamma、IV 或挤压结论。
 - 跨资产 / 广度：2Y/10Y/30Y、DXY、VIX、油金、行业广度、SOXX 与同业价格；用于验证传导链而不是堆数字。
@@ -115,6 +120,7 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 - 02:00：只记录相对 23:00 新出现的延续、反转或关键位破坏，不重复整份新闻。
 - 收盘：用完整日线最终复核当天判断，写入有效驱动、失效假设和模型调整；相同交易日的盘中复盘可以保留，但阶段必须不同。
 - 下一交易日 19:30：引用上一收盘复盘建立新先验，不重复造一份同义复盘。
+- 复盘资产顺序固定为市场、DRAM、LITE、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
 - 历史最新在前；相同日期与阶段应更新原条目，不重复追加。满 20 条短线样本前只展示样本数，不展示命中率。
@@ -123,7 +129,7 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 
 - `tone`: `up | down | flat`
 - `timeframes`: `bull | bear | neutral | unknown`
-- 复盘结果：`确认 | 部分确认 | 失效`
+- 复盘结果：`确认 | 部分确认 | 失效 | 新基线`
 - 矩阵信号：`+ | 0 | -`
 - `latestSession`: `premarket | intraday | late | close`
 - `updateStatus`: `按时更新 | 延迟补跑 | 数据不完整`
@@ -132,14 +138,14 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 
 - JSON 可解析，且未覆盖另一时段内容或复盘历史。
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
-- 市场、DRAM、MSTR 的 `changes` 完整；每个数据模块都有实际时点和状态标签。
-- DRAM、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
+- 市场、DRAM、LITE、SPCX、MSTR 的 `changes` 完整，四个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
+- DRAM、LITE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
 - 盘中版必须复核 19:30 判断，不得只是重复新闻。
-- DRAM/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
-- `MARKET / DRAM / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
+- DRAM/LITE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
+- `MARKET / DRAM / LITE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。
 - 60/252 日价格位置分位必须能追溯到真实日线、日期和样本数；代理必须标明成份、权重口径和基金自身可用样本，不得与实际基金历史混写。
-- DRAM 的消息与价格一致性、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
+- DRAM 的消息—价格一致性、LITE 的公司—光通信链确认、SPCX 的上市后量价与代码换主隔离、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
 - 复盘区包含至少一个明确的模型调整；`mediumLedger` 只有证据变化时才更新，不输出小样本伪精度。
 - 页面只用于信息整理，不输出确定性买卖建议。
