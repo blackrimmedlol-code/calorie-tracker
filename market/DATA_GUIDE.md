@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v3
+# 美股策略台数据维护指南 · v4
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -40,11 +40,15 @@
 
 `expectationGaps` 只收录有明确“市场先验 / 实际发生 / 价格反应 / 持仓含义”的事件，不能把普通新闻列表复制进来。
 
-`odds` 只在取得真实历史序列时计算：
+`odds` 只在取得真实历史序列时计算。页面展示的是“参考收盘价在窗口内所有收盘价中的位置分位”，不是收益率分位：
+
+`percentile = (低于参考价的样本数 + 0.5 × 等于参考价的样本数) ÷ 样本数 × 100`
 
 - 60 日分位：短线延伸与均值回归风险；
 - 252 日分位：中期所处位置；
+- 每条必须写 `asOf / referencePrice / sampleSize / basis / source`；历史 K 线有延迟，不得称为盘中现价；
 - `percentile` 无法可靠计算时必须为 `null`；
+- 新基金不足 252 个交易日时，不得把上市以来样本冒充 252 日。只有能从发行文件确认核心持仓、且成份股有完整日线时，才允许输出显式标记 `proxy:true` 的核心持仓代理；同时保留基金自身上市以来的样本数与分位；
 - 只有进入前/后 10%，同时出现新催化，并被反转或突破确认，才升级为交易信号。
 
 ## 五周期规则
@@ -65,7 +69,7 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 
 ## 数据源梯队
 
-- 行情 / K 线：交易所、基金官网 → TradingView、Barchart、Nasdaq、Yahoo Finance 等交叉验证。
+- 行情 / K 线：WeStock / 腾讯自选股用于结构化日线和历史窗口计算；交易所、基金官网优先校验，TradingView、Barchart、Nasdaq、Yahoo Finance 补充分时与小时行情。
 - 宏观 / 波动：美联储、美国财政部、FRED、CME FedWatch、Cboe VIX、Reuters。
 - DRAM：Roundhill 官方持仓，Micron、SK Hynix、Samsung、SanDisk/Kioxia IR，TrendForce/DRAMeXchange。
 - MSTR / BTC：Strategy IR 与 SEC，BTC 多市场价格，现货 ETF 资金流，IBIT/COIN 相对表现。
@@ -96,7 +100,7 @@ DRAM 与 MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台
 - DRAM/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
 - `MARKET / DRAM / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。
-- 60/252 日分位必须能追溯到真实历史序列；不可得时为 `null`。
+- 60/252 日价格位置分位必须能追溯到真实日线、日期和样本数；代理必须标明成份、权重口径和基金自身可用样本，不得与实际基金历史混写。
 - DRAM 的消息与价格一致性、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
 - 复盘区包含至少一个明确的模型调整；`mediumLedger` 只有证据变化时才更新，不输出小样本伪精度。
 - 页面只用于信息整理，不输出确定性买卖建议。
