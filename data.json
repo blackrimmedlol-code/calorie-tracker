@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-21T13:33:19+08:00"
+    "updatedAt": "2026-08-21T23:32:34+08:00"
   },
   "days": [
     {
@@ -429,18 +429,28 @@
     },
     {
       "date": "2026-08-21",
-      "intake": 800,
+      "intake": 1620,
       "records": [
         {
           "name": "牛肉鸡蛋盖饭（肥牛+滑蛋+米饭）",
           "calories": 800,
           "meal": "午餐"
+        },
+        {
+          "name": "牛肉饺子10个+辣椒油醋蘸酱",
+          "calories": 560,
+          "meal": "晚餐"
+        },
+        {
+          "name": "酱牛肉凉拌菜（半拳）",
+          "calories": 260,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 37,
-        "carbs": 43,
-        "fat": 48
+        "protein": 83,
+        "carbs": 92,
+        "fat": 94
       },
       "body": {
         "weightKg": 77.7
@@ -474,7 +484,7 @@
     },
     {
       "date": "今日",
-      "intake": 800
+      "intake": 1620
     }
   ]
 }
