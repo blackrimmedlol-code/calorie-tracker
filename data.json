@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-21T08:00:22+08:00"
+    "updatedAt": "2026-08-21T13:25:44+08:00"
   },
   "days": [
     {
@@ -426,6 +426,22 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-08-21",
+      "intake": 800,
+      "records": [
+        {
+          "name": "牛肉鸡蛋盖饭（肥牛+滑蛋+米饭）",
+          "calories": 800,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 37,
+        "carbs": 43,
+        "fat": 48
+      }
     }
   ],
   "trend": [
@@ -455,7 +471,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 800
     }
   ]
 }
