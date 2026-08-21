@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-22T02:10:00+08:00",
+    "updatedAt": "2026-08-22T02:16:00+08:00",
     "latestSession": "late",
     "sessionDate": "2026-08-21",
     "nextUpdate": "2026-08-22T04:00:00+08:00",
@@ -40,6 +40,13 @@
       "name": "Lumentum",
       "price": 827.6,
       "changePct": -5.23,
+      "tone": "down"
+    },
+    {
+      "symbol": "IREN",
+      "name": "IREN",
+      "price": 41.34,
+      "changePct": -2.96,
       "tone": "down"
     },
     {
@@ -84,6 +91,11 @@
       "group": "LITE / 光通信",
       "status": "公司 + 同业",
       "method": "Lumentum IR/SEC + AI 数据中心光连接、云厂商 CapEx、COHR 与光模块链相对强弱。"
+    },
+    {
+      "group": "IREN / AI Cloud + Bitcoin mining",
+      "status": "双链验证",
+      "method": "IREN IR/SEC + AI Cloud合同/ARR、GPU与电力容量交付、BTC生产/持仓；BTC、MARA、RIOT、CLSK及AI数据中心链验证价格传导。"
     },
     {
       "group": "SPCX / SpaceX",
@@ -159,6 +171,13 @@
         "to": "盘前测试893.85",
         "tone": "up",
         "reason": "盘前892.50、+1.50%，COHR盘前+2.04%；链条同向但接近阻力。"
+      },
+      {
+        "asset": "IREN",
+        "from": "未纳入重点标的",
+        "to": "新增基线；历史时点不回填",
+        "reason": "从下一有效时段开始按真实价格、量能、BTC/矿企与AI数据中心链验证。",
+        "tone": "flat"
       },
       {
         "asset": "SPCX",
@@ -288,6 +307,44 @@
           "driver": "AI数据中心光连接需求、Lumentum盈利改善与COHR同业共振仍在",
           "trigger": "连续日线站稳893.85且光通信链广度扩散",
           "invalidation": "公司/云厂商CapEx指引下修，或日线重新失守827.60"
+        }
+      },
+      "IREN": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "禁止",
+          "beta": "待建立"
+        },
+        "short": {
+          "bias": "待确认",
+          "confidence": "低",
+          "posture": "新增标的，等待下一有效时段",
+          "driver": "历史时点未纳入采集，不做事后重建",
+          "trigger": "下一有效时段建立价格、量能与联动基线",
+          "invalidation": "数据未建立前不开放交易权限",
+          "planStatus": "等待触发",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "unknown",
+              "note": "当时未采集"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "当时未采集"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "当时未采集"
+            }
+          }
+        },
+        "medium": {
+          "bias": "中性",
+          "posture": "等待公司与价格双基线",
+          "driver": "IREN兼具AI Cloud与Bitcoin mining双驱动",
+          "trigger": "AI合同/交付兑现且价格获得确认",
+          "invalidation": "融资稀释或交付不及预期并被价格确认"
         }
       },
       "SPCX": {
@@ -515,6 +572,13 @@
         "tone": "up"
       },
       {
+        "symbol": "IREN",
+        "name": "IREN",
+        "price": null,
+        "changePct": null,
+        "tone": "flat"
+      },
+      {
         "symbol": "SPCX",
         "name": "SpaceX",
         "price": 134.35,
@@ -677,6 +741,44 @@
         "resistanceValue": 893.85
       },
       {
+        "symbol": "IREN",
+        "name": "IREN Limited",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "新增标的 · 历史时段未采集",
+        "timeframes": {
+          "15m": "unknown",
+          "30m": "unknown",
+          "1h": "unknown",
+          "4h": "unknown",
+          "1d": "unknown"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "当时未纳入采集，不事后回填。",
+          "30m": "当时未纳入采集，不事后回填。",
+          "1h": "当时未纳入采集，不事后回填。",
+          "4h": "当时未纳入采集，不事后推断。",
+          "1d": "等待下一次正式收盘建立真实日线基线。"
+        },
+        "verdict": "新增标的；历史时段不倒填判断。",
+        "fundamental": "IREN兼具AI Cloud与Bitcoin mining双业务，后续以IREN IR/SEC为公司事实源。",
+        "priceAction": "当时未采集。",
+        "relativeStrength": "当时未采集BTC、矿企与AI数据中心链的同步口径。",
+        "invalidation": "等待下一有效时段建立。",
+        "support": "待建立",
+        "supportValue": null,
+        "resistance": "待建立",
+        "resistanceValue": null
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies Corp.",
         "price": 134.35,
@@ -813,6 +915,14 @@
         "verdict": "同业共振 / 接近阻力"
       },
       {
+        "asset": "IREN",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "新增标的 / 当时未采集"
+      },
+      {
         "asset": "SPCX",
         "macro": "0",
         "fundamental": "+",
@@ -871,6 +981,12 @@
         "name": "Lumentum IR / Google Finance COHR",
         "url": "https://investor.lumentum.com/",
         "note": "公司事实源与COHR盘前相对强弱。"
+      },
+      {
+        "label": "IREN",
+        "name": "IREN Investor Relations / SEC",
+        "url": "https://iren.com/investors/news",
+        "note": "AI Cloud合同与ARR、GPU/数据中心交付、BTC矿业、资本开支及融资为公司事实基线。"
       },
       {
         "label": "SPCX",
@@ -939,6 +1055,28 @@
         "source": "WeStock / 腾讯自选股",
         "rangeLow": 115.89,
         "rangeHigh": 1053.09
+      },
+      {
+        "asset": "IREN",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "IREN",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
       },
       {
         "asset": "SPCX",
@@ -1094,6 +1232,13 @@
         "reason": "失守881.72与开盘898.62，COHR约持平，失败突破得到同业弱确认。"
       },
       {
+        "asset": "IREN",
+        "from": "未纳入重点标的",
+        "to": "新增基线；历史时点不回填",
+        "reason": "从下一有效时段开始按真实价格、量能、BTC/矿企与AI数据中心链验证。",
+        "tone": "flat"
+      },
+      {
         "asset": "SPCX",
         "from": "134.35的小幅盘前反弹",
         "to": "133.16、低131.22",
@@ -1221,6 +1366,44 @@
           "driver": "云CapEx与光连接需求中期逻辑未变，短线筹码与高分位压制",
           "trigger": "连续日线站稳893.85且COHR同步转强",
           "invalidation": "日线失守827.60或公司/云CapEx指引下修"
+        }
+      },
+      "IREN": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "禁止",
+          "beta": "待建立"
+        },
+        "short": {
+          "bias": "待确认",
+          "confidence": "低",
+          "posture": "新增标的，等待下一有效时段",
+          "driver": "历史时点未纳入采集，不做事后重建",
+          "trigger": "下一有效时段建立价格、量能与联动基线",
+          "invalidation": "数据未建立前不开放交易权限",
+          "planStatus": "等待触发",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "unknown",
+              "note": "当时未采集"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "当时未采集"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "当时未采集"
+            }
+          }
+        },
+        "medium": {
+          "bias": "中性",
+          "posture": "等待公司与价格双基线",
+          "driver": "IREN兼具AI Cloud与Bitcoin mining双驱动",
+          "trigger": "AI合同/交付兑现且价格获得确认",
+          "invalidation": "融资稀释或交付不及预期并被价格确认"
         }
       },
       "SPCX": {
@@ -1441,6 +1624,13 @@
         "tone": "down"
       },
       {
+        "symbol": "IREN",
+        "name": "IREN",
+        "price": null,
+        "changePct": null,
+        "tone": "flat"
+      },
+      {
         "symbol": "SPCX",
         "name": "SpaceX",
         "price": 133.16,
@@ -1540,6 +1730,44 @@
         "supportValue": 864.78,
         "resistance": "881.72 / 898.62",
         "resistanceValue": 881.72
+      },
+      {
+        "symbol": "IREN",
+        "name": "IREN Limited",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "新增标的 · 历史时段未采集",
+        "timeframes": {
+          "15m": "unknown",
+          "30m": "unknown",
+          "1h": "unknown",
+          "4h": "unknown",
+          "1d": "unknown"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "当时未纳入采集，不事后回填。",
+          "30m": "当时未纳入采集，不事后回填。",
+          "1h": "当时未纳入采集，不事后回填。",
+          "4h": "当时未纳入采集，不事后推断。",
+          "1d": "等待下一次正式收盘建立真实日线基线。"
+        },
+        "verdict": "新增标的；历史时段不倒填判断。",
+        "fundamental": "IREN兼具AI Cloud与Bitcoin mining双业务，后续以IREN IR/SEC为公司事实源。",
+        "priceAction": "当时未采集。",
+        "relativeStrength": "当时未采集BTC、矿企与AI数据中心链的同步口径。",
+        "invalidation": "等待下一有效时段建立。",
+        "support": "待建立",
+        "supportValue": null,
+        "resistance": "待建立",
+        "resistanceValue": null
       },
       {
         "symbol": "SPCX",
@@ -1678,6 +1906,14 @@
         "verdict": "高开冲高后失守"
       },
       {
+        "asset": "IREN",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "新增标的 / 当时未采集"
+      },
+      {
         "asset": "SPCX",
         "macro": "0",
         "fundamental": "+",
@@ -1736,6 +1972,12 @@
         "name": "Lumentum Investor Relations",
         "url": "https://investor.lumentum.com/",
         "note": "公司事实源；COHR用于同业验证。"
+      },
+      {
+        "label": "IREN",
+        "name": "IREN Investor Relations / SEC",
+        "url": "https://iren.com/investors/news",
+        "note": "AI Cloud合同与ARR、GPU/数据中心交付、BTC矿业、资本开支及融资为公司事实基线。"
       },
       {
         "label": "SPCX",
@@ -1812,6 +2054,28 @@
         "rangeHigh": 1053.09
       },
       {
+        "asset": "IREN",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "IREN",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
         "asset": "SPCX",
         "window": "60D",
         "percentile": 47.9,
@@ -1865,14 +2129,14 @@
   },
   "late": {
     "available": true,
-    "updatedAt": "2026-08-22T02:10:00+08:00",
+    "updatedAt": "2026-08-22T02:16:00+08:00",
     "updateStatus": "延迟补跑",
-    "sessionContext": "北京时间 02:00 午后盘再验证 · 主任务提前触发被预检拦截，已手动补跑 · 行情截至美东 13:51–13:52",
+    "sessionContext": "北京时间 02:00 午后盘再验证 · 主任务提前触发被预检拦截，已手动补跑 · 行情截至美东 13:51–13:52 · IREN新增基线截至美东14:16",
     "deltaLabel": "相对23:00盘中初验",
     "regime": "指数修复略扩散 / 半导体仍落后 / SPCX午后反转 / 加密高位分化",
     "confidence": "中",
-    "thesis": "相对23:00，SPY与QQQ修复略有扩散，但SOXX仍为负且低于开盘区，全面risk-on仍未成立。DRAM收回前收但未重回58.62，LITE新低后仅弱修复，二者失败突破尚未解除；SPCX由负转正并一度越过136.72，显示供给吸收改善，但未能守住确认位；MSTR虽随BTC维持大涨，却从127.52高点回落至119.90，beta开始弱于COIN。只允许相对强链条使用受限beta。",
-    "watchVariable": "SOXX能否收复528.95开盘区；DRAM能否站回58.62；LITE能否收复881.72；SPCX能否重新站稳136.72；MSTR能否守119.32并重回120.97",
+    "thesis": "相对23:00，SPY与QQQ修复略有扩散，但SOXX仍为负且低于开盘区，全面risk-on仍未成立。DRAM收回前收但未重回58.62，LITE新低后仅弱修复，二者失败突破尚未解除；IREN在BTC大涨时仍走弱，新增基线暂不开放追价；SPCX由负转正并一度越过136.72，显示供给吸收改善，但未能守住确认位；MSTR虽随BTC维持大涨，却从127.52高点回落至119.90，beta开始弱于COIN。只允许相对强链条使用受限beta。",
+    "watchVariable": "SOXX能否收复528.95开盘区；DRAM能否站回58.62；LITE能否收复881.72；IREN能否收复44.00；SPCX能否重新站稳136.72；MSTR能否守119.32并重回120.97",
     "largestChange": "SPCX从23:00的133.16、-0.63%回升至135.31、+0.98%，盘中一度触及137.34；供给压力由确认降为待收盘验证。",
     "reviewStatus": "23:00判断完成午后复核",
     "reviewNote": "应用上一轮MODEL CHANGE：触发必须同时通过关键位、持续性和联动验证。SPCX仅短暂越过136.72，不因一次触碰升级；MSTR高点回吐则降低追价与隔夜权限。",
@@ -1881,7 +2145,7 @@
     "freshness": {
       "quotes": {
         "status": "正式盘中 / 同步行情快照",
-        "asOf": "2026-08-21 13:51–13:52 ET；价格、日高低与成交量来自行情工具"
+        "asOf": "2026-08-21 13:51–13:52 ET；价格、日高低与成交量来自行情工具；IREN补充截至14:16 ET"
       },
       "timeframes": {
         "status": "午后结构更新",
@@ -1917,6 +2181,13 @@
         "to": "869.92、-1.06%，日低下移至855.55",
         "tone": "flat",
         "reason": "价格几乎未改善且COHR-0.53%，光通信链没有提供反转确认。"
+      },
+      {
+        "asset": "IREN",
+        "from": "未纳入重点标的",
+        "to": "41.34、-2.96%，开44.00后走弱",
+        "reason": "建立首个真实基线：BTC大涨未带动IREN，AI Cloud中期催化暂未转化为当日价格确认。",
+        "tone": "down"
       },
       {
         "asset": "SPCX",
@@ -2046,6 +2317,44 @@
           "driver": "云CapEx与光连接需求中期逻辑未变，短线筹码与高分位压制",
           "trigger": "连续日线站稳893.85且COHR同步转强",
           "invalidation": "日线失守827.60或公司/云CapEx指引下修"
+        }
+      },
+      "IREN": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "谨慎 / 财报前受限",
+          "beta": "标准以下"
+        },
+        "short": {
+          "bias": "偏空",
+          "confidence": "中",
+          "posture": "不接盘中下跌，等44.00收复",
+          "driver": "BTC大涨时IREN仍跌，AI/矿企双链均未给出价格确认",
+          "trigger": "收复44.00并突破45.92，同时BTC/矿企或AI数据中心链至少一侧转强",
+          "invalidation": "跌破40.88则继续降低beta",
+          "planStatus": "等待触发",
+          "tradeType": "短线事件交易",
+          "confirmations": {
+            "price": {
+              "state": "failed",
+              "note": "开44.00、高45.92后回落41.34，接近日低40.88"
+            },
+            "volume": {
+              "state": "mixed",
+              "note": "成交约3274万股，活跃但缺少同分钟历史基准"
+            },
+            "linkage": {
+              "state": "failed",
+              "note": "BTC+6.62%，IREN-2.96%；MARA近持平、RIOT/CLSK约跌5%"
+            }
+          }
+        },
+        "medium": {
+          "bias": "中性偏多",
+          "posture": "保留AI Cloud论点，等待合同交付与价格确认",
+          "driver": "公司披露新增约28亿美元AI客户合同并上调2026 ARR目标至40亿美元以上；同时高资本开支、融资与矿业周期增加波动",
+          "trigger": "AI合同、GPU/容量交付兑现且日线重新转强",
+          "invalidation": "交付/ARR不及预期、融资稀释扩大并被日线确认"
         }
       },
       "SPCX": {
@@ -2198,6 +2507,14 @@
         "tone": "up"
       },
       {
+        "event": "IREN新增基线",
+        "marketPrior": "AI Cloud合同与BTC上涨应提供正向支持",
+        "actual": "IREN 41.34、-2.96%，BTC+6.62%；矿企同业分化",
+        "priceReaction": "基本面催化未转化为当日价格确认",
+        "positioning": "不接下跌，44.00上方再复核",
+        "tone": "down"
+      },
+      {
         "event": "SPCX供给压力",
         "marketPrior": "131.22下探后弱势可能延续",
         "actual": "反弹至135.31并一度触及137.34",
@@ -2264,6 +2581,28 @@
         "source": "WeStock / 腾讯自选股",
         "rangeLow": 115.89,
         "rangeHigh": 1053.09
+      },
+      {
+        "asset": "IREN",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "IREN",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
       },
       {
         "asset": "SPCX",
@@ -2351,6 +2690,13 @@
         "name": "Lumentum",
         "price": 869.92,
         "changePct": -1.06,
+        "tone": "down"
+      },
+      {
+        "symbol": "IREN",
+        "name": "IREN",
+        "price": 41.34,
+        "changePct": -2.96,
         "tone": "down"
       },
       {
@@ -2455,6 +2801,44 @@
         "resistanceValue": 881.72
       },
       {
+        "symbol": "IREN",
+        "name": "IREN Limited",
+        "price": 41.34,
+        "changePct": -2.96,
+        "tone": "down",
+        "priceStatus": "正式盘中 · 14:16 ET",
+        "timeframes": {
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "现价41.34接近日低40.88；未取得直接15m K线，按日内路径判弱。",
+          "30m": "失守44.00开盘区，反弹尚无关键位确认。",
+          "1h": "高45.92后持续回落，BTC上涨未带动IREN。",
+          "4h": "结合当日OHLC与近期双业务高波动结构，当前偏空；未虚构指标。",
+          "1d": "2026-08-21盘中OHLC 44.00/45.92/40.88/41.34，尚未收盘。"
+        },
+        "verdict": "新增基线：AI Cloud中期催化明确，但本时段价格与BTC联动均失败，短线不接下跌。",
+        "fundamental": "IREN IR披露约28亿美元新增AI客户合同、2026 AI Cloud ARR目标上调至40亿美元以上；8月27日将发布FY26业绩。SEC文件同时显示资本开支与股权融资需要持续跟踪。",
+        "priceAction": "开44.00、高45.92、低40.88、现41.34，成交约3274万股。",
+        "relativeStrength": "IREN-2.96%，BTC+6.62%、MARA+0.13%、RIOT-5.39%、CLSK-5.56%；弱于BTC/MARA，但强于RIOT/CLSK。",
+        "invalidation": "收复44.00并突破45.92才恢复；跌破40.88则弱势延续。",
+        "support": "40.88 / 40.00",
+        "supportValue": 40.88,
+        "resistance": "44.00 / 45.92",
+        "resistanceValue": 44
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 135.31,
@@ -2555,6 +2939,14 @@
         "impact": "方向仍正，降低追价和隔夜权限",
         "tone": "flat",
         "url": "https://www.google.com/finance/quote/MSTR:NASDAQ"
+      },
+      {
+        "directness": "IREN公司源",
+        "title": "IREN将于8月27日发布FY26业绩",
+        "summary": "公司同时披露约28亿美元新增AI客户合同，并把2026 AI Cloud ARR目标上调至40亿美元以上。",
+        "impact": "中期催化明确，财报前短线波动与融资风险提高",
+        "tone": "flat",
+        "url": "https://iren.com/investors/news"
       }
     ],
     "matrix": [
@@ -2581,6 +2973,14 @@
         "positioning": "-",
         "price": "-",
         "verdict": "新低后弱修复"
+      },
+      {
+        "asset": "IREN",
+        "macro": "0",
+        "fundamental": "+",
+        "positioning": "-",
+        "price": "-",
+        "verdict": "AI逻辑强 / 当日价格与BTC联动失败"
       },
       {
         "asset": "SPCX",
@@ -2641,6 +3041,12 @@
         "name": "Lumentum Investor Relations",
         "url": "https://investor.lumentum.com/",
         "note": "本时段无新增公司重大事实；COHR用于联动验证。"
+      },
+      {
+        "label": "IREN",
+        "name": "IREN Investor Relations / SEC",
+        "url": "https://iren.com/investors/news",
+        "note": "公司事实源；盘中价41.34、-2.96%，时间戳14:16 ET；BTC/MARA/RIOT/CLSK用于联动验证。"
       },
       {
         "label": "SPCX",
@@ -2719,6 +3125,13 @@
         "to": "守住关键位、同业转正",
         "tone": "up",
         "reason": "收于879.28（+6.31%），高881.72；COHR 从午后 -0.74% 转为 +0.88%，价格和行业广度由部分确认升级。"
+      },
+      {
+        "asset": "IREN",
+        "from": "未纳入重点标的",
+        "to": "新增基线；历史时点不回填",
+        "reason": "从下一有效时段开始按真实价格、量能、BTC/矿企与AI数据中心链验证。",
+        "tone": "flat"
       },
       {
         "asset": "SPCX",
@@ -2848,6 +3261,44 @@
           "driver": "AI数据中心光连接需求与价格确认改善，但估值和波动仍高",
           "trigger": "连续日线站上873.31且COHR/光通信链继续同步",
           "invalidation": "云厂商CapEx或公司指引下修，或日线重新失守827.60"
+        }
+      },
+      "IREN": {
+        "permissions": {
+          "chase": "禁止",
+          "overnight": "禁止",
+          "beta": "待建立"
+        },
+        "short": {
+          "bias": "待确认",
+          "confidence": "低",
+          "posture": "新增标的，等待下一有效时段",
+          "driver": "历史时点未纳入采集，不做事后重建",
+          "trigger": "下一有效时段建立价格、量能与联动基线",
+          "invalidation": "数据未建立前不开放交易权限",
+          "planStatus": "等待触发",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "unknown",
+              "note": "当时未采集"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "当时未采集"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "当时未采集"
+            }
+          }
+        },
+        "medium": {
+          "bias": "中性",
+          "posture": "等待公司与价格双基线",
+          "driver": "IREN兼具AI Cloud与Bitcoin mining双驱动",
+          "trigger": "AI合同/交付兑现且价格获得确认",
+          "invalidation": "融资稀释或交付不及预期并被价格确认"
         }
       },
       "SPCX": {
@@ -3098,6 +3549,28 @@
         "rangeHigh": 1053.09
       },
       {
+        "asset": "IREN",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "IREN",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待下一close获取完整滚动序列",
+        "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
         "asset": "SPCX",
         "window": "60D",
         "percentile": 47.9,
@@ -3184,6 +3657,13 @@
         "price": 879.28,
         "changePct": 6.31,
         "tone": "up"
+      },
+      {
+        "symbol": "IREN",
+        "name": "IREN",
+        "price": null,
+        "changePct": null,
+        "tone": "flat"
       },
       {
         "symbol": "SPCX",
@@ -3285,6 +3765,44 @@
         "supportValue": 873.31,
         "resistance": "881.72（日高）/893.85（前日高）",
         "resistanceValue": 881.72
+      },
+      {
+        "symbol": "IREN",
+        "name": "IREN Limited",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "新增标的 · 历史时段未采集",
+        "timeframes": {
+          "15m": "unknown",
+          "30m": "unknown",
+          "1h": "unknown",
+          "4h": "unknown",
+          "1d": "unknown"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "当时未纳入采集，不事后回填。",
+          "30m": "当时未纳入采集，不事后回填。",
+          "1h": "当时未纳入采集，不事后回填。",
+          "4h": "当时未纳入采集，不事后推断。",
+          "1d": "等待下一次正式收盘建立真实日线基线。"
+        },
+        "verdict": "新增标的；历史时段不倒填判断。",
+        "fundamental": "IREN兼具AI Cloud与Bitcoin mining双业务，后续以IREN IR/SEC为公司事实源。",
+        "priceAction": "当时未采集。",
+        "relativeStrength": "当时未采集BTC、矿企与AI数据中心链的同步口径。",
+        "invalidation": "等待下一有效时段建立。",
+        "support": "待建立",
+        "supportValue": null,
+        "resistance": "待建立",
+        "resistanceValue": null
       },
       {
         "symbol": "SPCX",
@@ -3423,6 +3941,14 @@
         "verdict": "深V站稳873.31"
       },
       {
+        "asset": "IREN",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "新增标的 / 当时未采集"
+      },
+      {
         "asset": "SPCX",
         "macro": "-",
         "fundamental": "0",
@@ -3483,6 +4009,12 @@
         "note": "公司事实源；COHR收盘表现用于光通信同业验证。"
       },
       {
+        "label": "IREN",
+        "name": "IREN Investor Relations / SEC",
+        "url": "https://iren.com/investors/news",
+        "note": "AI Cloud合同与ARR、GPU/数据中心交付、BTC矿业、资本开支及融资为公司事实基线。"
+      },
+      {
         "label": "SPCX",
         "name": "SpaceX IR 与 MarketWatch 解禁报道",
         "url": "https://ir.spacex.com/",
@@ -3512,7 +4044,7 @@
       "stage": "02:00 午后复核",
       "title": "指数修复扩散但半导体仍弱，SPCX反转，MSTR beta衰减",
       "status": "部分确认",
-      "summary": "相对23:00，SPY/QQQ改善、SOXX跌幅收窄但仍为负；DRAM收回前收仍未重返开盘区，LITE新低后弱修复；SPCX由负转正并短暂越过136.72；MSTR随加密链上涨却从127.52高点明显回吐。",
+      "summary": "相对23:00，SPY/QQQ改善、SOXX跌幅收窄但仍为负；DRAM收回前收仍未重返开盘区，LITE新低后弱修复；IREN以41.34、-2.96%建立新基线；SPCX由负转正并短暂越过136.72；MSTR随加密链上涨却从127.52高点明显回吐。",
       "assets": [
         {
           "asset": "市场",
@@ -3531,6 +4063,12 @@
           "expected": "881.72上方才恢复",
           "actual": "869.92、日低855.55，COHR-0.53%",
           "result": "确认"
+        },
+        {
+          "asset": "IREN",
+          "expected": "新增标的，无上期判断",
+          "actual": "41.34、-2.96%；BTC+6.62%，开44.00后走弱",
+          "result": "新基线"
         },
         {
           "asset": "SPCX",
@@ -3795,6 +4333,15 @@
       "updatedAt": "2026-08-20"
     },
     {
+      "openedAt": "2026-08-21",
+      "asset": "IREN",
+      "thesis": "AI Cloud合同与数据中心扩张提供1–6周增长催化，但Bitcoin mining周期、高资本开支与融资稀释要求价格确认。",
+      "evidenceFor": "IREN披露约28亿美元新增AI客户合同，并将2026 AI Cloud ARR目标上调至40亿美元以上。",
+      "evidenceAgainst": "当日BTC大涨而IREN下跌；SEC披露的资本开支与股权融资规模提高供给和执行风险。",
+      "status": "观察",
+      "updatedAt": "2026-08-21"
+    },
+    {
       "openedAt": "2026-08-20",
       "asset": "SPCX",
       "thesis": "SpaceX 的 Starlink、发射与 AI 叙事具催化，但上市后估值与流通筹码仍在价格发现。",
@@ -3813,5 +4360,12 @@
       "updatedAt": "2026-08-20"
     }
   ],
-  "sources": []
+  "sources": [
+    {
+      "label": "IREN",
+      "name": "IREN Investor Relations / SEC",
+      "url": "https://iren.com/investors/news",
+      "note": "AI Cloud合同与ARR、GPU/数据中心交付、BTC矿业、资本开支及融资为公司事实基线。"
+    }
+  ]
 }
