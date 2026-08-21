@@ -68,7 +68,10 @@ DRAM、LITE、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDE
 
 - `permissions`：`chase / overnight / beta`，把宏观框架压缩为追价权限、隔夜权限和 beta 预算；
 
-- `short`：0–3 个交易日，字段为 `bias / confidence / posture / driver / trigger / invalidation`。
+- `short`：0–3 个交易日，字段为 `bias / confidence / posture / driver / trigger / invalidation / planStatus / tradeType / confirmations`。
+  - `planStatus` 是剧本生命周期，不等同涨跌方向；使用 `等待触发 / 已触发 / 部分确认 / 已确认 / 失败突破 / 剧本失效`。一旦进入 `失败突破` 或 `剧本失效`，必须同步降低追价、隔夜或 beta 权限，不能继续用原叙事论证。
+  - `tradeType` 是交易类型锁；使用 `风险预算 / 短线事件交易 / 趋势交易 / 中期逻辑观察 / 仅观察`。短线触发失效后不得临时改写成中期持有；若要改变类型，必须重新建立触发、失效和仓位权限。
+  - `confirmations` 固定包含 `price / volume / linkage`，每项写 `state / note`。`state` 使用 `confirmed / mixed / failed / unknown`；没有可比成交量或联动数据时必须写 `unknown`，不能用价格涨跌代替量能。`linkage` 对市场表示广度/跨资产，对 DRAM 表示存储同业，对 LITE 表示 COHR/光通信链，对 SPCX 表示上市后相对强弱与供给吸收，对 MSTR 表示 BTC/IBIT/COIN 联动。
 - `medium`：1–6 周，字段为 `bias / posture / driver / trigger / invalidation`。
 
 短线优先级固定为：价格确认与关键位 > 跨资产/行业广度 > 事件预期差 > 宏观先验。中期优先看宏观/行业因果链、日线与周线结构、资金流和供给约束。
@@ -138,12 +141,16 @@ DRAM、LITE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为
 - 复盘资产顺序固定为市场、DRAM、LITE、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
+- `reviews` 只做模型判断复盘，不记录个人交易执行。每条至少包含 `validDriver / errorLayer / failedAssumption / modelChange`；`errorLayer` 必须明确归入宏观驱动、传导机制、行业/跨资产联动、量能、价格确认或数据边界中的一层。
 - 历史最新在前；相同日期与阶段应更新原条目，不重复追加。满 20 条短线样本前只展示样本数，不展示命中率。
 
 ## 枚举
 
 - `tone`: `up | down | flat`
 - `timeframes`: `bull | bear | neutral | unknown`
+- `planStatus`: `等待触发 | 已触发 | 部分确认 | 已确认 | 失败突破 | 剧本失效`
+- `tradeType`: `风险预算 | 短线事件交易 | 趋势交易 | 中期逻辑观察 | 仅观察`
+- `confirmations.*.state`: `confirmed | mixed | failed | unknown`
 - 复盘结果：`确认 | 部分确认 | 失效 | 新基线`
 - 矩阵信号：`+ | 0 | -`
 - `latestSession`: `premarket | intraday | late | close`
@@ -160,6 +167,7 @@ DRAM、LITE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为
 - 盘中版必须复核 09:00 ET 盘前判断，不得只是重复新闻。
 - DRAM/LITE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
 - `MARKET / DRAM / LITE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
+- 五个操作对象都具有 `planStatus / tradeType / confirmations.price / confirmations.volume / confirmations.linkage`；剧本失败必须同步降权，交易类型不能因被套而漂移；确认灯没有证据时使用 `unknown`。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。
 - 60/252 日价格位置分位必须能追溯到真实日线、日期和样本数；代理必须标明成份、权重口径和基金自身可用样本，不得与实际基金历史混写。
 - DRAM 的消息—价格一致性、LITE 的公司—光通信链确认、SPCX 的上市后量价与代码换主隔离、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
