@@ -188,7 +188,23 @@
           "posture": "等待开盘广度确认，不追期指反抽",
           "driver": "SPY、QQQ、SOXX盘前反弹，但10Y/30Y仍在4.69%/5.25%附近，油价约93–94美元压制全面risk-on",
           "trigger": "SPY站稳765.5且SOXX开盘后维持强于QQQ，10Y不再上冲4.71%",
-          "invalidation": "SPY回落762.6下方，或10Y/30Y与油价同步再上行"
+          "invalidation": "SPY回落762.6下方，或10Y/30Y与油价同步再上行",
+          "planStatus": "等待触发",
+          "tradeType": "风险预算",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "期指反弹，但正式盘尚未验证"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "盘前量不能替代正式成交量"
+            },
+            "linkage": {
+              "state": "mixed",
+              "note": "SOXX盘前较强，但长端收益率与油价仍构成反向约束"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -210,7 +226,23 @@
           "posture": "等57.72–58.00承接，不追58.7跳空",
           "driver": "前日57突破被收盘锁定，盘前58.73、+2.00%，且SOXX盘前+1.33%",
           "trigger": "开盘守住57.72并放量站稳58.73；进一步看60",
-          "invalidation": "跌回57.00下方先降级，失守56.35则突破失效"
+          "invalidation": "跌回57.00下方先降级，失守56.35则突破失效",
+          "planStatus": "等待触发",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "盘前越过57.72前高，等待开盘守住57.72–58.00"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "未取得可比盘前成交量"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "SOXX与存储方向盘前提供正向映射"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -232,7 +264,23 @@
           "posture": "等881.72–893.85区间承接，不追900附近",
           "driver": "前日深V收879.28，盘前892.50、+1.50%，COHR盘前+2.04%提供链条确认",
           "trigger": "开盘守881.72并突破893.85；COHR同步保持强势",
-          "invalidation": "跌回873.31下方先降级，失守827.60则反转失效"
+          "invalidation": "跌回873.31下方先降级，失守827.60则反转失效",
+          "planStatus": "等待触发",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "盘前接近893.85，尚未经过正式开盘承接"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "未取得可比盘前成交量"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "COHR盘前同向上涨，光通信链提供初步确认"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -254,7 +302,23 @@
           "posture": "只观察解禁承接，不因小幅盘前反弹抄底",
           "driver": "盘前134.35仅+0.26%，仍低于136.72；前日约1.19亿股放量说明供给压力未消失",
           "trigger": "缩量守住133.94/130.43并收回136.72；站上139.79才升级",
-          "invalidation": "跌破130.43且继续放量，转看125–130承接"
+          "invalidation": "跌破130.43且继续放量，转看125–130承接",
+          "planStatus": "部分确认",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "仍受136.72压制，符合供给风险先验"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "盘前成交量不足以判断供给吸收"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "相对SOXX及其他重点标的继续偏弱"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -276,7 +340,23 @@
           "posture": "等116.09–120回踩或开盘后放量站稳120.85",
           "driver": "BTC约76,895、+5.29%，MSTR盘前120.85、+7.52%，方向与beta继续共振",
           "trigger": "BTC守75,000且MSTR站稳120.85；进一步看125",
-          "invalidation": "MSTR跌回116.09下方且BTC失守75,000"
+          "invalidation": "MSTR跌回116.09下方且BTC失守75,000",
+          "planStatus": "已触发",
+          "tradeType": "短线事件交易",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "盘前120.85与BTC同步上行"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "盘前成交量不作为正式量能确认"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "BTC与加密股同向，beta链条成立"
+            }
+          }
         },
         "medium": {
           "bias": "偏多",
@@ -1041,7 +1121,23 @@
           "posture": "只做相对强链，等待SOXX收复开盘区",
           "driver": "SPY修复而QQQ/SOXX落后，金融与加密强于科技",
           "trigger": "QQQ重回715.23且SOXX收复528.15，长端不再上冲",
-          "invalidation": "SPY跌破764.17或SOXX继续扩跌"
+          "invalidation": "SPY跌破764.17或SOXX继续扩跌",
+          "planStatus": "部分确认",
+          "tradeType": "风险预算",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "SPY温和修复，但QQQ近乎持平"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "未取得统一口径的指数成交量/广度序列"
+            },
+            "linkage": {
+              "state": "failed",
+              "note": "SOXX转跌，没有确认盘前科技与半导体强势"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -1063,7 +1159,23 @@
           "posture": "等待重回58.62再恢复多头权限",
           "driver": "开盘突破失败且存储同业同步转跌",
           "trigger": "收复58.62并突破58.81，同业至少多数转正",
-          "invalidation": "跌破57.00后继续放量则看56.35"
+          "invalidation": "跌破57.00后继续放量则看56.35",
+          "planStatus": "失败突破",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "failed",
+              "note": "开58.62、高58.81后回落57.44，失守开盘区"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "缺少与历史同分钟口径可比的成交量"
+            },
+            "linkage": {
+              "state": "failed",
+              "note": "MU/SNDK/WDC/STX同步转跌"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -1085,7 +1197,23 @@
           "posture": "不接失败突破，先看864.78承接",
           "driver": "922.99冲高后回落并失守881.72，COHR没有提供强确认",
           "trigger": "重回881.72，再站898.62方可升级",
-          "invalidation": "跌破864.78则看827.60"
+          "invalidation": "跌破864.78则看827.60",
+          "planStatus": "失败突破",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "failed",
+              "note": "突破893.85后回落并失守881.72"
+            },
+            "volume": {
+              "state": "mixed",
+              "note": "盘中成交活跃，但缺少同分钟历史基准"
+            },
+            "linkage": {
+              "state": "failed",
+              "note": "COHR近乎持平，未形成光通信链广度"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -1107,7 +1235,23 @@
           "posture": "只观察131.22承接，不抄底",
           "driver": "仍低于136.72，上市后供给与高成交价格发现继续压制",
           "trigger": "守131.22并收回134.32；站上136.72才显著缓和",
-          "invalidation": "跌破131.22则看130.43及125–130"
+          "invalidation": "跌破131.22则看130.43及125–130",
+          "planStatus": "已确认",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "仍低于136.72并下探131.22，供给风险获价格确认"
+            },
+            "volume": {
+              "state": "mixed",
+              "note": "10:37 ET成交约2407万股，仍需收盘判断供给吸收"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "显著弱于SPY和加密链"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -1129,7 +1273,23 @@
           "posture": "等119.68承接或站稳120.97，不追垂直拉升",
           "driver": "BTC、IBIT、COIN与MSTR同向，加密链是本时段最清晰正beta",
           "trigger": "BTC守75000且MSTR站稳120.97；进一步看125",
-          "invalidation": "跌破115.80且BTC失守75000"
+          "invalidation": "跌破115.80且BTC失守75000",
+          "planStatus": "部分确认",
+          "tradeType": "短线事件交易",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "MSTR维持约+7%，接近日高区域"
+            },
+            "volume": {
+              "state": "confirmed",
+              "note": "10:56 ET成交约2073万股，已高于页面所列日均量"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "BTC、IBIT、COIN同向上涨；相对COIN弹性略弱"
+            }
+          }
         },
         "medium": {
           "bias": "偏多",
@@ -1786,7 +1946,23 @@
           "posture": "不抄指数午后下跌，等待收盘结构",
           "driver": "长端收益率与油价高位，指数和小盘跌幅扩大，SOXX 正向背离显著收窄",
           "trigger": "SPY 收回 766.04开盘、QQQ 收回 712.36开盘且 SOXX 重新扩大领先",
-          "invalidation": "SPY 跌破 764.27且 VIX 继续上升"
+          "invalidation": "SPY 跌破 764.27且 VIX 继续上升",
+          "planStatus": "已确认",
+          "tradeType": "风险预算",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "指数弱势相对23:00继续扩大"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "未取得统一口径的午后广度与量能序列"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "SOXX强势收窄，风险收缩向科技扩散"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -1808,7 +1984,23 @@
           "posture": "不追，等重新站回 57或回踩 56.35",
           "driver": "行业同业仍涨，但价格从 57.47 回到 56.92，突破承接减弱",
           "trigger": "收盘前重新站稳 57.00–57.10并挑战 57.72",
-          "invalidation": "跌破开盘 56.35；失守 55.39则本轮修复失效"
+          "invalidation": "跌破开盘 56.35；失守 55.39则本轮修复失效",
+          "planStatus": "部分确认",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "跌回57下方但仍高于56.35开盘位"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "缺少同分钟历史量能基准"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "仍强于SPY/QQQ且存储同业保持正向"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -1830,7 +2022,23 @@
           "posture": "等 873.31 回踩承接，不追 878 附近",
           "driver": "午后站上 873.31并接近日高，但 COHR 转跌，个股与行业广度背离",
           "trigger": "守住 873.31并突破 878.17",
-          "invalidation": "跌回 868.83下方先降级；失守 827.60则修复失效"
+          "invalidation": "跌回 868.83下方先降级；失守 827.60则修复失效",
+          "planStatus": "部分确认",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "站上873.31并逼近日高"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "缺少同分钟历史量能基准"
+            },
+            "linkage": {
+              "state": "failed",
+              "note": "COHR转跌，个股修复未获全链确认"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -1852,7 +2060,23 @@
           "posture": "不接下跌，等待成交缩量和低点重建",
           "driver": "130.43 新低与 8291 万股成交共同确认供给压力延续",
           "trigger": "守住 130.43并收回 132.40；进一步需站回 136.72",
-          "invalidation": "持续低于 130.43并扩量，下一观察区 125–130被破坏"
+          "invalidation": "持续低于 130.43并扩量，下一观察区 125–130被破坏",
+          "planStatus": "已确认",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "跌破132.40并下探130.43"
+            },
+            "volume": {
+              "state": "confirmed",
+              "note": "成交约8291万股，供给压力随量能扩大"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "继续显著弱于指数及其他重点标的"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -1874,7 +2098,23 @@
           "posture": "等 108.38–109 区域承接或 112.99 突破",
           "driver": "午后随 BTC 回升，MSTR、IBIT、COIN 涨幅重新接近同步",
           "trigger": "站回开盘 112.99并维持 BTC 72,000上方",
-          "invalidation": "跌破 108.38且 BTC 同时失守 70,000"
+          "invalidation": "跌破 108.38且 BTC 同时失守 70,000",
+          "planStatus": "部分确认",
+          "tradeType": "短线事件交易",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "回升至111.65但仍未站上112.99"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "缺少同分钟历史量能基准"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "BTC、IBIT、COIN与MSTR维持同向"
+            }
+          }
         },
         "medium": {
           "bias": "偏多",
@@ -2546,7 +2786,23 @@
           "posture": "下一交易日不追指数反抽，先看收益率和开盘广度",
           "driver": "油价、长端收益率与零售压力使指数和小盘收弱，SOXX仅保留结构性背离",
           "trigger": "SPY收回766.04–769.45，QQQ收回712.36且IWM止跌",
-          "invalidation": "SPY继续跌破762.21并伴随VIX和收益率上行"
+          "invalidation": "SPY继续跌破762.21并伴随VIX和收益率上行",
+          "planStatus": "已确认",
+          "tradeType": "风险预算",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "SPY/QQQ/DIA/IWM正式收跌"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "未取得统一口径的收盘市场广度与量能序列"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "长端收益率与油价压力和指数风险收缩一致"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -2568,7 +2824,23 @@
           "posture": "等57.00–57.10回踩承接",
           "driver": "57.58近高收盘且MU/SNDK/WDC/STX全涨，早盘突破被日线锁定",
           "trigger": "下一交易日守57.00–57.10并突破57.72",
-          "invalidation": "跌回56.35下方先降级；失守55.39则本轮日线修复失效"
+          "invalidation": "跌回56.35下方先降级；失守55.39则本轮日线修复失效",
+          "planStatus": "已确认",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "57突破经历回踩并被57.58收盘锁定"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "本轮未取得可审计的DRAM成交量对比序列"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "MU/SNDK/WDC/STX全部上涨"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -2590,7 +2862,23 @@
           "posture": "等873.31附近承接，不追881上方",
           "driver": "879.28收盘站上873.31，COHR尾盘转正，深V反转获得初步行业确认",
           "trigger": "守住873.31并突破881.72；进一步看893.85",
-          "invalidation": "跌回868.83下方先降级；失守827.60则反转失效"
+          "invalidation": "跌回868.83下方先降级；失守827.60则反转失效",
+          "planStatus": "已确认",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "收879.28并站稳873.31"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "本轮未取得可审计的LITE成交量对比序列"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "COHR尾盘转正，行业确认改善"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏多",
@@ -2612,7 +2900,23 @@
           "posture": "不因尾盘反弹抄底，等待量能降温和关键位收复",
           "driver": "收盘仍低于136.72，成交约1.19亿股；130.43低点反弹只缓和、未否定解禁供给",
           "trigger": "守住130.43并先收回136.72；站上139.79才说明供给被有效吸收",
-          "invalidation": "跌破130.43且继续放量，下一观察区125–130失守"
+          "invalidation": "跌破130.43且继续放量，下一观察区125–130失守",
+          "planStatus": "已确认",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "收盘仍低于136.72，供给风险成立"
+            },
+            "volume": {
+              "state": "confirmed",
+              "note": "成交约1.19亿股，放量价格发现延续"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "显著弱于指数和其他重点标的"
+            }
+          }
         },
         "medium": {
           "bias": "中性偏空",
@@ -2634,7 +2938,23 @@
           "posture": "等108.38–110承接或112.99突破",
           "driver": "与BTC、IBIT、COIN同向收高，beta恢复；但收盘仍略低于开盘112.99",
           "trigger": "站上112.99并突破116.09，BTC维持72,000上方",
-          "invalidation": "跌破108.38且BTC失守70,000"
+          "invalidation": "跌破108.38且BTC失守70,000",
+          "planStatus": "部分确认",
+          "tradeType": "短线事件交易",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "方向上涨但收盘略低于112.99开盘位"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "本轮未取得可审计的MSTR量能历史对比"
+            },
+            "linkage": {
+              "state": "confirmed",
+              "note": "BTC、IBIT、COIN与MSTR同向上涨"
+            }
+          }
         },
         "medium": {
           "bias": "偏多",
@@ -3265,7 +3585,8 @@
       ],
       "validDriver": "长端高收益率继续压制科技估值；上市后供给解释SPCX弱势；BTC流动性与加密链共振解释MSTR强势。",
       "failedAssumption": "盘前SOXX强势会延续，并带动DRAM与LITE守住跳空突破。",
-      "modelChange": "盘前跳空必须通过开盘区、关键位和同业广度三重确认；突破后迅速失守按失败突破处理，消息不能覆盖价格事实。"
+      "modelChange": "盘前跳空必须通过开盘区、关键位和同业广度三重确认；突破后迅速失守按失败突破处理，消息不能覆盖价格事实。",
+      "errorLayer": "价格确认 / 行业联动"
     },
     {
       "date": "2026-08-20",
@@ -3307,7 +3628,8 @@
       ],
       "validDriver": "油价和长端收益率是指数下跌的主导变量；存储同业广度、LITE关键位与加密监管/BTC分别解释三个逆势链条。",
       "failedAssumption": "宏观压力会让SOXX与指数同步收弱；这一板块映射被价格和同业广度推翻。",
-      "modelChange": "盘中突破必须经过触发—回踩—收盘锁定；宏观只决定总风险预算，板块与个股方向必须服从价格、关键位和同业广度。"
+      "modelChange": "盘中突破必须经过触发—回踩—收盘锁定；宏观只决定总风险预算，板块与个股方向必须服从价格、关键位和同业广度。",
+      "errorLayer": "行业相对强弱 / 价格确认"
     },
     {
       "date": "2026-08-20",
@@ -3349,7 +3671,8 @@
       ],
       "validDriver": "宏观压力继续压制广度；LITE 自身买盘和加密监管/BTC 是少数正向驱动；SPCX 的筹码供给继续主导价格。",
       "failedAssumption": "DRAM 突破会稳定守住 57，以及 SPCX 会在 132.40 附近出现缩量承接。",
-      "modelChange": "将早盘突破分为“触发、回踩、收盘锁定”三阶段；午后必须降低对未收盘突破的权重，并把成交量扩张与关键位破坏同时作为风险升级条件。"
+      "modelChange": "将早盘突破分为“触发、回踩、收盘锁定”三阶段；午后必须降低对未收盘突破的权重，并把成交量扩张与关键位破坏同时作为风险升级条件。",
+      "errorLayer": "关键位 / 量能"
     },
     {
       "date": "2026-08-20",
@@ -3391,7 +3714,8 @@
       ],
       "validDriver": "长端收益率与油价确实压制市场广度；存储同业广度是 DRAM 突破最有效的确认；SPCX 的解禁供给进入真实价格。",
       "failedAssumption": "宏观压力会使 SOXX 与指数同步走弱，以及 MSTR 会继续高于 BTC 的 beta 扩张。",
-      "modelChange": "把“板块/同业广度能否抵消宏观逆风”提升为盘中独立判断层；MSTR 必须同时比较 BTC、IBIT 与 COIN 的相对弹性，不能只看同涨。"
+      "modelChange": "把“板块/同业广度能否抵消宏观逆风”提升为盘中独立判断层；MSTR 必须同时比较 BTC、IBIT 与 COIN 的相对弹性，不能只看同涨。",
+      "errorLayer": "行业联动 / Beta传导"
     },
     {
       "date": "2026-08-19",
@@ -3433,7 +3757,8 @@
       ],
       "validDriver": "长端利率缓和支持大盘修复；BTC 上行是 MSTR 最有效的直接驱动。",
       "failedAssumption": "公司层面的 DRAM 链利好会自然扩散为 ETF 的持续价格确认。",
-      "modelChange": "半导体拥挤阶段提高“价格确认、相对 SOXX 强弱、利好兑现效率”的权重；消息本身不再等同于方向。"
+      "modelChange": "半导体拥挤阶段提高“价格确认、相对 SOXX 强弱、利好兑现效率”的权重；消息本身不再等同于方向。",
+      "errorLayer": "消息—价格一致性"
     }
   ],
   "mediumLedger": [
