@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-22T12:52:43+08:00"
+    "updatedAt": "2026-08-22T20:22:19+08:00"
   },
   "days": [
     {
@@ -473,19 +473,24 @@
     },
     {
       "date": "2026-08-22",
-      "intake": 800,
+      "intake": 2090,
       "records": [
         {
           "name": "油泼裤带面+卤牛肉+番茄炒蛋",
           "calories": 800,
           "meal": "午餐",
           "time": "12:50"
+        },
+        {
+          "name": "火锅：涮牛肉2拳+羊肉半拳+牛肉丸1.5拳+芝麻酱",
+          "calories": 1290,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 40,
-        "carbs": 90,
-        "fat": 25
+        "protein": 124,
+        "carbs": 117,
+        "fat": 117
       }
     }
   ],
@@ -516,7 +521,7 @@
     },
     {
       "date": "今日",
-      "intake": 800
+      "intake": 2090
     }
   ]
 }
