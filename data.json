@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-22T08:00:42+08:00"
+    "updatedAt": "2026-08-22T12:52:43+08:00"
   },
   "days": [
     {
@@ -470,6 +470,23 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-08-22",
+      "intake": 800,
+      "records": [
+        {
+          "name": "油泼裤带面+卤牛肉+番茄炒蛋",
+          "calories": 800,
+          "meal": "午餐",
+          "time": "12:50"
+        }
+      ],
+      "macros": {
+        "protein": 40,
+        "carbs": 90,
+        "fat": 25
+      }
     }
   ],
   "trend": [
@@ -499,7 +516,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 800
     }
   ]
 }
