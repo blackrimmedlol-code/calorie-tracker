@@ -3789,7 +3789,37 @@
         "support": "57.42 / 57.00",
         "supportValue": 57.42,
         "resistance": "58.63 / 58.81",
-        "resistanceValue": 58.63
+        "resistanceValue": 58.63,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "偏强",
+            "tone": "up",
+            "note": "存储景气中期逻辑尚未被推翻。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "待财报/报价",
+            "tone": "flat",
+            "note": "继续核验主要成份股业绩、报价与库存。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "分化",
+            "tone": "flat",
+            "note": "08-21 SNDK小跌、STX微涨，同业未形成一致确认。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "不确认",
+            "tone": "down",
+            "note": "DRAM未守58.63，短线失败突破。"
+          }
+        ]
       },
       {
         "symbol": "LITE",
@@ -3827,7 +3857,37 @@
         "support": "855.55 / 827.60",
         "supportValue": 855.55,
         "resistance": "881.72 / 898.62",
-        "resistanceValue": 881.72
+        "resistanceValue": 881.72,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "偏强",
+            "tone": "up",
+            "note": "AI数据中心光连接需求仍是中期主线。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "继续核验订单、收入和利润兑现。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "不确认",
+            "tone": "down",
+            "note": "COHR偏弱，光通信链未形成广度。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "不确认",
+            "tone": "down",
+            "note": "LITE收867.23，未收复881.72。"
+          }
+        ]
       },
       {
         "symbol": "IREN",
@@ -3865,7 +3925,37 @@
         "support": "40.89 / 40.00",
         "supportValue": 40.89,
         "resistance": "44.01 / 45.93",
-        "resistanceValue": 44.01
+        "resistanceValue": 44.01,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "双链分化",
+            "tone": "flat",
+            "note": "BTC需求强，AI Cloud需求需独立验证。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "合同待收入",
+            "tone": "flat",
+            "note": "合同与ARR目标仍需客户上线、收入和利用率确认。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "背离",
+            "tone": "down",
+            "note": "BTC和MSTR走强，IREN却收跌。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "不确认",
+            "tone": "down",
+            "note": "IREN收41.88、-1.70%，短线剧本失效。"
+          }
+        ]
       },
       {
         "symbol": "SPCX",
@@ -4101,7 +4191,41 @@
         "url": "https://stockanalysis.com/",
         "note": "截至08-19，未伪算。"
       }
-    ]
+    ],
+    "aiCapitalCycle": {
+      "asOf": "2026-08-21",
+      "note": "中期风险预算层；不直接生成入场信号，短线仍服从关键位、量能与联动。",
+      "items": [
+        {
+          "key": "capex",
+          "label": "CAPEX 强度",
+          "state": "扩张",
+          "tone": "up",
+          "evidence": "AI基础设施投资仍在扩张，但资本开支本身不等于终端收入已经兑现。"
+        },
+        {
+          "key": "endDemand",
+          "label": "终端需求",
+          "state": "待验证",
+          "tone": "flat",
+          "evidence": "继续用云收入、订单/ARR、客户上线与利用率验证，禁止用建设规模替代需求。"
+        },
+        {
+          "key": "financing",
+          "label": "融资质量",
+          "state": "风险上升",
+          "tone": "down",
+          "evidence": "高资本开支、债务和股权融资需与经营现金流分开评估。"
+        },
+        {
+          "key": "price",
+          "label": "价格确认",
+          "state": "分化",
+          "tone": "flat",
+          "evidence": "SPCX与MSTR相对强，DRAM、LITE、IREN未同步确认，只支持选择性beta。"
+        }
+      ]
+    }
   },
   "reviews": [
     {
@@ -4426,7 +4550,24 @@
       "evidenceFor": "长端回购仍提供局部流动性缓冲，SOXX和少数强链条逆势。",
       "evidenceAgainst": "SPY/QQQ/DIA/IWM收跌，油价和长端收益率抬升，全面risk-on未形成。",
       "status": "观察",
-      "updatedAt": "2026-08-20"
+      "updatedAt": "2026-08-20",
+      "clocks": {
+        "technology": {
+          "state": "扩散",
+          "tone": "up",
+          "note": "AI技术与基础设施仍在扩散。"
+        },
+        "commercialization": {
+          "state": "行业分化",
+          "tone": "flat",
+          "note": "收入兑现集中于少数链条。"
+        },
+        "financing": {
+          "state": "约束上升",
+          "tone": "down",
+          "note": "长端收益率、高CapEx与融资成本限制总beta。"
+        }
+      }
     },
     {
       "openedAt": "2026-08-19",
@@ -4435,7 +4576,24 @@
       "evidenceFor": "DRAM收57.58、+4.25%，MU/SNDK/WDC/STX全涨，突破被日线锁定。",
       "evidenceAgainst": "08-21日高58.81但未守58.63，短线突破未确认。",
       "status": "改善",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-08-21",
+      "clocks": {
+        "technology": {
+          "state": "系统扩张",
+          "tone": "up",
+          "note": "算力、存储与服务器系统继续扩张。"
+        },
+        "commercialization": {
+          "state": "待报价兑现",
+          "tone": "flat",
+          "note": "需库存、报价与成份股业绩确认。"
+        },
+        "financing": {
+          "state": "中性",
+          "tone": "flat",
+          "note": "当前主要矛盾在供需与价格确认。"
+        }
+      }
     },
     {
       "openedAt": "2026-08-20",
@@ -4444,7 +4602,24 @@
       "evidenceFor": "LITE收879.28并站稳873.31，COHR尾盘转正，AI光连接价格确认改善。",
       "evidenceAgainst": "08-21收867.23且COHR偏弱。",
       "status": "观察",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-08-21",
+      "clocks": {
+        "technology": {
+          "state": "系统扩张",
+          "tone": "up",
+          "note": "高速光连接是AI基础设施互补环节。"
+        },
+        "commercialization": {
+          "state": "待订单兑现",
+          "tone": "flat",
+          "note": "需订单、收入与同业广度确认。"
+        },
+        "financing": {
+          "state": "中性",
+          "tone": "flat",
+          "note": "当前主要矛盾在高估值与价格承接。"
+        }
+      }
     },
     {
       "openedAt": "2026-08-21",
@@ -4453,7 +4628,24 @@
       "evidenceFor": "IREN披露约28亿美元新增AI客户合同，并将2026 AI Cloud ARR目标上调至40亿美元以上。",
       "evidenceAgainst": "BTC强而IREN收41.88、-1.70%，融资与执行风险压过矿业beta。",
       "status": "观察",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-08-21",
+      "clocks": {
+        "technology": {
+          "state": "扩张",
+          "tone": "up",
+          "note": "数据中心、电力与GPU容量继续扩张。"
+        },
+        "commercialization": {
+          "state": "合同待收入",
+          "tone": "flat",
+          "note": "ARR目标不等于已实现收入与利用率。"
+        },
+        "financing": {
+          "state": "依赖上升",
+          "tone": "down",
+          "note": "高CapEx与潜在稀释需和经营现金流分开评估。"
+        }
+      }
     },
     {
       "openedAt": "2026-08-20",
@@ -4462,7 +4654,24 @@
       "evidenceFor": "低131.23后收136.89，站回IPO价和136.72。",
       "evidenceAgainst": "成交约7791万股，仍需守位。",
       "status": "观察",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-08-21",
+      "clocks": {
+        "technology": {
+          "state": "扩张",
+          "tone": "up",
+          "note": "Starlink、发射和相关基础设施继续扩张。"
+        },
+        "commercialization": {
+          "state": "订单验证",
+          "tone": "flat",
+          "note": "政府/商业订单与运营数据仍需持续核验。"
+        },
+        "financing": {
+          "state": "价格发现",
+          "tone": "flat",
+          "note": "上市后流通筹码和估值仍在重定价。"
+        }
+      }
     },
     {
       "openedAt": "2026-08-19",
@@ -4471,7 +4680,24 @@
       "evidenceFor": "收119.23、+6.09%，与BTC/COIN共振。",
       "evidenceAgainst": "略低于119.69开盘，beta未加速。",
       "status": "有效",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-08-21",
+      "clocks": {
+        "technology": {
+          "state": "BTC成熟链",
+          "tone": "up",
+          "note": "底层驱动来自BTC网络与市场流动性。"
+        },
+        "commercialization": {
+          "state": "财务beta",
+          "tone": "flat",
+          "note": "不是AI商业化标的，主要验证BTC与mNAV。"
+        },
+        "financing": {
+          "state": "核心变量",
+          "tone": "flat",
+          "note": "融资供给与溢价决定股价beta可持续性。"
+        }
+      }
     }
   ],
   "sources": [
