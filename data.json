@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-22T20:22:19+08:00"
+    "updatedAt": "2026-08-23T00:36:00+08:00"
   },
   "days": [
     {
@@ -491,6 +491,9 @@
         "protein": 124,
         "carbs": 117,
         "fat": 117
+      },
+      "body": {
+        "weightKg": 78.0
       }
     }
   ],
