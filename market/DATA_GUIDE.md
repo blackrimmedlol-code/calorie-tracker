@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v8
+# 美股策略台数据维护指南 · v9
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -80,6 +80,39 @@ DRAM、LITE、IREN、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARG
 - `priceStatus`：例如 `盘中价 · 23:00`、`收盘价 · 04:00`；
 - `supportValue / resistanceValue`：用于计算现价到一级支撑、阻力的距离；对应文字仍放在 `support / resistance`；
 - 结构化数值必须与文字价位一致。支撑或阻力为区间时，用最近、最可执行的一侧作为 value，并在文字中保留完整区间。
+
+## AI 资本循环、需求闭环与三时钟
+
+这一层只负责把 AI 长期产业逻辑翻译成可证伪的中期证据，不能覆盖价格确认，也不能新增第五个宏观支柱。
+
+### `aiCapitalCycle`
+
+每个 session 可包含 `aiCapitalCycle`，固定四项：`capex / endDemand / financing / price`。每项写 `key / label / state / tone / evidence`，对象另写 `asOf / note`。
+
+- `capex`：云厂商、数据中心、芯片、存储和光连接资本开支方向；
+- `endDemand`：云收入、AI 收入、订单、ARR、客户上架、利用率等终端兑现；
+- `financing`：债务、可转债、股权、供应商或客户融资，必须与经营现金流分开；
+- `price`：相关标的、同业与行业 ETF 是否共同确认。
+- 非收盘时段默认沿用最近一条仍有效且带 `asOf` 的基线，只更新本时段真正变化的价格确认；收盘或重大财报、融资事件后才评估完整四项。
+- 不输出“泡沫分数”等伪精度。长期技术趋势与股票定价必须分开，AI 长期逻辑不得替短线失效找理由。
+
+### `watchlist[].demandLoop`
+
+DRAM、LITE、IREN 必须按 `产业需求 / 公司兑现 / 同业确认 / 价格确认` 四项输出 `label / state / tone / note`。SPCX、MSTR 只有确有相关证据时才写，不为完整性凑数。
+
+- DRAM：服务器与存储需求 → 主要成份股业绩/报价 → MU/SNDK/WDC/STX → DRAM；
+- LITE：Hyperscaler CapEx 与光连接需求 → Lumentum 订单/收入 → COHR/光通信链 → LITE；
+- IREN：BTC 矿业链与 AI Cloud 链分别验证；合同、ARR 和容量必须继续检查客户上线、收入和融资质量。
+- 消息存在但价格失败时，`价格确认` 必须标为背离或不确认。
+
+### `mediumLedger[].clocks`
+
+中期账本允许包含 `clocks.technology / clocks.commercialization / clocks.financing`，每个时钟写 `state / tone / note`。
+
+- 技术时钟：单项突破是否已形成完整技术系统；
+- 商业化时钟：试用、订单是否转化为规模部署和真实收入；
+- 融资时钟：扩张主要由经营现金流还是外部资本驱动。
+- 三时钟只在因果证据变化时更新，不随一根盘中 K 线漂移。
 
 ## 双周期操作卡
 
