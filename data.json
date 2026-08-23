@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-23T14:57:03+08:00"
+    "updatedAt": "2026-08-23T23:09:25+08:00"
   },
   "days": [
     {
@@ -513,7 +513,7 @@
     },
     {
       "date": "2026-08-23",
-      "intake": 720,
+      "intake": 1605,
       "records": [
         {
           "name": "虾饺x4",
@@ -539,12 +539,37 @@
           "name": "煎饺x3",
           "calories": 190,
           "meal": "午餐"
+        },
+        {
+          "name": "蛋炒饭半碗",
+          "calories": 330,
+          "meal": "晚餐"
+        },
+        {
+          "name": "牛肉丸x2",
+          "calories": 270,
+          "meal": "晚餐"
+        },
+        {
+          "name": "瘦肉半拳",
+          "calories": 85,
+          "meal": "晚餐"
+        },
+        {
+          "name": "清炒蔬菜半拳",
+          "calories": 60,
+          "meal": "晚餐"
+        },
+        {
+          "name": "番茄蛋花汤x2碗",
+          "calories": 140,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 26,
-        "carbs": 83,
-        "fat": 30
+        "protein": 76,
+        "carbs": 157,
+        "fat": 73
       }
     }
   ],
@@ -575,7 +600,7 @@
     },
     {
       "date": "今日",
-      "intake": 720
+      "intake": 1605
     }
   ]
 }
