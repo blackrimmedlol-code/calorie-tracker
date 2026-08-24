@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-24T21:23:29+08:00"
+    "updatedAt": "2026-08-24T21:34:59+0800"
   },
   "days": [
     {
@@ -607,7 +607,7 @@
     },
     {
       "date": "2026-08-24",
-      "intake": 1105,
+      "intake": 1045,
       "records": [
         {
           "name": "上海青",
@@ -636,7 +636,7 @@
         },
         {
           "name": "新加坡蟹酱风味海鲜堡",
-          "calories": 440,
+          "calories": 380,
           "meal": "晚餐"
         },
         {
@@ -652,8 +652,8 @@
       ],
       "macros": {
         "protein": 53,
-        "carbs": 116,
-        "fat": 52
+        "carbs": 113,
+        "fat": 46
       },
       "body": {
         "weightKg": 79.0
