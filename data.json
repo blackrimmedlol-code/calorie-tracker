@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-24T10:45:18+08:00"
+    "updatedAt": "2026-08-24T12:45:20+08:00"
   },
   "days": [
     {
@@ -607,9 +607,39 @@
     },
     {
       "date": "2026-08-24",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 565,
+      "records": [
+        {
+          "name": "上海青",
+          "calories": 50,
+          "meal": "午餐"
+        },
+        {
+          "name": "叉烧",
+          "calories": 300,
+          "meal": "午餐"
+        },
+        {
+          "name": "白米饭",
+          "calories": 150,
+          "meal": "午餐"
+        },
+        {
+          "name": "卤蛋(半颗)",
+          "calories": 35,
+          "meal": "午餐"
+        },
+        {
+          "name": "梅菜/咸菜",
+          "calories": 30,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 32,
+        "carbs": 56,
+        "fat": 27
+      },
       "body": {
         "weightKg": 79.0
       }
@@ -642,7 +672,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 565
     }
   ]
 }
