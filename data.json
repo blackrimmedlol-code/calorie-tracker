@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-24T12:45:20+08:00"
+    "updatedAt": "2026-08-24T21:23:29+08:00"
   },
   "days": [
     {
@@ -607,7 +607,7 @@
     },
     {
       "date": "2026-08-24",
-      "intake": 565,
+      "intake": 1105,
       "records": [
         {
           "name": "上海青",
@@ -633,12 +633,27 @@
           "name": "梅菜/咸菜",
           "calories": 30,
           "meal": "午餐"
+        },
+        {
+          "name": "新加坡蟹酱风味海鲜堡",
+          "calories": 440,
+          "meal": "晚餐"
+        },
+        {
+          "name": "大玉米杯",
+          "calories": 100,
+          "meal": "晚餐"
+        },
+        {
+          "name": "中杯无糖可乐",
+          "calories": 0,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 32,
-        "carbs": 56,
-        "fat": 27
+        "protein": 53,
+        "carbs": 116,
+        "fat": 52
       },
       "body": {
         "weightKg": 79.0
@@ -672,7 +687,7 @@
     },
     {
       "date": "今日",
-      "intake": 565
+      "intake": 1105
     }
   ]
 }
