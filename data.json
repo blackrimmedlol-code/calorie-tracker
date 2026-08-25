@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-25T13:00:07+08:00"
+    "updatedAt": "2026-08-25T18:38:22+08:00"
   },
   "days": [
     {
@@ -661,18 +661,23 @@
     },
     {
       "date": "2026-08-25",
-      "intake": 540,
+      "intake": 1050,
       "records": [
         {
           "name": "老碗会·封神烧椒牛腩菠菜面",
           "calories": 540,
           "meal": "早餐"
+        },
+        {
+          "name": "达美乐厚牛海鲜星星比萨(传统9寸,半块)",
+          "calories": 510,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 21,
-        "carbs": 78,
-        "fat": 14
+        "protein": 51,
+        "carbs": 132,
+        "fat": 35
       },
       "body": {
         "weightKg": 78.3
@@ -706,7 +711,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 1050
     }
   ]
 }
