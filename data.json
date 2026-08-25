@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-25T10:06:36+08:00"
+    "updatedAt": "2026-08-25T12:59:29+08:00"
   },
   "days": [
     {
@@ -661,9 +661,19 @@
     },
     {
       "date": "2026-08-25",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 500,
+      "records": [
+        {
+          "name": "菠菜宽面（拌面）",
+          "calories": 500,
+          "meal": "早餐"
+        }
+      ],
+      "macros": {
+        "protein": 20,
+        "carbs": 79,
+        "fat": 12
+      },
       "body": {
         "weightKg": 78.3
       }
