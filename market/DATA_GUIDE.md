@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v9
+# 美股策略台数据维护指南 · v10
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -19,6 +19,16 @@
 7. `reviews` 最新在前，最多保留 20 条；短线复盘样本不足 20 条时不得展示命中率。
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
 9. 每次更新直接提交到 `main`，GitHub Pages 通常 1–2 分钟后生效。
+
+## 第一屏决策契约
+
+第一屏固定按“市场状态 → 风险预算与动作 → 关键依据 → 改变判断的条件”组织，不把新闻摘要或完整复盘塞进首屏：
+
+- `regime` 使用 `主标题 / 解释层一 / 解释层二` 结构。第一个分段必须是可独立阅读的 6–14 个汉字短标题；页面会把后续分段降级为副标题。禁止把整段盘面综述全部写成大标题。
+- `thesis` 负责解释主标题，控制在 1–2 句；`watchVariable` 只保留真正决定下一次判断升级或降级的变量。
+- 每个时段必须写 `largestChange`，用一句话提炼相对上一有效时段最重要的变化；无实质变化时明确写“无新增确认”，不能用普通新闻填充。
+- `horizons.MARKET.short.trigger` 是第一屏“下一确认”，`invalidation` 是“总体失效”，必须能够直接改变总体 beta、追价或隔夜权限；不得只写某一只个股的价位。
+- `reviewStatus / reviewNote` 继续承接上一判断复盘，只做跳转提示；详细复盘仍放在页面下方。
 
 ## 四时段链路与 nextUpdate
 
@@ -214,6 +224,7 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 - JSON 可解析，且未覆盖另一时段内容或复盘历史。
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
 - 市场、DRAM、LITE、IREN、SPCX、MSTR 的 `changes` 完整，五个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
+- `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
 - DRAM、LITE、IREN、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
