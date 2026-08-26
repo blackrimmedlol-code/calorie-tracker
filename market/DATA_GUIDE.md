@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v11
+# 美股策略台数据维护指南 · v12
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -8,14 +8,14 @@
 
 ## 写入规则
 
-重点标的唯一排序常量：`TARGET_ORDER = ["DRAM", "LITE", "IREN", "SPCX", "MSTR"]`。动作板、快照、watchlist、分位、信号矩阵、复盘和中期账本只要同时出现这些标的，都必须按此顺序输出；市场基准可放在它们之前，BTC 等联动资产可放在之后。
+重点标的唯一排序常量：`TARGET_ORDER = ["DRAM", "LITE", "IREN", "BE", "SPCX", "MSTR"]`。动作板、快照、watchlist、分位、信号矩阵、复盘和中期账本只要同时出现这些标的，都必须按此顺序输出；市场基准可放在它们之前，BTC 等联动资产可放在之后。BE 不得被追加到末尾或因单源失败而整项省略。
 
 1. 更新前先读取 `market/data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
 2. 四个任务只替换各自对象：09:00 ET=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
-   `meta.schemaVersion` 固定为 `11`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
+   `meta.schemaVersion` 固定为 `12`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
-5. `snapshot` 最多 9 项，固定优先级为 SPY、QQQ、SOXX、DRAM、LITE、IREN、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
+5. `snapshot` 固定 10 项，顺序为 SPY、QQQ、SOXX、DRAM、LITE、IREN、BE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
 6. `news` 仅保留 3–5 条真正影响价格的信息；外链必须指向实际来源。
 7. `reviews` 最新在前，最多保留 20 条；短线复盘样本不足 20 条时不得展示命中率。
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
@@ -43,12 +43,12 @@
 
 - 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
 - `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
-- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、IREN、SPCX、MSTR。字段：`asset / from / to / reason / tone / material / impactFields`。
+- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、IREN、BE、SPCX、MSTR。字段：`asset / from / to / reason / tone / material / impactFields`。
   - `material:true` 仅限改变 `regimeCode / planStatus / permissions / trigger / invalidation / confidence` 的行动级变化；页面只展开这些项目。
   - 未改变行动的量价延续仍可保存在 `changes` 中，但必须写 `material:false / impactFields:[]`，页面会合并为“已收起 N 项非行动级变化”。
-  - 不得为了填满六格把普通新闻或微小价格波动标为行动级变化。
+  - 不得为了填满七格把普通新闻或微小价格波动标为行动级变化。
 
-## v11 决策有效性契约
+## v12 决策有效性契约
 
 ### 稳定状态与自由说明分离
 
@@ -74,7 +74,7 @@
 每个 session 维护经过来源确认的未来事件数组；没有事件时允许空数组。字段：
 
 - `id / label / eventDate`，有可靠具体时点时再写 `startsAt`；
-- `affectedAssets`：可包含 `MARKET` 或五个固定标的；
+- `affectedAssets`：可包含 `MARKET` 或六个固定标的；
 - `riskWindowHours / riskLevel`；
 - `permissionOverride.chase / overnight / beta`；
 - `timing / note / sourceUrl`。
@@ -125,7 +125,7 @@
 - `daily`：日线与分位数据的截止交易日，不能和盘中现价混写；
 - `macro`：宏观信息的截止时点。
 
-每个可用时段应尽量维护 `extendedHours`，标的顺序固定为 DRAM、LITE、IREN、SPCX、MSTR。每条包含：
+每个可用时段应尽量维护 `extendedHours`，标的顺序固定为 DRAM、LITE、IREN、BE、SPCX、MSTR。每条包含：
 
 - `symbol / session / price / regularClose / changePct / tone`；
 - `asOf / status / source / sourceUrl`；
@@ -139,7 +139,7 @@
 
 不得把 20:00 ET 的盘后收口继续标成“当前夜盘价”，也不得把单一经纪商的稀疏打印当成全市场统一价格。没有可审计夜盘价时，保留最近可验证盘后锚点并写清边界；价格地图可用 `status:"verified"` 的最新延长交易价，但标题必须显示对应 session。盘后/夜盘突破只能提高下一正式时段的确认优先级，不能单独升级为完整交易信号。
 
-DRAM、LITE、IREN、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDER` 排序：
+DRAM、LITE、IREN、BE、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDER` 排序：
 
 - `priceStatus`：例如 `盘中价 · 23:00`、`收盘价 · 04:00`；
 - `supportValue / resistanceValue`：用于计算现价到一级支撑、阻力的距离；对应文字仍放在 `support / resistance`；
@@ -162,11 +162,12 @@ DRAM、LITE、IREN、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARG
 
 ### `watchlist[].demandLoop`
 
-DRAM、LITE、IREN 必须按 `产业需求 / 公司兑现 / 同业确认 / 价格确认` 四项输出 `label / state / tone / note`。SPCX、MSTR 只有确有相关证据时才写，不为完整性凑数。
+DRAM、LITE、IREN、BE 必须按 `产业需求 / 公司兑现 / 同业确认 / 价格确认` 四项输出 `label / state / tone / note`。SPCX、MSTR 只有确有相关证据时才写，不为完整性凑数。
 
 - DRAM：服务器与存储需求 → 主要成份股业绩/报价 → MU/SNDK/WDC/STX → DRAM；
 - LITE：Hyperscaler CapEx 与光连接需求 → Lumentum 订单/收入 → COHR/光通信链 → LITE；
 - IREN：BTC 矿业链与 AI Cloud 链分别验证；合同、ARR 和容量必须继续检查客户上线、收入和融资质量。
+- BE：AI/数据中心现场供电需求 → 合同/积压 → 部署/收入 → 毛利/经营现金流 → BE。VST/NRG/CEG/GEV 用于验证数据中心电力链广度；PLUG/FCEL 只作次级燃料电池参考，不能自动替代公司兑现或价格确认。
 - 消息存在但价格失败时，`价格确认` 必须标为背离或不确认。
 
 ### `mediumLedger[].clocks`
@@ -180,14 +181,14 @@ DRAM、LITE、IREN 必须按 `产业需求 / 公司兑现 / 同业确认 / 价�
 
 ## 双周期操作卡
 
-每个时段的 `horizons` 固定包含 `MARKET / DRAM / LITE / IREN / SPCX / MSTR`，每个对象分别包含：
+每个时段的 `horizons` 固定包含 `MARKET / DRAM / LITE / IREN / BE / SPCX / MSTR`，每个对象分别包含：
 
 - `permissions`：`chase / overnight / beta`，把宏观框架压缩为追价权限、隔夜权限和 beta 预算；
 
 - `short`：0–3 个交易日，字段为 `bias / confidence / posture / driver / trigger / invalidation / planStatus / tradeType / confirmations`。
   - `planStatus` 是剧本生命周期，不等同涨跌方向；使用 `等待触发 / 已触发 / 部分确认 / 已确认 / 失败突破 / 剧本失效`。一旦进入 `失败突破` 或 `剧本失效`，必须同步降低追价、隔夜或 beta 权限，不能继续用原叙事论证。
   - `tradeType` 是交易类型锁；使用 `风险预算 / 短线事件交易 / 趋势交易 / 中期逻辑观察 / 仅观察`。短线触发失效后不得临时改写成中期持有；若要改变类型，必须重新建立触发、失效和仓位权限。
-  - `confirmations` 固定包含 `price / volume / linkage`，每项写 `state / note`。`state` 使用 `confirmed / mixed / failed / unknown`；没有可比成交量或联动数据时必须写 `unknown`，不能用价格涨跌代替量能。`linkage` 对市场表示广度/跨资产，对 DRAM 表示存储同业，对 LITE 表示 COHR/光通信链，对 IREN 表示 BTC/矿企同业与 AI 数据中心链，对 SPCX 表示上市后相对强弱与供给吸收，对 MSTR 表示 BTC/IBIT/COIN 联动。
+  - `confirmations` 固定包含 `price / volume / linkage`，每项写 `state / note`。`state` 使用 `confirmed / mixed / failed / unknown`；没有可比成交量或联动数据时必须写 `unknown`，不能用价格涨跌代替量能。`linkage` 对市场表示广度/跨资产，对 DRAM 表示存储同业，对 LITE 表示 COHR/光通信链，对 IREN 表示 BTC/矿企同业与 AI 数据中心链，对 BE 表示 VST/NRG/CEG/GEV 与数据中心供电链，对 SPCX 表示上市后相对强弱与供给吸收，对 MSTR 表示 BTC/IBIT/COIN 联动。
 - `medium`：1–6 周，字段为 `bias / posture / driver / trigger / invalidation`。
 
 短线优先级固定为：价格确认与关键位 > 跨资产/行业广度 > 事件预期差 > 宏观先验。中期优先看宏观/行业因果链、日线与周线结构、资金流和供给约束。
@@ -221,7 +222,7 @@ DRAM、LITE、IREN 必须按 `产业需求 / 公司兑现 / 同业确认 / 价�
 
 ## 五周期规则
 
-DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台没有现成 4h 图而跳过。
+DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台没有现成 4h 图而跳过。
 
 - 15m、30m、1h：优先直接读取对应 K 线。
 - 4h：优先直接 4h K 线；其次聚合连续四根 1h K 线；再其次结合小时结构、当日 OHLC 和前 3–5 个交易日日线判断。
@@ -242,6 +243,7 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 - DRAM：Roundhill 官方持仓，Micron、SK Hynix、Samsung、SanDisk/Kioxia IR，TrendForce/DRAMeXchange。
 - LITE：Lumentum IR 与 SEC 为公司事实源；云厂商 CapEx、AI 数据中心光连接需求、COHR 和光模块链用于验证行业广度与相对强弱。
 - IREN：IREN IR 与 SEC 为公司事实源；BTC产量/持仓、算力与电力容量、GPU交付、AI Cloud合同/ARR及资本开支为核心变量；BTC、MARA、RIOT、CLSK与AI数据中心链用于验证联动。
+- BE：Bloom Energy IR 与 SEC 为公司事实主源；AI/数据中心现场供电合同、积压、部署节奏、收入、毛利率与经营现金流为核心变量；VST、NRG、CEG、GEV 与数据中心电力链用于验证价格广度，PLUG/FCEL 只作次级参考。不得把长期电力缺口直接等同于 BE 短线确认。
 - SPCX：SpaceX IR 与 SEC、Nasdaq 为身份和公司事实源；发射节奏、Starlink 运营、政府/商业订单、AI 业务资本开支与成交量用于验证。严禁使用旧 SPCX ETF 历史；旧基金只可用于解释代码换主。
 - MSTR / BTC：Strategy IR 与 SEC，BTC 多市场价格，现货 ETF 资金流，IBIT/COIN 相对表现。
 - 期权 / 仓位：Cboe、CME、Nasdaq 期权链及可靠成交/未平仓数据；缺少完整序列时不得虚构 gamma、IV 或挤压结论。
@@ -255,7 +257,7 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 - 收盘：用完整日线最终复核当天判断，写入有效驱动、失效假设和模型调整；相同交易日的盘中复盘可以保留，但阶段必须不同。
 - 下一交易日 09:00 ET：引用上一收盘复盘建立新先验，不重复造一份同义复盘。
 - 每个新时段生成前，必须读取最新一条相关 `reviews[].modelChange`，把其中的权重、确认条件或失效规则应用到本轮判断；若新证据推翻旧调整，应在本轮复盘中明确替换原因，不能只展示而不执行。
-- 复盘资产顺序固定为市场、DRAM、LITE、IREN、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
+- 复盘资产顺序固定为市场、DRAM、LITE、IREN、BE、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
 - `reviews` 只做模型判断复盘，不记录个人交易执行。每条至少包含 `validDriver / errorLayer / failedAssumption / modelChange`；`errorLayer` 必须明确归入宏观驱动、传导机制、行业/跨资产联动、量能、价格确认或数据边界中的一层。
@@ -282,20 +284,20 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 
 - JSON 可解析，且未覆盖另一时段内容或复盘历史。
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
-- 市场、DRAM、LITE、IREN、SPCX、MSTR 的 `changes` 完整，五个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
+- 市场、DRAM、LITE、IREN、BE、SPCX、MSTR 的 `changes` 完整，六个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
-- `meta.schemaVersion` 为 11；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `market/validate-data.mjs`。
-- `changes` 六项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
-- DRAM、LITE、IREN、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
+- `meta.schemaVersion` 为 12；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `market/validate-data.mjs`。
+- `changes` 七项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
+- DRAM、LITE、IREN、BE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
 - 盘中版必须复核 09:00 ET 盘前判断，不得只是重复新闻。
-- DRAM/LITE/IREN/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
-- `MARKET / DRAM / LITE / IREN / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
-- 五个操作对象都具有 `planStatus / tradeType / confirmations.price / confirmations.volume / confirmations.linkage`；剧本失败必须同步降权，交易类型不能因被套而漂移；确认灯没有证据时使用 `unknown`。
+- DRAM/LITE/IREN/BE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
+- `MARKET / DRAM / LITE / IREN / BE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
+- 六个操作对象都具有 `planStatus / tradeType / confirmations.price / confirmations.volume / confirmations.linkage`；剧本失败必须同步降权，交易类型不能因被套而漂移；确认灯没有证据时使用 `unknown`。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。
 - 60/252 日价格位置分位必须能追溯到真实日线、日期和样本数；代理必须标明成份、权重口径和基金自身可用样本，不得与实际基金历史混写。
-- DRAM 的消息—价格一致性、LITE 的公司—光通信链确认、IREN 的 BTC/矿企—AI数据中心双链验证、SPCX 的上市后量价与代码换主隔离、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
+- DRAM 的消息—价格一致性、LITE 的公司—光通信链确认、IREN 的 BTC/矿企—AI数据中心双链验证、BE 的数据中心电力需求—合同—部署—利润/现金流闭环、SPCX 的上市后量价与代码换主隔离、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
 - 复盘区包含至少一个明确的模型调整；`mediumLedger` 只有证据变化时才更新，不输出小样本伪精度。
 - `decisionLedger` 对同一剧本只维护一个 `callId`；未触发与未完成评估的记录不进入胜率或收益统计，少于 20 个可比已结样本不展示绩效结论。
 - 页面只用于信息整理，不输出确定性买卖建议。

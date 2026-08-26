@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T10:21:38+08:00",
+    "updatedAt": "2026-08-26T20:08:17+08:00",
     "latestSession": "close",
     "sessionDate": "2026-08-25",
     "nextUpdate": "2026-08-26T21:00:00+08:00",
     "timezone": "Asia/Shanghai",
-    "schemaVersion": 11
+    "schemaVersion": 12
   },
   "snapshot": [
     {
@@ -108,6 +108,11 @@
       "method": "IREN IR/SEC + AI Cloud合同/ARR、GPU与电力容量交付、BTC生产/持仓；BTC、MARA、RIOT、CLSK及AI数据中心链验证价格传导。"
     },
     {
+      "group": "BE / AI现场供电",
+      "status": "已接入",
+      "method": "Bloom Energy IR/SEC为基本面主源；正式行情源 + VST/NRG/CEG/GEV验证数据中心电力链。PLUG/FCEL只作次级参考，不替代合同、部署、利润/现金流与价格确认。"
+    },
+    {
       "group": "SPCX / SpaceX",
       "status": "代码换主隔离",
       "method": "SpaceX IR/SEC + Nasdaq 行情、发射与 Starlink/AI 业务催化；2026-06-12 上市前的旧 SPCX ETF 历史一律剔除。"
@@ -208,6 +213,15 @@
           "planStatus",
           "permissions"
         ]
+      },
+      {
+        "asset": "BE",
+        "from": "本时段未纳入",
+        "to": "本时段未纳入",
+        "reason": "v12 仅补结构化占位，不使用事后信息倒填历史判断。",
+        "tone": "flat",
+        "material": false,
+        "impactFields": []
       },
       {
         "asset": "SPCX",
@@ -385,6 +399,46 @@
           "driver": "合同/容量催化与融资/执行风险并存",
           "trigger": "财报确认交付、收入和融资质量",
           "invalidation": "交付不及预期、稀释扩大或持续负背离"
+        }
+      },
+      "BE": {
+        "permissions": {
+          "chase": "关闭",
+          "overnight": "关闭",
+          "beta": "0"
+        },
+        "short": {
+          "bias": "待建立",
+          "confidence": "低",
+          "posture": "仅观察",
+          "driver": "本时段尚未纳入，不倒填",
+          "trigger": "等待新基线",
+          "invalidation": "等待新基线",
+          "planStatus": "等待触发",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            }
+          },
+          "stateNote": "历史占位 · 不倒填",
+          "setupLabel": "等待新基线"
+        },
+        "medium": {
+          "bias": "待建立",
+          "posture": "仅观察",
+          "driver": "v12 起开始跟踪",
+          "trigger": "合同、部署、利润与现金流共同确认",
+          "invalidation": "交付或现金流不兑现"
         }
       },
       "SPCX": {
@@ -619,6 +673,14 @@
         "priceStatus": "盘前价 · 09:00 ET附近"
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "本时段尚未纳入 · 不倒填"
+      },
+      {
         "symbol": "SPCX",
         "name": "SpaceX",
         "price": 137.38,
@@ -689,6 +751,21 @@
         "state": "修复",
         "note": "盘前报价，不能视作正式开盘确认。",
         "nextConfirmation": "守40.69并突破41.27"
+      },
+      {
+        "symbol": "BE",
+        "session": "notTracked",
+        "price": null,
+        "regularClose": null,
+        "changePct": null,
+        "tone": "flat",
+        "asOf": null,
+        "status": "本时段未纳入",
+        "source": "v12 迁移说明",
+        "sourceUrl": null,
+        "state": "未纳入",
+        "note": "历史时段不倒填延长交易报价。",
+        "nextConfirmation": "从下一有效时段开始正常记录。"
       },
       {
         "symbol": "SPCX",
@@ -927,6 +1004,74 @@
         ]
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "本时段尚未纳入 · 不倒填",
+        "timeframes": {
+          "15m": "unknown",
+          "30m": "unknown",
+          "1h": "unknown",
+          "4h": "unknown",
+          "1d": "unknown"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "BE 在该历史时段尚未纳入策略台，不倒填分时判断。",
+          "30m": "BE 在该历史时段尚未纳入策略台，不倒填分时判断。",
+          "1h": "BE 在该历史时段尚未纳入策略台，不倒填小时判断。",
+          "4h": "BE 在该历史时段尚未纳入策略台，不倒填结构判断。",
+          "1d": "BE 从 2026-08-25 正式收盘建立新基线；本时段不倒填。"
+        },
+        "verdict": "历史占位：BE 当时尚未进入固定标的池，不据事后信息补写判断。",
+        "fundamental": "从 v12 起按 AI 数据中心现场供电—合同—部署—利润与现金流闭环跟踪。",
+        "priceAction": "本时段没有可归属到原始决策时点的 BE 行情记录。",
+        "relativeStrength": "本时段不做事后联动归因。",
+        "invalidation": "等待 2026-08-25 正式收盘新基线。",
+        "support": "待新基线",
+        "supportValue": null,
+        "resistance": "待新基线",
+        "resistanceValue": null,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          }
+        ]
+      },
+      {
         "symbol": "SPCX",
         "name": "SpaceX",
         "price": 137.38,
@@ -1069,6 +1214,14 @@
         "positioning": "-",
         "price": "+",
         "verdict": "财报前仅作事件修复"
+      },
+      {
+        "asset": "BE",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "历史时段未纳入；不倒填"
       },
       {
         "asset": "SPCX",
@@ -1233,6 +1386,28 @@
         "basis": "标的自身日线",
         "source": "等待下一close获取完整滚动序列",
         "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
       },
       {
         "asset": "SPCX",
@@ -1422,6 +1597,15 @@
         ]
       },
       {
+        "asset": "BE",
+        "from": "本时段未纳入",
+        "to": "本时段未纳入",
+        "reason": "v12 仅补结构化占位，不使用事后信息倒填历史判断。",
+        "tone": "flat",
+        "material": false,
+        "impactFields": []
+      },
+      {
         "asset": "SPCX",
         "from": "137.38盘前，需突破并保持138.33",
         "to": "137.89、+2.14%，高138.50后回落",
@@ -1602,6 +1786,46 @@
           "driver": "合同/容量催化与融资/执行风险并存",
           "trigger": "财报确认交付、收入和融资质量",
           "invalidation": "交付不及预期、稀释扩大或持续负背离"
+        }
+      },
+      "BE": {
+        "permissions": {
+          "chase": "关闭",
+          "overnight": "关闭",
+          "beta": "0"
+        },
+        "short": {
+          "bias": "待建立",
+          "confidence": "低",
+          "posture": "仅观察",
+          "driver": "本时段尚未纳入，不倒填",
+          "trigger": "等待新基线",
+          "invalidation": "等待新基线",
+          "planStatus": "等待触发",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            }
+          },
+          "stateNote": "历史占位 · 不倒填",
+          "setupLabel": "等待新基线"
+        },
+        "medium": {
+          "bias": "待建立",
+          "posture": "仅观察",
+          "driver": "v12 起开始跟踪",
+          "trigger": "合同、部署、利润与现金流共同确认",
+          "invalidation": "交付或现金流不兑现"
         }
       },
       "SPCX": {
@@ -1838,6 +2062,14 @@
         "priceStatus": "正式盘中 · 2026-08-25 10:55 ET"
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "本时段尚未纳入 · 不倒填"
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 137.89,
@@ -2070,6 +2302,74 @@
         ]
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "本时段尚未纳入 · 不倒填",
+        "timeframes": {
+          "15m": "unknown",
+          "30m": "unknown",
+          "1h": "unknown",
+          "4h": "unknown",
+          "1d": "unknown"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "BE 在该历史时段尚未纳入策略台，不倒填分时判断。",
+          "30m": "BE 在该历史时段尚未纳入策略台，不倒填分时判断。",
+          "1h": "BE 在该历史时段尚未纳入策略台，不倒填小时判断。",
+          "4h": "BE 在该历史时段尚未纳入策略台，不倒填结构判断。",
+          "1d": "BE 从 2026-08-25 正式收盘建立新基线；本时段不倒填。"
+        },
+        "verdict": "历史占位：BE 当时尚未进入固定标的池，不据事后信息补写判断。",
+        "fundamental": "从 v12 起按 AI 数据中心现场供电—合同—部署—利润与现金流闭环跟踪。",
+        "priceAction": "本时段没有可归属到原始决策时点的 BE 行情记录。",
+        "relativeStrength": "本时段不做事后联动归因。",
+        "invalidation": "等待 2026-08-25 正式收盘新基线。",
+        "support": "待新基线",
+        "supportValue": null,
+        "resistance": "待新基线",
+        "resistanceValue": null,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          }
+        ]
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 137.89,
@@ -2179,6 +2479,14 @@
         "positioning": "-",
         "price": "+",
         "verdict": "突破41.27，财报前小仓"
+      },
+      {
+        "asset": "BE",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "历史时段未纳入；不倒填"
       },
       {
         "asset": "SPCX",
@@ -2331,6 +2639,28 @@
         "basis": "标的自身日线",
         "source": "等待下一close获取完整滚动序列",
         "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
       },
       {
         "asset": "SPCX",
@@ -2514,6 +2844,15 @@
         ]
       },
       {
+        "asset": "BE",
+        "from": "本时段未纳入",
+        "to": "本时段未纳入",
+        "reason": "v12 仅补结构化占位，不使用事后信息倒填历史判断。",
+        "tone": "flat",
+        "material": false,
+        "impactFields": []
+      },
+      {
         "asset": "SPCX",
         "from": "137.89、138.33未保持",
         "to": "138.40、+2.52%，高139.75",
@@ -2693,6 +3032,46 @@
           "driver": "合同/容量催化与融资/执行风险并存",
           "trigger": "财报确认交付、收入和融资质量",
           "invalidation": "交付不及预期、稀释扩大或持续负背离"
+        }
+      },
+      "BE": {
+        "permissions": {
+          "chase": "关闭",
+          "overnight": "关闭",
+          "beta": "0"
+        },
+        "short": {
+          "bias": "待建立",
+          "confidence": "低",
+          "posture": "仅观察",
+          "driver": "本时段尚未纳入，不倒填",
+          "trigger": "等待新基线",
+          "invalidation": "等待新基线",
+          "planStatus": "等待触发",
+          "tradeType": "仅观察",
+          "confirmations": {
+            "price": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            },
+            "volume": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "本时段未纳入"
+            }
+          },
+          "stateNote": "历史占位 · 不倒填",
+          "setupLabel": "等待新基线"
+        },
+        "medium": {
+          "bias": "待建立",
+          "posture": "仅观察",
+          "driver": "v12 起开始跟踪",
+          "trigger": "合同、部署、利润与现金流共同确认",
+          "invalidation": "交付或现金流不兑现"
         }
       },
       "SPCX": {
@@ -2930,6 +3309,14 @@
         "priceStatus": "正式盘中 · 13:39 ET"
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "本时段尚未纳入 · 不倒填"
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 138.4,
@@ -3162,6 +3549,74 @@
         ]
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": null,
+        "changePct": null,
+        "tone": "flat",
+        "priceStatus": "本时段尚未纳入 · 不倒填",
+        "timeframes": {
+          "15m": "unknown",
+          "30m": "unknown",
+          "1h": "unknown",
+          "4h": "unknown",
+          "1d": "unknown"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "BE 在该历史时段尚未纳入策略台，不倒填分时判断。",
+          "30m": "BE 在该历史时段尚未纳入策略台，不倒填分时判断。",
+          "1h": "BE 在该历史时段尚未纳入策略台，不倒填小时判断。",
+          "4h": "BE 在该历史时段尚未纳入策略台，不倒填结构判断。",
+          "1d": "BE 从 2026-08-25 正式收盘建立新基线；本时段不倒填。"
+        },
+        "verdict": "历史占位：BE 当时尚未进入固定标的池，不据事后信息补写判断。",
+        "fundamental": "从 v12 起按 AI 数据中心现场供电—合同—部署—利润与现金流闭环跟踪。",
+        "priceAction": "本时段没有可归属到原始决策时点的 BE 行情记录。",
+        "relativeStrength": "本时段不做事后联动归因。",
+        "invalidation": "等待 2026-08-25 正式收盘新基线。",
+        "support": "待新基线",
+        "supportValue": null,
+        "resistance": "待新基线",
+        "resistanceValue": null,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "未纳入",
+            "tone": "flat",
+            "note": "历史时段不倒填。"
+          }
+        ]
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 138.4,
@@ -3280,6 +3735,14 @@
         "positioning": "-",
         "price": "+",
         "verdict": "突破41.91并延续"
+      },
+      {
+        "asset": "BE",
+        "macro": "0",
+        "fundamental": "0",
+        "positioning": "0",
+        "price": "0",
+        "verdict": "历史时段未纳入；不倒填"
       },
       {
         "asset": "SPCX",
@@ -3440,6 +3903,28 @@
         "sampleNote": "新增标的；不使用盘中价伪算分位"
       },
       {
+        "asset": "BE",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
+      },
+      {
         "asset": "SPCX",
         "window": "60D",
         "percentile": 47.9,
@@ -3559,7 +4044,7 @@
   },
   "close": {
     "available": true,
-    "updatedAt": "2026-08-26T10:21:38+08:00",
+    "updatedAt": "2026-08-26T20:08:17+08:00",
     "updateStatus": "延迟补跑",
     "sessionContext": "2026-08-25 美东16:00正式收盘复盘 · 用户手动更新",
     "regime": "科技与半导体反弹锁定 / 强势集中于光通信、IREN与加密股 / 事件前仍限权",
@@ -3624,6 +4109,21 @@
         "impactFields": [
           "planStatus",
           "permissions",
+          "confidence"
+        ]
+      },
+      {
+        "asset": "BE",
+        "from": "未纳入固定标的池",
+        "to": "217.45、+6.58% · 新基线",
+        "reason": "v12 正式接入；量价与Q2经营兑现支持观察，但联动尚未完成。",
+        "tone": "up",
+        "material": true,
+        "impactFields": [
+          "planStatus",
+          "permissions",
+          "trigger",
+          "invalidation",
           "confidence"
         ]
       },
@@ -3810,6 +4310,46 @@
           "driver": "合同/容量催化与融资/执行风险并存",
           "trigger": "财报确认交付、收入和融资质量",
           "invalidation": "交付不及预期、稀释扩大或持续负背离"
+        }
+      },
+      "BE": {
+        "permissions": {
+          "chase": "关闭",
+          "overnight": "观察",
+          "beta": "低至标准"
+        },
+        "short": {
+          "bias": "偏多",
+          "confidence": "中",
+          "posture": "不追高，等回踩或收盘突破",
+          "driver": "高增长与AI现场供电合同获正式收盘量价确认，但电力链广度待补",
+          "trigger": "收盘站稳218.53且VST/NRG/CEG/GEV至少两项同向确认",
+          "invalidation": "跌破208.30",
+          "planStatus": "等待触发",
+          "tradeType": "趋势交易",
+          "confirmations": {
+            "price": {
+              "state": "confirmed",
+              "note": "217.45收盘、+6.58%，接近日高"
+            },
+            "volume": {
+              "state": "confirmed",
+              "note": "完整成交量14,898,299股"
+            },
+            "linkage": {
+              "state": "unknown",
+              "note": "数据中心电力链广度尚未统一核验"
+            }
+          },
+          "stateNote": "新基线",
+          "setupLabel": "AI现场供电趋势验证"
+        },
+        "medium": {
+          "bias": "偏多",
+          "posture": "用合同兑现和现金流验证估值",
+          "driver": "AI数据中心电力缺口、Oracle最高2.8GW合作与Q2经营兑现",
+          "trigger": "1.2GW部署转化为收入并维持毛利和经营现金流",
+          "invalidation": "部署延迟、客户集中恶化、毛利/现金流回落或融资压力上升"
         }
       },
       "SPCX": {
@@ -4062,6 +4602,14 @@
         "priceStatus": "正式收盘 · 2026-08-25"
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": 217.45,
+        "changePct": 6.58,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 2026-08-25"
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 137.95,
@@ -4132,6 +4680,21 @@
         "state": "稳定",
         "note": "正式收盘42.21；盘后42.06（-0.35%），未混作正式收盘。",
         "nextConfirmation": "下一盘前以09:00 ET正式盘前报价重新验证。"
+      },
+      {
+        "symbol": "BE",
+        "session": "afterHours",
+        "price": null,
+        "regularClose": 217.45,
+        "changePct": null,
+        "tone": "flat",
+        "asOf": null,
+        "status": "未取得可审计报价",
+        "source": "待下一盘前统一复核",
+        "sourceUrl": null,
+        "state": "待验证",
+        "note": "只保留217.45正式收盘，不把未知盘后或夜盘报价冒充当前价。",
+        "nextConfirmation": "下一盘前以09:00 ET可审计报价重新验证。"
       },
       {
         "symbol": "SPCX",
@@ -4370,6 +4933,74 @@
         ]
       },
       {
+        "symbol": "BE",
+        "name": "Bloom Energy",
+        "price": 217.45,
+        "changePct": 6.58,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 2026-08-25",
+        "timeframes": {
+          "15m": "bull",
+          "30m": "bull",
+          "1h": "bull",
+          "4h": "neutral",
+          "1d": "bull"
+        },
+        "timeframeMethods": {
+          "15m": "direct",
+          "30m": "direct",
+          "1h": "direct",
+          "4h": "direct",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "尾盘维持在216–218区间，短周期偏多。",
+          "30m": "收盘靠近日高，结构保持偏多。",
+          "1h": "日内低点208.30后持续修复，小时结构偏多。",
+          "4h": "直接4h信号接近中性；高位趋势仍需下一收盘确认。",
+          "1d": "正式日线O213.55/H218.53/L208.30/C217.45，成交14,898,299股，收涨6.58%。"
+        },
+        "verdict": "建立首个正式收盘基线：217.45、+6.58%，收于日内区间约90%位置；价格与量能确认，电力链联动待补，暂不追高。",
+        "fundamental": "2026Q2收入10.654亿美元、同比增长165.5%，毛利率33.4%，经营现金流2.264亿美元；公司把全年收入指引上调至39–42亿美元。Oracle合作最高2.8GW、首期1.2GW部署强化AI现场供电需求，但合同转部署、利润与现金流的持续性仍须逐季验证。",
+        "priceAction": "O213.55/H218.53/L208.30/C217.45，+6.58%，成交14,898,299股；收盘接近日高。",
+        "relativeStrength": "显著强于SPY、QQQ与SOXX；VST/NRG/CEG/GEV的同日广度尚未完成统一核验。",
+        "invalidation": "跌破208.30撤销短线偏多；若无法收盘站稳218.53，不升级为突破。",
+        "support": "213.55 / 208.30",
+        "supportValue": 213.55,
+        "resistance": "218.53 / 222.70",
+        "resistanceValue": 218.53,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "偏强",
+            "tone": "up",
+            "note": "AI数据中心现场供电需求与电力缺口推动订单。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "已初步兑现",
+            "tone": "up",
+            "note": "Q2收入、毛利与经营现金流同步改善；后续验证1.2GW部署。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "待核验",
+            "tone": "flat",
+            "note": "VST/NRG/CEG/GEV联动尚未统一收口。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "已确认",
+            "tone": "up",
+            "note": "收涨6.58%并接近日高。"
+          }
+        ]
+      },
+      {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
         "price": 137.95,
@@ -4470,6 +5101,22 @@
         "impact": "中期证据改善，但SPCX未把138.33锁定到收盘。",
         "tone": "flat",
         "url": "https://www.reuters.com/business/media-telecom/spacex-build-starship-spaceport-louisiana-2026-08-25/"
+      },
+      {
+        "directness": "公司直接",
+        "title": "Bloom Energy Q2经营指标加速兑现",
+        "summary": "Q2收入同比增长165.5%，毛利率33.4%，经营现金流2.264亿美元，并上调全年收入指引。",
+        "impact": "中期经营确认，持续性仍需逐季验证",
+        "tone": "up",
+        "url": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"
+      },
+      {
+        "directness": "公司直接",
+        "title": "Bloom Energy与Oracle扩大AI供电合作",
+        "summary": "合作规模最高2.8GW，首期1.2GW进入部署，强化AI数据中心现场供电需求。",
+        "impact": "需求偏多，等待部署、收入和价格联动",
+        "tone": "up",
+        "url": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx"
       }
     ],
     "matrix": [
@@ -4504,6 +5151,14 @@
         "positioning": "-",
         "price": "0",
         "verdict": "近高收盘，42.31未锁定"
+      },
+      {
+        "asset": "BE",
+        "macro": "+",
+        "fundamental": "+",
+        "positioning": "-",
+        "price": "+",
+        "verdict": "经营与价格确认，估值和联动待验"
       },
       {
         "asset": "SPCX",
@@ -4572,6 +5227,12 @@
         "note": "IREN正式收盘OHLC、成交量与财报日期"
       },
       {
+        "label": "BE正式收盘",
+        "name": "Yahoo Finance / TradingView",
+        "url": "https://finance.yahoo.com/quote/BE/",
+        "note": "2026-08-25正式收盘OHLC、涨跌幅与完整成交量交叉验证"
+      },
+      {
         "label": "SPCX",
         "name": "StockAnalysis / Reuters",
         "url": "https://stockanalysis.com/stocks/spcx/",
@@ -4594,6 +5255,18 @@
         "name": "Reuters",
         "url": "https://www.reuters.com/business/nvidia-shares-set-280-billion-price-swing-after-earnings-options-show-2026-08-25/",
         "note": "Nvidia财报前期权隐含波动"
+      },
+      {
+        "label": "BE经营与合同",
+        "name": "Bloom Energy IR",
+        "url": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx",
+        "note": "2026Q2收入、毛利、经营现金流与全年指引"
+      },
+      {
+        "label": "BE / Oracle",
+        "name": "Bloom Energy IR",
+        "url": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx",
+        "note": "最高2.8GW合作规模与首期1.2GW部署"
       }
     ],
     "odds": [
@@ -4668,6 +5341,28 @@
         "basis": "标的自身日线",
         "source": "等待下一close获取完整滚动序列",
         "sampleNote": "新增标的；不使用盘中价伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "60D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
+      },
+      {
+        "asset": "BE",
+        "window": "252D",
+        "percentile": null,
+        "asOf": null,
+        "referencePrice": null,
+        "sampleSize": null,
+        "basis": "标的自身日线",
+        "source": "等待后续 close 获取完整滚动序列",
+        "sampleNote": "v12 新增标的；不使用单日或盘中价格伪算分位"
       },
       {
         "asset": "SPCX",
@@ -4813,7 +5508,7 @@
       "stage": "16:00 ET 收盘复盘",
       "title": "选择性risk-on锁定：LITE确认，SPCX失败突破",
       "status": "部分确认",
-      "summary": "SPY +0.32%、QQQ +0.62%、SOXX +1.56%，科技与芯片反弹正式收口。DRAM收涨但同业分化；LITE尾盘站上873并获COHR确认；IREN近高收盘但未守42.31；SPCX新催化未换来关键位锁定；MSTR维持股票端强势但BTC未补确认。",
+      "summary": "SPY +0.32%、QQQ +0.62%、SOXX +1.56%，科技与芯片反弹正式收口。DRAM收涨但同业分化；LITE尾盘站上873并获COHR确认；IREN近高收盘但未守42.31；SPCX新催化未换来关键位锁定；MSTR维持股票端强势但BTC未补确认。 BE首次纳入并建立217.45正式收盘新基线，不倒填此前时段。",
       "assets": [
         {
           "asset": "市场",
@@ -4840,6 +5535,12 @@
           "result": "部分确认"
         },
         {
+          "asset": "BE",
+          "expected": "此前尚未纳入",
+          "actual": "建立首个正式收盘基线：217.45、+6.58%",
+          "result": "新基线"
+        },
+        {
           "asset": "SPCX",
           "expected": "收盘守138.33才升级",
           "actual": "高139.75后收137.95",
@@ -4854,7 +5555,7 @@
       ],
       "validDriver": "正式收盘锁定与同业/联动规则正确区分了LITE的真突破、DRAM的修复分化和SPCX的失败突破。",
       "failedAssumption": "02:00时LITE与COHR的回吐会延续至收盘；实际尾盘资金重新集中于光通信链。",
-      "modelChange": "保留“触发—保持—正式收盘锁定”主规则，并增加尾盘反转例外：午后降温若在收盘前重新站回关键位且同业同步，可恢复确认；消息存在但收盘失守关键位仍按失败突破处理。",
+      "modelChange": "保留“触发—保持—正式收盘锁定”主规则，并增加尾盘反转例外：午后降温若在收盘前重新站回关键位且同业同步，可恢复确认；消息存在但收盘失守关键位仍按失败突破处理。 新增BE独立闭环：现场供电需求必须依次验证合同、部署、收入、毛利/经营现金流与价格；PLUG/FCEL不得替代公司兑现。",
       "errorLayer": "价格确认 / 行业与跨资产联动 / 持续性"
     },
     {
@@ -5522,6 +6223,32 @@
       }
     },
     {
+      "openedAt": "2026-08-26",
+      "asset": "BE",
+      "thesis": "AI数据中心电力缺口与现场部署速度支持1–6周增长逻辑，但高预期必须由合同转部署、收入、毛利和经营现金流持续验证。",
+      "evidenceFor": "2026Q2收入10.654亿美元、同比+165.5%，毛利率33.4%、经营现金流2.264亿美元；Oracle最高2.8GW、首期1.2GW部署。",
+      "evidenceAgainst": "估值与预期较高；客户集中、部署进度、融资和天然气/监管变量可能造成回撤。",
+      "status": "观察",
+      "updatedAt": "2026-08-26",
+      "clocks": {
+        "technology": {
+          "state": "规模部署",
+          "tone": "up",
+          "note": "固体氧化物燃料电池用于快速现场供电。"
+        },
+        "commercialization": {
+          "state": "快速兑现",
+          "tone": "up",
+          "note": "合同、收入、毛利与经营现金流已形成初步闭环。"
+        },
+        "financing": {
+          "state": "高预期敏感",
+          "tone": "down",
+          "note": "后续扩张质量需和外部资本、客户融资分开评估。"
+        }
+      }
+    },
+    {
       "openedAt": "2026-08-20",
       "asset": "SPCX",
       "thesis": "SpaceX 的 Starlink、发射与 AI 叙事具催化，但上市后估值与流通筹码仍在价格发现。",
@@ -5798,6 +6525,43 @@
         "triggeredAt": null,
         "invalidatedAt": null,
         "evaluatedAt": "2026-08-25T16:00:00-04:00",
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-25-close-be-baseline",
+      "sessionDate": "2026-08-25",
+      "session": "close",
+      "asset": "BE",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "趋势交易",
+      "setupLabel": "AI现场供电趋势验证",
+      "referencePrice": 217.45,
+      "referenceAt": "2026-08-25T16:00:00-04:00",
+      "trigger": "收盘站稳218.53且电力链至少两项同向确认",
+      "invalidation": "跌破208.30",
+      "planStatus": "等待触发",
+      "stateNote": "新基线",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "观察",
+        "beta": "低至标准"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "confirmed",
+        "linkage": "unknown"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
         "return1D": null,
         "return3D": null,
         "mfe": null,

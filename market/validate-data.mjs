@@ -3,9 +3,10 @@ import { readFileSync } from 'node:fs';
 const file = process.argv[2] || new URL('./data.json', import.meta.url).pathname;
 const data = JSON.parse(readFileSync(file, 'utf8'));
 const sessions = ['premarket', 'intraday', 'late', 'close'];
-const targetOrder = ['DRAM', 'LITE', 'IREN', 'SPCX', 'MSTR'];
+const targetOrder = ['DRAM', 'LITE', 'IREN', 'BE', 'SPCX', 'MSTR'];
 const actionOrder = ['MARKET', ...targetOrder];
 const changeOrder = ['市场', ...targetOrder];
+const snapshotOrder = ['SPY', 'QQQ', 'SOXX', ...targetOrder, 'BTC'];
 const planStatuses = new Set(['等待触发', '已触发', '部分确认', '已确认', '失败突破', '剧本失效']);
 const tradeTypes = new Set(['风险预算', '短线事件交易', '趋势交易', '中期逻辑观察', '仅观察']);
 const confirmationStates = new Set(['confirmed', 'mixed', 'failed', 'unknown']);
@@ -18,7 +19,7 @@ const errors = [];
 const warnings = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 
-if (Number(data?.meta?.schemaVersion) !== 11) fail('meta.schemaVersion', '必须为 11');
+if (Number(data?.meta?.schemaVersion) !== 12) fail('meta.schemaVersion', '必须为 12');
 if (!sessions.includes(data?.meta?.latestSession)) fail('meta.latestSession', '不是合法时段');
 
 for (const key of sessions) {
@@ -59,7 +60,16 @@ for (const key of sessions) {
   }
   const watchOrder = (session.watchlist || []).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
   if (JSON.stringify(watchOrder) !== JSON.stringify(targetOrder)) fail(`${base}.watchlist`, `顺序必须为 ${targetOrder.join(' / ')}`);
-  if (!Array.isArray(session.changes) || session.changes.length !== 6) fail(`${base}.changes`, '必须覆盖市场与五个标的');
+  const actualSnapshotOrder = (session.snapshot || []).map((item) => item.symbol);
+  if (JSON.stringify(actualSnapshotOrder) !== JSON.stringify(snapshotOrder)) fail(`${base}.snapshot`, `顺序必须为 ${snapshotOrder.join(' / ')}`);
+  const matrixOrder = (session.matrix || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
+  if (JSON.stringify(matrixOrder) !== JSON.stringify(actionOrder)) fail(`${base}.matrix`, `顺序必须为 MARKET / ${targetOrder.join(' / ')}`);
+  const oddsOrder = (session.odds || []).map((item) => `${item?.asset}:${item?.window}`);
+  const expectedOddsOrder = targetOrder.flatMap((asset) => [`${asset}:60D`, `${asset}:252D`]);
+  if (JSON.stringify(oddsOrder) !== JSON.stringify(expectedOddsOrder)) fail(`${base}.odds`, `每个标的必须依次包含 60D / 252D，顺序为 ${targetOrder.join(' / ')}`);
+  const extendedOrder = (session.extendedHours || []).filter(Boolean).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
+  if (extendedOrder.length && JSON.stringify(extendedOrder) !== JSON.stringify(targetOrder)) fail(`${base}.extendedHours`, `存在时必须覆盖并按 ${targetOrder.join(' / ')} 排序`);
+  if (!Array.isArray(session.changes) || session.changes.length !== 7) fail(`${base}.changes`, '必须覆盖市场与六个标的');
   else {
     const actualChangeOrder = session.changes.map((change) => change.asset);
     if (JSON.stringify(actualChangeOrder) !== JSON.stringify(changeOrder)) fail(`${base}.changes`, `顺序必须为 ${changeOrder.join(' / ')}`);
@@ -72,6 +82,11 @@ for (const key of sessions) {
     });
   }
 }
+
+const latestReviewAssets = (data.reviews?.[0]?.assets || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
+if (JSON.stringify(latestReviewAssets) !== JSON.stringify(actionOrder)) fail('reviews[0].assets', `顺序必须为 MARKET / ${targetOrder.join(' / ')}`);
+const mediumOrder = (data.mediumLedger || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
+if (JSON.stringify(mediumOrder) !== JSON.stringify(actionOrder)) fail('mediumLedger', `顺序必须为 MARKET / ${targetOrder.join(' / ')}`);
 
 if (!Array.isArray(data.decisionLedger)) fail('decisionLedger', '必须是数组');
 else {
@@ -93,4 +108,4 @@ if (errors.length) {
   console.error(`INVALID (${errors.length})\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`VALID schema v11 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
+console.log(`VALID schema v12 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
