@@ -3,7 +3,7 @@
     "updatedAt": "2026-08-26T23:09:23.044+08:00",
     "latestSession": "intraday",
     "sessionDate": "2026-08-26",
-    "nextUpdate": "2026-08-27T02:00:00+08:00",
+    "nextUpdate": "2026-08-27T02:05:00+08:00",
     "timezone": "Asia/Shanghai",
     "schemaVersion": 12
   },
@@ -78,7 +78,7 @@
       "price": 78826.84,
       "changePct": null,
       "tone": "flat",
-      "priceStatus": "实时价 · 2026-08-26 01:10 ET"
+      "priceStatus": "实时价 · 2026-08-26 13:10 中国时间"
     }
   ],
   "sourceGroups": [
@@ -137,7 +137,7 @@
     "available": true,
     "updatedAt": "2026-08-26T21:39:04.419+08:00",
     "updateStatus": "数据不完整",
-    "sessionContext": "2026-08-26 美东09:00盘前策略 · 调度时区冲突后延迟补录",
+    "sessionContext": "2026-08-26 中国时间21:05盘前策略 · 调度时区冲突后延迟补录",
     "regime": "事件锁权 / PCE略高于预期、指数期货偏弱 / Nvidia收盘后财报使AI链进入结果验证窗口",
     "confidence": "低",
     "thesis": "宏观数据与关键事件均已到达；盘前报价不完整且部分来源存在前收口径冲突，因此只保留观察框架，不开放新增风险。",
@@ -150,11 +150,11 @@
     "freshness": {
       "quotes": {
         "status": "部分可用",
-        "asOf": "2026-08-26 09:23 ET；缺失或冲突标的保留正式收盘锚点"
+        "asOf": "2026-08-26 21:23 中国时间；缺失或冲突标的保留正式收盘锚点"
       },
       "timeframes": {
         "status": "沿用正式收盘基线",
-        "asOf": "2026-08-25 16:00 ET"
+        "asOf": "2026-08-26 04:00 中国时间"
       },
       "daily": {
         "status": "正式日线",
@@ -162,7 +162,7 @@
       },
       "macro": {
         "status": "已更新",
-        "asOf": "2026-08-26 08:33 ET"
+        "asOf": "2026-08-26 20:33 中国时间"
       }
     },
     "changes": [
@@ -182,7 +182,7 @@
       {
         "asset": "DRAM",
         "from": "56.24正式收盘，+3.61%",
-        "to": "05:17 ET盘前55.77，约-0.84%；报价时点偏早",
+        "to": "17:17 中国时间盘前55.77，约-0.84%；报价时点偏早",
         "reason": "不把早盘打印当正式确认。",
         "tone": "down",
         "material": true,
@@ -218,7 +218,7 @@
       {
         "asset": "BE",
         "from": "204.02正式收盘",
-        "to": "05:29 ET盘前212.84，+4.32%",
+        "to": "17:29 中国时间盘前212.84，+4.32%",
         "reason": "主题延续，但仍需开盘后价格、同业与成交量确认。",
         "tone": "up",
         "material": true,
@@ -231,7 +231,7 @@
       {
         "asset": "SPCX",
         "from": "137.95正式收盘，未锁定138.33上方",
-        "to": "09:23 ET盘前约138.17，+0.16%",
+        "to": "21:23 中国时间盘前约138.17，+0.16%",
         "reason": "幅度不足以推翻上一日失败突破结论。",
         "tone": "flat",
         "material": false,
@@ -631,7 +631,7 @@
         "event": "BE盘前缺口",
         "kind": "价格",
         "expected": "延续数据中心供电主题",
-        "actual": "05:29 ET约+4.32%",
+        "actual": "17:29 中国时间约+4.32%",
         "reaction": "个股先涨",
         "implication": "只提高验证优先级"
       }
@@ -718,7 +718,7 @@
         "priceStatus": "实时锚点 · 盘前"
       }
     ],
-    "extendedAsOf": "2026-08-26 09:23 ET（各标的实际时点见明细）",
+    "extendedAsOf": "2026-08-26 21:23 中国时间（各标的实际时点见明细）",
     "extendedHours": [
       {
         "symbol": "DRAM",
@@ -727,7 +727,7 @@
         "regularClose": 56.24,
         "changePct": -0.84,
         "tone": "down",
-        "asOf": "2026-08-26 05:17 ET",
+        "asOf": "2026-08-26 17:17 中国时间",
         "status": "verified",
         "source": "Webull",
         "sourceUrl": "https://www.webull.com.br/en/ticker/bats-dram",
@@ -757,7 +757,7 @@
         "regularClose": 42.21,
         "changePct": null,
         "tone": "flat",
-        "asOf": "2026-08-26 05:29 ET",
+        "asOf": "2026-08-26 17:29 中国时间",
         "status": "conflict",
         "source": "StockMarketWatch / 正式收盘交叉核验",
         "sourceUrl": "https://stockmarketwatch.com/stock/IREN/premarket",
@@ -772,7 +772,7 @@
         "regularClose": 217.45,
         "changePct": 4.32,
         "tone": "up",
-        "asOf": "2026-08-26 05:29 ET",
+        "asOf": "2026-08-26 17:29 中国时间",
         "status": "verified",
         "source": "StockMarketWatch",
         "sourceUrl": "https://stockmarketwatch.com/stock/BE/premarket",
@@ -787,7 +787,7 @@
         "regularClose": 137.95,
         "changePct": 0.16,
         "tone": "flat",
-        "asOf": "2026-08-26 09:23 ET",
+        "asOf": "2026-08-26 21:23 中国时间",
         "status": "verified",
         "source": "ImpliedOpen / Yahoo Finance",
         "sourceUrl": "https://impliedopen.com/instrument/spacex",
@@ -1165,7 +1165,7 @@
       {
         "directness": "市场",
         "title": "PCE略高于预期，股指期货偏弱",
-        "summary": "截至08:33 ET，道指期货约+0.04%，标普约-0.11%，纳指100约-0.35%；7月PCE环比0.2%、同比3.7%。",
+        "summary": "截至20:33 中国时间，道指期货约+0.04%，标普约-0.11%，纳指100约-0.35%；7月PCE环比0.2%、同比3.7%。",
         "impact": "限制盘前beta。",
         "tone": "down",
         "url": "https://www.reuters.com/business/us-stock-futures-subdued-run-up-nvidia-results-inflation-print-2026-08-26/"
@@ -1181,7 +1181,7 @@
       {
         "directness": "BE",
         "title": "BE盘前缺口上涨",
-        "summary": "05:29 ET报212.84，较204.02正式收盘上涨4.32%。",
+        "summary": "17:29 中国时间报212.84，较204.02正式收盘上涨4.32%。",
         "impact": "提高验证优先级，但未确认前不追价。",
         "tone": "up",
         "url": "https://stockmarketwatch.com/stock/BE/premarket"
@@ -1276,7 +1276,7 @@
         "label": "市场与PCE",
         "name": "Reuters",
         "url": "https://www.reuters.com/business/us-stock-futures-subdued-run-up-nvidia-results-inflation-print-2026-08-26/",
-        "note": "08:33 ET期货与宏观数据"
+        "note": "20:33 中国时间期货与宏观数据"
       },
       {
         "label": "Nvidia事件",
@@ -1288,19 +1288,19 @@
         "label": "DRAM盘前",
         "name": "Webull",
         "url": "https://www.webull.com.br/en/ticker/bats-dram",
-        "note": "05:17 ET盘前报价"
+        "note": "17:17 中国时间盘前报价"
       },
       {
         "label": "BE盘前",
         "name": "StockMarketWatch",
         "url": "https://stockmarketwatch.com/stock/BE/premarket",
-        "note": "05:29 ET盘前报价"
+        "note": "17:29 中国时间盘前报价"
       },
       {
         "label": "SPCX盘前",
         "name": "ImpliedOpen / Yahoo Finance",
         "url": "https://impliedopen.com/instrument/spacex",
-        "note": "09:23 ET报价"
+        "note": "21:23 中国时间报价"
       },
       {
         "label": "MSTR盘前",
@@ -1463,7 +1463,7 @@
     ],
     "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。 本次未取得完整60D/252D滚动原始序列，因此保留原asOf、参考价、样本数与分位，未用08-25收盘价伪算。；本次未取得完整滚动日线序列，分位沿用原asOf，未用盘前或开盘价伪算。",
     "aiCapitalCycle": {
-      "asOf": "2026-08-26 09:23 ET",
+      "asOf": "2026-08-26 21:23 中国时间",
       "note": "沿用上一收盘中期基线；短线因数据不完整与Nvidia事件窗口锁权。",
       "items": [
         {
@@ -1513,7 +1513,7 @@
         "id": "nvda-earnings-2026-08-26",
         "label": "Nvidia 财报",
         "eventDate": "2026-08-26",
-        "timing": "美东收盘后；具体发布时间以公司公告为准",
+        "timing": "中国时间04:05收盘后；具体发布时间以公司公告为准",
         "affectedAssets": [
           "MARKET",
           "DRAM",
@@ -1552,7 +1552,7 @@
     "available": true,
     "updatedAt": "2026-08-26T23:09:23.044+08:00",
     "updateStatus": "按时更新",
-    "sessionContext": "2026-08-26 美东11:05盘中初验",
+    "sessionContext": "2026-08-26 中国时间23:05盘中初验",
     "regime": "事件锁权延续 / 大盘近乎横盘但半导体偏弱 / LITE与DRAM相对抗跌，高beta与电力链分化",
     "confidence": "中",
     "thesis": "PCE略高于预期后大盘尚未失速，但SOXX弱于SPY；LITE与DRAM形成相对强势，IREN、BE、SPCX和MSTR则否定或削弱盘前先验。Nvidia财报前仍不开放隔夜beta。",
@@ -1561,23 +1561,23 @@
     "reviewNote": "事件锁权正确；BE盘前缺口未保持，LITE则在正式盘中成为最强确认。",
     "riskAppetite": "低",
     "riskNote": "只允许观察已确认的相对强弱；追价与新增隔夜风险继续关闭。",
-    "deltaLabel": "相对08月26日09:00 ET盘前",
+    "deltaLabel": "相对08月26日21:05中国时间盘前",
     "freshness": {
       "quotes": {
         "status": "盘中实时报价/短延迟交叉核验",
-        "asOf": "2026-08-26 10:25–11:05 ET"
+        "asOf": "2026-08-26 22:25–23:05 中国时间"
       },
       "timeframes": {
-        "status": "依据开盘至11:05 ET的价格、区间与相对强弱推断",
-        "asOf": "2026-08-26 11:05 ET"
+        "status": "依据开盘至23:05 中国时间的价格、区间与相对强弱推断",
+        "asOf": "2026-08-26 23:05 中国时间"
       },
       "daily": {
         "status": "未完成日线",
-        "asOf": "2026-08-26 11:05 ET"
+        "asOf": "2026-08-26 23:05 中国时间"
       },
       "macro": {
         "status": "沿用盘前PCE与收益率框架，补充开盘价格反应",
-        "asOf": "2026-08-26 11:05 ET"
+        "asOf": "2026-08-26 23:05 中国时间"
       }
     },
     "changes": [
@@ -1592,7 +1592,7 @@
       },
       {
         "asset": "DRAM",
-        "from": "05:17 ET盘前约-0.84%，时点偏早",
+        "from": "17:17 中国时间盘前约-0.84%，时点偏早",
         "to": "56.15，约-0.17%，明显强于SOXX",
         "reason": "开盘后回收大部分缺口并守55.73，但尚未突破56.68。",
         "tone": "up",
@@ -2052,7 +2052,7 @@
         "event": "BE盘前缺口",
         "kind": "价格",
         "expected": "延续数据中心供电主题",
-        "actual": "05:29 ET约+4.32%",
+        "actual": "17:29 中国时间约+4.32%",
         "reaction": "个股先涨",
         "implication": "只提高验证优先级"
       }
@@ -2064,7 +2064,7 @@
         "price": 765.38,
         "changePct": -0.07,
         "tone": "flat",
-        "priceStatus": "盘中价 · 约11:00 ET"
+        "priceStatus": "盘中价 · 约23:00 中国时间"
       },
       {
         "symbol": "QQQ",
@@ -2072,7 +2072,7 @@
         "price": 710.25,
         "changePct": -0.07,
         "tone": "flat",
-        "priceStatus": "盘中价 · 约11:00 ET"
+        "priceStatus": "盘中价 · 约23:00 中国时间"
       },
       {
         "symbol": "SOXX",
@@ -2080,7 +2080,7 @@
         "price": 510.56,
         "changePct": -0.68,
         "tone": "down",
-        "priceStatus": "盘中价 · 10:25 ET"
+        "priceStatus": "盘中价 · 22:25 中国时间"
       },
       {
         "symbol": "DRAM",
@@ -2088,7 +2088,7 @@
         "price": 56.15,
         "changePct": -0.17,
         "tone": "flat",
-        "priceStatus": "盘中价 · 10:40 ET"
+        "priceStatus": "盘中价 · 22:40 中国时间"
       },
       {
         "symbol": "LITE",
@@ -2096,7 +2096,7 @@
         "price": 907.48,
         "changePct": 2.47,
         "tone": "up",
-        "priceStatus": "盘中价 · 约11:00 ET"
+        "priceStatus": "盘中价 · 约23:00 中国时间"
       },
       {
         "symbol": "IREN",
@@ -2104,7 +2104,7 @@
         "price": 40.15,
         "changePct": -4.88,
         "tone": "down",
-        "priceStatus": "盘中价 · 约11:00 ET"
+        "priceStatus": "盘中价 · 约23:00 中国时间"
       },
       {
         "symbol": "BE",
@@ -2112,7 +2112,7 @@
         "price": 214.55,
         "changePct": -1.33,
         "tone": "down",
-        "priceStatus": "盘中价 · 10:58 ET"
+        "priceStatus": "盘中价 · 22:58 中国时间"
       },
       {
         "symbol": "SPCX",
@@ -2120,7 +2120,7 @@
         "price": 136.03,
         "changePct": -1.39,
         "tone": "down",
-        "priceStatus": "盘中价 · 约11:00 ET"
+        "priceStatus": "盘中价 · 约23:00 中国时间"
       },
       {
         "symbol": "MSTR",
@@ -2128,7 +2128,7 @@
         "price": 122.66,
         "changePct": -3.29,
         "tone": "down",
-        "priceStatus": "盘中价 · 约11:00 ET"
+        "priceStatus": "盘中价 · 约23:00 中国时间"
       },
       {
         "symbol": "BTC",
@@ -2136,10 +2136,10 @@
         "price": 77817.24,
         "changePct": -1.82,
         "tone": "down",
-        "priceStatus": "实时参考 · 约11:00 ET"
+        "priceStatus": "实时参考 · 约23:00 中国时间"
       }
     ],
-    "extendedAsOf": "2026-08-26 09:23 ET；盘前价格地图仅作本轮对照",
+    "extendedAsOf": "2026-08-26 21:23 中国时间；盘前价格地图仅作本轮对照",
     "extendedHours": [
       {
         "symbol": "DRAM",
@@ -2148,7 +2148,7 @@
         "regularClose": 56.24,
         "changePct": -0.84,
         "tone": "down",
-        "asOf": "2026-08-26 05:17 ET",
+        "asOf": "2026-08-26 17:17 中国时间",
         "status": "verified",
         "source": "Webull",
         "sourceUrl": "https://www.webull.com.br/en/ticker/bats-dram",
@@ -2178,7 +2178,7 @@
         "regularClose": 42.21,
         "changePct": null,
         "tone": "flat",
-        "asOf": "2026-08-26 05:29 ET",
+        "asOf": "2026-08-26 17:29 中国时间",
         "status": "conflict",
         "source": "StockMarketWatch / 正式收盘交叉核验",
         "sourceUrl": "https://stockmarketwatch.com/stock/IREN/premarket",
@@ -2193,7 +2193,7 @@
         "regularClose": 217.45,
         "changePct": 4.32,
         "tone": "up",
-        "asOf": "2026-08-26 05:29 ET",
+        "asOf": "2026-08-26 17:29 中国时间",
         "status": "verified",
         "source": "StockMarketWatch",
         "sourceUrl": "https://stockmarketwatch.com/stock/BE/premarket",
@@ -2208,7 +2208,7 @@
         "regularClose": 137.95,
         "changePct": 0.16,
         "tone": "flat",
-        "asOf": "2026-08-26 09:23 ET",
+        "asOf": "2026-08-26 21:23 中国时间",
         "status": "verified",
         "source": "ImpliedOpen / Yahoo Finance",
         "sourceUrl": "https://impliedopen.com/instrument/spacex",
@@ -2239,7 +2239,7 @@
         "price": 56.15,
         "changePct": -0.17,
         "tone": "flat",
-        "priceStatus": "盘中价 · 2026-08-26 约11:00 ET",
+        "priceStatus": "盘中价 · 2026-08-26 约23:00 中国时间",
         "timeframes": {
           "15m": "neutral",
           "30m": "neutral",
@@ -2307,7 +2307,7 @@
         "price": 907.48,
         "changePct": 2.47,
         "tone": "up",
-        "priceStatus": "盘中价 · 2026-08-26 约11:00 ET",
+        "priceStatus": "盘中价 · 2026-08-26 约23:00 中国时间",
         "timeframes": {
           "15m": "bull",
           "30m": "bull",
@@ -2375,7 +2375,7 @@
         "price": 40.15,
         "changePct": -4.88,
         "tone": "down",
-        "priceStatus": "盘中价 · 2026-08-26 约11:00 ET",
+        "priceStatus": "盘中价 · 2026-08-26 约23:00 中国时间",
         "timeframes": {
           "15m": "bear",
           "30m": "bear",
@@ -2443,7 +2443,7 @@
         "price": 214.55,
         "changePct": -1.33,
         "tone": "down",
-        "priceStatus": "盘中价 · 2026-08-26 约11:00 ET",
+        "priceStatus": "盘中价 · 2026-08-26 约23:00 中国时间",
         "timeframes": {
           "15m": "bear",
           "30m": "bear",
@@ -2511,7 +2511,7 @@
         "price": 136.03,
         "changePct": -1.39,
         "tone": "down",
-        "priceStatus": "盘中价 · 2026-08-26 约11:00 ET",
+        "priceStatus": "盘中价 · 2026-08-26 约23:00 中国时间",
         "timeframes": {
           "15m": "bear",
           "30m": "bear",
@@ -2549,7 +2549,7 @@
         "price": 122.66,
         "changePct": -3.29,
         "tone": "down",
-        "priceStatus": "盘中价 · 2026-08-26 约11:00 ET",
+        "priceStatus": "盘中价 · 2026-08-26 约23:00 中国时间",
         "timeframes": {
           "15m": "bear",
           "30m": "bear",
@@ -2594,7 +2594,7 @@
       {
         "directness": "LITE",
         "title": "LITE正式盘中逆势走强",
-        "summary": "约11:00 ET报907.48、上涨约2.47%，接近911.72日高。",
+        "summary": "约23:00 中国时间报907.48、上涨约2.47%，接近911.72日高。",
         "impact": "盘前不确定性被正式价格部分解除，成为重点标的最强。",
         "tone": "up",
         "url": "https://stockanalysis.com/stocks/lite/"
@@ -2703,19 +2703,19 @@
         "label": "SPY/QQQ",
         "name": "MarketWatch / Robinhood",
         "url": "https://www.marketwatch.com/investing/fund/qqq",
-        "note": "约10:25–11:00 ET盘中报价"
+        "note": "约22:25–23:00 中国时间盘中报价"
       },
       {
         "label": "SOXX",
         "name": "Benzinga",
         "url": "https://www.benzinga.com/quote/SOXX",
-        "note": "10:25 ET盘中报价与区间"
+        "note": "22:25 中国时间盘中报价与区间"
       },
       {
         "label": "DRAM",
         "name": "MarketWatch",
         "url": "https://www.marketwatch.com/investing/fund/dram",
-        "note": "10:40 ET盘中报价与区间"
+        "note": "22:40 中国时间盘中报价与区间"
       },
       {
         "label": "LITE",
@@ -2733,7 +2733,7 @@
         "label": "BE",
         "name": "StockAnalysis",
         "url": "https://stockanalysis.com/stocks/be/history/",
-        "note": "10:58 ET盘中报价、OHLC与正式前收"
+        "note": "22:58 中国时间盘中报价、OHLC与正式前收"
       },
       {
         "label": "SPCX",
@@ -2896,7 +2896,7 @@
     ],
     "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。 本次未取得完整60D/252D滚动原始序列，因此保留原asOf、参考价、样本数与分位，未用08-25收盘价伪算。；本次未取得完整滚动日线序列，分位沿用原asOf，未用盘前或开盘价伪算。；本轮未取得完整滚动日线序列，分位继续沿用原asOf，未用盘中价伪算。",
     "aiCapitalCycle": {
-      "asOf": "2026-08-26 11:05 ET",
+      "asOf": "2026-08-26 23:05 中国时间",
       "note": "中期基线不变；价格层显示AI链内部分化，短线服从正式盘中确认。",
       "items": [
         {
@@ -2933,20 +2933,20 @@
     "regimeCode": "EVENT_LOCK",
     "breadthState": "mixed",
     "decisionGate": {
-      "quoteAsOf": "2026-08-26T11:05:00-04:00",
-      "validUntil": "2026-08-27T02:00:00+08:00",
+      "quoteAsOf": "2026-08-26T23:05:00+08:00",
+      "validUntil": "2026-08-27T02:05:00+08:00",
       "sourceConflict": false,
       "volumeComplete": false,
       "closeFinal": false,
       "status": "caution",
-      "note": "报价来自10:25–11:05 ET的可审计来源；盘中量与日线尚未完整，Nvidia财报前维持事件锁权。"
+      "note": "报价来自22:25–23:05 中国时间的可审计来源；盘中量与日线尚未完整，Nvidia财报前维持事件锁权。"
     },
     "eventCalendar": [
       {
         "id": "nvda-earnings-2026-08-26",
         "label": "Nvidia 财报",
         "eventDate": "2026-08-26",
-        "timing": "美东收盘后；具体发布时间以公司公告为准",
+        "timing": "中国时间04:05收盘后；具体发布时间以公司公告为准",
         "affectedAssets": [
           "MARKET",
           "DRAM",
@@ -2985,7 +2985,7 @@
     "available": true,
     "updatedAt": "2026-08-26T02:10:19+08:00",
     "updateStatus": "按时更新",
-    "sessionContext": "2026-08-26 北京时间02:00午后复核 · 正式盘中截至13:37–14:10 ET",
+    "sessionContext": "2026-08-26 中国时间02:05午后复核 · 正式盘中截至01:37–02:10 中国时间",
     "regime": "指数横盘 / 半导体修复稳定 / 个股延续与回吐分化",
     "confidence": "中",
     "thesis": "相对23:00，大盘与SOXX基本横盘；IREN延续至日高附近，SPCX重新站上138.33；LITE和COHR回吐、DRAM同业广度收窄，午后不宜追涨。",
@@ -2994,9 +2994,9 @@
     "reviewNote": "触发保持规则继续有效：SPCX从23:00未保持改善为午后站稳；LITE虽回吐仍未失守855。",
     "riskAppetite": "中性偏多",
     "riskNote": "相对强势仍集中在IREN、SPCX和MSTR；距离收盘不足两小时，停止追高，等待正式收盘锁定。",
-    "deltaLabel": "相对2026-08-25 北京时间23:00初验",
+    "deltaLabel": "相对2026-08-25 中国时间23:05初验",
     "freshness": {
-      "quotes": "正式盘中各源截至2026-08-25 13:37–14:10 ET",
+      "quotes": "正式盘中各源截至2026-08-26 01:37–02:10 中国时间",
       "timeframes": "基于午后最新价、当日OHLC、量能及相对23:00路径",
       "daily": "完整日线仍截至2026-08-24；08-25为未完成日线",
       "macro": "沿用23:00因果基线；本轮只更新新增价格、量能、联动与SPCX催化"
@@ -3467,7 +3467,7 @@
         "price": 765.03,
         "changePct": 0.2,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:58 ET"
+        "priceStatus": "正式盘中 · 01:58 中国时间"
       },
       {
         "symbol": "QQQ",
@@ -3475,7 +3475,7 @@
         "price": 709.08,
         "changePct": 0.39,
         "tone": "up",
-        "priceStatus": "正式盘中 · 14:05 ET"
+        "priceStatus": "正式盘中 · 02:05 中国时间"
       },
       {
         "symbol": "SOXX",
@@ -3483,7 +3483,7 @@
         "price": 513.11,
         "changePct": 1.37,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:39 ET"
+        "priceStatus": "正式盘中 · 01:39 中国时间"
       },
       {
         "symbol": "DRAM",
@@ -3491,7 +3491,7 @@
         "price": 55.84,
         "changePct": 2.87,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:37 ET"
+        "priceStatus": "正式盘中 · 01:37 中国时间"
       },
       {
         "symbol": "LITE",
@@ -3499,7 +3499,7 @@
         "price": 858.5,
         "changePct": 3.41,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:50 ET"
+        "priceStatus": "正式盘中 · 01:50 中国时间"
       },
       {
         "symbol": "IREN",
@@ -3507,7 +3507,7 @@
         "price": 42.29,
         "changePct": 6.23,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:39 ET"
+        "priceStatus": "正式盘中 · 01:39 中国时间"
       },
       {
         "symbol": "BE",
@@ -3523,7 +3523,7 @@
         "price": 138.4,
         "changePct": 2.52,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:52 ET"
+        "priceStatus": "正式盘中 · 01:52 中国时间"
       },
       {
         "symbol": "MSTR",
@@ -3531,7 +3531,7 @@
         "price": 127,
         "changePct": 3.56,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:38 ET"
+        "priceStatus": "正式盘中 · 01:38 中国时间"
       },
       {
         "symbol": "BTC",
@@ -3539,7 +3539,7 @@
         "price": 78927.98,
         "changePct": null,
         "tone": "flat",
-        "priceStatus": "24h实时价 · 14:10 ET"
+        "priceStatus": "24h实时价 · 02:10 中国时间"
       }
     ],
     "extendedAsOf": null,
@@ -3551,7 +3551,7 @@
         "price": 55.84,
         "changePct": 2.87,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:37 ET",
+        "priceStatus": "正式盘中 · 01:37 中国时间",
         "timeframes": {
           "15m": "neutral",
           "30m": "neutral",
@@ -3619,7 +3619,7 @@
         "price": 858.5,
         "changePct": 3.41,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:50 ET",
+        "priceStatus": "正式盘中 · 01:50 中国时间",
         "timeframes": {
           "15m": "bear",
           "30m": "neutral",
@@ -3687,7 +3687,7 @@
         "price": 42.29,
         "changePct": 6.23,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:39 ET",
+        "priceStatus": "正式盘中 · 01:39 中国时间",
         "timeframes": {
           "15m": "bull",
           "30m": "bull",
@@ -3823,7 +3823,7 @@
         "price": 138.4,
         "changePct": 2.52,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:52 ET",
+        "priceStatus": "正式盘中 · 01:52 中国时间",
         "timeframes": {
           "15m": "bull",
           "30m": "bull",
@@ -3861,7 +3861,7 @@
         "price": 127,
         "changePct": 3.56,
         "tone": "up",
-        "priceStatus": "正式盘中 · 13:38 ET",
+        "priceStatus": "正式盘中 · 01:38 中国时间",
         "timeframes": {
           "15m": "neutral",
           "30m": "bull",
@@ -4021,7 +4021,7 @@
         "label": "BTC",
         "name": "Gemini",
         "url": "https://www.gemini.com/converter/BTC/USD",
-        "note": "BTC约14:10 ET实时价"
+        "note": "BTC约02:10 中国时间实时价"
       },
       {
         "label": "SPCX新增催化",
@@ -4178,7 +4178,7 @@
     ],
     "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。",
     "aiCapitalCycle": {
-      "asOf": "2026-08-25 14:10 ET",
+      "asOf": "2026-08-26 02:10 中国时间",
       "note": "中期基线仅因SPCX新增基地计划补充扩张证据；其余不随午后噪音改写。",
       "items": [
         {
@@ -4247,7 +4247,7 @@
     "available": true,
     "updatedAt": "2026-08-26T20:08:17+08:00",
     "updateStatus": "延迟补跑",
-    "sessionContext": "2026-08-25 美东16:00正式收盘复盘 · 用户手动更新",
+    "sessionContext": "2026-08-26 中国时间04:00正式收盘复盘 · 用户手动更新",
     "regime": "科技与半导体反弹锁定 / 强势集中于光通信、IREN与加密股 / 事件前仍限权",
     "confidence": "中高",
     "thesis": "指数与SOXX正式收涨，目标五标的全部上涨；LITE尾盘重新站上873并获COHR确认，IREN近高收盘。DRAM仍受SNDK拖累，SPCX未把138.33锁定到收盘，MSTR与BTC联动仍不完整。",
@@ -4256,9 +4256,9 @@
     "reviewNote": "收盘锁定规则有效：LITE升级为已确认；SPCX降为失败突破；IREN因未守42.31只保留部分确认。",
     "riskAppetite": "选择性偏多 / 事件前限权",
     "riskNote": "正式收盘支持相对强链，但Nvidia与IREN事件窗口临近；下一盘前前不据盘后价新增风险。",
-    "deltaLabel": "相对2026-08-26北京时间02:00午后复核",
+    "deltaLabel": "相对2026-08-26中国时间02:05午后复核",
     "freshness": {
-      "quotes": "2026-08-25 美东16:00正式收盘；盘后单列至19:59–20:00 ET",
+      "quotes": "2026-08-26 中国时间04:00正式收盘；盘后单列至次日07:59–08:00 中国时间",
       "timeframes": "基于08-25完整OHLC、成交量、午后至收盘路径与近3–5日结构",
       "daily": "完整日线截至2026-08-25；60D/252D分位仍沿用可审计旧窗口，未伪算",
       "macro": "截至2026-08-25收盘；收益率与油价回落、Nvidia/PCE事件风险"
@@ -4832,7 +4832,7 @@
         "price": 78826.84,
         "changePct": null,
         "tone": "flat",
-        "priceStatus": "实时价 · 2026-08-26 01:10 ET"
+        "priceStatus": "实时价 · 2026-08-26 13:10 中国时间"
       }
     ],
     "extendedAsOf": "2026-08-25T20:00:00-04:00",
@@ -4850,7 +4850,7 @@
         "sourceUrl": "https://stockanalysis.com/etf/dram/",
         "state": "稳定",
         "note": "正式收盘56.24；盘后55.91（-0.59%），未混作正式收盘。",
-        "nextConfirmation": "下一盘前以09:00 ET正式盘前报价重新验证。"
+        "nextConfirmation": "下一次中国时间21:05盘前以正式盘前报价重新验证。"
       },
       {
         "symbol": "LITE",
@@ -4865,7 +4865,7 @@
         "sourceUrl": "https://stockanalysis.com/stocks/lite/",
         "state": "稳定",
         "note": "正式收盘885.57；盘后881.95（-0.41%），未混作正式收盘。",
-        "nextConfirmation": "下一盘前以09:00 ET正式盘前报价重新验证。"
+        "nextConfirmation": "下一次中国时间21:05盘前以正式盘前报价重新验证。"
       },
       {
         "symbol": "IREN",
@@ -4880,7 +4880,7 @@
         "sourceUrl": "https://stockanalysis.com/stocks/iren/",
         "state": "稳定",
         "note": "正式收盘42.21；盘后42.06（-0.35%），未混作正式收盘。",
-        "nextConfirmation": "下一盘前以09:00 ET正式盘前报价重新验证。"
+        "nextConfirmation": "下一次中国时间21:05盘前以正式盘前报价重新验证。"
       },
       {
         "symbol": "BE",
@@ -4895,7 +4895,7 @@
         "sourceUrl": null,
         "state": "待验证",
         "note": "只保留217.45正式收盘，不把未知盘后或夜盘报价冒充当前价。",
-        "nextConfirmation": "下一盘前以09:00 ET可审计报价重新验证。"
+        "nextConfirmation": "下一次中国时间21:05盘前以可审计报价重新验证。"
       },
       {
         "symbol": "SPCX",
@@ -4910,7 +4910,7 @@
         "sourceUrl": "https://stockanalysis.com/stocks/spcx/",
         "state": "稳定",
         "note": "正式收盘137.95；盘后137.83（-0.09%），未混作正式收盘。",
-        "nextConfirmation": "下一盘前以09:00 ET正式盘前报价重新验证。"
+        "nextConfirmation": "下一次中国时间21:05盘前以正式盘前报价重新验证。"
       },
       {
         "symbol": "MSTR",
@@ -4925,7 +4925,7 @@
         "sourceUrl": "https://stockanalysis.com/stocks/mstr/",
         "state": "回落",
         "note": "正式收盘126.83；盘后124.99（-1.45%），未混作正式收盘。",
-        "nextConfirmation": "下一盘前以09:00 ET正式盘前报价重新验证。"
+        "nextConfirmation": "下一次中国时间21:05盘前以正式盘前报价重新验证。"
       }
     ],
     "watchlist": [
@@ -5449,7 +5449,7 @@
         "label": "BTC",
         "name": "Gemini",
         "url": "https://www.gemini.com/converter/BTC/USD",
-        "note": "2026-08-26 01:10 ET实时价"
+        "note": "2026-08-26 13:10 中国时间实时价"
       },
       {
         "label": "事件风险",
@@ -5618,7 +5618,7 @@
     ],
     "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。 本次未取得完整60D/252D滚动原始序列，因此保留原asOf、参考价、样本数与分位，未用08-25收盘价伪算。",
     "aiCapitalCycle": {
-      "asOf": "2026-08-25 16:00 ET",
+      "asOf": "2026-08-26 04:00 中国时间",
       "note": "正式收盘评估；中期因果不因单日反弹改写，价格确认按标的分层。",
       "items": [
         {
@@ -5668,7 +5668,7 @@
         "id": "nvda-earnings-2026-08-26",
         "label": "Nvidia 财报",
         "eventDate": "2026-08-26",
-        "timing": "美东收盘后；具体发布时间以公司公告为准",
+        "timing": "中国时间04:05收盘后；具体发布时间以公司公告为准",
         "affectedAssets": [
           "MARKET",
           "DRAM",
@@ -5706,7 +5706,7 @@
   "reviews": [
     {
       "date": "2026-08-25",
-      "stage": "16:00 ET 收盘复盘",
+      "stage": "04:05 中国时间收盘复盘",
       "title": "选择性risk-on锁定：LITE确认，SPCX失败突破",
       "status": "部分确认",
       "summary": "SPY +0.32%、QQQ +0.62%、SOXX +1.56%，科技与芯片反弹正式收口。DRAM收涨但同业分化；LITE尾盘站上873并获COHR确认；IREN近高收盘但未守42.31；SPCX新催化未换来关键位锁定；MSTR维持股票端强势但BTC未补确认。 BE首次纳入并建立217.45正式收盘新基线，不倒填此前时段。",
@@ -5859,7 +5859,7 @@
     },
     {
       "date": "2026-08-24",
-      "stage": "16:00 ET 收盘复盘",
+      "stage": "04:05 中国时间收盘复盘",
       "title": "半导体弱势锁定；LITE深V未反转，IREN负背离强化",
       "status": "部分确认",
       "summary": "SPY-0.29%、QQQ-0.99%、SOXX-2.60%，盘前去风险与盘中半导体弱势获收盘确认。DRAM放量收跌，LITE深V收回开盘但未恢复关键位，IREN在BTC上涨日收近低位，SPCX守135但失136.72，MSTR正beta仍在但冲高回吐。",
@@ -6006,7 +6006,7 @@
     },
     {
       "date": "2026-08-21",
-      "stage": "16:00 ET 收盘复盘",
+      "stage": "04:05 中国时间收盘复盘",
       "title": "指数反弹但半导体未确认；SPCX守住反转，IREN负背离",
       "status": "部分确认",
       "summary": "SPY收涨0.41%，QQQ近收盘约+0.38%，SOXX约-0.46%；DRAM/LITE未复位，IREN在BTC强势日收跌，SPCX收回IPO价，MSTR与BTC同向。",
