@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-26T13:36:00+08:00"
+    "updatedAt": "2026-08-26T18:23:11+08:00"
   },
   "days": [
     {
@@ -715,18 +715,24 @@
     },
     {
       "date": "2026-08-26",
-      "intake": 605,
+      "intake": 1005,
       "records": [
         {
           "name": "滑蛋叉烧饭",
           "calories": 605,
           "meal": "午餐"
+        },
+        {
+          "name": "66颗蓝莓桑葚酸奶昔（大杯·少少甜）",
+          "calories": 400,
+          "meal": "加餐",
+          "time": "18:22"
         }
       ],
       "macros": {
-        "protein": 24,
-        "carbs": 74,
-        "fat": 22
+        "protein": 37,
+        "carbs": 137,
+        "fat": 33
       },
       "body": {
         "weightKg": 78.25
@@ -760,7 +766,7 @@
     },
     {
       "date": "今日",
-      "intake": 605
+      "intake": 1005
     }
   ]
 }
