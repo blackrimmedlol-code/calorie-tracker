@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-26T08:00:12+08:00"
+    "updatedAt": "2026-08-26T09:46:39+08:00"
   },
   "days": [
     {
@@ -711,6 +711,15 @@
             "effortLabel": "轻松"
           }
         ]
+      }
+    },
+    {
+      "date": "2026-08-26",
+      "intake": null,
+      "records": [],
+      "macros": null,
+      "body": {
+        "weightKg": 78.25
       }
     }
   ],
