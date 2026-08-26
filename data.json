@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-26T18:23:11+08:00"
+    "updatedAt": "2026-08-27T00:25:00+08:00"
   },
   "days": [
     {
@@ -736,6 +736,21 @@
       },
       "body": {
         "weightKg": 78.25
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-08-26T12:23:00+08:00",
+        "isFinal": false,
+        "activeCalories": 321,
+        "totalCalories": 2055,
+        "exerciseMinutes": 5,
+        "standHours": 11,
+        "steps": 4716,
+        "distanceKm": 3.3,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
       }
     }
   ],
