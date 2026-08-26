@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v10
+# 美股策略台数据维护指南 · v11
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -13,6 +13,7 @@
 1. 更新前先读取 `market/data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
 2. 四个任务只替换各自对象：09:00 ET=`premarket`、23:00=`intraday`、02:00=`late`、收盘=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
+   `meta.schemaVersion` 固定为 `11`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
 5. `snapshot` 最多 9 项，固定优先级为 SPY、QQQ、SOXX、DRAM、LITE、IREN、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
 6. `news` 仅保留 3–5 条真正影响价格的信息；外链必须指向实际来源。
@@ -27,6 +28,7 @@
 - `regime` 使用 `主标题 / 解释层一 / 解释层二` 结构。第一个分段必须是可独立阅读的 6–14 个汉字短标题；页面会把后续分段降级为副标题。禁止把整段盘面综述全部写成大标题。
 - `thesis` 负责解释主标题，控制在 1–2 句；`watchVariable` 只保留真正决定下一次判断升级或降级的变量。
 - 每个时段必须写 `largestChange`，用一句话提炼相对上一有效时段最重要的变化；无实质变化时明确写“无新增确认”，不能用普通新闻填充。
+- 每个时段必须写 `regimeCode / breadthState`。自然语言 `regime` 负责解释，稳定枚举负责跨时段比较；禁止用长句替代状态码。
 - `horizons.MARKET.short.trigger` 是第一屏“下一确认”，`invalidation` 是“总体失效”，必须能够直接改变总体 beta、追价或隔夜权限；不得只写某一只个股的价位。
 - `reviewStatus / reviewNote` 继续承接上一判断复盘，只做跳转提示；详细复盘仍放在页面下方。
 
@@ -41,7 +43,59 @@
 
 - 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
 - `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
-- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、IREN、SPCX、MSTR。字段：`asset / from / to / reason / tone`，只写相对上一有效时段真正改变的判断。
+- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、IREN、SPCX、MSTR。字段：`asset / from / to / reason / tone / material / impactFields`。
+  - `material:true` 仅限改变 `regimeCode / planStatus / permissions / trigger / invalidation / confidence` 的行动级变化；页面只展开这些项目。
+  - 未改变行动的量价延续仍可保存在 `changes` 中，但必须写 `material:false / impactFields:[]`，页面会合并为“已收起 N 项非行动级变化”。
+  - 不得为了填满六格把普通新闻或微小价格波动标为行动级变化。
+
+## v11 决策有效性契约
+
+### 稳定状态与自由说明分离
+
+- `short.planStatus` 只能使用本文枚举；原始细节放入 `short.stateNote`。例如“延续但联动不完整”应写为 `planStatus:"部分确认" / stateNote:"延续但联动不完整"`。
+- `short.tradeType` 只能使用本文枚举；具体形态放入 `short.setupLabel`。例如“供给吸收验证”应写为 `tradeType:"短线事件交易" / setupLabel:"供给吸收验证"`。
+- 自动任务写入前必须执行等价于 `node market/validate-data.mjs market/data.json` 的校验。枚举、排序或必要字段不合规时不得静默写入；无法及时修复则将 `updateStatus` 写为“数据不完整”。
+
+### 数据锁权 `decisionGate`
+
+每个可用 session 必须包含：
+
+- `quoteAsOf`：用于当前判断的最新正式行情 ISO 时间；
+- `validUntil`：本时段行动权限的截止 ISO 时间，通常衔接下一名义更新；
+- `sourceConflict`：关键报价或 OHLC 是否仍有未解决冲突；
+- `volumeComplete / closeFinal`：量能是否完整、日线是否已正式收口；
+- `status`：`open | caution | locked`；
+- `note`：数据边界与锁权原因。
+
+页面在以下任一情况自动把“新增风险”降为仅观察，并关闭追价、隔夜与 beta：`validUntil` 已过、`updateStatus` 为“数据不完整”、schema 校验失败、`sourceConflict:true` 或 `status:"locked"`。锁权只限制行动，不删除历史研究内容。
+
+### 事件倒计时 `eventCalendar`
+
+每个 session 维护经过来源确认的未来事件数组；没有事件时允许空数组。字段：
+
+- `id / label / eventDate`，有可靠具体时点时再写 `startsAt`；
+- `affectedAssets`：可包含 `MARKET` 或五个固定标的；
+- `riskWindowHours / riskLevel`；
+- `permissionOverride.chase / overnight / beta`；
+- `timing / note / sourceUrl`。
+
+具体发布时间未知时只能显示“距事件日”，不得伪造小时倒计时。进入风险窗口后页面按 `permissionOverride` 收紧对应标的权限；事件结束或过期后不再沿用。
+
+### 条件判断结果账本 `decisionLedger`
+
+根级 `decisionLedger` 用于验证策略有效性，而不是记录个人成交。每个真正建立或改变的短线判断写一条：
+
+- `callId / sessionDate / session / asset / horizon`；
+- `regimeCode / setupType / referencePrice / referenceAt`；
+- `trigger / invalidation / planStatus / permissionsAtCall / evidenceAtCall`；
+- `outcome.status`：`open | triggered | invalidated | closed | expired`；
+- 触发后按可得数据补充 `triggeredAt / invalidatedAt / evaluatedAt / return1D / return3D / mfe / mae / falseBreakout`。
+
+同一剧本跨时段只更新同一 `callId`，不能每次刷新都追加同义样本。未触发判断不能算胜负；只有已触发并完成评估的同类样本进入统计。相同 `setupType + regimeCode + horizon` 的可比已结样本不足 20 条时，页面只展示开放、触发、失效和已结数量，不展示胜率或收益率结论。
+
+### 本机持仓风险联动
+
+持仓成本、股数和计划止损只保存在浏览器本机。页面根据当前可审计价格显示敞口、浮盈亏、距止损和从现价到止损的计划风险；同时引用 `decisionGate` 与事件窗口展示当前是否允许新增风险。页面不得把本机输入写回 `data.json`，也不得把模型权限替代为确定性买卖指令。
 
 ## 低 Token 执行协议
 
@@ -205,15 +259,20 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
 - `reviews` 只做模型判断复盘，不记录个人交易执行。每条至少包含 `validDriver / errorLayer / failedAssumption / modelChange`；`errorLayer` 必须明确归入宏观驱动、传导机制、行业/跨资产联动、量能、价格确认或数据边界中的一层。
-- 历史最新在前；相同日期与阶段应更新原条目，不重复追加。满 20 条短线样本前只展示样本数，不展示命中率。
+- 历史最新在前；相同日期与阶段应更新原条目，不重复追加。`reviews` 条数只表示复盘记录量，命中率与收益统计必须使用 `decisionLedger` 中已触发且完成评估的可比样本。
 
 ## 枚举
 
 - `tone`: `up | down | flat`
 - `timeframes`: `bull | bear | neutral | unknown`
+- `regimeCode`: `RISK_ON | SELECTIVE_RISK_ON | ROTATION_NEUTRAL | RISK_OFF | EVENT_LOCK`
+- `breadthState`: `broad | selective | mixed | weak | unknown`
 - `planStatus`: `等待触发 | 已触发 | 部分确认 | 已确认 | 失败突破 | 剧本失效`
 - `tradeType`: `风险预算 | 短线事件交易 | 趋势交易 | 中期逻辑观察 | 仅观察`
 - `confirmations.*.state`: `confirmed | mixed | failed | unknown`
+- `decisionGate.status`: `open | caution | locked`
+- `decisionLedger.outcome.status`: `open | triggered | invalidated | closed | expired`
+- `changes[].impactFields`: `regimeCode | planStatus | permissions | trigger | invalidation | confidence`
 - 复盘结果：`确认 | 部分确认 | 失效 | 新基线`
 - 矩阵信号：`+ | 0 | -`
 - `latestSession`: `premarket | intraday | late | close`
@@ -225,6 +284,8 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
 - 市场、DRAM、LITE、IREN、SPCX、MSTR 的 `changes` 完整，五个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
+- `meta.schemaVersion` 为 11；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `market/validate-data.mjs`。
+- `changes` 六项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
 - DRAM、LITE、IREN、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 连续衔接；收盘任务使用美东 16:00，自动适配夏令时。
@@ -236,4 +297,5 @@ DRAM、LITE、IREN、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不�
 - 60/252 日价格位置分位必须能追溯到真实日线、日期和样本数；代理必须标明成份、权重口径和基金自身可用样本，不得与实际基金历史混写。
 - DRAM 的消息—价格一致性、LITE 的公司—光通信链确认、IREN 的 BTC/矿企—AI数据中心双链验证、SPCX 的上市后量价与代码换主隔离、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
 - 复盘区包含至少一个明确的模型调整；`mediumLedger` 只有证据变化时才更新，不输出小样本伪精度。
+- `decisionLedger` 对同一剧本只维护一个 `callId`；未触发与未完成评估的记录不进入胜率或收益统计，少于 20 个可比已结样本不展示绩效结论。
 - 页面只用于信息整理，不输出确定性买卖建议。
