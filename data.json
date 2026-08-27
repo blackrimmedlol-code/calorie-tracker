@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-27T10:18:39+08:00"
+    "updatedAt": "2026-08-27T15:32:23+08:00"
   },
   "days": [
     {
@@ -755,9 +755,34 @@
     },
     {
       "date": "2026-08-27",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 870,
+      "records": [
+        {
+          "name": "卤汁拌饭（半份，含嫩豆腐+腌菜）",
+          "calories": 430,
+          "meal": "午餐"
+        },
+        {
+          "name": "蜜汁叉烧（4-5片）",
+          "calories": 310,
+          "meal": "午餐"
+        },
+        {
+          "name": "卤蛋（1颗）",
+          "calories": 80,
+          "meal": "午餐"
+        },
+        {
+          "name": "菜心/小白菜（1小把）",
+          "calories": 50,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 38,
+        "carbs": 109,
+        "fat": 35
+      },
       "body": {
         "weightKg": 78.1
       }
@@ -790,7 +815,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 870
     }
   ]
 }
