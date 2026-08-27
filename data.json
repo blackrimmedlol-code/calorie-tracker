@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-27T08:00:30+08:00"
+    "updatedAt": "2026-08-27T10:18:39+08:00"
   },
   "days": [
     {
@@ -751,6 +751,15 @@
         "exerciseGoal": 30,
         "standGoal": 12,
         "workouts": []
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "intake": null,
+      "records": [],
+      "macros": null,
+      "body": {
+        "weightKg": 78.1
       }
     }
   ],
