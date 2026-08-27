@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-27T15:32:23+08:00"
+    "updatedAt": "2026-08-27T20:59:11+08:00"
   },
   "days": [
     {
@@ -755,7 +755,7 @@
     },
     {
       "date": "2026-08-27",
-      "intake": 870,
+      "intake": 1920,
       "records": [
         {
           "name": "卤汁拌饭（半份，含嫩豆腐+腌菜）",
@@ -776,12 +776,27 @@
           "name": "菜心/小白菜（1小把）",
           "calories": 50,
           "meal": "午餐"
+        },
+        {
+          "name": "大虾辣奶油意面（一份）",
+          "calories": 800,
+          "meal": "晚餐"
+        },
+        {
+          "name": "提拉米苏（半份）",
+          "calories": 180,
+          "meal": "晚餐"
+        },
+        {
+          "name": "黑虎虾（2只）",
+          "calories": 70,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 38,
-        "carbs": 109,
-        "fat": 35
+        "protein": 87,
+        "carbs": 218,
+        "fat": 86
       },
       "body": {
         "weightKg": 78.1
@@ -815,7 +830,7 @@
     },
     {
       "date": "今日",
-      "intake": 870
+      "intake": 1920
     }
   ]
 }
