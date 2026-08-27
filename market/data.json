@@ -1,9 +1,9 @@
 {
   "meta": {
-    "updatedAt": "2026-08-27T04:16:50.091+08:00",
-    "latestSession": "close",
-    "sessionDate": "2026-08-26",
-    "nextUpdate": "2026-08-27T21:05:00+08:00",
+    "updatedAt": "2026-08-27T21:07:28+08:00",
+    "latestSession": "premarket",
+    "sessionDate": "2026-08-27",
+    "nextUpdate": "2026-08-27T23:05:00+08:00",
     "timezone": "Asia/Shanghai",
     "schemaVersion": 12
   },
@@ -135,43 +135,43 @@
   ],
   "premarket": {
     "available": true,
-    "updatedAt": "2026-08-26T21:39:04.419+08:00",
-    "updateStatus": "数据不完整",
-    "sessionContext": "2026-08-26 中国时间21:05盘前策略 · 调度时区冲突后延迟补录",
-    "regime": "事件锁权 / PCE略高于预期、指数期货偏弱 / Nvidia收盘后财报使AI链进入结果验证窗口",
-    "confidence": "低",
-    "thesis": "宏观数据与关键事件均已到达；盘前报价不完整且部分来源存在前收口径冲突，因此只保留观察框架，不开放新增风险。",
-    "watchVariable": "开盘后SOXX与重点标的能否对PCE和Nvidia事件风险形成一致价格确认。",
-    "reviewStatus": "待盘中验证",
-    "reviewNote": "上一收盘显示科技链修复，但今天需重新接受PCE、收益率和Nvidia财报窗口检验。",
-    "riskAppetite": "锁定",
-    "riskNote": "追价、隔夜和新增beta全部关闭，等待23:00正式盘中初验。",
-    "deltaLabel": "相对08月25日正式收盘",
+    "updatedAt": "2026-08-27T21:07:28+08:00",
+    "updateStatus": "按时更新",
+    "sessionContext": "2026-08-27 中国时间21:05盘前先验",
+    "regime": "AI财报驱动的选择性risk-on / Nasdaq与半导体领涨 / 六标的盘前上行待正式盘确认",
+    "confidence": "中",
+    "thesis": "Nvidia强劲业绩与展望重新确认AI基础设施需求，半导体、存储和现场供电链盘前走强；长端收益率约4.67%、盘前缺口与IREN财报窗口仍限制追价和隔夜权限。",
+    "watchVariable": "正式开盘后QQQ能否守716.78、SOXX能否守526.50–528.41，以及高beta标的是否出现量价和同业共同承接。",
+    "reviewStatus": "已复盘",
+    "reviewNote": "上一收盘确认LITE最强、IREN/MSTR失效；本轮建立新先验，不把盘前修复倒算为上一剧本胜负。",
+    "riskAppetite": "选择性偏多",
+    "riskNote": "允许观察AI硬件链承接，但禁止追盘前缺口；IREN财报前关闭新增隔夜风险。",
+    "deltaLabel": "相对2026-08-27 04:05正式收盘",
     "freshness": {
       "quotes": {
-        "status": "部分可用",
-        "asOf": "2026-08-26 21:23 中国时间；缺失或冲突标的保留正式收盘锚点"
+        "status": "可审计盘前报价",
+        "asOf": "2026-08-27 21:00 中国时间"
       },
       "timeframes": {
-        "status": "沿用正式收盘基线",
-        "asOf": "2026-08-26 04:00 中国时间"
+        "status": "沿用2026-08-26正式日线与关键位；盘前仅更新价格地图",
+        "asOf": "2026-08-27 21:00 中国时间"
       },
       "daily": {
         "status": "正式日线",
-        "asOf": "2026-08-25"
+        "asOf": "2026-08-26"
       },
       "macro": {
-        "status": "已更新",
-        "asOf": "2026-08-26 20:33 中国时间"
+        "status": "Nvidia财报、美国初请与盘前利率/期货",
+        "asOf": "2026-08-27 21:00 中国时间"
       }
     },
     "changes": [
       {
         "asset": "市场",
-        "from": "选择性风险偏好，科技链收盘修复",
-        "to": "PCE略高于预期、Nasdaq期货偏弱且Nvidia财报临近，切换事件锁权",
-        "reason": "宏观数据与重大财报同时压缩盘前风险预算。",
-        "tone": "down",
+        "from": "收盘事件锁权",
+        "to": "盘前SPY +0.41%、QQQ +0.76%、SOXX +2.52%",
+        "reason": "Nvidia财报强化AI需求，升级为选择性risk-on。",
+        "tone": "up",
         "material": true,
         "impactFields": [
           "regimeCode",
@@ -181,45 +181,45 @@
       },
       {
         "asset": "DRAM",
-        "from": "56.24正式收盘，+3.61%",
-        "to": "17:17 中国时间盘前55.77，约-0.84%；报价时点偏早",
-        "reason": "不把早盘打印当正式确认。",
-        "tone": "down",
+        "from": "56.39，未守56.68",
+        "to": "盘前58.39，+3.55%",
+        "reason": "内存供应约束与AI需求带动存储链跳空。",
+        "tone": "up",
         "material": true,
         "impactFields": [
-          "permissions",
+          "planStatus",
+          "trigger",
           "confidence"
         ]
       },
       {
         "asset": "LITE",
-        "from": "885.57正式收盘，+6.67%",
-        "to": "未取得08月26日可一致复读的盘前报价",
-        "reason": "仅保留上一收盘锚点。",
-        "tone": "flat",
-        "material": true,
-        "impactFields": [
-          "permissions",
-          "confidence"
-        ]
+        "from": "939.42，突破已确认",
+        "to": "盘前962.11，+2.46%",
+        "reason": "AI基础设施情绪延续趋势，但不改变追价权限。",
+        "tone": "up",
+        "material": false,
+        "impactFields": []
       },
       {
         "asset": "IREN",
-        "from": "42.21正式收盘，+6.03%",
-        "to": "早盘来源显示40.66但前收口径冲突，价格置空",
-        "reason": "报价冲突叠加08月27日财报窗口。",
-        "tone": "down",
+        "from": "39.57，前一剧本失效",
+        "to": "盘前40.87，+3.26%",
+        "reason": "AI与BTC带来修复，但财报未公布，建立独立新剧本。",
+        "tone": "up",
         "material": true,
         "impactFields": [
-          "permissions",
-          "confidence"
+          "planStatus",
+          "trigger",
+          "invalidation",
+          "permissions"
         ]
       },
       {
         "asset": "BE",
-        "from": "204.02正式收盘",
-        "to": "17:29 中国时间盘前212.84，+4.32%",
-        "reason": "主题延续，但仍需开盘后价格、同业与成交量确认。",
+        "from": "218.02，仅部分修复",
+        "to": "盘前229.96，+5.38%",
+        "reason": "现场供电需求与GEV同向推动突破；电力链广度尚不完整。",
         "tone": "up",
         "material": true,
         "impactFields": [
@@ -230,23 +230,27 @@
       },
       {
         "asset": "SPCX",
-        "from": "137.95正式收盘，未锁定138.33上方",
-        "to": "21:23 中国时间盘前约138.17，+0.16%",
-        "reason": "幅度不足以推翻上一日失败突破结论。",
-        "tone": "flat",
-        "material": false,
-        "impactFields": []
-      },
-      {
-        "asset": "MSTR",
-        "from": "126.83正式收盘，+3.42%",
-        "to": "盘前约124.50，-1.84%",
-        "reason": "BTC约78,666且MSTR回吐，币股联动仍偏弱。",
-        "tone": "down",
+        "from": "139.60，略低于139.75",
+        "to": "盘前140.16，+0.38%",
+        "reason": "轻微越过触发位，尚无正式盘成交确认。",
+        "tone": "up",
         "material": true,
         "impactFields": [
           "planStatus",
-          "permissions",
+          "trigger"
+        ]
+      },
+      {
+        "asset": "MSTR",
+        "from": "123.16，正beta失效",
+        "to": "盘前125.60，+1.98%；BTC +1.63%",
+        "reason": "币股联动初步恢复并收复124.50，建立新修复先验。",
+        "tone": "up",
+        "material": true,
+        "impactFields": [
+          "planStatus",
+          "trigger",
+          "invalidation",
           "confidence"
         ]
       }
@@ -255,34 +259,34 @@
       "MARKET": {
         "permissions": {
           "chase": "关闭",
-          "overnight": "关闭",
-          "beta": "低"
+          "overnight": "谨慎",
+          "beta": "标准以下至标准"
         },
         "short": {
-          "bias": "中性偏谨慎",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "PCE略高于预期、Nasdaq期货偏弱与Nvidia财报事件锁",
-          "trigger": "开盘后收益率不继续上行，SOXX与市场广度同时转强",
-          "invalidation": "Nasdaq与SOXX开盘走弱且长端收益率继续上行",
+          "bias": "中性偏多",
+          "confidence": "中",
+          "posture": "等开盘确认，不追盘前缺口",
+          "driver": "Nvidia财报强化AI需求，Nasdaq与半导体盘前领涨",
+          "trigger": "QQQ正式盘守716.78且SOXX守526.50–528.41，同时AI硬件链广度保持",
+          "invalidation": "SOXX跌回515.40且QQQ失711.37",
           "planStatus": "等待触发",
           "tradeType": "风险预算",
           "confirmations": {
             "price": {
-              "state": "unknown",
-              "note": "盘前报价不完整或冲突"
+              "state": "confirmed",
+              "note": "盘前SPY约+0.41%、QQQ约+0.76%、SOXX约+2.52%"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "等待23:00统一验证行业与跨资产联动"
+              "state": "confirmed",
+              "note": "AI、半导体、存储和部分电力链同向"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
-          "setupLabel": "选择性risk-on"
+          "stateNote": "盘前先验",
+          "setupLabel": "AI财报后的广度确认"
         },
         "medium": {
           "bias": "中性",
@@ -295,34 +299,34 @@
       "DRAM": {
         "permissions": {
           "chase": "关闭",
-          "overnight": "关闭",
-          "beta": "低"
+          "overnight": "谨慎",
+          "beta": "中"
         },
         "short": {
-          "bias": "中性偏谨慎",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "上一日修复后盘前轻度回吐，缺少09:00统一报价",
-          "trigger": "正式盘中重回56.24并由MU/SNDK/STX多数确认",
-          "invalidation": "跌破55.21且同业同步转弱",
-          "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "bias": "偏多",
+          "confidence": "中",
+          "posture": "等正式盘守58.00与同业确认",
+          "driver": "AI需求和内存供应约束推动存储链走强",
+          "trigger": "正式盘守58.00且MU/SNDK/WDC/STX多数同向",
+          "invalidation": "跌回56.68且存储同业转弱",
+          "planStatus": "已触发",
+          "tradeType": "趋势交易",
           "confirmations": {
             "price": {
-              "state": "unknown",
-              "note": "盘前报价不完整或冲突"
+              "state": "confirmed",
+              "note": "盘前58.39，越过56.68"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "等待23:00统一验证行业与跨资产联动"
+              "state": "confirmed",
+              "note": "Reuters确认Micron、SanDisk、Western Digital等AI硬件链盘前上涨"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
-          "setupLabel": "存储修复"
+          "stateNote": "盘前突破待正式盘",
+          "setupLabel": "存储链缺口确认"
         },
         "medium": {
           "bias": "中性",
@@ -335,33 +339,33 @@
       "LITE": {
         "permissions": {
           "chase": "关闭",
-          "overnight": "关闭",
-          "beta": "低"
+          "overnight": "谨慎",
+          "beta": "中"
         },
         "short": {
-          "bias": "中性",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "上一收盘强势，但今日盘前报价缺失",
-          "trigger": "正式盘中保持885.57上方且COHR同步",
-          "invalidation": "跌回873下方且COHR转弱",
-          "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "bias": "偏多",
+          "confidence": "中",
+          "posture": "等回踩947.52承接，不追高",
+          "driver": "前一日突破已确认，AI基础设施需求带来盘前延续",
+          "trigger": "正式盘守947.52且COHR同向",
+          "invalidation": "跌回939.42并继续失911.72",
+          "planStatus": "已确认",
+          "tradeType": "趋势交易",
           "confirmations": {
             "price": {
-              "state": "unknown",
-              "note": "盘前报价不完整或冲突"
+              "state": "confirmed",
+              "note": "盘前962.11，保持947.52上方"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "等待23:00统一验证行业与跨资产联动"
+              "state": "mixed",
+              "note": "AI硬件情绪正向，COHR本时点缺少一致可审计报价"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
+          "stateNote": "既有趋势盘前延续",
           "setupLabel": "光通信链确认"
         },
         "medium": {
@@ -379,30 +383,30 @@
           "beta": "低"
         },
         "short": {
-          "bias": "中性偏谨慎",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "早盘报价冲突且08月27日财报临近",
-          "trigger": "正式盘中站回42.21并获BTC/AI数据中心链确认",
-          "invalidation": "跌破40.03且BTC与矿企链同步转弱",
+          "bias": "中性",
+          "confidence": "中",
+          "posture": "财报前仅观察，不把修复当反转",
+          "driver": "AI情绪与BTC回升带来修复，前一日弱势和财报风险仍在",
+          "trigger": "正式盘站稳41.17，且财报确认AI Cloud交付、收入与融资质量",
+          "invalidation": "跌回39.38或财报兑现不及预期",
           "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "tradeType": "短线事件交易",
           "confirmations": {
             "price": {
-              "state": "unknown",
-              "note": "盘前报价不完整或冲突"
+              "state": "mixed",
+              "note": "盘前40.87回升，但尚未收复41.17"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "等待23:00统一验证行业与跨资产联动"
+              "state": "confirmed",
+              "note": "BTC约+1.63%，AI基础设施情绪改善"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
-          "setupLabel": "财报前相对强势"
+          "stateNote": "新财报剧本",
+          "setupLabel": "财报前修复"
         },
         "medium": {
           "bias": "中性",
@@ -415,33 +419,33 @@
       "BE": {
         "permissions": {
           "chase": "关闭",
-          "overnight": "关闭",
-          "beta": "低"
+          "overnight": "谨慎",
+          "beta": "低至中"
         },
         "short": {
-          "bias": "偏多观察",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "盘前+4.32%，现场供电主题延续",
-          "trigger": "正式盘中守住212.84并由VST/NRG/CEG/GEV多数确认",
-          "invalidation": "跌回204.02下方且电力链不同步",
-          "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "bias": "中性偏多",
+          "confidence": "中",
+          "posture": "只验证缺口，不追价",
+          "driver": "AI现场供电需求链不变，盘前越过227.08且GEV同向",
+          "trigger": "正式盘守227.08并由VST/NRG/CEG/GEV至少两项同向确认",
+          "invalidation": "跌回218.53且相对电力链恶化",
+          "planStatus": "已触发",
+          "tradeType": "趋势交易",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "盘前上涨但尚无正式开盘确认"
+              "state": "confirmed",
+              "note": "盘前229.96，越过227.08"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "等待23:00统一验证行业与跨资产联动"
+              "state": "mixed",
+              "note": "GEV盘前约+2.83%，VST/NRG/CEG报价不完整"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
+          "stateNote": "盘前突破待正式盘",
           "setupLabel": "AI现场供电趋势验证"
         },
         "medium": {
@@ -455,34 +459,34 @@
       "SPCX": {
         "permissions": {
           "chase": "关闭",
-          "overnight": "关闭",
+          "overnight": "谨慎",
           "beta": "低"
         },
         "short": {
-          "bias": "中性",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "盘前仅回到138.33附近，上一收盘未锁定突破",
-          "trigger": "正式盘中放量站稳139.75上方",
-          "invalidation": "跌回136.10下方",
-          "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "bias": "中性偏多",
+          "confidence": "中",
+          "posture": "等139.75上方正式承接",
+          "driver": "前收已部分确认，盘前轻微越过139.75",
+          "trigger": "正式盘守139.75并有持续成交承接",
+          "invalidation": "跌回138.33，尤其失135.20",
+          "planStatus": "已触发",
+          "tradeType": "短线事件交易",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "盘前仅贴近关键位"
+              "state": "confirmed",
+              "note": "盘前140.16，轻微高于139.75"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "等待23:00统一验证行业与跨资产联动"
+              "state": "mixed",
+              "note": "上市后供给吸收仍需连续正式时段确认"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
-          "setupLabel": "催化突破失败"
+          "stateNote": "轻微突破待锁定",
+          "setupLabel": "供给吸收验证"
         },
         "medium": {
           "bias": "中性",
@@ -495,34 +499,34 @@
       "MSTR": {
         "permissions": {
           "chase": "关闭",
-          "overnight": "关闭",
-          "beta": "低"
+          "overnight": "谨慎",
+          "beta": "低至中"
         },
         "short": {
-          "bias": "偏谨慎",
-          "confidence": "低",
-          "posture": "仅观察，等待23:00盘中初验",
-          "driver": "盘前回吐且相对BTC更弱",
-          "trigger": "正式盘中站回126.83并与BTC/IBIT/COIN同步",
-          "invalidation": "跌破124.50后继续弱于BTC",
-          "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "bias": "中性偏多",
+          "confidence": "中",
+          "posture": "等币股联动在正式盘保持",
+          "driver": "BTC回到约79738，MSTR盘前收复124.50",
+          "trigger": "正式盘守124.50且BTC、IBIT、COIN同向",
+          "invalidation": "跌回123.16并再度弱于BTC",
+          "planStatus": "已触发",
+          "tradeType": "短线事件交易",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "盘前回吐且币股联动偏弱"
+              "state": "confirmed",
+              "note": "盘前125.60，收复124.50"
             },
             "volume": {
               "state": "unknown",
-              "note": "盘前量不能替代正式时段完整量能"
+              "note": "正式盘尚未开始，盘前量不能替代完整成交量"
             },
             "linkage": {
-              "state": "mixed",
-              "note": "BTC小跌而MSTR回吐更明显"
+              "state": "confirmed",
+              "note": "BTC约+1.63%，MSTR约+1.98%"
             }
           },
-          "stateNote": "数据边界与事件窗口锁权",
-          "setupLabel": "股票端强势/BTC待确认"
+          "stateNote": "币股联动初步恢复",
+          "setupLabel": "BTC beta修复"
         },
         "medium": {
           "bias": "偏多",
@@ -538,293 +542,286 @@
         {
           "key": "growth",
           "label": "增长",
-          "state": "科技与芯片反弹锁定",
+          "state": "AI需求再确认",
           "direction": "positive",
-          "evidence": "SPY +0.32%、QQQ +0.62%、SOXX +1.56%，Nasdaq领先。",
-          "transmission": "前一日去风险后，低位回补集中于AI与半导体。",
-          "invalidation": "Nvidia财报后SOXX跌破509.66。"
+          "evidence": "Nvidia强劲业绩与展望带动AI链盘前上涨。",
+          "transmission": "盈利上修带动Nasdaq、半导体、存储与光连接估值。",
+          "invalidation": "SOXX正式盘跌回515.40下方。"
         },
         {
           "key": "inflation",
           "label": "通胀",
-          "state": "油价与收益率回落提供估值缓冲",
-          "direction": "positive",
-          "evidence": "Reuters收盘报道显示油价和美债收益率回落，科技股受益。",
-          "transmission": "折现率与能源尾部风险下降，支持成长估值修复。",
-          "invalidation": "长端和油价重新同步上行。"
+          "state": "长端仍约束估值",
+          "direction": "neutral",
+          "evidence": "前一日PCE偏热，10年期收益率盘前约4.67%。",
+          "transmission": "高折现率限制缺口持续性。",
+          "invalidation": "长端回落且成长广度继续扩张。"
         },
         {
           "key": "liquidity",
           "label": "流动性/信用",
-          "state": "选择性risk-on而非全面扩张",
-          "direction": "neutral",
-          "evidence": "科技、芯片与目标标的走强，但成交量略低于20日均值，BTC回到约78,827。",
-          "transmission": "资金集中于高弹性链条，尚未形成无差别风险扩张。",
-          "invalidation": "市场广度转弱或信用/融资风险上升。"
+          "state": "选择性扩张",
+          "direction": "positive",
+          "evidence": "Nasdaq领先，BTC回到约79738。",
+          "transmission": "资金回流高beta但集中于事件受益链。",
+          "invalidation": "BTC跌回前收且高beta弱于指数。"
         },
         {
           "key": "risk-pricing",
           "label": "风险定价",
-          "state": "LITE/IREN确认，SPCX/MSTR仍有缺口",
+          "state": "六标的盘前上行",
           "direction": "positive",
-          "evidence": "LITE +6.67%、IREN +6.03%；SPCX未守138.33，MSTR未获BTC补确认。",
-          "transmission": "价格确认决定个股权限，宏观反弹不能覆盖关键位失败。",
-          "invalidation": "强势标的下一盘前跌回触发位下。"
+          "evidence": "DRAM与BE领涨，其余标的同步修复。",
+          "transmission": "先验改善但盘前成交不构成正式确认。",
+          "invalidation": "开盘后多数标的回补缺口。"
         }
       ],
       "chain": [
         {
-          "from": "油价与长端收益率回落",
-          "through": "估值压力缓和",
-          "to": "Nasdaq与SOXX收涨",
-          "verdict": "选择性risk-on锁定",
+          "from": "Nvidia业绩与展望",
+          "through": "AI需求与供应约束",
+          "to": "Nasdaq/SOXX及存储链上涨",
+          "verdict": "选择性risk-on先验成立",
           "tone": "up"
         },
         {
-          "from": "AI光连接需求与同业广度",
-          "through": "LITE尾盘站上873、COHR同涨",
-          "to": "近高收盘",
-          "verdict": "价格与传导双确认",
+          "from": "AI现场供电需求",
+          "through": "BE积压与Q2经营兑现",
+          "to": "BE与GEV同涨",
+          "verdict": "逻辑与价格同向，广度未完整",
           "tone": "up"
         },
         {
-          "from": "IREN事件前资金",
-          "through": "量价扩张",
-          "to": "近高收涨但未守42.31",
-          "verdict": "强势成立、突破未锁定",
+          "from": "偏热通胀与高长端",
+          "through": "估值折现率",
+          "to": "高位AI链追价风险",
+          "verdict": "禁止追缺口",
           "tone": "flat"
         },
         {
-          "from": "SPCX新基地催化",
-          "through": "盘中冲139.75",
-          "to": "收盘跌回138.33下",
-          "verdict": "催化有效、突破失败",
-          "tone": "down"
-        },
-        {
-          "from": "BTC回落",
-          "through": "MSTR/COIN股票端韧性",
-          "to": "MSTR收涨但未越128.66",
-          "verdict": "联动不完整",
-          "tone": "flat"
+          "from": "BTC回升",
+          "through": "MSTR beta",
+          "to": "MSTR收复124.50",
+          "verdict": "联动初步修复",
+          "tone": "up"
         }
       ]
     },
     "expectationGaps": [
       {
-        "event": "美国7月PCE",
-        "kind": "宏观",
-        "expected": "整体PCE环比0.1%、同比3.6%",
-        "actual": "环比0.2%、同比3.7%；核心口径符合预期",
-        "reaction": "Nasdaq 100期货偏弱",
-        "implication": "不开放盘前beta"
-      },
-      {
-        "event": "Nvidia财报",
+        "event": "Nvidia财报与展望",
         "kind": "事件",
-        "expected": "AI需求继续强劲",
-        "actual": "收盘后公布，尚未发生",
-        "reaction": "半导体链盘前谨慎",
-        "implication": "相关标的隔夜权限关闭"
+        "expected": "AI需求保持强劲但CapEx见顶担忧存在",
+        "actual": "业绩与增长展望均强，AI从试验进入实际应用",
+        "reaction": "Nvidia盘前约+7%，Nasdaq与半导体领涨",
+        "implication": "提高AI硬件链验证优先级，不开放追缺口"
       },
       {
-        "event": "BE盘前缺口",
+        "event": "美国初请失业金",
+        "kind": "宏观",
+        "expected": "约20.8万",
+        "actual": "约20.3万",
+        "reaction": "期货保持上涨，10年期收益率约4.67%",
+        "implication": "增长未恶化，宽松交易无新增确认"
+      },
+      {
+        "event": "BE盘前突破",
         "kind": "价格",
-        "expected": "延续数据中心供电主题",
-        "actual": "17:29 中国时间约+4.32%",
-        "reaction": "个股先涨",
-        "implication": "只提高验证优先级"
+        "expected": "218.53与227.08为确认门槛",
+        "actual": "盘前229.96，越过两级门槛",
+        "reaction": "GEV同步约+2.83%，其余电力链报价不完整",
+        "implication": "建立可证伪先验，正式盘补齐广度和成交"
       }
     ],
     "snapshot": [
       {
         "symbol": "SPY",
         "name": "State Street SPDR S&P 500 ETF",
-        "price": 765.91,
-        "changePct": 0.32,
+        "price": 769.19,
+        "changePct": 0.41,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "QQQ",
         "name": "Invesco QQQ",
-        "price": 710.72,
-        "changePct": 0.62,
+        "price": 716.78,
+        "changePct": 0.76,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "SOXX",
         "name": "iShares Semiconductor ETF",
-        "price": 514.06,
-        "changePct": 1.56,
+        "price": 528.41,
+        "changePct": 2.52,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "DRAM",
         "name": "Roundhill Memory ETF",
-        "price": 56.24,
-        "changePct": 3.61,
+        "price": 58.39,
+        "changePct": 3.55,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "LITE",
         "name": "Lumentum Holdings",
-        "price": 885.57,
-        "changePct": 6.67,
+        "price": 962.11,
+        "changePct": 2.46,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "IREN",
         "name": "IREN",
-        "price": 42.21,
-        "changePct": 6.03,
+        "price": 40.87,
+        "changePct": 3.26,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "BE",
         "name": "Bloom Energy",
-        "price": 217.45,
-        "changePct": 6.58,
+        "price": 229.96,
+        "changePct": 5.38,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
-        "price": 137.95,
-        "changePct": 2.19,
+        "price": 140.16,
+        "changePct": 0.38,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "MSTR",
         "name": "Strategy",
-        "price": 126.83,
-        "changePct": 3.42,
+        "price": 125.6,
+        "changePct": 1.98,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25"
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间"
       },
       {
         "symbol": "BTC",
         "name": "Bitcoin",
-        "price": 78826.84,
-        "changePct": null,
-        "tone": "flat",
-        "priceStatus": "实时锚点 · 盘前"
+        "price": 79738,
+        "changePct": 1.63,
+        "tone": "up",
+        "priceStatus": "实时参考 · 2026-08-27 21:00 中国时间"
       }
     ],
-    "extendedAsOf": "2026-08-26 21:23 中国时间（各标的实际时点见明细）",
+    "extendedAsOf": "2026-08-27 21:00 中国时间",
     "extendedHours": [
       {
         "symbol": "DRAM",
         "session": "盘前",
-        "price": 55.77,
-        "regularClose": 56.24,
-        "changePct": -0.84,
-        "tone": "down",
-        "asOf": "2026-08-26 17:17 中国时间",
+        "price": 58.39,
+        "regularClose": 56.39,
+        "changePct": 3.55,
+        "tone": "up",
+        "asOf": "2026-08-27 21:00 中国时间",
         "status": "verified",
-        "source": "Webull",
-        "sourceUrl": "https://www.webull.com.br/en/ticker/bats-dram",
-        "state": "轻度回吐",
-        "note": "时点偏早，只作参考。",
-        "nextConfirmation": "正式盘中能否重回56.24。"
+        "source": "Benzinga",
+        "sourceUrl": "https://www.benzinga.com/quote/DRAM",
+        "state": "盘前上行待确认",
+        "note": "盘前价格不构成正式确认。",
+        "nextConfirmation": "正式盘守58.00且存储同业多数同向"
       },
       {
         "symbol": "LITE",
         "session": "盘前",
-        "price": null,
-        "regularClose": 885.57,
-        "changePct": null,
-        "tone": "flat",
-        "asOf": null,
-        "status": "unavailable",
-        "source": "多源检索",
-        "sourceUrl": "https://stockanalysis.com/stocks/lite/",
-        "state": "数据不完整",
-        "note": "未取得08月26日可一致复读的盘前报价。",
-        "nextConfirmation": "正式盘中能否保持885.57并与COHR同步。"
+        "price": 962.11,
+        "regularClose": 939.42,
+        "changePct": 2.46,
+        "tone": "up",
+        "asOf": "2026-08-27 21:00 中国时间",
+        "status": "verified",
+        "source": "MarketWatch",
+        "sourceUrl": "https://www.marketwatch.com/investing/stock/lite",
+        "state": "盘前上行待确认",
+        "note": "盘前价格不构成正式确认。",
+        "nextConfirmation": "正式盘守947.52且COHR同向"
       },
       {
         "symbol": "IREN",
         "session": "盘前",
-        "price": null,
-        "regularClose": 42.21,
-        "changePct": null,
-        "tone": "flat",
-        "asOf": "2026-08-26 17:29 中国时间",
-        "status": "conflict",
-        "source": "StockMarketWatch / 正式收盘交叉核验",
-        "sourceUrl": "https://stockmarketwatch.com/stock/IREN/premarket",
-        "state": "来源冲突",
-        "note": "来源前收41.88与正式收盘42.21冲突，不采用40.66计算涨跌。",
-        "nextConfirmation": "正式盘中重新建立统一锚点。"
+        "price": 40.87,
+        "regularClose": 39.57,
+        "changePct": 3.26,
+        "tone": "up",
+        "asOf": "2026-08-27 21:00 中国时间",
+        "status": "verified",
+        "source": "MarketWatch",
+        "sourceUrl": "https://www.marketwatch.com/investing/stock/iren",
+        "state": "财报前修复",
+        "note": "盘前修复不等于财报风险解除。",
+        "nextConfirmation": "正式盘收复41.17且财报风险可控"
       },
       {
         "symbol": "BE",
         "session": "盘前",
-        "price": 212.84,
-        "regularClose": 217.45,
-        "changePct": 4.32,
+        "price": 229.96,
+        "regularClose": 218.02,
+        "changePct": 5.38,
         "tone": "up",
-        "asOf": "2026-08-26 17:29 中国时间",
+        "asOf": "2026-08-27 21:00 中国时间",
         "status": "verified",
-        "source": "StockMarketWatch",
-        "sourceUrl": "https://stockmarketwatch.com/stock/BE/premarket",
-        "state": "缺口上涨",
-        "note": "仍需正式开盘、量能与电力链确认。",
-        "nextConfirmation": "守住212.84并获电力同业确认。"
+        "source": "MarketWatch",
+        "sourceUrl": "https://www.marketwatch.com/investing/stock/be",
+        "state": "缺口突破待确认",
+        "note": "需求—积压—部署/收入—毛利/经营现金流基线未变；盘前缺口只提高正式盘验证优先级。",
+        "nextConfirmation": "正式盘守227.08且电力链至少两项同向"
       },
       {
         "symbol": "SPCX",
         "session": "盘前",
-        "price": 138.17,
-        "regularClose": 137.95,
-        "changePct": 0.16,
-        "tone": "flat",
-        "asOf": "2026-08-26 21:23 中国时间",
+        "price": 140.16,
+        "regularClose": 139.6,
+        "changePct": 0.38,
+        "tone": "up",
+        "asOf": "2026-08-27 21:00 中国时间",
         "status": "verified",
-        "source": "ImpliedOpen / Yahoo Finance",
-        "sourceUrl": "https://impliedopen.com/instrument/spacex",
-        "state": "贴近关键位",
-        "note": "未推翻收盘未锁定138.33的结论。",
-        "nextConfirmation": "正式盘中站稳139.75。"
+        "source": "Investing.com",
+        "sourceUrl": "https://www.investing.com/equities/spacex",
+        "state": "盘前上行待确认",
+        "note": "盘前价格不构成正式确认。",
+        "nextConfirmation": "正式盘守139.75并有成交承接"
       },
       {
         "symbol": "MSTR",
         "session": "盘前",
-        "price": 124.5,
-        "regularClose": 126.83,
-        "changePct": -1.84,
-        "tone": "down",
-        "asOf": "2026-08-26 盘前",
+        "price": 125.6,
+        "regularClose": 123.16,
+        "changePct": 1.98,
+        "tone": "up",
+        "asOf": "2026-08-27 21:00 中国时间",
         "status": "verified",
-        "source": "Investing.com",
-        "sourceUrl": "https://www.investing.com/equities/microstrategy-inc",
-        "state": "回吐",
-        "note": "相对BTC表现偏弱。",
-        "nextConfirmation": "站回126.83并恢复币股联动。"
+        "source": "MarketWatch",
+        "sourceUrl": "https://www.marketwatch.com/investing/stock/mstr",
+        "state": "盘前上行待确认",
+        "note": "盘前价格不构成正式确认。",
+        "nextConfirmation": "正式盘守124.50且BTC/IBIT/COIN同向"
       }
     ],
     "watchlist": [
       {
         "symbol": "DRAM",
         "name": "Roundhill Memory ETF",
-        "price": 56.24,
-        "changePct": 3.61,
+        "price": 58.39,
+        "changePct": 3.55,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25；盘前见价格地图",
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间",
         "timeframes": {
-          "15m": "bull",
-          "30m": "bull",
+          "15m": "neutral",
+          "30m": "neutral",
           "1h": "neutral",
           "4h": "neutral",
-          "1d": "bull"
+          "1d": "neutral"
         },
         "timeframeMethods": {
           "15m": "structure",
@@ -834,21 +831,21 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "30m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "4h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1d": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。"
+          "15m": "以正式收盘前最后阶段结构收口。",
+          "30m": "以完整日内区间与正式收盘位置判断。",
+          "1h": "以完整正式时段价格结构判断。",
+          "4h": "结合正式日线与近期结构推断。",
+          "1d": "正式日线收于56.39，涨跌约0.09%。"
         },
-        "verdict": "轻度回吐但时点偏早；只观察能否重回56.24。",
+        "verdict": "正式收涨且同业全线上涨，但未保持56.68；部分确认。",
         "fundamental": "存储景气基线保留；同业分化说明本轮更像修复而非完整行业扩张。",
-        "priceAction": "轻度回吐但时点偏早；只观察能否重回56.24。",
-        "relativeStrength": "MU +2.48%、STX +3.40%，SNDK -0.83%；价格与行业联动仅部分确认。",
+        "priceAction": "正式收涨且同业全线上涨，但未保持56.68；部分确认。",
+        "relativeStrength": "MU约+0.39%、SNDK约+1.24%、STX约+3.01%，行业广度确认。",
         "invalidation": "下一盘前守55.21维持；跌回54.28下方撤销修复。",
-        "support": "55.21 / 54.28",
-        "supportValue": 55.21,
-        "resistance": "56.70 / 57.40",
-        "resistanceValue": 56.7,
+        "support": "56.68–56.39",
+        "supportValue": 56.68,
+        "resistance": "58.61–59.00",
+        "resistanceValue": 58.61,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -867,26 +864,26 @@
           {
             "key": "peerBreadth",
             "label": "同业确认",
-            "state": "收盘分化",
-            "tone": "flat",
-            "note": "MU/STX上涨，SNDK收跌"
+            "state": "已确认",
+            "tone": "up",
+            "note": "MU、SNDK、STX正式收盘均上涨。"
           },
           {
             "key": "priceConfirmation",
             "label": "价格确认",
-            "state": "已确认",
+            "state": "盘前突破待确认",
             "tone": "up",
-            "note": "守住55.21并收涨3.61%，但未越56.70"
+            "note": "DRAM盘前58.39，正式盘仍需量价与联动确认。"
           }
         ]
       },
       {
         "symbol": "LITE",
         "name": "Lumentum Holdings",
-        "price": 885.57,
-        "changePct": 6.67,
+        "price": 962.11,
+        "changePct": 2.46,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25；盘前见价格地图",
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间",
         "timeframes": {
           "15m": "bull",
           "30m": "bull",
@@ -902,21 +899,21 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "30m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "4h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1d": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。"
+          "15m": "以正式收盘前最后阶段结构收口。",
+          "30m": "以完整日内区间与正式收盘位置判断。",
+          "1h": "以完整正式时段价格结构判断。",
+          "4h": "结合正式日线与近期结构推断。",
+          "1d": "正式日线收于939.42，涨跌约6.08%。"
         },
-        "verdict": "今日盘前报价缺失；不依据旧数据给动作。",
+        "verdict": "守住911.72并接近高位收盘，COHR同步上涨；完整确认。",
         "fundamental": "AI光连接中期需求未出现失效，价格和同业在收盘重新形成正向闭环。",
-        "priceAction": "今日盘前报价缺失；不依据旧数据给动作。",
-        "relativeStrength": "COHR +4.59%，LITE强于SOXX并近高收盘。",
+        "priceAction": "守住911.72并接近高位收盘，COHR同步上涨；完整确认。",
+        "relativeStrength": "LITE约+6.08%，COHR约+2.14%，显著强于SOXX。",
         "invalidation": "下一盘前守873维持确认；跌回858.10下方降级，失841.10撤销。",
-        "support": "873 / 858.10",
-        "supportValue": 873,
-        "resistance": "887.36 / 900",
-        "resistanceValue": 887.36,
+        "support": "947.52–939.42",
+        "supportValue": 947.52,
+        "resistance": "969.00–970.60",
+        "resistanceValue": 969,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -935,32 +932,32 @@
           {
             "key": "peerBreadth",
             "label": "同业确认",
-            "state": "收盘确认",
+            "state": "已确认",
             "tone": "up",
-            "note": "COHR同步上涨4.59%"
+            "note": "COHR正式收涨约2.14%。"
           },
           {
             "key": "priceConfirmation",
             "label": "价格确认",
-            "state": "已确认",
+            "state": "盘前突破待确认",
             "tone": "up",
-            "note": "收盘站稳873并接近日高"
+            "note": "LITE盘前962.11，正式盘仍需量价与联动确认。"
           }
         ]
       },
       {
         "symbol": "IREN",
         "name": "IREN",
-        "price": 42.21,
-        "changePct": 6.03,
+        "price": 40.87,
+        "changePct": 3.26,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25；盘前见价格地图",
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间",
         "timeframes": {
-          "15m": "neutral",
-          "30m": "bull",
-          "1h": "bull",
-          "4h": "neutral",
-          "1d": "bull"
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
         },
         "timeframeMethods": {
           "15m": "structure",
@@ -970,21 +967,21 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "30m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "4h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1d": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。"
+          "15m": "以正式收盘前最后阶段结构收口。",
+          "30m": "以完整日内区间与正式收盘位置判断。",
+          "1h": "以完整正式时段价格结构判断。",
+          "4h": "结合正式日线与近期结构推断。",
+          "1d": "正式日线收于39.57，涨跌约-6.2%。"
         },
-        "verdict": "报价冲突且财报临近；锁定新增风险。",
+        "verdict": "正式收盘接近日低，矿企链普弱；剧本失效。",
         "fundamental": "AI Cloud与矿业双因子等待08-27财报验证；高CapEx、融资与交付质量仍是核心风险。",
-        "priceAction": "报价冲突且财报临近；锁定新增风险。",
-        "relativeStrength": "BTC约78,827且未同步加速，IREN仍显示独立相对强势。",
+        "priceAction": "正式收盘接近日低，矿企链普弱；剧本失效。",
+        "relativeStrength": "MARA约-5.07%、RIOT约-3.19%、CLSK约-4.39%。",
         "invalidation": "下一盘前守41.27维持；跌破40.03撤销；财报前关闭追价与新增隔夜。",
-        "support": "41.27 / 40.03",
-        "supportValue": 41.27,
-        "resistance": "42.31 / 42.41",
-        "resistanceValue": 42.31,
+        "support": "40.03–39.38",
+        "supportValue": 40.03,
+        "resistance": "41.17–42.16",
+        "resistanceValue": 41.17,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1003,97 +1000,29 @@
           {
             "key": "peerBreadth",
             "label": "同业确认",
-            "state": "收盘分化",
-            "tone": "flat",
-            "note": "强于BTC，但双因子仍待财报验证"
+            "state": "共同走弱",
+            "tone": "down",
+            "note": "MARA、RIOT、CLSK正式收盘均显著下跌。"
           },
           {
             "key": "priceConfirmation",
             "label": "价格确认",
-            "state": "部分确认",
+            "state": "修复但事件锁权",
             "tone": "flat",
-            "note": "近高收盘但未守42.31"
+            "note": "IREN盘前40.87，正式盘仍需量价与联动确认。"
           }
         ]
       },
       {
         "symbol": "BE",
         "name": "Bloom Energy",
-        "price": 217.45,
-        "changePct": 6.58,
+        "price": 229.96,
+        "changePct": 5.38,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25；盘前见价格地图",
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间",
         "timeframes": {
           "15m": "bull",
-          "30m": "bull",
-          "1h": "bull",
-          "4h": "neutral",
-          "1d": "bull"
-        },
-        "timeframeMethods": {
-          "15m": "direct",
-          "30m": "direct",
-          "1h": "direct",
-          "4h": "direct",
-          "1d": "daily"
-        },
-        "timeframeNotes": {
-          "15m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "30m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "4h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1d": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。"
-        },
-        "verdict": "盘前缺口上涨；等待守位、量能与电力链确认。",
-        "fundamental": "2026Q2收入10.654亿美元、同比增长165.5%，毛利率33.4%，经营现金流2.264亿美元；公司把全年收入指引上调至39–42亿美元。Oracle合作最高2.8GW、首期1.2GW部署强化AI现场供电需求，但合同转部署、利润与现金流的持续性仍须逐季验证。",
-        "priceAction": "盘前缺口上涨；等待守位、量能与电力链确认。",
-        "relativeStrength": "显著强于SPY、QQQ与SOXX；VST/NRG/CEG/GEV的同日广度尚未完成统一核验。",
-        "invalidation": "跌破208.30撤销短线偏多；若无法收盘站稳218.53，不升级为突破。",
-        "support": "213.55 / 208.30",
-        "supportValue": 213.55,
-        "resistance": "218.53 / 222.70",
-        "resistanceValue": 218.53,
-        "demandLoop": [
-          {
-            "key": "industryDemand",
-            "label": "产业需求",
-            "state": "偏强",
-            "tone": "up",
-            "note": "AI数据中心现场供电需求与电力缺口推动订单。"
-          },
-          {
-            "key": "companyDelivery",
-            "label": "公司兑现",
-            "state": "已初步兑现",
-            "tone": "up",
-            "note": "Q2收入、毛利与经营现金流同步改善；后续验证1.2GW部署。"
-          },
-          {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "待核验",
-            "tone": "flat",
-            "note": "VST/NRG/CEG/GEV联动尚未统一收口。"
-          },
-          {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "已确认",
-            "tone": "up",
-            "note": "收涨6.58%并接近日高。"
-          }
-        ]
-      },
-      {
-        "symbol": "SPCX",
-        "name": "Space Exploration Technologies",
-        "price": 137.95,
-        "changePct": 2.19,
-        "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25；盘前见价格地图",
-        "timeframes": {
-          "15m": "bear",
-          "30m": "bear",
+          "30m": "neutral",
           "1h": "neutral",
           "4h": "neutral",
           "1d": "neutral"
@@ -1106,34 +1035,64 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "30m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "4h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1d": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。"
+          "15m": "以正式收盘前最后阶段结构收口。",
+          "30m": "以完整日内区间与正式收盘位置判断。",
+          "1h": "以完整正式时段价格结构判断。",
+          "4h": "结合正式日线与近期结构推断。",
+          "1d": "正式日线收于218.02，涨跌约0.26%。"
         },
-        "verdict": "仅贴近关键位；失败突破结论未被推翻。",
-        "fundamental": "路易斯安那Starship基地强化长期扩张证据；高CapEx、执行周期与上市后筹码仍限制短线权限。",
-        "priceAction": "仅贴近关键位；失败突破结论未被推翻。",
-        "relativeStrength": "仍强于SPY，但关键位保持失败；利好存在而价格未锁定突破。",
-        "invalidation": "只有下一盘前重新站稳138.33并突破139.75才重开；跌破136.10/135继续降级。",
-        "support": "136.10 / 135",
-        "supportValue": 136.1,
-        "resistance": "138.33 / 139.75",
-        "resistanceValue": 138.33
+        "verdict": "尾盘收回217.45但未越过218.53，且落后电力链；仅部分修复。",
+        "fundamental": "2026Q2收入10.654亿美元、同比增长165.5%，毛利率33.4%，经营现金流2.264亿美元；公司把全年收入指引上调至39–42亿美元。Oracle合作最高2.8GW、首期1.2GW部署强化AI现场供电需求，但合同转部署、利润与现金流的持续性仍须逐季验证。",
+        "priceAction": "尾盘收回217.45但未越过218.53，且落后电力链；仅部分修复。",
+        "relativeStrength": "VST约+0.70%、NRG约+2.21%、CEG约+0.35%、GEV约+2.92%，BE约+0.26%。",
+        "invalidation": "跌破208.30撤销短线偏多；若无法收盘站稳218.53，不升级为突破。",
+        "support": "227.08–218.53",
+        "supportValue": 227.08,
+        "resistance": "230.10–232.00",
+        "resistanceValue": 230.1,
+        "demandLoop": [
+          {
+            "key": "industryDemand",
+            "label": "产业需求",
+            "state": "偏强",
+            "tone": "up",
+            "note": "AI数据中心现场供电需求与电力缺口推动订单。"
+          },
+          {
+            "key": "companyDelivery",
+            "label": "公司兑现",
+            "state": "初步兑现待持续",
+            "tone": "up",
+            "note": "Q2收入、毛利和经营现金流改善；Oracle最高2.8GW合作与首期1.2GW仍需继续转化为部署和收入。"
+          },
+          {
+            "key": "peerBreadth",
+            "label": "同业确认",
+            "state": "正向但相对落后",
+            "tone": "flat",
+            "note": "VST、NRG、CEG、GEV均上涨，但BE涨幅最小。"
+          },
+          {
+            "key": "priceConfirmation",
+            "label": "价格确认",
+            "state": "盘前突破待确认",
+            "tone": "up",
+            "note": "盘前229.96越过227.08；GEV同向，但电力链广度尚不完整。"
+          }
+        ]
       },
       {
-        "symbol": "MSTR",
-        "name": "Strategy",
-        "price": 126.83,
-        "changePct": 3.42,
+        "symbol": "SPCX",
+        "name": "Space Exploration Technologies",
+        "price": 140.16,
+        "changePct": 0.38,
         "tone": "up",
-        "priceStatus": "正式收盘锚点 · 2026-08-25；盘前见价格地图",
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间",
         "timeframes": {
-          "15m": "neutral",
-          "30m": "neutral",
+          "15m": "bull",
+          "30m": "bull",
           "1h": "bull",
-          "4h": "bull",
+          "4h": "neutral",
           "1d": "bull"
         },
         "timeframeMethods": {
@@ -1144,175 +1103,227 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "30m": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "4h": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。",
-          "1d": "沿用2026-08-25正式收盘结构；今日盘前未取得完整统一周期数据。"
+          "15m": "以正式收盘前最后阶段结构收口。",
+          "30m": "以完整日内区间与正式收盘位置判断。",
+          "1h": "以完整正式时段价格结构判断。",
+          "4h": "结合正式日线与近期结构推断。",
+          "1d": "正式日线收于139.6，涨跌约1.2%。"
         },
-        "verdict": "盘前回吐且弱于BTC；等待币股联动恢复。",
+        "verdict": "正式收盘守住138.33但略低于139.75；供给吸收部分确认。",
+        "fundamental": "路易斯安那Starship基地强化长期扩张证据；高CapEx、执行周期与上市后筹码仍限制短线权限。",
+        "priceAction": "正式收盘守住138.33但略低于139.75；供给吸收部分确认。",
+        "relativeStrength": "尾盘承接显著改善，但仍需下一日连续锁定。",
+        "invalidation": "只有下一盘前重新站稳138.33并突破139.75才重开；跌破136.10/135继续降级。",
+        "support": "139.75–139.60",
+        "supportValue": 139.75,
+        "resistance": "140.71–141.00",
+        "resistanceValue": 140.71
+      },
+      {
+        "symbol": "MSTR",
+        "name": "Strategy",
+        "price": 125.6,
+        "changePct": 1.98,
+        "tone": "up",
+        "priceStatus": "盘前价 · 2026-08-27 21:00 中国时间",
+        "timeframes": {
+          "15m": "neutral",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
+        },
+        "timeframeMethods": {
+          "15m": "structure",
+          "30m": "structure",
+          "1h": "structure",
+          "4h": "structure",
+          "1d": "daily"
+        },
+        "timeframeNotes": {
+          "15m": "以正式收盘前最后阶段结构收口。",
+          "30m": "以完整日内区间与正式收盘位置判断。",
+          "1h": "以完整正式时段价格结构判断。",
+          "4h": "结合正式日线与近期结构推断。",
+          "1d": "正式日线收于123.16，涨跌约-2.89%。"
+        },
+        "verdict": "正式收盘未修复124.50并继续弱于BTC；剧本失效。",
         "fundamental": "BTC资产负债表逻辑仍在；融资供给、mNAV与稀释继续决定beta持续性。",
-        "priceAction": "盘前回吐且弱于BTC；等待币股联动恢复。",
-        "relativeStrength": "MSTR正式收涨而BTC回落，COIN强势；股票端与币价出现结构性分化。",
+        "priceAction": "正式收盘未修复124.50并继续弱于BTC；剧本失效。",
+        "relativeStrength": "BTC约-0.52%、IBIT约-0.58%、COIN约-2.90%，MSTR约-2.89%。",
         "invalidation": "下一盘前守122.63维持；突破128.66且BTC重回79,500上方才升级；失118.45撤销。",
-        "support": "122.63 / 118.45",
-        "supportValue": 122.63,
-        "resistance": "128.66",
-        "resistanceValue": 128.66
+        "support": "124.50–123.16",
+        "supportValue": 124.5,
+        "resistance": "126.25–127.18",
+        "resistanceValue": 126.25
       }
     ],
     "news": [
       {
-        "directness": "市场",
-        "title": "PCE略高于预期，股指期货偏弱",
-        "summary": "截至20:33 中国时间，道指期货约+0.04%，标普约-0.11%，纳指100约-0.35%；7月PCE环比0.2%、同比3.7%。",
-        "impact": "限制盘前beta。",
-        "tone": "down",
-        "url": "https://www.reuters.com/business/us-stock-futures-subdued-run-up-nvidia-results-inflation-print-2026-08-26/"
+        "title": "Nvidia强劲展望重燃AI交易",
+        "summary": "Nvidia盘前约涨7%，公司展望显示AI计算需求仍强，并提示内存供应约束。",
+        "url": "https://www.reuters.com/business/nvidia-rises-after-signaling-longer-ai-spending-runway-2026-08-27/",
+        "source": "Reuters",
+        "time": "2026-08-27 中国时间盘前"
       },
       {
-        "directness": "市场/AI链",
-        "title": "Nvidia收盘后公布财报",
-        "summary": "AI与半导体链进入结果验证窗口。",
-        "impact": "DRAM、LITE、IREN与BE降低隔夜权限。",
-        "tone": "flat",
-        "url": "https://www.reuters.com/business/nvidia-shares-set-280-billion-price-swing-after-earnings-options-show-2026-08-25/"
+        "title": "Nasdaq期货领涨，AI硬件链扩散",
+        "summary": "Nasdaq期货涨幅接近1%，Micron、SanDisk、Western Digital等同步上涨。",
+        "url": "https://www.reuters.com/business/nasdaq-futures-take-lead-after-nvidia-forecast-refuels-ai-trade-2026-08-27/",
+        "source": "Reuters",
+        "time": "2026-08-27 中国时间盘前"
       },
       {
-        "directness": "BE",
-        "title": "BE盘前缺口上涨",
-        "summary": "17:29 中国时间报212.84，较204.02正式收盘上涨4.32%。",
-        "impact": "提高验证优先级，但未确认前不追价。",
-        "tone": "up",
-        "url": "https://stockmarketwatch.com/stock/BE/premarket"
+        "title": "美国初请约20.3万",
+        "summary": "低于约20.8万预期；增长未明显恶化，但长端仍限制追价。",
+        "url": "https://www.marketwatch.com/economy-politics/calendar",
+        "source": "MarketWatch",
+        "time": "2026-08-27 中国时间盘前"
       },
       {
-        "directness": "IREN",
         "title": "IREN进入财报窗口",
-        "summary": "财报日期为08月27日；早盘报价源与正式前收口径冲突。",
-        "impact": "关闭新增隔夜风险。",
-        "tone": "down",
-        "url": "https://stockmarketwatch.com/stock/IREN/premarket"
+        "summary": "重点验证AI Cloud交付、收入、资本开支、融资与现金流。",
+        "url": "https://iren.com/investors/news",
+        "source": "IREN Investor Relations",
+        "time": "2026-08-27 中国时间盘前"
       }
     ],
     "matrix": [
       {
         "asset": "市场",
-        "macro": "-",
-        "fundamental": "0",
-        "positioning": "-",
-        "price": "0",
-        "verdict": "事件锁权，等待正式开盘广度"
+        "macro": "0",
+        "fundamental": "+",
+        "positioning": "0",
+        "price": "+",
+        "verdict": "Nvidia驱动选择性risk-on，缺口待确认"
       },
       {
         "asset": "DRAM",
-        "macro": "-",
+        "macro": "0",
         "fundamental": "+",
         "positioning": "0",
-        "price": "?",
-        "verdict": "报价时点偏早，只观察"
+        "price": "+",
+        "verdict": "存储链盘前突破，等正式盘承接"
       },
       {
         "asset": "LITE",
-        "macro": "-",
+        "macro": "0",
         "fundamental": "+",
         "positioning": "0",
-        "price": "?",
-        "verdict": "今日盘前报价缺失"
+        "price": "+",
+        "verdict": "既有趋势延续，但不追缺口"
       },
       {
         "asset": "IREN",
-        "macro": "-",
+        "macro": "0",
         "fundamental": "+",
         "positioning": "-",
-        "price": "?",
-        "verdict": "报价冲突且财报临近"
+        "price": "0",
+        "verdict": "盘前修复，财报前锁权"
       },
       {
         "asset": "BE",
         "macro": "0",
         "fundamental": "+",
-        "positioning": "-",
+        "positioning": "0",
         "price": "+",
-        "verdict": "盘前缺口上涨，待正式确认"
+        "verdict": "公司逻辑与价格同向，广度待补齐"
       },
       {
         "asset": "SPCX",
         "macro": "0",
         "fundamental": "+",
-        "positioning": "-",
+        "positioning": "0",
         "price": "0",
-        "verdict": "贴近关键位，未推翻失败突破"
+        "verdict": "轻微越过139.75，承接待验证"
       },
       {
         "asset": "MSTR",
         "macro": "0",
         "fundamental": "0",
-        "positioning": "-",
-        "price": "-",
-        "verdict": "相对BTC偏弱"
+        "positioning": "0",
+        "price": "+",
+        "verdict": "BTC与股价同步修复，正式盘待确认"
       }
     ],
     "scenarios": [
       {
         "label": "基准",
-        "text": "指数震荡、重点标的分化；维持低beta并等待23:00验证。"
+        "text": "下一盘前以LITE确认、DRAM与SPCX部分确认、IREN/MSTR失效为正式基线。"
       },
       {
         "label": "强势解锁",
-        "text": "收益率不继续上行，SOXX与市场广度同步转强；才解除部分锁权。"
+        "text": "事件结果后SOXX保持515.28，LITE守911.72、DRAM站56.68、SPCX站139.75，才局部提高beta。"
       },
       {
         "label": "风险扩散",
-        "text": "Nasdaq、SOXX与高beta标的同步走弱；继续关闭追价和隔夜权限。"
+        "text": "SOXX失509.31，IREN/MSTR继续弱势且BE再失217.45，维持全面锁权。"
       },
       {
-        "label": "个股例外",
-        "text": "BE守住212.84并获电力链与量能确认；仅重新评估个股，不上调全市场beta。"
+        "label": "关键规则",
+        "text": "盘中触发未保持到正式收盘的不进入下一交易日主剧本。"
       }
     ],
     "sources": [
       {
-        "label": "市场与PCE",
+        "label": "市场/Nvidia",
         "name": "Reuters",
-        "url": "https://www.reuters.com/business/us-stock-futures-subdued-run-up-nvidia-results-inflation-print-2026-08-26/",
-        "note": "20:33 中国时间期货与宏观数据"
+        "url": "https://www.reuters.com/business/nasdaq-futures-take-lead-after-nvidia-forecast-refuels-ai-trade-2026-08-27/",
+        "note": "盘前期货、Nvidia与AI链反应"
       },
       {
-        "label": "Nvidia事件",
-        "name": "Reuters",
-        "url": "https://www.reuters.com/business/nvidia-shares-set-280-billion-price-swing-after-earnings-options-show-2026-08-25/",
-        "note": "财报事件风险"
+        "label": "SPY/QQQ",
+        "name": "MarketWatch / StockAnalysis",
+        "url": "https://www.marketwatch.com/investing/fund/spy",
+        "note": "中国时间21:00附近盘前报价"
       },
       {
-        "label": "DRAM盘前",
-        "name": "Webull",
-        "url": "https://www.webull.com.br/en/ticker/bats-dram",
-        "note": "17:17 中国时间盘前报价"
+        "label": "SOXX",
+        "name": "Benzinga",
+        "url": "https://www.benzinga.com/quote/SOXX",
+        "note": "中国时间21:00附近盘前报价"
       },
       {
-        "label": "BE盘前",
-        "name": "StockMarketWatch",
-        "url": "https://stockmarketwatch.com/stock/BE/premarket",
-        "note": "17:29 中国时间盘前报价"
-      },
-      {
-        "label": "SPCX盘前",
-        "name": "ImpliedOpen / Yahoo Finance",
-        "url": "https://impliedopen.com/instrument/spacex",
-        "note": "21:23 中国时间报价"
-      },
-      {
-        "label": "MSTR盘前",
-        "name": "Investing.com",
-        "url": "https://www.investing.com/equities/microstrategy-inc",
+        "label": "DRAM",
+        "name": "Benzinga",
+        "url": "https://www.benzinga.com/quote/DRAM",
         "note": "盘前报价"
       },
       {
-        "label": "LITE/IREN边界",
-        "name": "多源交叉核验",
-        "url": "https://stockanalysis.com/stocks/lite/",
-        "note": "LITE缺失；IREN前收冲突"
+        "label": "LITE",
+        "name": "MarketWatch",
+        "url": "https://www.marketwatch.com/investing/stock/lite",
+        "note": "盘前报价"
+      },
+      {
+        "label": "IREN",
+        "name": "MarketWatch / IREN IR",
+        "url": "https://www.marketwatch.com/investing/stock/iren",
+        "note": "盘前报价与财报窗口"
+      },
+      {
+        "label": "BE",
+        "name": "MarketWatch / Bloom Energy IR",
+        "url": "https://www.marketwatch.com/investing/stock/be",
+        "note": "盘前价格；Q2收入、毛利、现金流与积压沿用公司基线"
+      },
+      {
+        "label": "SPCX",
+        "name": "Investing.com",
+        "url": "https://www.investing.com/equities/spacex",
+        "note": "盘前报价"
+      },
+      {
+        "label": "MSTR/BTC",
+        "name": "MarketWatch / Barron's",
+        "url": "https://www.marketwatch.com/investing/stock/mstr",
+        "note": "MSTR与BTC联动"
+      },
+      {
+        "label": "宏观",
+        "name": "MarketWatch",
+        "url": "https://www.marketwatch.com/economy-politics/calendar",
+        "note": "美国初请与库存数据"
       }
     ],
     "odds": [
@@ -1461,24 +1472,24 @@
         "rangeHigh": 359.69
       }
     ],
-    "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。 本次未取得完整60D/252D滚动原始序列，因此保留原asOf、参考价、样本数与分位，未用08-25收盘价伪算。；本次未取得完整滚动日线序列，分位沿用原asOf，未用盘前或开盘价伪算。",
+    "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。 本次未取得完整60D/252D滚动原始序列，因此保留原asOf、参考价、样本数与分位，未用08-25收盘价伪算。；本次未取得完整滚动日线序列，分位沿用原asOf，未用盘前或开盘价伪算。；本轮未取得完整滚动日线序列，分位继续沿用原asOf，未用盘中价伪算。",
     "aiCapitalCycle": {
-      "asOf": "2026-08-26 21:23 中国时间",
-      "note": "沿用上一收盘中期基线；短线因数据不完整与Nvidia事件窗口锁权。",
+      "asOf": "2026-08-27 21:05 中国时间",
+      "note": "Nvidia财报强化CapEx与终端需求先验；融资质量基线不变，盘前价格转为选择性正向确认。",
       "items": [
         {
           "key": "capex",
           "label": "CAPEX 强度",
           "state": "扩张",
           "tone": "up",
-          "evidence": "AI基础设施投资仍扩张，Nvidia财报将验证供应链需求。"
+          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
         },
         {
           "key": "endDemand",
           "label": "终端需求",
-          "state": "待验证",
-          "tone": "flat",
-          "evidence": "继续用云收入、订单/ARR、客户上线与利用率验证。"
+          "state": "改善",
+          "tone": "up",
+          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。"
         },
         {
           "key": "financing",
@@ -1490,61 +1501,66 @@
         {
           "key": "price",
           "label": "价格确认",
-          "state": "盘前分化且数据不完整",
-          "tone": "down",
-          "evidence": "BE上涨、MSTR回吐；LITE缺失、IREN报价冲突。"
+          "state": "盘前选择性确认",
+          "tone": "up",
+          "evidence": "六标的均上涨，DRAM与BE领涨；待正式盘确认。"
         }
       ]
     },
-    "largestChange": "PCE略高于预期且Nvidia财报临近；盘前报价又不完整，市场从选择性风险偏好切换为事件锁权。",
-    "regimeCode": "EVENT_LOCK",
-    "breadthState": "mixed",
+    "largestChange": "Nvidia财报把市场从事件锁权推向选择性risk-on，但盘前突破仍待正式盘量价确认。",
+    "regimeCode": "SELECTIVE_RISK_ON",
+    "breadthState": "selective",
     "decisionGate": {
-      "quoteAsOf": "2026-08-26T09:23:00-04:00",
-      "validUntil": "2026-08-26T23:00:00+08:00",
-      "sourceConflict": true,
+      "quoteAsOf": "2026-08-27T21:00:00+08:00",
+      "validUntil": "2026-08-27T23:05:00+08:00",
+      "sourceConflict": false,
       "volumeComplete": false,
       "closeFinal": false,
-      "status": "locked",
-      "note": "调度时区冲突导致延迟补录；LITE缺少一致盘前报价、IREN前收口径冲突，只展示研究，不开放新增风险。"
+      "status": "caution",
+      "note": "盘前报价已核验；正式盘未开始，缺口仅建立先验，不开放追价，IREN财报前关闭隔夜。"
     },
     "eventCalendar": [
       {
-        "id": "nvda-earnings-2026-08-26",
-        "label": "Nvidia 财报",
-        "eventDate": "2026-08-26",
-        "timing": "中国时间04:05收盘后；具体发布时间以公司公告为准",
+        "id": "iren-earnings-2026-08-27",
+        "label": "IREN 财报",
+        "eventDate": "2026-08-27",
+        "timing": "中国时间当日收盘后；具体发布时间以公司公告为准",
         "affectedAssets": [
-          "MARKET",
-          "DRAM",
-          "LITE",
           "IREN"
         ],
         "riskWindowHours": 24,
         "riskLevel": "high",
         "permissionOverride": {
           "chase": "关闭",
-          "overnight": "谨慎",
-          "beta": "低于标准"
-        },
-        "note": "AI与半导体核心验证事件，报告前不以08-25反弹直接提高隔夜beta。"
-      },
-      {
-        "id": "iren-earnings-2026-08-27",
-        "label": "IREN 财报",
-        "eventDate": "2026-08-27",
-        "timing": "事件日已知；具体发布时间待公司确认",
-        "affectedAssets": [
-          "IREN"
-        ],
-        "riskWindowHours": 48,
-        "riskLevel": "high",
-        "permissionOverride": {
-          "chase": "关闭",
           "overnight": "关闭",
           "beta": "低"
         },
-        "note": "进入财报窗口后限制新增风险；重点验证AI Cloud交付、CapEx、融资与现金流。"
+        "note": "验证AI Cloud交付、收入、资本开支、融资与现金流。",
+        "sourceUrl": "https://iren.com/investors/news"
+      },
+      {
+        "id": "fed-chair-speech-2026-08-28",
+        "label": "美联储主席讲话",
+        "eventDate": "2026-08-28",
+        "timing": "事件日已知；具体时点以官方日程为准",
+        "affectedAssets": [
+          "MARKET",
+          "DRAM",
+          "LITE",
+          "IREN",
+          "BE",
+          "SPCX",
+          "MSTR"
+        ],
+        "riskWindowHours": 24,
+        "riskLevel": "high",
+        "permissionOverride": {
+          "chase": "谨慎",
+          "overnight": "谨慎",
+          "beta": "标准以下"
+        },
+        "note": "可能改变利率与风险预算。",
+        "sourceUrl": "https://www.federalreserve.gov/newsevents/calendar.htm"
       }
     ]
   },
@@ -6789,6 +6805,265 @@
         "price": "confirmed",
         "volume": "confirmed",
         "linkage": "unknown"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-market-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "MARKET",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "风险预算",
+      "setupLabel": "AI财报后的广度确认",
+      "referencePrice": 769.19,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "QQQ正式盘守716.78且SOXX守526.50–528.41，同时AI硬件链广度保持",
+      "invalidation": "SOXX跌回515.40且QQQ失711.37",
+      "planStatus": "等待触发",
+      "stateNote": "盘前先验",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "谨慎",
+        "beta": "标准以下至标准"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "unknown",
+        "linkage": "confirmed"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-dram-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "DRAM",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "趋势交易",
+      "setupLabel": "存储链缺口确认",
+      "referencePrice": 58.39,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "正式盘守58.00且MU/SNDK/WDC/STX多数同向",
+      "invalidation": "跌回56.68且存储同业转弱",
+      "planStatus": "已触发",
+      "stateNote": "盘前突破待正式盘",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "谨慎",
+        "beta": "中"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "unknown",
+        "linkage": "confirmed"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-lite-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "LITE",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "趋势交易",
+      "setupLabel": "光通信链确认",
+      "referencePrice": 962.11,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "正式盘守947.52且COHR同向",
+      "invalidation": "跌回939.42并继续失911.72",
+      "planStatus": "已确认",
+      "stateNote": "既有趋势盘前延续",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "谨慎",
+        "beta": "中"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "unknown",
+        "linkage": "mixed"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-iren-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "IREN",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "短线事件交易",
+      "setupLabel": "财报前修复",
+      "referencePrice": 40.87,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "正式盘站稳41.17，且财报确认AI Cloud交付、收入与融资质量",
+      "invalidation": "跌回39.38或财报兑现不及预期",
+      "planStatus": "等待触发",
+      "stateNote": "新财报剧本",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "关闭",
+        "beta": "低"
+      },
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "confirmed"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-be-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "BE",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "趋势交易",
+      "setupLabel": "AI现场供电趋势验证",
+      "referencePrice": 229.96,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "正式盘守227.08并由VST/NRG/CEG/GEV至少两项同向确认",
+      "invalidation": "跌回218.53且相对电力链恶化",
+      "planStatus": "已触发",
+      "stateNote": "盘前突破待正式盘",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "谨慎",
+        "beta": "低至中"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "unknown",
+        "linkage": "mixed"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-spcx-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "SPCX",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "短线事件交易",
+      "setupLabel": "供给吸收验证",
+      "referencePrice": 140.16,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "正式盘守139.75并有持续成交承接",
+      "invalidation": "跌回138.33，尤其失135.20",
+      "planStatus": "已触发",
+      "stateNote": "轻微突破待锁定",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "谨慎",
+        "beta": "低"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "unknown",
+        "linkage": "mixed"
+      },
+      "outcome": {
+        "status": "open",
+        "triggeredAt": null,
+        "invalidatedAt": null,
+        "evaluatedAt": null,
+        "return1D": null,
+        "return3D": null,
+        "mfe": null,
+        "mae": null,
+        "falseBreakout": false
+      }
+    },
+    {
+      "callId": "2026-08-27-premarket-mstr-short",
+      "sessionDate": "2026-08-27",
+      "session": "premarket",
+      "asset": "MSTR",
+      "horizon": "0–3D",
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "setupType": "短线事件交易",
+      "setupLabel": "BTC beta修复",
+      "referencePrice": 125.6,
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "trigger": "正式盘守124.50且BTC、IBIT、COIN同向",
+      "invalidation": "跌回123.16并再度弱于BTC",
+      "planStatus": "已触发",
+      "stateNote": "币股联动初步恢复",
+      "permissionsAtCall": {
+        "chase": "关闭",
+        "overnight": "谨慎",
+        "beta": "低至中"
+      },
+      "evidenceAtCall": {
+        "price": "confirmed",
+        "volume": "unknown",
+        "linkage": "confirmed"
       },
       "outcome": {
         "status": "open",
