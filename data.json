@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-28T08:00:49+08:00"
+    "updatedAt": "2026-08-28T13:09:15+08:00"
   },
   "days": [
     {
@@ -816,6 +816,62 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-08-28",
+      "intake": 718,
+      "records": [
+        {
+          "name": "红烧/炖牛腩（半拳，偏瘦带筋）",
+          "calories": 330,
+          "meal": "午餐"
+        },
+        {
+          "name": "白米饭（约150g熟重）",
+          "calories": 175,
+          "meal": "午餐"
+        },
+        {
+          "name": "白煮蛋（1颗）",
+          "calories": 78,
+          "meal": "午餐"
+        },
+        {
+          "name": "西兰花（1小朵）",
+          "calories": 12,
+          "meal": "午餐"
+        },
+        {
+          "name": "南瓜（约2片）",
+          "calories": 13,
+          "meal": "午餐"
+        },
+        {
+          "name": "西葫芦（1-2片）",
+          "calories": 4,
+          "meal": "午餐"
+        },
+        {
+          "name": "玉米（一小段）",
+          "calories": 37,
+          "meal": "午餐"
+        },
+        {
+          "name": "土豆/萝卜块（约40g）",
+          "calories": 34,
+          "meal": "午餐"
+        },
+        {
+          "name": "红烧酱汁（约20ml）",
+          "calories": 35,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 38,
+        "carbs": 71,
+        "fat": 31
+      }
     }
   ],
   "trend": [
@@ -845,7 +901,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 718
     }
   ]
 }
