@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-28T13:45:54+08:00"
+    "updatedAt": "2026-08-28T22:56:23+08:00"
   },
   "days": [
     {
@@ -819,7 +819,7 @@
     },
     {
       "date": "2026-08-28",
-      "intake": 728,
+      "intake": 1688,
       "records": [
         {
           "name": "咖喱牛肉（牛腩约半拳，偏瘦带筋）",
@@ -865,12 +865,17 @@
           "name": "咖喱酱汁（约20ml，含油较高）",
           "calories": 60,
           "meal": "午餐"
+        },
+        {
+          "name": "牛肉紫菜卷（12个，大卷）",
+          "calories": 960,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 38,
-        "carbs": 73,
-        "fat": 34
+        "protein": 71,
+        "carbs": 208,
+        "fat": 66
       }
     }
   ],
@@ -901,7 +906,7 @@
     },
     {
       "date": "今日",
-      "intake": 718
+      "intake": 1688
     }
   ]
 }
