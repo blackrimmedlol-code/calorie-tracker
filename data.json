@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-28T13:09:15+08:00"
+    "updatedAt": "2026-08-28T13:45:54+08:00"
   },
   "days": [
     {
@@ -819,11 +819,11 @@
     },
     {
       "date": "2026-08-28",
-      "intake": 718,
+      "intake": 728,
       "records": [
         {
-          "name": "红烧/炖牛腩（半拳，偏瘦带筋）",
-          "calories": 330,
+          "name": "咖喱牛肉（牛腩约半拳，偏瘦带筋）",
+          "calories": 315,
           "meal": "午餐"
         },
         {
@@ -862,15 +862,15 @@
           "meal": "午餐"
         },
         {
-          "name": "红烧酱汁（约20ml）",
-          "calories": 35,
+          "name": "咖喱酱汁（约20ml，含油较高）",
+          "calories": 60,
           "meal": "午餐"
         }
       ],
       "macros": {
         "protein": 38,
-        "carbs": 71,
-        "fat": 31
+        "carbs": 73,
+        "fat": 34
       }
     }
   ],
