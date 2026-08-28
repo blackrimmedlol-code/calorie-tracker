@@ -14,12 +14,16 @@ const regimeCodes = new Set(['RISK_ON', 'SELECTIVE_RISK_ON', 'ROTATION_NEUTRAL',
 const breadthStates = new Set(['broad', 'selective', 'mixed', 'weak', 'unknown']);
 const gateStates = new Set(['open', 'caution', 'locked']);
 const outcomeStates = new Set(['open', 'triggered', 'invalidated', 'closed', 'expired']);
-const impactFields = new Set(['regimeCode', 'planStatus', 'permissions', 'trigger', 'invalidation', 'confidence']);
+const impactFields = new Set(['regimeCode', 'planStatus', 'tradeType', 'permissions', 'trigger', 'invalidation', 'confidence']);
+const capitalKeys = ['endDemand', 'unitEconomics', 'capex', 'financing', 'price'];
+const demandLoopKeys = ['industryDemand', 'ordersCommitments', 'deliveryUtilization', 'revenueConversion', 'marginCashFlow'];
+const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'IREN', 'BE']);
+const overbuildStates = new Set(['unknown', 'no_signal', 'early_warning', 'confirmed']);
 const errors = [];
 const warnings = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 
-if (Number(data?.meta?.schemaVersion) !== 12) fail('meta.schemaVersion', '必须为 12');
+if (Number(data?.meta?.schemaVersion) !== 13) fail('meta.schemaVersion', '必须为 13');
 if (!sessions.includes(data?.meta?.latestSession)) fail('meta.latestSession', '不是合法时段');
 
 for (const key of sessions) {
@@ -60,6 +64,37 @@ for (const key of sessions) {
   }
   const watchOrder = (session.watchlist || []).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
   if (JSON.stringify(watchOrder) !== JSON.stringify(targetOrder)) fail(`${base}.watchlist`, `顺序必须为 ${targetOrder.join(' / ')}`);
+  for (const asset of targetOrder) {
+    const item = (session.watchlist || []).find((candidate) => candidate.symbol === asset);
+    const path = `${base}.watchlist.${asset}.demandLoop`;
+    if (!item) continue;
+    if (fundamentalLoopAssets.has(asset)) {
+      const actualKeys = (item.demandLoop || []).map((node) => node.key);
+      if (JSON.stringify(actualKeys) !== JSON.stringify(demandLoopKeys)) fail(path, `必须是纯基本面兑现链：${demandLoopKeys.join(' / ')}`);
+      (item.demandLoop || []).forEach((node, index) => {
+        if (!node.label || !node.state || !node.tone || !node.note) fail(`${path}[${index}]`, '缺少 label / state / tone / note');
+      });
+    } else if (Array.isArray(item.demandLoop) && item.demandLoop.length) {
+      fail(path, 'SPCX / MSTR 只有确有独立基本面兑现链时才允许写入，当前应为空');
+    }
+  }
+  const cycle = session.aiCapitalCycle;
+  if (!cycle) fail(`${base}.aiCapitalCycle`, '缺失');
+  else {
+    const actualKeys = (cycle.items || []).map((item) => item.key);
+    if (JSON.stringify(actualKeys) !== JSON.stringify(capitalKeys)) fail(`${base}.aiCapitalCycle.items`, `顺序必须为 ${capitalKeys.join(' / ')}`);
+    if (!cycle.demandFormula) fail(`${base}.aiCapitalCycle.demandFormula`, '缺失');
+    (cycle.items || []).forEach((item, index) => {
+      if (!item.label || !item.state || !item.tone || !item.evidence || !item.invalidation) fail(`${base}.aiCapitalCycle.items[${index}]`, '缺少 label / state / tone / evidence / invalidation');
+    });
+    const overbuild = cycle.overbuild;
+    if (!overbuild) fail(`${base}.aiCapitalCycle.overbuild`, '缺失');
+    else {
+      if (!overbuildStates.has(overbuild.stateCode)) fail(`${base}.aiCapitalCycle.overbuild.stateCode`, '非法值');
+      if (!overbuild.state || !overbuild.tone || !overbuild.nextTrigger) fail(`${base}.aiCapitalCycle.overbuild`, '缺少 state / tone / nextTrigger');
+      if (!Array.isArray(overbuild.warningEvidence) || !Array.isArray(overbuild.offsettingEvidence)) fail(`${base}.aiCapitalCycle.overbuild`, 'warningEvidence / offsettingEvidence 必须是数组');
+    }
+  }
   const actualSnapshotOrder = (session.snapshot || []).map((item) => item.symbol);
   if (JSON.stringify(actualSnapshotOrder) !== JSON.stringify(snapshotOrder)) fail(`${base}.snapshot`, `顺序必须为 ${snapshotOrder.join(' / ')}`);
   const matrixOrder = (session.matrix || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
@@ -108,4 +143,4 @@ if (errors.length) {
   console.error(`INVALID (${errors.length})\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`VALID schema v12 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
+console.log(`VALID schema v13 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);

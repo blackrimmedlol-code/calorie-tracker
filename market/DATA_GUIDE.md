@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v12
+# 美股策略台数据维护指南 · v13
 
 线上页面：`https://blackrimmedlol-code.github.io/calorie-tracker/market/`
 
@@ -13,7 +13,7 @@
 1. 更新前先读取 `market/data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
 2. 四个任务只替换各自对象：中国时间 21:05=`premarket`、23:05=`intraday`、02:05=`late`、04:05=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
-   `meta.schemaVersion` 固定为 `12`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
+   `meta.schemaVersion` 固定为 `13`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
 5. `snapshot` 固定 10 项，顺序为 SPY、QQQ、SOXX、DRAM、LITE、IREN、BE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
 6. `news` 仅保留 3–5 条真正影响价格的信息；外链必须指向实际来源。
@@ -44,11 +44,11 @@
 - 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
 - `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
 - 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、IREN、BE、SPCX、MSTR。字段：`asset / from / to / reason / tone / material / impactFields`。
-  - `material:true` 仅限改变 `regimeCode / planStatus / permissions / trigger / invalidation / confidence` 的行动级变化；页面只展开这些项目。
+  - `material:true` 仅限改变 `regimeCode / planStatus / tradeType / permissions / trigger / invalidation / confidence` 的行动级变化；页面只展开这些项目。
   - 未改变行动的量价延续仍可保存在 `changes` 中，但必须写 `material:false / impactFields:[]`，页面会合并为“已收起 N 项非行动级变化”。
   - 不得为了填满七格把普通新闻或微小价格波动标为行动级变化。
 
-## v12 决策有效性契约
+## v13 决策有效性契约
 
 ### 稳定状态与自由说明分离
 
@@ -104,7 +104,7 @@
 1. **Stage 0 · 零内容预检**：只按 `Asia/Shanghai` 判断当前时间、对应的美股交易日和应执行时段。若调度器在名义时点前 0–2 分钟启动，必须等待至名义时点后再继续，不能按“未到期”跳过；更早启动、未命中窗口或非交易日时立即结束，不读取仓库、行情或新闻。
 2. **Stage 1 · 轻量幂等**：命中后仅在工具侧读取并解析 `market/data.json` 的 `meta` 与候选 session 的 `available/updatedAt/updateStatus`。工具只向模型返回这些字段，不回显整份 JSON。已完成则结束且不通知。
 3. **Stage 2 · 按需加载**：只有确需更新时，才读取最新完整 `DATA_GUIDE.md` 与 `data.json`，再进行研究、合并和写入。
-4. **Stage 3 · 增量研究**：优先沿用上一有效时段中时点清晰、因果未变的宏观支柱、公司静态事实、来源组和中期账本；只重新取得本时段新增的价格、OHLC、成交量、联动、催化、触发与失效证据。不得为了省 Token 沿用已过期行情，也不得重复搜索没有变化的长期背景。
+4. **Stage 3 · 增量研究**：优先沿用上一有效时段中时点清晰、因果未变的宏观支柱、公司静态事实、AI 资本循环、基本面兑现链、来源组和中期账本；四时段常规只重新取得价格、OHLC、成交量、联动、催化、触发与失效证据。只有发生合同/项目/报价/融资事件或财报时，才改写对应基本面节点。不得为了省 Token 沿用已过期行情，也不得为了显得有更新而重述没有变化的长期背景。
 5. **Stage 4 · 工具侧合并**：JSON 解析、字段保留、session 替换、SHA 合并与复读验证尽量在工具侧完成；工具向模型只返回变更摘要、缺失字段、commit/blob SHA 与验证结果，不输出整份 `data.json`。
 
 各时段的增量边界：
@@ -151,24 +151,41 @@ DRAM、LITE、IREN、BE、SPCX、MSTR 的 watchlist 项必须额外写，并按 
 
 ### `aiCapitalCycle`
 
-每个 session 可包含 `aiCapitalCycle`，固定四项：`capex / endDemand / financing / price`。每项写 `key / label / state / tone / evidence`，对象另写 `asOf / note`。
+每个可用 session 必须包含 `aiCapitalCycle`，固定五项并按顺序输出：`endDemand / unitEconomics / capex / financing / price`。每项写 `key / label / state / tone / evidence / invalidation`，对象另写 `asOf / note / demandFormula / overbuild`。
 
-- `capex`：云厂商、数据中心、芯片、存储和光连接资本开支方向；
-- `endDemand`：云收入、AI 收入、订单、ARR、客户上架、利用率等终端兑现；
-- `financing`：债务、可转债、股权、供应商或客户融资，必须与经营现金流分开；
-- `price`：相关标的、同业与行业 ETF 是否共同确认。
-- 非收盘时段默认沿用最近一条仍有效且带 `asOf` 的基线，只更新本时段真正变化的价格确认；收盘或重大财报、融资事件后才评估完整四项。
-- 不输出“泡沫分数”等伪精度。长期技术趋势与股票定价必须分开，AI 长期逻辑不得替短线失效找理由。
+- `endDemand`：需求强度不是单一 Token 总量，而是“场景渗透 × 使用强度 × 工作负载复杂度 ÷ 效率提升”。使用云收入、AI 收入、订单、ARR、客户上线、利用率等可审计数据验证；
+- `unitEconomics`：把使用量与价值捕获分开，检查单位收入、每 GW/MW 收入、利用率、租金/Token 单价、毛利率和现金回收。无法统一口径时写“待验证”，不得拿未经来源验证的 ARR/GW 估算当事实；
+- `capex`：从“宣布资本开支”推进到“规划 → 下单 → 通电 → 部署 → 利用率”，只有投入形成可用且被使用的产能，才算有效兑现；
+- `financing`：债务、可转债、股权、供应商或客户融资必须与经营现金流分开，同时检查融资成本、期限、信用利差和潜在稀释；
+- `price`：相关标的、同业与行业 ETF 是否共同确认。长期需求成立不等于股票已完成定价。
+
+`overbuild` 不输出黑箱“泡沫分数”，固定写：
+
+- `stateCode`：`unknown | no_signal | early_warning | confirmed`；
+- `state / tone`：自然语言状态与方向；
+- `warningEvidence / offsettingEvidence`：只放可复读证据数组；
+- `nextTrigger`：什么连续证据会使过建判断升级。
+
+只有当可用产能增速持续高于收入/利用率，同时出现租金或价格下降、项目延期/取消、毛利和现金流恶化、融资压力上升、供应链订单/广度转弱中的多项连续证据，才允许升级为 `early_warning` 或 `confirmed`。单一估值回撤、单家公司融资或一日股价分化不能单独确认过建。
+
+更新频率必须分层：
+
+- **四时段**：常规只更新 `price`、短线价格/量能/联动和操作权限；
+- **事件/周度**：合同、项目交付、利用率、行业报价、GPU 租金、融资条件或订单发生真实变化时，才更新相应基本面节点；
+- **财报/重大经营事件**：完整重估 `endDemand / unitEconomics / capex / financing`、`overbuild` 与中期账本。
+
+非收盘时段默认沿用仍有效且带 `asOf` 的结构基线，不得为了制造“四次更新”而改写静态事实。AI 长期逻辑不得替短线失效找理由。
 
 ### `watchlist[].demandLoop`
 
-DRAM、LITE、IREN、BE 必须按 `产业需求 / 公司兑现 / 同业确认 / 价格确认` 四项输出 `label / state / tone / note`。SPCX、MSTR 只有确有相关证据时才写，不为完整性凑数。
+DRAM、LITE、IREN、BE 的 `demandLoop` 只负责基本面兑现，固定按五项输出：`industryDemand / ordersCommitments / deliveryUtilization / revenueConversion / marginCashFlow`。每项写 `key / label / state / tone / note`。
 
-- DRAM：服务器与存储需求 → 主要成份股业绩/报价 → MU/SNDK/WDC/STX → DRAM；
-- LITE：Hyperscaler CapEx 与光连接需求 → Lumentum 订单/收入 → COHR/光通信链 → LITE；
-- IREN：BTC 矿业链与 AI Cloud 链分别验证；合同、ARR 和容量必须继续检查客户上线、收入和融资质量。
-- BE：AI/数据中心现场供电需求 → 合同/积压 → 部署/收入 → 毛利/经营现金流 → BE。VST/NRG/CEG/GEV 用于验证数据中心电力链广度；PLUG/FCEL 只作次级燃料电池参考，不能自动替代公司兑现或价格确认。
-- 消息存在但价格失败时，`价格确认` 必须标为背离或不确认。
+- **DRAM**：AI/服务器需求 → 订单、合约价/现货价与库存 → 位元出货、产品组合、产能利用率/良率 → 成份股收入 → 毛利、现金流和资本开支；
+- **LITE**：集群规模与光连接价值量 → 订单/积压 → 交付、交期、产能爬坡与客户验收 → 收入 → 毛利和现金流；
+- **IREN**：AI Cloud 与 BTC 两条需求链 → 合同/容量 → 通电 MW、GPU 上线、客户启用与利用率 → ARR 转已确认收入 → 毛利、现金流、CapEx 与稀释；
+- **BE**：数据中心现场供电需求 → 合同/积压 → 获批、通电、部署与客户验收 → 收入确认 → 毛利和经营现金流。
+
+`peerBreadth / priceConfirmation` 不再写入 `demandLoop`，避免与短线确认重复；同业广度放入 `horizons.*.short.confirmations.linkage`，价格与量能分别放入 `confirmations.price / volume`。SPCX、MSTR 不强行套用 AI 基本面链，没有独立、可证伪的五步兑现证据时保持空值。
 
 ### `mediumLedger[].clocks`
 
@@ -274,7 +291,7 @@ DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，
 - `confirmations.*.state`: `confirmed | mixed | failed | unknown`
 - `decisionGate.status`: `open | caution | locked`
 - `decisionLedger.outcome.status`: `open | triggered | invalidated | closed | expired`
-- `changes[].impactFields`: `regimeCode | planStatus | permissions | trigger | invalidation | confidence`
+- `changes[].impactFields`: `regimeCode | planStatus | tradeType | permissions | trigger | invalidation | confidence`
 - 复盘结果：`确认 | 部分确认 | 失效 | 新基线`
 - 矩阵信号：`+ | 0 | -`
 - `latestSession`: `premarket | intraday | late | close`
@@ -286,13 +303,15 @@ DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
 - 市场、DRAM、LITE、IREN、BE、SPCX、MSTR 的 `changes` 完整，六个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
-- `meta.schemaVersion` 为 12；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `market/validate-data.mjs`。
+- `meta.schemaVersion` 为 13；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `market/validate-data.mjs`。
 - `changes` 七项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
 - DRAM、LITE、IREN、BE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 按中国时间 21:05 → 23:05 → 02:05 → 04:05 连续衔接。
 - 盘中版必须复核中国时间 21:05 盘前判断，不得只是重复新闻。
 - DRAM/LITE/IREN/BE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
+- 每个可用时段的 `aiCapitalCycle` 严格包含需求强度、单位经济、产能兑现、融资质量、价格确认五项及 `overbuild`；每项都有失效条件，过建状态不使用单一股价或无来源估算升级。
+- DRAM/LITE/IREN/BE 的 `demandLoop` 严格为五步基本面兑现链，不再混入同业与价格确认；SPCX/MSTR 不为完整性硬凑 AI 链条。
 - `MARKET / DRAM / LITE / IREN / BE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
 - 六个操作对象都具有 `planStatus / tradeType / confirmations.price / confirmations.volume / confirmations.linkage`；剧本失败必须同步降权，交易类型不能因被套而漂移；确认灯没有证据时使用 `unknown`。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。

@@ -5,7 +5,7 @@
     "sessionDate": "2026-08-27",
     "nextUpdate": "2026-08-28T21:05:00+08:00",
     "timezone": "Asia/Shanghai",
-    "schemaVersion": 12
+    "schemaVersion": 13
   },
   "snapshot": [
     {
@@ -855,25 +855,32 @@
             "note": "AI与存储需求中期逻辑仍在。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/报价",
             "state": "待报价与财报",
             "tone": "flat",
             "note": "继续核验主要成份股业绩、库存和报价。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "已确认",
-            "tone": "up",
-            "note": "MU、SNDK、STX正式收盘均上涨。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验位元出货、库存、产品组合、产能利用率与高端产品良率；需求预期不等于真实出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "盘前突破待确认",
-            "tone": "up",
-            "note": "DRAM盘前58.39，正式盘仍需量价与联动确认。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
+            "tone": "flat",
+            "note": "核验主要成份股收入、产品组合与平均售价，不能用 AI 需求叙事代替收入确认。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验毛利率、库存变化、经营现金流与资本开支是否同步改善。"
           }
         ]
       },
@@ -923,25 +930,32 @@
             "note": "AI数据中心光连接仍是中期主线。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/积压",
             "state": "财报后待持续",
             "tone": "flat",
             "note": "继续验证订单、收入与利润率兑现。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "已确认",
-            "tone": "up",
-            "note": "COHR正式收涨约2.14%。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验订单转交付、交期、产能爬坡与客户验收；行业 CapEx 不能替代公司出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "盘前突破待确认",
-            "tone": "up",
-            "note": "LITE盘前962.11，正式盘仍需量价与联动确认。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待持续验证",
+            "tone": "flat",
+            "note": "核验订单和交付能否持续转化为收入，并区分一次性拉货与可持续需求。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验产品组合、毛利率、经营现金流与扩产支出，确认增长是否形成价值捕获。"
           }
         ]
       },
@@ -991,25 +1005,32 @@
             "note": "BTC维持高位，AI基础设施情绪回暖。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/容量",
             "state": "等待08-27财报",
             "tone": "flat",
             "note": "合同、ARR与容量需转化为收入和现金流。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "共同走弱",
-            "tone": "down",
-            "note": "MARA、RIOT、CLSK正式收盘均显著下跌。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验已通电 MW、GPU 上线、客户启用与利用率；合同容量不等于在线收入。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "修复但事件锁权",
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
             "tone": "flat",
-            "note": "IREN盘前40.87，正式盘仍需量价与联动确认。"
+            "note": "ARR 目标必须与已确认收入、客户上线和集中度分开核验。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "融资敏感",
+            "tone": "down",
+            "note": "核验 AI Cloud 与矿业毛利、经营现金流、CapEx、债务和潜在股权稀释。"
           }
         ]
       },
@@ -1059,25 +1080,32 @@
             "note": "AI数据中心现场供电需求与电力缺口推动订单。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/积压",
             "state": "初步兑现待持续",
             "tone": "up",
             "note": "Q2收入、毛利和经营现金流改善；Oracle最高2.8GW合作与首期1.2GW仍需继续转化为部署和收入。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "正向但相对落后",
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
             "tone": "flat",
-            "note": "VST、NRG、CEG、GEV均上涨，但BE涨幅最小。"
+            "note": "核验许可、通电、现场部署、安装进度与客户验收；合同容量不等于已投运。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "盘前突破待确认",
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "已初步兑现",
             "tone": "up",
-            "note": "盘前229.96越过227.08；GEV同向，但电力链广度尚不完整。"
+            "note": "Q2 收入已改善；后续继续核验 Oracle 相关部署转化、收入确认节奏与客户集中度。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "已初步改善",
+            "tone": "up",
+            "note": "Q2 毛利与经营现金流已改善；仍需验证扩张后的持续性、融资需求与项目经济性。"
           }
         ]
       },
@@ -1117,7 +1145,8 @@
         "support": "139.75–139.60",
         "supportValue": 139.75,
         "resistance": "140.71–141.00",
-        "resistanceValue": 140.71
+        "resistanceValue": 140.71,
+        "demandLoop": null
       },
       {
         "symbol": "MSTR",
@@ -1155,7 +1184,8 @@
         "support": "124.50–123.16",
         "supportValue": 124.5,
         "resistance": "126.25–127.18",
-        "resistanceValue": 126.25
+        "resistanceValue": 126.25,
+        "demandLoop": null
       }
     ],
     "news": [
@@ -1476,36 +1506,62 @@
     "aiCapitalCycle": {
       "asOf": "2026-08-27 21:05 中国时间",
       "note": "Nvidia财报强化CapEx与终端需求先验；融资质量基线不变，盘前价格转为选择性正向确认。",
+      "demandFormula": "需求强度 = 场景渗透 × 使用强度 × 工作负载复杂度 ÷ 效率提升",
       "items": [
         {
-          "key": "capex",
-          "label": "CAPEX 强度",
-          "state": "扩张",
-          "tone": "up",
-          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
-        },
-        {
           "key": "endDemand",
-          "label": "终端需求",
+          "label": "需求强度",
           "state": "改善",
           "tone": "up",
-          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。"
+          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "invalidation": "若 AI 收入、订单、利用率和使用强度连续转弱，则需求先验降级。"
+        },
+        {
+          "key": "unitEconomics",
+          "label": "单位经济",
+          "state": "待验证",
+          "tone": "flat",
+          "evidence": "当前缺少统一口径的收入、在线算力、利用率、租金与毛利数据，暂不做跨公司 ARR/GW 推断。",
+          "invalidation": "若单位收入、利用率或毛利持续下降，且用量增长无法抵消，则单位经济转弱。"
+        },
+        {
+          "key": "capex",
+          "label": "CAPEX/产能",
+          "state": "扩张，兑现待核验",
+          "tone": "up",
+          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。 仍需区分规划、下单、通电、部署与利用率。",
+          "invalidation": "若项目延期或取消、通电和部署持续落后于规划，CapEx 扩张不能视为有效供给。"
         },
         {
           "key": "financing",
           "label": "融资质量",
           "state": "分化",
           "tone": "down",
-          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。"
+          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。",
+          "invalidation": "若融资成本、信用压力或稀释上升且经营现金流未跟上，融资质量继续降级。"
         },
         {
           "key": "price",
           "label": "价格确认",
           "state": "盘前选择性确认",
           "tone": "up",
-          "evidence": "六标的均上涨，DRAM与BE领涨；待正式盘确认。"
+          "evidence": "六标的均上涨，DRAM与BE领涨；待正式盘确认。",
+          "invalidation": "若行业广度、相对强弱和关键位连续不确认，不用长期逻辑维持短线权限。"
         }
-      ]
+      ],
+      "overbuild": {
+        "stateCode": "unknown",
+        "state": "证据不足，待验证",
+        "tone": "flat",
+        "warningEvidence": [
+          "IREN与MSTR的融资/稀释约束仍需单独评估。"
+        ],
+        "offsettingEvidence": [
+          "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
+        ],
+        "nextTrigger": "可用产能增速持续高于收入/利用率，且租金、毛利、订单、项目交付、融资或供应链广度中多项同步转弱时升级。"
+      }
     },
     "largestChange": "Nvidia财报把市场从事件锁权推向选择性risk-on，但盘前突破仍待正式盘量价确认。",
     "regimeCode": "SELECTIVE_RISK_ON",
@@ -2200,25 +2256,32 @@
             "note": "AI与存储需求中期逻辑仍在。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/报价",
             "state": "待报价与财报",
             "tone": "flat",
             "note": "继续核验主要成份股业绩、库存和报价。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "转弱",
-            "tone": "down",
-            "note": "MU约-1.51%、SNDK约-0.96%、WDC约-2.32%，仅STX约+0.25%。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验位元出货、库存、产品组合、产能利用率与高端产品良率；需求预期不等于真实出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "失败突破",
-            "tone": "down",
-            "note": "开盘冲58.72后回到56.70，仅勉强高于56.68。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
+            "tone": "flat",
+            "note": "核验主要成份股收入、产品组合与平均售价，不能用 AI 需求叙事代替收入确认。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验毛利率、库存变化、经营现金流与资本开支是否同步改善。"
           }
         ]
       },
@@ -2268,25 +2331,32 @@
             "note": "AI数据中心光连接仍是中期主线。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/积压",
             "state": "财报后待持续",
             "tone": "flat",
             "note": "继续验证订单、收入与利润率兑现。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "未确认",
-            "tone": "down",
-            "note": "COHR约-0.35%，未支持LITE盘前延续。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验订单转交付、交期、产能爬坡与客户验收；行业 CapEx 不能替代公司出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "延续失败",
-            "tone": "down",
-            "note": "最高976.41后回落至925.02，失947.52与939.42，但仍高于911.72。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待持续验证",
+            "tone": "flat",
+            "note": "核验订单和交付能否持续转化为收入，并区分一次性拉货与可持续需求。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验产品组合、毛利率、经营现金流与扩产支出，确认增长是否形成价值捕获。"
           }
         ]
       },
@@ -2336,25 +2406,32 @@
             "note": "BTC维持高位，AI基础设施情绪回暖。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/容量",
             "state": "等待08-27财报",
             "tone": "flat",
             "note": "合同、ARR与容量需转化为收入和现金流。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "已确认",
-            "tone": "up",
-            "note": "BTC约+3.03%；MARA、RIOT、CLSK约+9.00%、+5.19%、+8.46%。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验已通电 MW、GPU 上线、客户启用与利用率；合同容量不等于在线收入。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "初步确认",
-            "tone": "up",
-            "note": "盘中41.20站上41.17，等待财报验证公司兑现。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
+            "tone": "flat",
+            "note": "ARR 目标必须与已确认收入、客户上线和集中度分开核验。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "融资敏感",
+            "tone": "down",
+            "note": "核验 AI Cloud 与矿业毛利、经营现金流、CapEx、债务和潜在股权稀释。"
           }
         ]
       },
@@ -2404,25 +2481,32 @@
             "note": "AI数据中心现场供电需求与电力缺口推动订单。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/积压",
             "state": "初步兑现待持续",
             "tone": "up",
             "note": "Q2收入、毛利和经营现金流改善；Oracle最高2.8GW合作与首期1.2GW仍需继续转化为部署和收入。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "未确认",
-            "tone": "down",
-            "note": "VST约-0.61%、NRG约-1.44%、GEV约-0.27%，仅CEG约+0.47%；PLUG/FCEL上涨只作次级参考。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验许可、通电、现场部署、安装进度与客户验收；合同容量不等于已投运。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "失败突破",
-            "tone": "down",
-            "note": "最高232.77后回落至217.97，跌回218.53下并完全回吐盘前涨幅。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "已初步兑现",
+            "tone": "up",
+            "note": "Q2 收入已改善；后续继续核验 Oracle 相关部署转化、收入确认节奏与客户集中度。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "已初步改善",
+            "tone": "up",
+            "note": "Q2 毛利与经营现金流已改善；仍需验证扩张后的持续性、融资需求与项目经济性。"
           }
         ]
       },
@@ -2462,7 +2546,8 @@
         "support": "138.64–138.33",
         "supportValue": 138.64,
         "resistance": "139.75–141.50",
-        "resistanceValue": 139.75
+        "resistanceValue": 139.75,
+        "demandLoop": null
       },
       {
         "symbol": "MSTR",
@@ -2500,7 +2585,8 @@
         "support": "133.73–126.25",
         "supportValue": 133.73,
         "resistance": "135.95–140.00",
-        "resistanceValue": 135.95
+        "resistanceValue": 135.95,
+        "demandLoop": null
       }
     ],
     "news": [
@@ -2777,36 +2863,62 @@
     "aiCapitalCycle": {
       "asOf": "2026-08-27 23:05 中国时间",
       "note": "Nvidia强化CapEx与终端需求，但正式盘价格确认分化；不以长期AI逻辑覆盖BE、DRAM、LITE的短线缺口失败。",
+      "demandFormula": "需求强度 = 场景渗透 × 使用强度 × 工作负载复杂度 ÷ 效率提升",
       "items": [
         {
-          "key": "capex",
-          "label": "CAPEX 强度",
-          "state": "扩张",
-          "tone": "up",
-          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
-        },
-        {
           "key": "endDemand",
-          "label": "终端需求",
+          "label": "需求强度",
           "state": "改善",
           "tone": "up",
-          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。"
+          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "invalidation": "若 AI 收入、订单、利用率和使用强度连续转弱，则需求先验降级。"
+        },
+        {
+          "key": "unitEconomics",
+          "label": "单位经济",
+          "state": "待验证",
+          "tone": "flat",
+          "evidence": "当前缺少统一口径的收入、在线算力、利用率、租金与毛利数据，暂不做跨公司 ARR/GW 推断。",
+          "invalidation": "若单位收入、利用率或毛利持续下降，且用量增长无法抵消，则单位经济转弱。"
+        },
+        {
+          "key": "capex",
+          "label": "CAPEX/产能",
+          "state": "扩张，兑现待核验",
+          "tone": "up",
+          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。 仍需区分规划、下单、通电、部署与利用率。",
+          "invalidation": "若项目延期或取消、通电和部署持续落后于规划，CapEx 扩张不能视为有效供给。"
         },
         {
           "key": "financing",
           "label": "融资质量",
           "state": "分化",
           "tone": "down",
-          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。"
+          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。",
+          "invalidation": "若融资成本、信用压力或稀释上升且经营现金流未跟上，融资质量继续降级。"
         },
         {
           "key": "price",
           "label": "价格确认",
           "state": "指数确认、个股分化",
           "tone": "flat",
-          "evidence": "QQQ保持上涨；MSTR/IREN确认，BE/DRAM/LITE回吐盘前缺口。"
+          "evidence": "QQQ保持上涨；MSTR/IREN确认，BE/DRAM/LITE回吐盘前缺口。",
+          "invalidation": "若行业广度、相对强弱和关键位连续不确认，不用长期逻辑维持短线权限。"
         }
-      ]
+      ],
+      "overbuild": {
+        "stateCode": "unknown",
+        "state": "证据不足，待验证",
+        "tone": "flat",
+        "warningEvidence": [
+          "IREN与MSTR的融资/稀释约束仍需单独评估。"
+        ],
+        "offsettingEvidence": [
+          "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
+        ],
+        "nextTrigger": "可用产能增速持续高于收入/利用率，且租金、毛利、订单、项目交付、融资或供应链广度中多项同步转弱时升级。"
+      }
     },
     "largestChange": "BE从盘前229.96回落至217.97并失去电力链广度，盘前突破正式判定失败。",
     "regimeCode": "SELECTIVE_RISK_ON",
@@ -3507,25 +3619,32 @@
             "note": "AI与存储需求中期逻辑仍在。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/报价",
             "state": "待报价与财报",
             "tone": "flat",
             "note": "继续核验主要成份股业绩、库存和报价。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "全面转弱",
-            "tone": "down",
-            "note": "MU约-2.73%、SNDK约-1.56%、WDC约-4.21%、STX约-2.54%。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验位元出货、库存、产品组合、产能利用率与高端产品良率；需求预期不等于真实出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "剧本失效",
-            "tone": "down",
-            "note": "55.73跌破55.84，最低55.68，盘前突破与午前支撑均失效。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
+            "tone": "flat",
+            "note": "核验主要成份股收入、产品组合与平均售价，不能用 AI 需求叙事代替收入确认。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验毛利率、库存变化、经营现金流与资本开支是否同步改善。"
           }
         ]
       },
@@ -3575,25 +3694,32 @@
             "note": "AI数据中心光连接仍是中期主线。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/积压",
             "state": "财报后待持续",
             "tone": "flat",
             "note": "继续验证订单、收入与利润率兑现。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "未确认",
-            "tone": "down",
-            "note": "COHR约-0.84%，价格修复没有同业配合。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验订单转交付、交期、产能爬坡与客户验收；行业 CapEx 不能替代公司出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "价格修复",
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待持续验证",
             "tone": "flat",
-            "note": "由925.02回升至944.60，收复939.42但尚未站上947.52。"
+            "note": "核验订单和交付能否持续转化为收入，并区分一次性拉货与可持续需求。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验产品组合、毛利率、经营现金流与扩产支出，确认增长是否形成价值捕获。"
           }
         ]
       },
@@ -3643,25 +3769,32 @@
             "note": "BTC维持高位，AI基础设施情绪回暖。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/容量",
             "state": "等待08-27财报",
             "tone": "flat",
             "note": "合同、ARR与容量需转化为收入和现金流。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "仍确认",
-            "tone": "up",
-            "note": "BTC约+1.73%；MARA、RIOT、CLSK约+8.20%、+2.16%、+6.90%。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验已通电 MW、GPU 上线、客户启用与利用率；合同容量不等于在线收入。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "确认减弱",
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
             "tone": "flat",
-            "note": "40.96跌回41.17下方，但守40.36且仍涨约3.47%。"
+            "note": "ARR 目标必须与已确认收入、客户上线和集中度分开核验。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "融资敏感",
+            "tone": "down",
+            "note": "核验 AI Cloud 与矿业毛利、经营现金流、CapEx、债务和潜在股权稀释。"
           }
         ]
       },
@@ -3711,25 +3844,32 @@
             "note": "AI数据中心现场供电需求与电力缺口推动订单。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/积压",
             "state": "初步兑现待持续",
             "tone": "up",
             "note": "Q2收入、毛利和经营现金流改善；Oracle最高2.8GW合作与首期1.2GW仍需继续转化为部署和收入。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "仍未确认",
-            "tone": "down",
-            "note": "VST约-0.39%、NRG约-1.17%、GEV约-0.40%，仅CEG约+0.81%；PLUG/FCEL上涨仍只作次级参考。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验许可、通电、现场部署、安装进度与客户验收；合同容量不等于已投运。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "失败后修复",
-            "tone": "flat",
-            "note": "220.06收回218.53，但未收223.66，更未修复227.08。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "已初步兑现",
+            "tone": "up",
+            "note": "Q2 收入已改善；后续继续核验 Oracle 相关部署转化、收入确认节奏与客户集中度。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "已初步改善",
+            "tone": "up",
+            "note": "Q2 毛利与经营现金流已改善；仍需验证扩张后的持续性、融资需求与项目经济性。"
           }
         ]
       },
@@ -3769,7 +3909,8 @@
         "support": "139.75–138.64",
         "supportValue": 139.75,
         "resistance": "141.50–142.00",
-        "resistanceValue": 141.5
+        "resistanceValue": 141.5,
+        "demandLoop": null
       },
       {
         "symbol": "MSTR",
@@ -3807,7 +3948,8 @@
         "support": "135.55–133.73",
         "supportValue": 135.55,
         "resistance": "139.75–140.00",
-        "resistanceValue": 139.75
+        "resistanceValue": 139.75,
+        "demandLoop": null
       }
     ],
     "news": [
@@ -4084,36 +4226,62 @@
     "aiCapitalCycle": {
       "asOf": "2026-08-28 02:05 中国时间",
       "note": "CapEx与终端需求基线未变；午后价格确认进一步集中，不以Nvidia强势覆盖存储和BE短线失败。",
+      "demandFormula": "需求强度 = 场景渗透 × 使用强度 × 工作负载复杂度 ÷ 效率提升",
       "items": [
         {
-          "key": "capex",
-          "label": "CAPEX 强度",
-          "state": "扩张",
-          "tone": "up",
-          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
-        },
-        {
           "key": "endDemand",
-          "label": "终端需求",
+          "label": "需求强度",
           "state": "改善",
           "tone": "up",
-          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。"
+          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "invalidation": "若 AI 收入、订单、利用率和使用强度连续转弱，则需求先验降级。"
+        },
+        {
+          "key": "unitEconomics",
+          "label": "单位经济",
+          "state": "待验证",
+          "tone": "flat",
+          "evidence": "当前缺少统一口径的收入、在线算力、利用率、租金与毛利数据，暂不做跨公司 ARR/GW 推断。",
+          "invalidation": "若单位收入、利用率或毛利持续下降，且用量增长无法抵消，则单位经济转弱。"
+        },
+        {
+          "key": "capex",
+          "label": "CAPEX/产能",
+          "state": "扩张，兑现待核验",
+          "tone": "up",
+          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。 仍需区分规划、下单、通电、部署与利用率。",
+          "invalidation": "若项目延期或取消、通电和部署持续落后于规划，CapEx 扩张不能视为有效供给。"
         },
         {
           "key": "financing",
           "label": "融资质量",
           "state": "分化",
           "tone": "down",
-          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。"
+          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。",
+          "invalidation": "若融资成本、信用压力或稀释上升且经营现金流未跟上，融资质量继续降级。"
         },
         {
           "key": "price",
           "label": "价格确认",
           "state": "权重股确认、行业扩散收窄",
           "tone": "flat",
-          "evidence": "QQQ维持，MSTR强；DRAM与存储同业转弱，BE广度未修复。"
+          "evidence": "QQQ维持，MSTR强；DRAM与存储同业转弱，BE广度未修复。",
+          "invalidation": "若行业广度、相对强弱和关键位连续不确认，不用长期逻辑维持短线权限。"
         }
-      ]
+      ],
+      "overbuild": {
+        "stateCode": "unknown",
+        "state": "证据不足，待验证",
+        "tone": "flat",
+        "warningEvidence": [
+          "IREN与MSTR的融资/稀释约束仍需单独评估。"
+        ],
+        "offsettingEvidence": [
+          "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
+        ],
+        "nextTrigger": "可用产能增速持续高于收入/利用率，且租金、毛利、订单、项目交付、融资或供应链广度中多项同步转弱时升级。"
+      }
     },
     "largestChange": "DRAM跌破55.84且MU、SNDK、WDC、STX全部下跌，盘前突破剧本正式失效。",
     "regimeCode": "SELECTIVE_RISK_ON",
@@ -4820,25 +4988,32 @@
             "note": "AI与存储需求中期逻辑仍在。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/报价",
             "state": "待报价与财报",
             "tone": "flat",
             "note": "继续核验主要成份股业绩、库存和报价。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "未确认",
-            "tone": "down",
-            "note": "MU约-0.36%、SNDK约-0.97%、WDC约-1.46%，STX近乎持平。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验位元出货、库存、产品组合、产能利用率与高端产品良率；需求预期不等于真实出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "尾盘修复但原剧本失效",
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
             "tone": "flat",
-            "note": "收56.83重回56.68，但盘前58.39与日高58.72均未保持。"
+            "note": "核验主要成份股收入、产品组合与平均售价，不能用 AI 需求叙事代替收入确认。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验毛利率、库存变化、经营现金流与资本开支是否同步改善。"
           }
         ]
       },
@@ -4888,25 +5063,32 @@
             "note": "AI数据中心光连接仍是中期主线。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "订单/积压",
             "state": "财报后待持续",
             "tone": "flat",
             "note": "继续验证订单、收入与利润率兑现。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "收盘确认",
-            "tone": "up",
-            "note": "COHR收涨约0.31%，尾盘转为同向。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验订单转交付、交期、产能爬坡与客户验收；行业 CapEx 不能替代公司出货。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "正式确认",
-            "tone": "up",
-            "note": "收955.39，站稳947.52并保留约1.81%涨幅。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待持续验证",
+            "tone": "flat",
+            "note": "核验订单和交付能否持续转化为收入，并区分一次性拉货与可持续需求。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验产品组合、毛利率、经营现金流与扩产支出，确认增长是否形成价值捕获。"
           }
         ]
       },
@@ -4956,25 +5138,32 @@
             "note": "BTC维持高位，AI基础设施情绪回暖。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/容量",
             "state": "等待08-27财报",
             "tone": "flat",
             "note": "合同、ARR与容量需转化为收入和现金流。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "确认",
-            "tone": "up",
-            "note": "BTC约+1.97%；MARA、RIOT、CLSK约+5.75%、+1.43%、+6.12%。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验已通电 MW、GPU 上线、客户启用与利用率；合同容量不等于在线收入。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "触发未锁定",
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "待财报验证",
             "tone": "flat",
-            "note": "收40.53，低于41.17，盘中41.49突破未保持。"
+            "note": "ARR 目标必须与已确认收入、客户上线和集中度分开核验。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "融资敏感",
+            "tone": "down",
+            "note": "核验 AI Cloud 与矿业毛利、经营现金流、CapEx、债务和潜在股权稀释。"
           }
         ]
       },
@@ -5024,25 +5213,32 @@
             "note": "AI数据中心现场供电需求与电力缺口推动订单。"
           },
           {
-            "key": "companyDelivery",
-            "label": "公司兑现",
+            "key": "ordersCommitments",
+            "label": "合同/积压",
             "state": "初步兑现待持续",
             "tone": "up",
             "note": "Q2收入、毛利和经营现金流改善；Oracle最高2.8GW合作与首期1.2GW仍需继续转化为部署和收入。"
           },
           {
-            "key": "peerBreadth",
-            "label": "同业确认",
-            "state": "混合且不足",
-            "tone": "down",
-            "note": "VST约-0.15%、NRG约-1.45%，CEG约+1.04%、GEV近乎持平；PLUG/FCEL上涨只作次级参考。"
+            "key": "deliveryUtilization",
+            "label": "交付/利用率",
+            "state": "待验证",
+            "tone": "flat",
+            "note": "核验许可、通电、现场部署、安装进度与客户验收；合同容量不等于已投运。"
           },
           {
-            "key": "priceConfirmation",
-            "label": "价格确认",
-            "state": "正式失败",
-            "tone": "down",
-            "note": "收217.83低于218.53，全天最高232.77后完全回吐并小幅收跌。"
+            "key": "revenueConversion",
+            "label": "收入确认",
+            "state": "已初步兑现",
+            "tone": "up",
+            "note": "Q2 收入已改善；后续继续核验 Oracle 相关部署转化、收入确认节奏与客户集中度。"
+          },
+          {
+            "key": "marginCashFlow",
+            "label": "利润/现金流",
+            "state": "已初步改善",
+            "tone": "up",
+            "note": "Q2 毛利与经营现金流已改善；仍需验证扩张后的持续性、融资需求与项目经济性。"
           }
         ]
       },
@@ -5082,7 +5278,8 @@
         "support": "139.75–138.64",
         "supportValue": 139.75,
         "resistance": "141.50–141.995",
-        "resistanceValue": 141.5
+        "resistanceValue": 141.5,
+        "demandLoop": null
       },
       {
         "symbol": "MSTR",
@@ -5120,7 +5317,8 @@
         "support": "135.55–133.73",
         "supportValue": 135.55,
         "resistance": "139.75–140.00",
-        "resistanceValue": 139.75
+        "resistanceValue": 139.75,
+        "demandLoop": null
       }
     ],
     "news": [
@@ -5397,36 +5595,62 @@
     "aiCapitalCycle": {
       "asOf": "2026-08-28 04:05 中国时间",
       "note": "Nvidia正式确认CapEx与需求先验，但价格扩散选择性；LITE确认，DRAM和BE短线剧本失效。",
+      "demandFormula": "需求强度 = 场景渗透 × 使用强度 × 工作负载复杂度 ÷ 效率提升",
       "items": [
         {
-          "key": "capex",
-          "label": "CAPEX 强度",
-          "state": "扩张",
-          "tone": "up",
-          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
-        },
-        {
           "key": "endDemand",
-          "label": "终端需求",
+          "label": "需求强度",
           "state": "改善",
           "tone": "up",
-          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。"
+          "evidence": "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "invalidation": "若 AI 收入、订单、利用率和使用强度连续转弱，则需求先验降级。"
+        },
+        {
+          "key": "unitEconomics",
+          "label": "单位经济",
+          "state": "待验证",
+          "tone": "flat",
+          "evidence": "当前缺少统一口径的收入、在线算力、利用率、租金与毛利数据，暂不做跨公司 ARR/GW 推断。",
+          "invalidation": "若单位收入、利用率或毛利持续下降，且用量增长无法抵消，则单位经济转弱。"
+        },
+        {
+          "key": "capex",
+          "label": "CAPEX/产能",
+          "state": "扩张，兑现待核验",
+          "tone": "up",
+          "evidence": "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。 仍需区分规划、下单、通电、部署与利用率。",
+          "invalidation": "若项目延期或取消、通电和部署持续落后于规划，CapEx 扩张不能视为有效供给。"
         },
         {
           "key": "financing",
           "label": "融资质量",
           "state": "分化",
           "tone": "down",
-          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。"
+          "evidence": "IREN与MSTR的融资/稀释约束仍需单独评估。",
+          "invalidation": "若融资成本、信用压力或稀释上升且经营现金流未跟上，融资质量继续降级。"
         },
         {
           "key": "price",
           "label": "价格确认",
           "state": "科技权重与少数链条确认",
           "tone": "flat",
-          "evidence": "QQQ/SOXX、LITE、MSTR确认；DRAM、BE失效，IREN/SPCX不完整。"
+          "evidence": "QQQ/SOXX、LITE、MSTR确认；DRAM、BE失效，IREN/SPCX不完整。",
+          "invalidation": "若行业广度、相对强弱和关键位连续不确认，不用长期逻辑维持短线权限。"
         }
-      ]
+      ],
+      "overbuild": {
+        "stateCode": "unknown",
+        "state": "证据不足，待验证",
+        "tone": "flat",
+        "warningEvidence": [
+          "IREN与MSTR的融资/稀释约束仍需单独评估。"
+        ],
+        "offsettingEvidence": [
+          "Nvidia与软件公司业绩缓解AI终端需求见顶担忧。",
+          "Nvidia强劲业绩与展望显示AI计算投资仍扩张，内存供应约束强化存储链需求。"
+        ],
+        "nextTrigger": "可用产能增速持续高于收入/利用率，且租金、毛利、订单、项目交付、融资或供应链广度中多项同步转弱时升级。"
+      }
     },
     "largestChange": "LITE尾盘站稳947.52且COHR转涨，午后价格修复升级为正式收盘确认。",
     "regimeCode": "SELECTIVE_RISK_ON",
