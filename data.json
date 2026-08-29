@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-29T08:00:06+08:00"
+    "updatedAt": "2026-08-29T12:07:36+08:00"
   },
   "days": [
     {
@@ -877,6 +877,32 @@
         "carbs": 208,
         "fat": 66
       }
+    },
+    {
+      "date": "2026-08-29",
+      "intake": 540,
+      "records": [
+        {
+          "name": "猪柳蛋麦满分",
+          "calories": 390,
+          "meal": "午餐"
+        },
+        {
+          "name": "脆薯饼",
+          "calories": 145,
+          "meal": "午餐"
+        },
+        {
+          "name": "麦咖啡冰美式中杯",
+          "calories": 5,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 22,
+        "carbs": 44,
+        "fat": 31
+      }
     }
   ],
   "trend": [
@@ -906,7 +932,7 @@
     },
     {
       "date": "今日",
-      "intake": null
+      "intake": 540
     }
   ]
 }
