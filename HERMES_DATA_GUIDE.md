@@ -175,3 +175,12 @@
 - 提交前再次执行 `git pull`，再 commit/push。
 
 更新完成后，回复用户：记录日期、饮食摄入、整体活动、单次运动、体重，以及哪些字段仍未提供。
+
+## 仓库隔离与推送失败处理（硬性约束）
+
+- 只允许更新 `blackrimmedlol-code/calorie-tracker` 的根目录 `data.json`。美股策略台已迁移至 `blackrimmedlol-code/us-market-dashboard`，Hermes 不得读取、写入或回退更新该市场仓库。
+- 每轮必须在生成数据前同步远端；禁止基于长期未同步的本地副本直接提交。
+- `non-fast-forward`、rejected、SHA/历史分叉属于 Git 同步错误，不是 CDN 或网络错误。出现时重新 fetch/rebase 并保留最新卡路里数据，最多重试推送一次；不得进入多轮网络重试。
+- `curl 28`、连接超时等才归类为网络错误；网络重试也必须有上限，禁止 60 轮循环。
+- 最稳妥的执行顺序：同步远端 → 写入并校验 `data.json` → 提交 → 推送；若远端在提交后变化，则 rebase 一次并重新验证后推送。
+
