@@ -2,6 +2,12 @@
 
 > 本文件由项目维护方（Hermes 大总管）编写，供 Codex / Claude Code / 其他 AI 代理接手时自动加载。
 
+## 仓库边界（硬性约束）
+
+- 美股策略台已迁移到独立仓库 `blackrimmedlol-code/us-market-dashboard`，线上地址为 https://blackrimmedlol-code.github.io/us-market-dashboard/ 。
+- 本仓库只维护卡路里页面根目录的 `index.html` 与 `data.json`；禁止在本仓库写入任何市场数据。
+- 旧 `market/` 路径仅作为迁移跳转/历史归档，不再由任何自动任务更新。
+
 ## 项目是什么
 
 **16-8 减脂卡路里观察看板**——一个纯静态单页数据看板，展示用户每日热量摄入、目标区间、三大营养素、16-8 进食窗口和 7 天趋势。
