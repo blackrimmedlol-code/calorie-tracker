@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-30T09:43:09+08:00"
+    "updatedAt": "2026-08-30T16:42:01+08:00"
   },
   "days": [
     {
@@ -932,9 +932,49 @@
     },
     {
       "date": "2026-08-30",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 1495,
+      "records": [
+        {
+          "name": "龙虾汤泡饭（誉八仙）",
+          "calories": 370,
+          "meal": "午餐"
+        },
+        {
+          "name": "虾饺×3",
+          "calories": 135,
+          "meal": "午餐"
+        },
+        {
+          "name": "燕窝蛋挞",
+          "calories": 220,
+          "meal": "午餐"
+        },
+        {
+          "name": "凤爪×2",
+          "calories": 200,
+          "meal": "午餐"
+        },
+        {
+          "name": "小虾卷×4（炸）",
+          "calories": 270,
+          "meal": "午餐"
+        },
+        {
+          "name": "叉烧肠粉 1/4 条",
+          "calories": 80,
+          "meal": "午餐"
+        },
+        {
+          "name": "乳鸽 1/4 只",
+          "calories": 220,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 70,
+        "carbs": 109,
+        "fat": 84
+      },
       "body": {
         "weightKg": 77.8
       }
