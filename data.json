@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-30T16:42:01+08:00"
+    "updatedAt": "2026-08-30T20:58:33+08:00"
   },
   "days": [
     {
@@ -932,7 +932,7 @@
     },
     {
       "date": "2026-08-30",
-      "intake": 1495,
+      "intake": 2095,
       "records": [
         {
           "name": "龙虾汤泡饭（誉八仙）",
@@ -968,12 +968,17 @@
           "name": "乳鸽 1/4 只",
           "calories": 220,
           "meal": "午餐"
+        },
+        {
+          "name": "韩式甜辣酱炸鸡×3",
+          "calories": 600,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 70,
-        "carbs": 109,
-        "fat": 84
+        "protein": 102,
+        "carbs": 146,
+        "fat": 122
       },
       "body": {
         "weightKg": 77.8
@@ -981,10 +986,6 @@
     }
   ],
   "trend": [
-    {
-      "date": "08-23",
-      "intake": 1605
-    },
     {
       "date": "08-24",
       "intake": 1045
@@ -1006,8 +1007,12 @@
       "intake": 1688
     },
     {
-      "date": "今日",
+      "date": "08-29",
       "intake": 1355
+    },
+    {
+      "date": "今日",
+      "intake": 2095
     }
   ]
 }
