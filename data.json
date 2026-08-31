@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-08-31T12:56:45+08:00"
+    "updatedAt": "2026-08-31T13:04:49+08:00"
   },
   "days": [
     {
@@ -986,18 +986,18 @@
     },
     {
       "date": "2026-08-31",
-      "intake": 555,
+      "intake": 720,
       "records": [
         {
           "name": "牛排饭套餐（牛排6片+溏心蛋+米饭+洋葱丝）",
-          "calories": 555,
+          "calories": 720,
           "meal": "午餐"
         }
       ],
       "macros": {
-        "protein": 50,
-        "carbs": 31.5,
-        "fat": 24.5
+        "protein": 66,
+        "carbs": 47,
+        "fat": 29
       },
       "body": {
         "weightKg": 77.8
@@ -1031,7 +1031,7 @@
     },
     {
       "date": "今日",
-      "intake": 555
+      "intake": 720
     }
   ]
 }
