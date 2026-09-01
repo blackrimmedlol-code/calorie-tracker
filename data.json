@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-01T16:46:38+08:00"
+    "updatedAt": "2026-09-01T19:31:27+08:00"
   },
   "days": [
     {
@@ -1115,7 +1115,7 @@
     },
     {
       "date": "2026-09-01",
-      "intake": 862,
+      "intake": 1677,
       "records": [
         {
           "name": "泰式炭烤猪猪堡随心配（双层吉士堡+玉米杯）",
@@ -1126,12 +1126,22 @@
           "name": "蘸酱脆皮鸡柳×3（含山葵酱）",
           "calories": 380,
           "meal": "加餐"
+        },
+        {
+          "name": "白米饭1拳",
+          "calories": 185,
+          "meal": "晚餐"
+        },
+        {
+          "name": "牛腩煲牛肉2拳",
+          "calories": 630,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 56.5,
-        "carbs": 62,
-        "fat": 46.5
+        "protein": 103.5,
+        "carbs": 113,
+        "fat": 94
       },
       "body": {
         "weightKg": 77.95
@@ -1165,7 +1175,7 @@
     },
     {
       "date": "今日",
-      "intake": 862
+      "intake": 1677
     }
   ]
 }
