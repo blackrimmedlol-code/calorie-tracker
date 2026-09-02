@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-02T11:06:04+08:00"
+    "updatedAt": "2026-09-02T12:44:13+08:00"
   },
   "days": [
     {
@@ -1163,19 +1163,25 @@
     },
     {
       "date": "2026-09-02",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 825,
+      "records": [
+        {
+          "name": "叉烧滑蛋饭",
+          "calories": 825,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 50,
+        "carbs": 33,
+        "fat": 52
+      },
       "body": {
         "weightKg": 78.15
       }
     }
   ],
   "trend": [
-    {
-      "date": "08-26",
-      "intake": 1005
-    },
     {
       "date": "08-27",
       "intake": 1920
@@ -1197,8 +1203,12 @@
       "intake": 1620
     },
     {
-      "date": "今日",
+      "date": "09-01",
       "intake": 1677
+    },
+    {
+      "date": "今日",
+      "intake": 825
     }
   ]
 }
