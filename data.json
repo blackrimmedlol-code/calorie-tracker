@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-01T19:31:27+08:00"
+    "updatedAt": "2026-09-02T10:49:12+08:00"
   },
   "days": [
     {
@@ -1145,6 +1145,15 @@
       },
       "body": {
         "weightKg": 77.95
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "intake": null,
+      "records": [],
+      "macros": null,
+      "body": {
+        "weightKg": 78.15
       }
     }
   ],
