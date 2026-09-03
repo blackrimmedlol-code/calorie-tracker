@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-03T07:50:12+08:00"
+    "updatedAt": "2026-09-03T17:41:38+08:00"
   },
   "days": [
     {
@@ -1223,9 +1223,26 @@
     },
     {
       "date": "2026-09-03",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 693,
+      "records": [
+        {
+          "name": "猪柳蛋麦满分套餐（麦满分+脆薯饼+冰美式）",
+          "calories": 533,
+          "meal": "早餐",
+          "time": "08:00"
+        },
+        {
+          "name": "薯片（半包，约30g）",
+          "calories": 160,
+          "meal": "加餐",
+          "time": "12:00"
+        }
+      ],
+      "macros": {
+        "protein": 26,
+        "carbs": 55,
+        "fat": 40
+      },
       "body": {
         "weightKg": 78.05
       }
