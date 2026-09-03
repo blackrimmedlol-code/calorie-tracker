@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-03T17:41:38+08:00"
+    "updatedAt": "2026-09-03T21:48:32+08:00"
   },
   "days": [
     {
@@ -1223,7 +1223,7 @@
     },
     {
       "date": "2026-09-03",
-      "intake": 693,
+      "intake": 1533,
       "records": [
         {
           "name": "猪柳蛋麦满分套餐（麦满分+脆薯饼+冰美式）",
@@ -1236,12 +1236,37 @@
           "calories": 160,
           "meal": "加餐",
           "time": "12:00"
+        },
+        {
+          "name": "蛋炒饭1拳",
+          "calories": 240,
+          "meal": "晚餐"
+        },
+        {
+          "name": "老鸭汤1碗",
+          "calories": 100,
+          "meal": "晚餐"
+        },
+        {
+          "name": "炖鸭肉2块",
+          "calories": 150,
+          "meal": "晚餐"
+        },
+        {
+          "name": "笋炒时蔬2拳",
+          "calories": 170,
+          "meal": "晚餐"
+        },
+        {
+          "name": "炒蛋1拳",
+          "calories": 180,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 26,
-        "carbs": 55,
-        "fat": 40
+        "protein": 67,
+        "carbs": 102,
+        "fat": 95
       },
       "body": {
         "weightKg": 78.05
@@ -1249,10 +1274,6 @@
     }
   ],
   "trend": [
-    {
-      "date": "08-27",
-      "intake": 1920
-    },
     {
       "date": "08-28",
       "intake": 1688
@@ -1274,8 +1295,12 @@
       "intake": 1677
     },
     {
+      "date": "09-02",
+      "intake": 1603
+    },
+    {
       "date": "今日",
-      "intake": 1528
+      "intake": 1533
     }
   ]
 }
