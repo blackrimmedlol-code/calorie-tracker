@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-03T23:03:14+08:00"
+    "updatedAt": "2026-09-05T01:01:38+08:00"
   },
   "days": [
     {
@@ -1285,13 +1285,80 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-09-04",
+      "intake": 2655,
+      "records": [
+        {
+          "name": "小豆沙包x2",
+          "calories": 265,
+          "meal": "早餐"
+        },
+        {
+          "name": "小牛角包",
+          "calories": 150,
+          "meal": "早餐"
+        },
+        {
+          "name": "水煮蛋",
+          "calories": 75,
+          "meal": "早餐"
+        },
+        {
+          "name": "白米饭2拳",
+          "calories": 370,
+          "meal": "午餐"
+        },
+        {
+          "name": "牛肉1拳（午餐）",
+          "calories": 250,
+          "meal": "午餐"
+        },
+        {
+          "name": "鸡蛋半拳",
+          "calories": 165,
+          "meal": "午餐"
+        },
+        {
+          "name": "炒笋1拳",
+          "calories": 110,
+          "meal": "午餐"
+        },
+        {
+          "name": "米饭1碗",
+          "calories": 215,
+          "meal": "晚餐"
+        },
+        {
+          "name": "牛肉1拳（晚餐）",
+          "calories": 250,
+          "meal": "晚餐"
+        },
+        {
+          "name": "椒盐排条1拳",
+          "calories": 475,
+          "meal": "晚餐"
+        },
+        {
+          "name": "糍粑2小块",
+          "calories": 230,
+          "meal": "晚餐"
+        },
+        {
+          "name": "炒蔬菜1拳",
+          "calories": 100,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 145,
+        "carbs": 290,
+        "fat": 110
+      }
     }
   ],
   "trend": [
-    {
-      "date": "08-28",
-      "intake": 1688
-    },
     {
       "date": "08-29",
       "intake": 1355
@@ -1313,8 +1380,12 @@
       "intake": 1603
     },
     {
-      "date": "今日",
+      "date": "09-03",
       "intake": 1533
+    },
+    {
+      "date": "今日",
+      "intake": 2655
     }
   ]
 }
