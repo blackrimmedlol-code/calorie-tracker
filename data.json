@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-05T10:22:55+08:00"
+    "updatedAt": "2026-09-05T13:21:30+08:00"
   },
   "days": [
     {
@@ -1402,7 +1402,7 @@
     },
     {
       "date": "2026-09-05",
-      "intake": 684,
+      "intake": 1724,
       "records": [
         {
           "name": "煎蛋x2（油煎）",
@@ -1413,12 +1413,17 @@
           "name": "格仔饼（无酱原味）",
           "calories": 474,
           "meal": "早餐"
+        },
+        {
+          "name": "德克士椰香咖喱鸡排饭",
+          "calories": 1040,
+          "meal": "午餐"
         }
       ],
       "macros": {
-        "protein": 22,
-        "carbs": 63,
-        "fat": 38
+        "protein": 61,
+        "carbs": 181,
+        "fat": 83
       }
     }
   ],
@@ -1449,7 +1454,7 @@
     },
     {
       "date": "今日",
-      "intake": 684
+      "intake": 1724
     }
   ]
 }
