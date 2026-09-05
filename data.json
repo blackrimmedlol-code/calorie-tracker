@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-05T01:04:55+08:00"
+    "updatedAt": "2026-09-05T10:22:55+08:00"
   },
   "days": [
     {
@@ -1399,13 +1399,30 @@
           }
         ]
       }
+    },
+    {
+      "date": "2026-09-05",
+      "intake": 684,
+      "records": [
+        {
+          "name": "煎蛋x2（油煎）",
+          "calories": 210,
+          "meal": "早餐"
+        },
+        {
+          "name": "格仔饼（无酱原味）",
+          "calories": 474,
+          "meal": "早餐"
+        }
+      ],
+      "macros": {
+        "protein": 22,
+        "carbs": 63,
+        "fat": 38
+      }
     }
   ],
   "trend": [
-    {
-      "date": "08-29",
-      "intake": 1355
-    },
     {
       "date": "08-30",
       "intake": 2095
@@ -1427,8 +1444,12 @@
       "intake": 1533
     },
     {
-      "date": "今日",
+      "date": "09-04",
       "intake": 2655
+    },
+    {
+      "date": "今日",
+      "intake": 684
     }
   ]
 }
