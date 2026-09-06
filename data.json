@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-06T23:05:08+08:00"
+    "updatedAt": "2026-09-07T02:10:10+08:00"
   },
   "days": [
     {
@@ -1441,9 +1441,24 @@
     },
     {
       "date": "2026-09-06",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 1426,
+      "records": [
+        {
+          "name": "麦当劳猪柳蛋麦满分套餐（麦满分+脆薯饼×2+冰美式）",
+          "calories": 686,
+          "meal": "午餐"
+        },
+        {
+          "name": "三文鱼烩饭（米饭约半份）",
+          "calories": 740,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 66,
+        "carbs": 102,
+        "fat": 82
+      },
       "activity": {
         "source": "Apple Fitness",
         "capturedAt": "2026-09-06T23:00:00+08:00",
