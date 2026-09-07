@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-07T02:10:10+08:00"
+    "updatedAt": "2026-09-07T15:39:18+08:00"
   },
   "days": [
     {
@@ -1473,17 +1473,25 @@
         "exerciseGoal": 30,
         "standGoal": 12
       }
+    },
+    {
+      "date": "2026-09-07",
+      "intake": 590,
+      "records": [
+        {
+          "name": "锡纸盖饭（煎蛋皮+卤牛肉/叉烧切片+米饭约4成+红烧汁）",
+          "calories": 590,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 36,
+        "carbs": 39,
+        "fat": 31
+      }
     }
   ],
   "trend": [
-    {
-      "date": "08-30",
-      "intake": 2095
-    },
-    {
-      "date": "08-31",
-      "intake": 1620
-    },
     {
       "date": "09-01",
       "intake": 1677
@@ -1501,8 +1509,16 @@
       "intake": 2655
     },
     {
+      "date": "09-05",
+      "intake": 1669
+    },
+    {
+      "date": "09-06",
+      "intake": 1426
+    },
+    {
       "date": "今日",
-      "intake": 1724
+      "intake": 590
     }
   ]
 }
