@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-08T12:54:55+08:00"
+    "updatedAt": "2026-09-09T01:54:25+08:00"
   },
   "days": [
     {
@@ -1534,21 +1534,51 @@
     },
     {
       "date": "2026-09-08",
-      "intake": 495,
+      "intake": 1540,
       "records": [
         {
           "name": "滑蛋牛肉饭（外卖，剩约半碗）",
           "calories": 495,
           "meal": "午餐"
+        },
+        {
+          "name": "COMMUNE幻师晚餐：大虾芝士薄饼2片+烤鸡翅2个+安格斯牛肉串1串（素菜未吃）+巴斯克蛋糕拼盘30%",
+          "calories": 1045,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 34,
-        "carbs": 35,
-        "fat": 23
+        "protein": 104,
+        "carbs": 104,
+        "fat": 77
       },
       "body": {
         "weightKg": 77.7
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-09T01:50:00+08:00",
+        "isFinal": true,
+        "activeCalories": 723,
+        "totalCalories": 2683,
+        "exerciseMinutes": 77,
+        "standHours": 12,
+        "steps": 13456,
+        "distanceKm": 9.07,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "durationMin": 133.45,
+            "distanceKm": 4.65,
+            "activeCalories": 587,
+            "averageHeartRate": 111,
+            "averagePace": "28′40″/公里",
+            "effortLabel": "轻松"
+          }
+        ]
       }
     }
   ],
