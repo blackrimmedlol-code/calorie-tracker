@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-09T11:37:56+08:00"
+    "updatedAt": "2026-09-09T15:30:52+08:00"
   },
   "days": [
     {
@@ -1583,9 +1583,29 @@
     },
     {
       "date": "2026-09-09",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 962,
+      "records": [
+        {
+          "name": "双层吉士汉堡",
+          "calories": 429,
+          "meal": "午餐"
+        },
+        {
+          "name": "小玉米杯",
+          "calories": 53,
+          "meal": "午餐"
+        },
+        {
+          "name": "韩式甜辣酱鸡块 8块(2盒x4)",
+          "calories": 480,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 49,
+        "carbs": 88,
+        "fat": 45
+      },
       "body": {
         "weightKg": 77.6
       }
