@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-09T15:30:52+08:00"
+    "updatedAt": "2026-09-09T16:47:02+08:00"
   },
   "days": [
     {
@@ -1583,7 +1583,7 @@
     },
     {
       "date": "2026-09-09",
-      "intake": 962,
+      "intake": 1452,
       "records": [
         {
           "name": "双层吉士汉堡",
@@ -1599,12 +1599,22 @@
           "name": "韩式甜辣酱鸡块 8块(2盒x4)",
           "calories": 480,
           "meal": "午餐"
+        },
+        {
+          "name": "星巴克火腿芝士可颂",
+          "calories": 380,
+          "meal": "晚餐"
+        },
+        {
+          "name": "脱脂牛奶冰拿铁",
+          "calories": 110,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 49,
-        "carbs": 88,
-        "fat": 45
+        "protein": 71,
+        "carbs": 128,
+        "fat": 72
       },
       "body": {
         "weightKg": 77.6
@@ -1612,10 +1622,6 @@
     }
   ],
   "trend": [
-    {
-      "date": "09-02",
-      "intake": 1603
-    },
     {
       "date": "09-03",
       "intake": 1533
@@ -1637,8 +1643,12 @@
       "intake": 590
     },
     {
+      "date": "09-08",
+      "intake": 1540
+    },
+    {
       "date": "今日",
-      "intake": 775
+      "intake": 1452
     }
   ]
 }
