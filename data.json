@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-13T22:01:28+08:00"
+    "updatedAt": "2026-09-13T22:07:21+08:00"
   },
   "days": [
     {
@@ -1666,6 +1666,48 @@
       }
     },
     {
+      "date": "2026-09-11",
+      "intake": null,
+      "records": [],
+      "macros": null,
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-13T21:57:00+08:00",
+        "isFinal": true,
+        "activeCalories": 505,
+        "totalCalories": 2417,
+        "exerciseMinutes": 10,
+        "standHours": 12,
+        "steps": 13752,
+        "distanceKm": 9.05,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "intake": null,
+      "records": [],
+      "macros": null,
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-13T21:57:00+08:00",
+        "isFinal": true,
+        "activeCalories": 680,
+        "totalCalories": 2632,
+        "exerciseMinutes": 32,
+        "standHours": 14,
+        "steps": 16500,
+        "distanceKm": 11.0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
+    },
+    {
       "date": "2026-09-13",
       "intake": 2089,
       "records": [
@@ -1714,6 +1756,21 @@
         "protein": 75,
         "carbs": 211,
         "fat": 97
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-13T21:57:00+08:00",
+        "isFinal": false,
+        "activeCalories": 343,
+        "totalCalories": 1833,
+        "exerciseMinutes": 11,
+        "standHours": 8,
+        "steps": 6586,
+        "distanceKm": 4.47,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
       }
     }
   ],
