@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-10T23:03:39+08:00"
+    "updatedAt": "2026-09-13T22:01:28+08:00"
   },
   "days": [
     {
@@ -1664,25 +1664,60 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-09-13",
+      "intake": 2089,
+      "records": [
+        {
+          "name": "鸡蛋3个（做法未确认，按水煮/煎中值）",
+          "calories": 280,
+          "meal": "早餐"
+        },
+        {
+          "name": "炒粉丝半拳（熟约70g）",
+          "calories": 125,
+          "meal": "早餐"
+        },
+        {
+          "name": "薯饼1个（约60g油炸）",
+          "calories": 155,
+          "meal": "早餐"
+        },
+        {
+          "name": "麦当劳双层鱼柳包（双层深海鳕鱼堡209g）",
+          "calories": 485,
+          "meal": "午餐"
+        },
+        {
+          "name": "大玉米杯（118g）",
+          "calories": 87,
+          "meal": "午餐"
+        },
+        {
+          "name": "雀巢柠檬红茶中杯500ml",
+          "calories": 175,
+          "meal": "午餐"
+        },
+        {
+          "name": "外卖番茄炒蛋（实吃约550g，含蛋液约3个+炒油）",
+          "calories": 510,
+          "meal": "晚餐"
+        },
+        {
+          "name": "白米饭（实吃约150-200g，拌入番茄汤汁）",
+          "calories": 272,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 75,
+        "carbs": 211,
+        "fat": 97
+      }
     }
   ],
   "trend": [
-    {
-      "date": "09-03",
-      "intake": 1533
-    },
-    {
-      "date": "09-04",
-      "intake": 2655
-    },
-    {
-      "date": "09-05",
-      "intake": 1669
-    },
-    {
-      "date": "09-06",
-      "intake": 1426
-    },
     {
       "date": "09-07",
       "intake": 590
@@ -1692,8 +1727,24 @@
       "intake": 1540
     },
     {
-      "date": "今日",
+      "date": "09-09",
       "intake": 2121
+    },
+    {
+      "date": "09-10",
+      "intake": null
+    },
+    {
+      "date": "09-11",
+      "intake": null
+    },
+    {
+      "date": "09-12",
+      "intake": null
+    },
+    {
+      "date": "今日",
+      "intake": 2089
     }
   ]
 }
