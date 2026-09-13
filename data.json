@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-13T22:07:21+08:00"
+    "updatedAt": "2026-09-13T22:15:53+08:00"
   },
   "days": [
     {
@@ -1646,8 +1646,14 @@
     },
     {
       "date": "2026-09-10",
-      "intake": null,
-      "records": [],
+      "intake": 2000,
+      "records": [
+        {
+          "name": "全天摄入（饮食内容已忘记，按用户口径 2000 大卡补记）",
+          "calories": 2000,
+          "meal": "全天"
+        }
+      ],
       "macros": null,
       "activity": {
         "source": "Apple Fitness",
@@ -1667,8 +1673,14 @@
     },
     {
       "date": "2026-09-11",
-      "intake": null,
-      "records": [],
+      "intake": 2000,
+      "records": [
+        {
+          "name": "全天摄入（饮食内容已忘记，按用户口径 2000 大卡补记）",
+          "calories": 2000,
+          "meal": "全天"
+        }
+      ],
       "macros": null,
       "activity": {
         "source": "Apple Fitness",
@@ -1688,8 +1700,14 @@
     },
     {
       "date": "2026-09-12",
-      "intake": null,
-      "records": [],
+      "intake": 2000,
+      "records": [
+        {
+          "name": "全天摄入（饮食内容已忘记，按用户口径 2000 大卡补记）",
+          "calories": 2000,
+          "meal": "全天"
+        }
+      ],
       "macros": null,
       "activity": {
         "source": "Apple Fitness",
