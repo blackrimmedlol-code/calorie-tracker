@@ -71,11 +71,11 @@ CSS 变量集中在 `:root`（--paper/--ink/--grey-1~3/--accent/--accent-on）�
 | 职责 | 归属 |
 |------|------|
 | **代码/页面**（index.html：样式、图表、功能、布局） | Codex 可自由修改 |
-| **数据文件**（data.json：每日摄入记录） | Hermes 大总管维护，**Codex 不要直接改** |
+| **数据文件**（data.json：每日摄入/活动/体重记录） | 数据维护方维护（原 Hermes 大总管，交接见 `HANDOFF.md`），**Codex 不要直接改** |
 
-数据更新流程（由 Hermes 负责）：用户发餐 → 养生 agent 计算 → 脚本写入 data.json → git push → 线上自动更新。
+数据更新流程（数据维护方负责）：用户发餐/体重/活动 → 识别与估算（口径见 `HANDOFF.md` §5）→ `tools/` 脚本写入 data.json → 校验 → `bash tools/push-data.sh "..."` → 线上自动更新。
 
-**定时任务**：每日 0:00（北京时间）有 cron 自动滚动 trend 窗口并提交 data.json——如果你在改代码，**commit/push 前务必先 `git pull`**，避免与每日滚动提交冲突。
+**定时任务**：每日 0:00 自动滚动 trend 的 cron **已于 2026-08-31 取消**（`trend` 字段页面 JS 已零引用，取消不影响页面）。若在改代码，commit/push 前**仍建议先 `git pull`**，避免与其他 agent 的提交冲突。
 
 ## 硬性约束
 
