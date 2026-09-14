@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-14T10:44:36+08:00"
+    "updatedAt": "2026-09-14T11:03:40+08:00"
   },
   "days": [
     {
@@ -1669,6 +1669,9 @@
         "exerciseGoal": 30,
         "standGoal": 12,
         "workouts": []
+      },
+      "body": {
+        "weightKg": 77.85
       }
     },
     {
@@ -1696,6 +1699,9 @@
         "exerciseGoal": 30,
         "standGoal": 12,
         "workouts": []
+      },
+      "body": {
+        "weightKg": 78.1
       }
     },
     {
@@ -1723,6 +1729,9 @@
         "exerciseGoal": 30,
         "standGoal": 12,
         "workouts": []
+      },
+      "body": {
+        "weightKg": 78.35
       }
     },
     {
@@ -1789,6 +1798,9 @@
         "exerciseGoal": 30,
         "standGoal": 12,
         "workouts": []
+      },
+      "body": {
+        "weightKg": 78.6
       }
     },
     {
