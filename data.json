@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-14T11:03:40+08:00"
+    "updatedAt": "2026-09-14T19:13:12+08:00"
   },
   "days": [
     {
@@ -1805,19 +1805,55 @@
     },
     {
       "date": "2026-09-14",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 1180,
+      "records": [
+        {
+          "name": "台式炸鸡（带骨裹粉约5-6块，餐前约200-250g，全部吃掉）",
+          "calories": 400,
+          "meal": "晚餐"
+        },
+        {
+          "name": "卤肉饭白米饭（约200g，吃掉约9成）",
+          "calories": 240,
+          "meal": "晚餐"
+        },
+        {
+          "name": "卤肉丁+卤汁（约110g，全吃）",
+          "calories": 340,
+          "meal": "晚餐"
+        },
+        {
+          "name": "半颗卤蛋",
+          "calories": 40,
+          "meal": "晚餐"
+        },
+        {
+          "name": "腌萝卜片1-2片",
+          "calories": 5,
+          "meal": "晚餐"
+        },
+        {
+          "name": "花生约10g",
+          "calories": 55,
+          "meal": "晚餐"
+        },
+        {
+          "name": "外食烹调用油/卤汁油（碗底油膜部分计入）",
+          "calories": 100,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 55,
+        "carbs": 72,
+        "fat": 74
+      },
       "body": {
         "weightKg": 78.85
       }
     }
   ],
   "trend": [
-    {
-      "date": "09-07",
-      "intake": 590
-    },
     {
       "date": "09-08",
       "intake": 1540
@@ -1828,19 +1864,23 @@
     },
     {
       "date": "09-10",
-      "intake": null
+      "intake": 2000
     },
     {
       "date": "09-11",
-      "intake": null
+      "intake": 2000
     },
     {
       "date": "09-12",
-      "intake": null
+      "intake": 2000
+    },
+    {
+      "date": "09-13",
+      "intake": 2089
     },
     {
       "date": "今日",
-      "intake": 2089
+      "intake": 1180
     }
   ]
 }
