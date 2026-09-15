@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-15T23:17:47+08:00"
+    "updatedAt": "2026-09-15T23:22:14+08:00"
   },
   "days": [
     {
@@ -1964,7 +1964,23 @@
         "moveGoal": 650,
         "exerciseGoal": 30,
         "standGoal": 12,
-        "workouts": []
+        "workouts": [
+          {
+            "name": "户外步行",
+            "startTime": "21:01",
+            "endTime": "21:58",
+            "durationMin": 56.48,
+            "distanceKm": 2.18,
+            "activeCalories": 147,
+            "totalCalories": 242,
+            "averageHeartRate": 111,
+            "averagePace": "25′53″/公里",
+            "elevationGainM": 70,
+            "effort": 3,
+            "effortLabel": "轻松",
+            "source": "Apple Fitness"
+          }
+        ]
       }
     }
   ],
