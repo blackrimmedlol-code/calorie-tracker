@@ -1982,13 +1982,63 @@
           }
         ]
       }
+    },
+    {
+      "date": "2026-09-16",
+      "intake": 1575,
+      "records": [
+        {
+          "name": "麦当劳三文鱼双虾至尊月堡四件套（汉堡吃一半：汉堡半份约275+扭扭薯约340+脆皮鸡柳约200+中杯可乐约210）",
+          "calories": 1025,
+          "meal": "午餐"
+        },
+        {
+          "name": "牛肉牛腩粿条（河粉+生腌牛肉片+炖牛腩+清汤，全吃完）",
+          "calories": 550,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 70,
+        "carbs": 190,
+        "fat": 60
+      },
+      "body": {
+        "weightKg": 79.5
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-16T23:59:00+08:00",
+        "isFinal": true,
+        "activeCalories": 657,
+        "totalCalories": 2492,
+        "exerciseMinutes": 61,
+        "standHours": 13,
+        "steps": 13400,
+        "distanceKm": 9.31,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "startTime": "晚间",
+            "durationMin": 149,
+            "distanceKm": 4.99,
+            "activeCalories": 353,
+            "totalCalories": 604,
+            "averageHeartRate": 100,
+            "averagePace": "29′50″/公里",
+            "elevationGainM": 424,
+            "effort": 3,
+            "effortLabel": "轻松",
+            "source": "Apple Fitness"
+          }
+        ]
+      }
     }
   ],
   "trend": [
-    {
-      "date": "09-09",
-      "intake": 2121
-    },
     {
       "date": "09-10",
       "intake": 2000
@@ -2011,11 +2061,15 @@
     },
     {
       "date": "09-15",
-      "intake": 870
+      "intake": 1875
+    },
+    {
+      "date": "09-16",
+      "intake": 1575
     },
     {
       "date": "今日",
-      "intake": 1875
+      "intake": 1575
     }
   ]
 }
