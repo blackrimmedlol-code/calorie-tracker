@@ -2056,6 +2056,36 @@
         "protein": 65,
         "carbs": 180,
         "fat": 80
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-17T23:59:00+08:00",
+        "isFinal": true,
+        "activeCalories": 563,
+        "totalCalories": 2380,
+        "exerciseMinutes": 54,
+        "standHours": 12,
+        "steps": 11167,
+        "distanceKm": 7.9,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "startTime": "晚间",
+            "durationMin": 76,
+            "distanceKm": 4.25,
+            "activeCalories": 242,
+            "totalCalories": 370,
+            "averageHeartRate": 130,
+            "averagePace": "17′50″/公里",
+            "elevationGainM": 81,
+            "effort": 5,
+            "effortLabel": "适中",
+            "source": "Apple Fitness"
+          }
+        ]
       }
     }
   ],
