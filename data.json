@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-19T21:00:00+08:00"
+    "updatedAt": "2026-09-20T00:00:00+08:00"
   },
   "days": [
     {
@@ -2152,7 +2152,7 @@
     },
     {
       "date": "2026-09-19",
-      "intake": 950,
+      "intake": 1005,
       "records": [
         {
           "name": "汤河粉(吃完,熟重约300g)+带筋牛腩(吃一半约60-75g)+牛肉丸1颗+牛骨清汤浮油(未蘸酱)",
@@ -2163,15 +2163,50 @@
           "name": "棒约翰9英寸双拼披萨(夏威夷+鸡肉BBQ,传统饼底) 吃约1/3",
           "calories": 330,
           "meal": "晚餐"
+        },
+        {
+          "name": "红柚 2片(约120g果肉)",
+          "calories": 55,
+          "meal": "加餐"
         }
       ],
       "macros": {
-        "protein": 53,
-        "carbs": 118,
+        "protein": 54,
+        "carbs": 132,
         "fat": 31
       },
       "body": {
         "weightKg": 77.5
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-19T23:59:00+08:00",
+        "isFinal": true,
+        "activeCalories": 447,
+        "totalCalories": 2250,
+        "exerciseMinutes": 35,
+        "standHours": 7,
+        "steps": 8168,
+        "distanceKm": 5.67,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "startTime": "2026-09-19 20:29-22:00",
+            "durationMin": 90,
+            "distanceKm": 3.72,
+            "activeCalories": 242,
+            "totalCalories": 394,
+            "averageHeartRate": 108,
+            "averagePace": "24′14″/公里",
+            "elevationGainM": 193,
+            "effort": 3,
+            "effortLabel": "轻松",
+            "source": "Apple Fitness"
+          }
+        ]
       }
     }
   ],
@@ -2206,7 +2241,7 @@
     },
     {
       "date": "今日",
-      "intake": 950
+      "intake": 1005
     }
   ]
 }
