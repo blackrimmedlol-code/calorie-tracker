@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-19T13:00:00+08:00"
+    "updatedAt": "2026-09-19T21:00:00+08:00"
   },
   "days": [
     {
@@ -2152,18 +2152,23 @@
     },
     {
       "date": "2026-09-19",
-      "intake": 620,
+      "intake": 950,
       "records": [
         {
           "name": "汤河粉(吃完,熟重约300g)+带筋牛腩(吃一半约60-75g)+牛肉丸1颗+牛骨清汤浮油(未蘸酱)",
           "calories": 620,
           "meal": "午餐"
+        },
+        {
+          "name": "棒约翰9英寸双拼披萨(夏威夷+鸡肉BBQ,传统饼底) 吃约1/3",
+          "calories": 330,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 38,
-        "carbs": 82,
-        "fat": 18
+        "protein": 53,
+        "carbs": 118,
+        "fat": 31
       },
       "body": {
         "weightKg": 77.5
@@ -2201,7 +2206,7 @@
     },
     {
       "date": "今日",
-      "intake": 620
+      "intake": 950
     }
   ]
 }
