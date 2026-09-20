@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-20T12:58:00+08:00"
+    "updatedAt": "2026-09-20T22:58:00+08:00"
   },
   "days": [
     {
@@ -2211,18 +2211,53 @@
     },
     {
       "date": "2026-09-20",
-      "intake": 300,
+      "intake": 1200,
       "records": [
         {
           "name": "黄咖喱炖菜(牛腩+胡萝卜+土豆,椰香酱底,吃约3成~150kcal)+紫米杂粮饭(吃约4成120g~155kcal),按吃后剩量+椰浆咖喱密度修正",
           "calories": 300,
           "meal": "午餐"
+        },
+        {
+          "name": "韩式炭火烤五花肉7块(约130-150g熟肉,肥瘦相间,全吃)+豆腐葱油拌饭(小碗整份)+芝麻辣椒蘸料",
+          "calories": 900,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 14,
-        "carbs": 31,
-        "fat": 12
+        "protein": 56,
+        "carbs": 89,
+        "fat": 70
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-20T23:59:00+08:00",
+        "isFinal": true,
+        "activeCalories": 544,
+        "totalCalories": 2283,
+        "exerciseMinutes": 54,
+        "standHours": 13,
+        "steps": 11068,
+        "distanceKm": 7.7,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "startTime": "2026-09-20 20:18-21:43",
+            "durationMin": 85,
+            "distanceKm": 4.23,
+            "activeCalories": 249,
+            "totalCalories": 392,
+            "averageHeartRate": 106,
+            "averagePace": "19′59″/公里",
+            "elevationGainM": 80,
+            "effort": 3,
+            "effortLabel": "轻松",
+            "source": "Apple Fitness"
+          }
+        ]
       }
     }
   ],
@@ -2257,7 +2292,7 @@
     },
     {
       "date": "今日",
-      "intake": 300
+      "intake": 1200
     }
   ]
 }
