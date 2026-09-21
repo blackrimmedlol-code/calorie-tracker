@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-21T11:51:44+08:00"
+    "updatedAt": "2026-09-21T15:01:36+08:00"
   },
   "days": [
     {
@@ -2265,23 +2265,30 @@
     },
     {
       "date": "2026-09-21",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 930,
+      "records": [
+        {
+          "name": "麦当劳双层吉士堡(中国区标准)",
+          "calories": 450,
+          "meal": "午餐"
+        },
+        {
+          "name": "麦辣鸡翅4个(2对,中国区)",
+          "calories": 480,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 49,
+        "carbs": 42,
+        "fat": 59
+      },
       "body": {
         "weightKg": 77.7
       }
     }
   ],
   "trend": [
-    {
-      "date": "09-13",
-      "intake": 2089
-    },
-    {
-      "date": "09-14",
-      "intake": 2532
-    },
     {
       "date": "09-15",
       "intake": 1875
@@ -2303,8 +2310,12 @@
       "intake": 1005
     },
     {
-      "date": "今日",
+      "date": "09-20",
       "intake": 1200
+    },
+    {
+      "date": "今日",
+      "intake": 930
     }
   ]
 }
