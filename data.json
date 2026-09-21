@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-21T15:01:36+08:00"
+    "updatedAt": "2026-09-22T00:53:21+08:00"
   },
   "days": [
     {
@@ -2265,7 +2265,7 @@
     },
     {
       "date": "2026-09-21",
-      "intake": 930,
+      "intake": 1580,
       "records": [
         {
           "name": "麦当劳双层吉士堡(中国区标准)",
@@ -2276,15 +2276,35 @@
           "name": "麦辣鸡翅4个(2对,中国区)",
           "calories": 480,
           "meal": "午餐"
+        },
+        {
+          "name": "蛋炒河粉(外卖盒,河粉+蛋碎+豆芽+葱,油亮量足,整盒)",
+          "calories": 650,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 49,
-        "carbs": 42,
-        "fat": 59
+        "protein": 69,
+        "carbs": 137,
+        "fat": 81
       },
       "body": {
         "weightKg": 77.7
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-21T12:52:00+08:00",
+        "isFinal": false,
+        "activeCalories": 297,
+        "totalCalories": 1933,
+        "exerciseMinutes": 3,
+        "standHours": 10,
+        "steps": 5103,
+        "distanceKm": 3.47,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
       }
     }
   ],
@@ -2315,7 +2335,7 @@
     },
     {
       "date": "今日",
-      "intake": 930
+      "intake": 1580
     }
   ]
 }
