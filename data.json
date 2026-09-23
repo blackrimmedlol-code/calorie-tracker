@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-22T12:45:52+08:00"
+    "updatedAt": "2026-09-23T10:35:34+08:00"
   },
   "days": [
     {
@@ -2309,18 +2309,70 @@
     },
     {
       "date": "2026-09-22",
-      "intake": 520,
+      "intake": 1035,
       "records": [
         {
           "name": "腊肉滑蛋盖饭(铝箔盒,餐前~滑蛋+酱褐腊肉+浅棕酱汁;餐后浇头全吃,饭剩6成只吃约4成80g~估)",
           "calories": 520,
           "meal": "午餐"
+        },
+        {
+          "name": "清汤丝瓜1勺(约40g~估)",
+          "calories": 40,
+          "meal": "晚餐"
+        },
+        {
+          "name": "酸辣土豆丝1勺(含油,约50g~估)",
+          "calories": 60,
+          "meal": "晚餐"
+        },
+        {
+          "name": "黄豆炒鸡蛋1份(湘辣,含油~估)",
+          "calories": 200,
+          "meal": "晚餐"
+        },
+        {
+          "name": "小炒黄牛肉约1勺(牛肉35g+辣椒油~估)",
+          "calories": 120,
+          "meal": "晚餐"
+        },
+        {
+          "name": "白米饭半碗(熟饭约75-85g)",
+          "calories": 95,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 30,
-        "carbs": 38,
-        "fat": 27
+        "protein": 58,
+        "carbs": 83,
+        "fat": 52
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-22T23:59:00+08:00",
+        "isFinal": true,
+        "activeCalories": 717,
+        "totalCalories": 2682,
+        "exerciseMinutes": 56,
+        "standHours": 13,
+        "steps": 13484,
+        "distanceKm": 9.41,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-22T19:54:00+08:00",
+            "endTime": "2026-09-22T22:29:00+08:00",
+            "durationMin": 155.07,
+            "activeCalories": 652,
+            "distanceKm": 5.57,
+            "intensity": "轻松(3级)",
+            "location": "深圳"
+          }
+        ]
       }
     }
   ],
@@ -2351,7 +2403,7 @@
     },
     {
       "date": "今日",
-      "intake": 520
+      "intake": 1035
     }
   ]
 }
