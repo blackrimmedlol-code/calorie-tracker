@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-23T13:00:23+08:00"
+    "updatedAt": "2026-09-24T00:15:32+08:00"
   },
   "days": [
     {
@@ -2380,7 +2380,7 @@
     },
     {
       "date": "2026-09-23",
-      "intake": 788,
+      "intake": 1291,
       "records": [
         {
           "name": "麦当劳酥酥多笋卷(鸡肉笋丝卷,中国区~350-400中值)",
@@ -2401,15 +2401,56 @@
           "name": "中杯可乐(含糖~470ml,只喝一半)",
           "calories": 90,
           "meal": "午餐"
+        },
+        {
+          "name": "麦当劳双层吉士堡(中国区,晚)",
+          "calories": 450,
+          "meal": "晚餐"
+        },
+        {
+          "name": "小杯玉米杯(校准值53,晚)",
+          "calories": 53,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 33,
-        "carbs": 92,
-        "fat": 34
+        "protein": 60,
+        "carbs": 138,
+        "fat": 60
       },
       "body": {
         "weightKg": 77.2
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-24T00:14:00+08:00",
+        "isFinal": true,
+        "activeCalories": 575,
+        "totalCalories": 2397,
+        "exerciseMinutes": 37,
+        "standHours": 14,
+        "steps": 11856,
+        "distanceKm": 8.11,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-23T19:35:00+08:00",
+            "endTime": "2026-09-23T22:12:00+08:00",
+            "durationMin": 96.77,
+            "activeCalories": 257,
+            "distanceKm": 4.21,
+            "intensity": "轻松(3级)",
+            "location": "深圳",
+            "extra": {
+              "weather": "27°C/77%",
+              "aqi": 39
+            }
+          }
+        ]
       }
     }
   ],
@@ -2440,7 +2481,7 @@
     },
     {
       "date": "今日",
-      "intake": 968
+      "intake": 1291
     }
   ]
 }
