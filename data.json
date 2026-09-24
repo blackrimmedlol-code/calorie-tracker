@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-24T12:46:50+08:00"
+    "updatedAt": "2026-09-24T23:45:39+08:00"
   },
   "days": [
     {
@@ -2455,21 +2455,70 @@
     },
     {
       "date": "2026-09-24",
-      "intake": 530,
+      "intake": 2095,
       "records": [
         {
           "name": "腊味千层蛋饭(铝箔盒;餐前满份千层蛋+酱腊肉块;餐后浇头全吃,米饭只吃3成约60g,剩7成)",
           "calories": 530,
           "meal": "午餐"
+        },
+        {
+          "name": "辣涮涮锅/串串锅(红油辣锅,20+肉串=牛肉/牛肉粒/内脏+蟹柳5根,全荤无素,另含1只牛蛙纯肉~串串锅整体中值)",
+          "calories": 1450,
+          "meal": "晚餐"
+        },
+        {
+          "name": "北海牧场杯装酸奶135g(0蔗糖~估)",
+          "calories": 115,
+          "meal": "夜宵"
         }
       ],
       "macros": {
-        "protein": 35,
-        "carbs": 28,
-        "fat": 38
+        "protein": 133,
+        "carbs": 80,
+        "fat": 133
       },
       "body": {
         "weightKg": 76.8
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-24T23:44:00+08:00",
+        "isFinal": true,
+        "activeCalories": 647,
+        "totalCalories": 2435,
+        "exerciseMinutes": 50,
+        "standHours": 12,
+        "steps": 13957,
+        "distanceKm": 9.35,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-24T20:17:00+08:00",
+            "endTime": "2026-09-24T21:44:00+08:00",
+            "durationMin": 86.03,
+            "activeCalories": 216,
+            "distanceKm": 3.46,
+            "intensity": "轻松(3级)",
+            "extra": {
+              "elevGain": 129,
+              "avgHr": 100,
+              "weather": "28°C/75%",
+              "aqi": 48
+            }
+          },
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "durationMin": 46.95,
+            "activeCalories": 137,
+            "distanceKm": 2.6
+          }
+        ]
       }
     }
   ],
@@ -2500,7 +2549,7 @@
     },
     {
       "date": "今日",
-      "intake": 650
+      "intake": 2095
     }
   ]
 }
