@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-24T09:53:49+08:00"
+    "updatedAt": "2026-09-24T12:40:14+08:00"
   },
   "days": [
     {
@@ -2455,19 +2455,25 @@
     },
     {
       "date": "2026-09-24",
-      "intake": null,
-      "records": [],
-      "macros": null,
+      "intake": 650,
+      "records": [
+        {
+          "name": "腊味千层蛋饭(铝箔盒;餐前满份千层蛋+酱腊肉块;餐后浇头全吃,饭剩3成吃约7成140g~估)",
+          "calories": 650,
+          "meal": "午餐"
+        }
+      ],
+      "macros": {
+        "protein": 35,
+        "carbs": 50,
+        "fat": 38
+      },
       "body": {
         "weightKg": 76.8
       }
     }
   ],
   "trend": [
-    {
-      "date": "09-17",
-      "intake": 1870
-    },
     {
       "date": "09-18",
       "intake": 1720
@@ -2489,8 +2495,12 @@
       "intake": 1035
     },
     {
-      "date": "今日",
+      "date": "09-23",
       "intake": 1291
+    },
+    {
+      "date": "今日",
+      "intake": 650
     }
   ]
 }
