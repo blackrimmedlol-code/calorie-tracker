@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-26T11:50:10+08:00"
+    "updatedAt": "2026-09-26T11:54:13+08:00"
   },
   "days": [
     {
@@ -2533,7 +2533,7 @@
     },
     {
       "date": "2026-09-25",
-      "intake": 1080,
+      "intake": 1800,
       "records": [
         {
           "name": "麦当劳猪柳蛋汉堡(中国区标准~估)",
@@ -2549,15 +2549,52 @@
           "name": "瘦肉卤肉饭(碗装;带肥卤肉丁+卤蛋+黄萝卜+生菜;吃后肉蛋几乎吃光饭剩3-4成吃约6成)",
           "calories": 500,
           "meal": "午餐"
+        },
+        {
+          "name": "棒约翰0.1超值薄脆牛肉多多比萨(标准装,蒜香酱+黄金椒~估)",
+          "calories": 720,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 55,
-        "carbs": 98,
-        "fat": 66
+        "protein": 85,
+        "carbs": 180,
+        "fat": 96
       },
       "body": {
         "weightKg": 77.13
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-26T11:53:00+08:00",
+        "isFinal": true,
+        "activeCalories": 583,
+        "totalCalories": 2524,
+        "exerciseMinutes": 42,
+        "standHours": 14,
+        "steps": 7872,
+        "distanceKm": 5.41,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-25T20:32:00+08:00",
+            "endTime": "2026-09-25T22:35:00+08:00",
+            "durationMin": 123.18,
+            "activeCalories": 314,
+            "distanceKm": 3.75,
+            "intensity": "轻松(3级)",
+            "extra": {
+              "elevGain": 240,
+              "avgHr": 101,
+              "weather": "28°C/72%",
+              "aqi": 40
+            }
+          }
+        ]
       }
     },
     {
@@ -2571,10 +2608,6 @@
     }
   ],
   "trend": [
-    {
-      "date": "09-19",
-      "intake": 1005
-    },
     {
       "date": "09-20",
       "intake": 1200
@@ -2596,8 +2629,12 @@
       "intake": 1450
     },
     {
+      "date": "09-25",
+      "intake": 1800
+    },
+    {
       "date": "今日",
-      "intake": 1080
+      "intake": null
     }
   ]
 }
