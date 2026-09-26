@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-26T14:50:04+08:00"
+    "updatedAt": "2026-09-26T14:51:21+08:00"
   },
   "days": [
     {
@@ -2599,7 +2599,7 @@
     },
     {
       "date": "2026-09-26",
-      "intake": 510,
+      "intake": 705,
       "records": [
         {
           "name": "香葱炒鸡蛋~吃一半(约90g~估)",
@@ -2625,11 +2625,16 @@
           "name": "萝卜炒猪耳朵2条(耳丝~估)",
           "calories": 60,
           "meal": "午餐"
+        },
+        {
+          "name": "白米饭一碗(满碗约180g熟饭)",
+          "calories": 195,
+          "meal": "午餐"
         }
       ],
       "macros": {
-        "protein": 32,
-        "carbs": 14,
+        "protein": 35,
+        "carbs": 54,
         "fat": 24
       },
       "body": {
