@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-27T11:15:55+08:00"
+    "updatedAt": "2026-09-27T13:56:41+08:00"
   },
   "days": [
     {
@@ -2677,18 +2677,28 @@
     },
     {
       "date": "2026-09-27",
-      "intake": 520,
+      "intake": 1500,
       "records": [
         {
           "name": "大号香肠软面包(火腿圈,面包+粗香肠+蒜蓉沙拉酱,直径~18-20cm)",
           "calories": 520,
+          "meal": "加餐"
+        },
+        {
+          "name": "滑蛋叉烧饭(铝箔单人份~400g)",
+          "calories": 600,
+          "meal": "午餐"
+        },
+        {
+          "name": "葱油拌饭(铝箔盒约7成)",
+          "calories": 380,
           "meal": "午餐"
         }
       ],
       "macros": {
-        "protein": 20,
-        "carbs": 65,
-        "fat": 28
+        "protein": 56,
+        "carbs": 195,
+        "fat": 64
       },
       "body": {
         "weight": 77.6
