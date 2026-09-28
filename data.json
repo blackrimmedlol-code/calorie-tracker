@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-28T11:03:26+08:00"
+    "updatedAt": "2026-09-28T14:14:30+08:00"
   },
   "days": [
     {
@@ -2739,18 +2739,28 @@
     },
     {
       "date": "2026-09-28",
-      "intake": 360,
+      "intake": 863,
       "records": [
         {
           "name": "鸡蛋生菜贝果(鸡蛋+生菜,贝果1个)",
           "calories": 360,
+          "meal": "加餐"
+        },
+        {
+          "name": "麦当劳双层吉士汉堡",
+          "calories": 450,
+          "meal": "午餐"
+        },
+        {
+          "name": "麦当劳小杯玉米杯",
+          "calories": 53,
           "meal": "午餐"
         }
       ],
       "macros": {
-        "protein": 16,
-        "carbs": 45,
-        "fat": 13
+        "protein": 43,
+        "carbs": 86,
+        "fat": 39
       },
       "body": {
         "weight": 78.2
