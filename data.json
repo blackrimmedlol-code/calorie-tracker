@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-28T09:24:00+08:00"
+    "updatedAt": "2026-09-28T11:03:26+08:00"
   },
   "days": [
     {
@@ -2739,12 +2739,18 @@
     },
     {
       "date": "2026-09-28",
-      "intake": 0,
-      "records": [],
+      "intake": 360,
+      "records": [
+        {
+          "name": "鸡蛋生菜贝果(鸡蛋+生菜,贝果1个)",
+          "calories": 360,
+          "meal": "午餐"
+        }
+      ],
       "macros": {
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0
+        "protein": 16,
+        "carbs": 45,
+        "fat": 13
       },
       "body": {
         "weight": 78.2
