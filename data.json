@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-28T18:07:38+08:00"
+    "updatedAt": "2026-09-28T23:38:38+08:00"
   },
   "days": [
     {
@@ -2739,7 +2739,7 @@
     },
     {
       "date": "2026-09-28",
-      "intake": 1033,
+      "intake": 1678,
       "records": [
         {
           "name": "鸡蛋生菜贝果(鸡蛋+生菜,贝果1个)",
@@ -2760,17 +2760,53 @@
           "name": "GEMEZ小鸡干脆面(烧烤鸡肉味,30g)",
           "calories": 170,
           "meal": "加餐"
+        },
+        {
+          "name": "麦当劳晚餐:蘸酱麦麦脆汁鸡~270+酥酥多笋卷~375",
+          "calories": 645,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 46,
-        "carbs": 106,
-        "fat": 48
+        "protein": 78,
+        "carbs": 156,
+        "fat": 82
       },
       "body": {
         "weight": 78.2
       },
-      "activity": null
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-28T23:37:00+08:00",
+        "isFinal": true,
+        "activeCalories": 558,
+        "exerciseMinutes": 38,
+        "standHours": 14,
+        "steps": 11567,
+        "distanceKm": 7.89,
+        "floors": 1,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-28T22:15:00+08:00",
+            "endTime": "2026-09-28T23:37:00+08:00",
+            "durationMin": 82.07,
+            "activeCalories": 233,
+            "totalCalories": 372,
+            "distanceKm": 3.92,
+            "intensity": "轻松(3级)",
+            "extra": {
+              "elevGain": 93,
+              "avgHr": 119,
+              "pace": "20'53''/km"
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
