@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-28T23:38:38+08:00"
+    "updatedAt": "2026-09-30T01:02:11+08:00"
   },
   "days": [
     {
@@ -2803,6 +2803,67 @@
               "elevGain": 93,
               "avgHr": 119,
               "pace": "20'53''/km"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-09-29",
+      "intake": 1193,
+      "records": [
+        {
+          "name": "午餐:卤肉饭(吃卤肉+卤蛋+卤土豆片,米饭只吃非常少)+盐酥鸡8块",
+          "calories": 690,
+          "meal": "午餐"
+        },
+        {
+          "name": "麦当劳双层吉士汉堡",
+          "calories": 450,
+          "meal": "晚餐"
+        },
+        {
+          "name": "麦当劳小杯玉米杯",
+          "calories": 53,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 72,
+        "carbs": 93,
+        "fat": 67
+      },
+      "body": {
+        "weight": 77.6
+      },
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-09-30T01:01:00+08:00",
+        "isFinal": true,
+        "activeCalories": 598,
+        "totalCalories": 2429,
+        "exerciseMinutes": 68,
+        "steps": 10605,
+        "distanceKm": 7.16,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-29T20:39:00+08:00",
+            "endTime": "2026-09-29T22:28:21+08:00",
+            "durationMin": 109.35,
+            "activeCalories": 324,
+            "totalCalories": 508,
+            "distanceKm": 4.89,
+            "intensity": "轻松(3级)",
+            "extra": {
+              "elevGain": 141,
+              "avgHr": 110,
+              "pace": "22'20''/km",
+              "weather": "29°C/79%",
+              "aqi": 20
             }
           }
         ]
