@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-30T13:16:02+08:00"
+    "updatedAt": "2026-10-01T01:14:05+08:00"
   },
   "days": [
     {
@@ -2871,23 +2871,72 @@
     },
     {
       "date": "2026-09-30",
-      "intake": 400,
+      "intake": 1270,
       "records": [
         {
           "name": "腊肠窝蛋饭(吃约2/3米饭+腊肠蛋酱)",
           "calories": 400,
           "meal": "午餐"
+        },
+        {
+          "name": "阿一猪排米线:牛腩酸辣粉(牛腩吃完+米粉1/4)",
+          "calories": 420,
+          "meal": "晚餐"
+        },
+        {
+          "name": "杨枝甘露(一碗)",
+          "calories": 180,
+          "meal": "晚餐"
+        },
+        {
+          "name": "肯德基烤大鸡腿",
+          "calories": 270,
+          "meal": "晚餐"
         }
       ],
       "macros": {
-        "protein": 16,
-        "carbs": 55,
-        "fat": 12
+        "protein": 76,
+        "carbs": 128,
+        "fat": 50
       },
       "body": {
         "weight": 77.45
       },
-      "activity": null
+      "activity": {
+        "source": "Apple Fitness",
+        "capturedAt": "2026-10-01T01:13:00+08:00",
+        "isFinal": true,
+        "activeCalories": 480,
+        "totalCalories": 2389,
+        "exerciseMinutes": 35,
+        "standHours": 10,
+        "steps": 8815,
+        "distanceKm": 6.07,
+        "floors": 1,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-09-30T20:58:00+08:00",
+            "endTime": "2026-09-30T22:19:36+08:00",
+            "durationMin": 81.6,
+            "activeCalories": 207,
+            "totalCalories": 345,
+            "distanceKm": 3.09,
+            "intensity": "轻松(3级)",
+            "extra": {
+              "elevGain": 155,
+              "avgHr": 107,
+              "pace": "26'22''/km",
+              "weather": "29°C/80%",
+              "aqi": 26
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
