@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-09-30T10:03:06+08:00"
+    "updatedAt": "2026-09-30T13:16:02+08:00"
   },
   "days": [
     {
@@ -2871,12 +2871,18 @@
     },
     {
       "date": "2026-09-30",
-      "intake": 0,
-      "records": [],
+      "intake": 400,
+      "records": [
+        {
+          "name": "腊肠窝蛋饭(吃约2/3米饭+腊肠蛋酱)",
+          "calories": 400,
+          "meal": "午餐"
+        }
+      ],
       "macros": {
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0
+        "protein": 16,
+        "carbs": 55,
+        "fat": 12
       },
       "body": {
         "weight": 77.45
