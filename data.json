@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-01T11:09:37+08:00"
+    "updatedAt": "2026-10-02T00:09:37+08:00"
   },
   "days": [
     {
@@ -2940,12 +2940,23 @@
     },
     {
       "date": "2026-10-01",
-      "intake": 0,
-      "records": [],
+      "intake": 1010,
+      "records": [
+        {
+          "name": "寿司12件(三文鱼/金枪鱼/鳗鱼混合)",
+          "calories": 500,
+          "meal": "午餐"
+        },
+        {
+          "name": "晚餐:半拳米饭70+一拳麻婆豆腐130+半拳煎蛋80+两碗鱼翅汤180+一拳蔬菜50",
+          "calories": 510,
+          "meal": "晚餐"
+        }
+      ],
       "macros": {
-        "protein": 0,
-        "carbs": 0,
-        "fat": 0
+        "protein": 47,
+        "carbs": 126,
+        "fat": 34
       },
       "body": {
         "weight": 77.9
