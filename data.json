@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-02T19:12:21+08:00"
+    "updatedAt": "2026-10-02T19:13:27+08:00"
   },
   "days": [
     {
@@ -2982,6 +2982,31 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-10-02",
+      "intake": 920,
+      "records": [
+        {
+          "name": "午餐:1拳米饭170+半拳炒蚬65+半拳蔬菜40+一拳咕噜肉250",
+          "calories": 525,
+          "meal": "午餐"
+        },
+        {
+          "name": "晚餐:1拳米饭170+半拳麻婆豆腐70+一拳蔬菜50+一碗豆腐汤60+半条小黄鱼45",
+          "calories": 395,
+          "meal": "晚餐"
+        }
+      ],
+      "macros": {
+        "protein": 50,
+        "carbs": 117,
+        "fat": 28
+      },
+      "body": {
+        "weight": 77.8
+      },
+      "activity": null
     }
   ],
   "trend": [
