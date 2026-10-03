@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-03T13:52:17+08:00"
+    "updatedAt": "2026-10-04T00:06:51+08:00"
   },
   "days": [
     {
@@ -3044,13 +3044,22 @@
           "protein": 27,
           "carbs": 86,
           "fat": 33
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:半拳米饭85+1拳瘦肉炒粉条170+1拳蔬菜50+半拳排骨110+1拳炒花蛤120",
+          "calories": 535,
+          "protein": 38,
+          "carbs": 53,
+          "fat": 21
         }
       ],
-      "intake": 750,
+      "intake": 1285,
       "macros": {
-        "protein": 27,
-        "carbs": 86,
-        "fat": 33
+        "protein": 65,
+        "carbs": 139,
+        "fat": 54
       },
       "activity": null
     }
