@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-03T11:49:44+08:00"
+    "updatedAt": "2026-10-03T13:52:17+08:00"
   },
   "days": [
     {
@@ -3035,9 +3035,23 @@
     {
       "date": "2026-10-03",
       "weight": 77.4,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "time": "13:45",
+          "meal": "午餐",
+          "name": "午餐:半拳米饭85+半拳鱼香茄子煲120+半拳粉丝90+半拳瘦肉末炒刀豆90+一碗苋菜汤35+半拳炒鸡块110+一拳炒河粉220",
+          "calories": 750,
+          "protein": 27,
+          "carbs": 86,
+          "fat": 33
+        }
+      ],
+      "intake": 750,
+      "macros": {
+        "protein": 27,
+        "carbs": 86,
+        "fat": 33
+      },
       "activity": null
     }
   ],
