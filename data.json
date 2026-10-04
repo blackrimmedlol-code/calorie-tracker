@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-04T00:06:51+08:00"
+    "updatedAt": "2026-10-04T11:30:14+08:00"
   },
   "days": [
     {
@@ -3060,6 +3060,28 @@
         "protein": 65,
         "carbs": 139,
         "fat": 54
+      },
+      "activity": null
+    },
+    {
+      "date": "2026-10-04",
+      "weight": 78.0,
+      "records": [
+        {
+          "time": "02:00",
+          "meal": "加餐",
+          "name": "凌晨:牛肉酸菜米粉(整碗,湖南风味汤粉)",
+          "calories": 650,
+          "protein": 25,
+          "carbs": 68,
+          "fat": 28
+        }
+      ],
+      "intake": 650,
+      "macros": {
+        "protein": 25,
+        "carbs": 68,
+        "fat": 28
       },
       "activity": null
     }
