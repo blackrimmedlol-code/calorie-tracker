@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-04T11:30:14+08:00"
+    "updatedAt": "2026-10-04T14:01:00+08:00"
   },
   "days": [
     {
@@ -3075,13 +3075,22 @@
           "protein": 25,
           "carbs": 68,
           "fat": 28
+        },
+        {
+          "time": "13:50",
+          "meal": "午餐",
+          "name": "午餐:1.5拳陈村粉190+1拳鱼生150+1块鹅肉180+1个虾饺45+半个小菠萝包90+2块凤爪120",
+          "calories": 780,
+          "protein": 60,
+          "carbs": 59,
+          "fat": 32
         }
       ],
-      "intake": 650,
+      "intake": 1430,
       "macros": {
-        "protein": 25,
-        "carbs": 68,
-        "fat": 28
+        "protein": 85,
+        "carbs": 127,
+        "fat": 60
       },
       "activity": null
     }
