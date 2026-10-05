@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-05T19:23:12+08:00"
+    "updatedAt": "2026-10-05T20:14:15+08:00"
   },
   "days": [
     {
@@ -3130,13 +3130,22 @@
           "protein": 22,
           "carbs": 56,
           "fat": 22
+        },
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:二当家麻辣烫(8串牛肉230+2个福袋140+4片午餐肉140+一碗瓜子120)+梦龙甜筒260",
+          "calories": 890,
+          "protein": 56,
+          "carbs": 48,
+          "fat": 54
         }
       ],
-      "intake": 520,
+      "intake": 1410,
       "macros": {
-        "protein": 22,
-        "carbs": 56,
-        "fat": 22
+        "protein": 78,
+        "carbs": 104,
+        "fat": 76
       },
       "activity": null
     }
