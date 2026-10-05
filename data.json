@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-05T11:51:10+08:00"
+    "updatedAt": "2026-10-05T19:23:12+08:00"
   },
   "days": [
     {
@@ -3121,9 +3121,23 @@
     {
       "date": "2026-10-05",
       "weight": 78.2,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "time": "19:15",
+          "meal": "晚餐",
+          "name": "晚餐:手作生煎包4个(6-8cm,煎制肉包)",
+          "calories": 520,
+          "protein": 22,
+          "carbs": 56,
+          "fat": 22
+        }
+      ],
+      "intake": 520,
+      "macros": {
+        "protein": 22,
+        "carbs": 56,
+        "fat": 22
+      },
       "activity": null
     }
   ],
