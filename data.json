@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-07T00:32:53+08:00"
+    "updatedAt": "2026-10-07T00:41:52+08:00"
   },
   "days": [
     {
@@ -3171,11 +3171,11 @@
         {
           "time": "12:30",
           "meal": "午餐",
-          "name": "午餐:腊味牛肉窝蛋煲仔饭2碗(腊味+牛肉+窝蛋+锅巴酱汁)",
-          "calories": 1300,
-          "protein": 40,
-          "carbs": 170,
-          "fat": 45
+          "name": "午餐:腊味牛肉窝蛋煲仔饭2碗(家用碗容量:米饭300g+腊味+牛肉+窝蛋+酱汁)",
+          "calories": 750,
+          "protein": 38,
+          "carbs": 92,
+          "fat": 25
         },
         {
           "time": "19:30",
@@ -3187,13 +3187,62 @@
           "fat": 37
         }
       ],
-      "intake": 2015,
+      "intake": 1465,
       "macros": {
-        "protein": 77,
-        "carbs": 223,
-        "fat": 82
+        "protein": 75,
+        "carbs": 145,
+        "fat": 62
       },
-      "activity": null
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-07T00:41:00+08:00",
+        "isFinal": true,
+        "activeCalories": 759,
+        "totalCalories": 2663,
+        "exerciseMinutes": 86,
+        "standHours": 14,
+        "steps": 14645,
+        "distanceKm": 10.19,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-06T17:12:00+08:00",
+            "endTime": "2026-10-06T18:21:00+08:00",
+            "durationMin": 68.15,
+            "activeCalories": 211,
+            "totalCalories": 326,
+            "distanceKm": 2.89,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 215,
+              "avgHr": 99,
+              "pace": "23'35\"/km",
+              "weather": "25° 湿度62%",
+              "aqi": 38
+            }
+          },
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-06T20:24:00+08:00",
+            "endTime": "2026-10-06T22:29:00+08:00",
+            "durationMin": 124.9,
+            "activeCalories": 295,
+            "totalCalories": 506,
+            "distanceKm": 4.38,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 96,
+              "avgHr": 97,
+              "pace": "28'30\"/km"
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
