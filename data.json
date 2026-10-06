@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-06T11:42:20+08:00"
+    "updatedAt": "2026-10-07T00:32:53+08:00"
   },
   "days": [
     {
@@ -3167,9 +3167,32 @@
     {
       "date": "2026-10-06",
       "weight": 77.45,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:腊味牛肉窝蛋煲仔饭2碗(腊味+牛肉+窝蛋+锅巴酱汁)",
+          "calories": 1300,
+          "protein": 40,
+          "carbs": 170,
+          "fat": 45
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:肯德基香辣鸡腿堡520+辣鸡翅1对195",
+          "calories": 715,
+          "protein": 37,
+          "carbs": 53,
+          "fat": 37
+        }
+      ],
+      "intake": 2015,
+      "macros": {
+        "protein": 77,
+        "carbs": 223,
+        "fat": 82
+      },
       "activity": null
     }
   ],
