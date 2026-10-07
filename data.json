@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-07T11:21:37+08:00"
+    "updatedAt": "2026-10-07T12:19:38+08:00"
   },
   "days": [
     {
@@ -3247,9 +3247,23 @@
     {
       "date": "2026-10-07",
       "weight": 77.35,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "time": "12:15",
+          "meal": "午餐",
+          "name": "午餐:麦当劳猪柳蛋堡450+薯饼1个150",
+          "calories": 600,
+          "protein": 22,
+          "carbs": 53,
+          "fat": 33
+        }
+      ],
+      "intake": 600,
+      "macros": {
+        "protein": 22,
+        "carbs": 53,
+        "fat": 33
+      },
       "activity": null
     }
   ],
