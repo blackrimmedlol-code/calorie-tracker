@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-07T12:19:38+08:00"
+    "updatedAt": "2026-10-08T01:12:04+08:00"
   },
   "days": [
     {
@@ -3256,15 +3256,64 @@
           "protein": 22,
           "carbs": 53,
           "fat": 33
+        },
+        {
+          "time": "19:00",
+          "meal": "晚餐",
+          "name": "晚餐:太二酸菜牛肉外卖(米饭不到半拳70+蔬菜1.5拳75+奥尔良鸡翅2个180+红糖糍粑8粒150)",
+          "calories": 475,
+          "protein": 23,
+          "carbs": 57,
+          "fat": 17
+        },
+        {
+          "time": "23:30",
+          "meal": "加餐",
+          "name": "夜宵:半个瑞幸黑巧克力贝果",
+          "calories": 170,
+          "protein": 6,
+          "carbs": 30,
+          "fat": 3
         }
       ],
-      "intake": 600,
+      "intake": 1245,
       "macros": {
-        "protein": 22,
-        "carbs": 53,
-        "fat": 33
+        "protein": 51,
+        "carbs": 140,
+        "fat": 53
       },
-      "activity": null
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-08T01:11:00+08:00",
+        "isFinal": true,
+        "activeCalories": 593,
+        "totalCalories": 2444,
+        "exerciseMinutes": 30,
+        "standHours": 12,
+        "steps": 10127,
+        "distanceKm": 7.04,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-07T19:49:00+08:00",
+            "endTime": "2026-10-07T21:47:00+08:00",
+            "durationMin": 118.45,
+            "activeCalories": 271,
+            "totalCalories": 471,
+            "distanceKm": 3.69,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 181,
+              "avgHr": 97,
+              "pace": "32'03\"/km"
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
