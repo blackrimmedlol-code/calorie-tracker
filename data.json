@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-08T01:12:04+08:00"
+    "updatedAt": "2026-10-08T01:14:19+08:00"
   },
   "days": [
     {
@@ -3260,11 +3260,11 @@
         {
           "time": "19:00",
           "meal": "晚餐",
-          "name": "晚餐:太二酸菜牛肉外卖(米饭不到半拳70+蔬菜1.5拳75+奥尔良鸡翅2个180+红糖糍粑8粒150)",
-          "calories": 475,
-          "protein": 23,
-          "carbs": 57,
-          "fat": 17
+          "name": "晚餐:太二酸菜牛肉外卖(牛肉130g180+蔬菜1.5拳90+米饭不到半拳70+奥尔良鸡翅2个180+红糖糍粑8粒150)",
+          "calories": 670,
+          "protein": 47,
+          "carbs": 60,
+          "fat": 27
         },
         {
           "time": "23:30",
@@ -3276,11 +3276,11 @@
           "fat": 3
         }
       ],
-      "intake": 1245,
+      "intake": 1440,
       "macros": {
-        "protein": 51,
-        "carbs": 140,
-        "fat": 53
+        "protein": 75,
+        "carbs": 143,
+        "fat": 63
       },
       "activity": {
         "source": "apple-fitness",
