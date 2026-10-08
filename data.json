@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-08T10:29:47+08:00"
+    "updatedAt": "2026-10-08T12:45:04+08:00"
   },
   "days": [
     {
@@ -3318,9 +3318,23 @@
     {
       "date": "2026-10-08",
       "weight": 76.95,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "time": "12:40",
+          "meal": "午餐",
+          "name": "午餐:滑蛋牛肉饭(吃2/3米饭+全部滑蛋牛肉,剩1/3饭)",
+          "calories": 470,
+          "protein": 34,
+          "carbs": 40,
+          "fat": 18
+        }
+      ],
+      "intake": 470,
+      "macros": {
+        "protein": 34,
+        "carbs": 40,
+        "fat": 18
+      },
       "activity": null
     }
   ],
