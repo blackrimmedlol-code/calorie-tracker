@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-09T10:32:17+08:00"
+    "updatedAt": "2026-10-10T00:06:37+08:00"
   },
   "days": [
     {
@@ -3382,10 +3382,66 @@
     {
       "date": "2026-10-09",
       "weight": 76.75,
-      "records": [],
-      "intake": null,
-      "macros": null,
-      "activity": null
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:精品手作厚牛肉芝士汉堡650+红薯条小包100",
+          "calories": 750,
+          "protein": 36,
+          "carbs": 68,
+          "fat": 37
+        },
+        {
+          "time": "19:00",
+          "meal": "晚餐",
+          "name": "晚餐:麦当劳龙焰芝士棒鸡腿堡570+马苏里拉拉丝芝士条140+半个双层吉士堡225",
+          "calories": 935,
+          "protein": 52,
+          "carbs": 77,
+          "fat": 51
+        }
+      ],
+      "intake": 1685,
+      "macros": {
+        "protein": 88,
+        "carbs": 145,
+        "fat": 88
+      },
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-10T00:05:00+08:00",
+        "isFinal": true,
+        "activeCalories": 625,
+        "totalCalories": 2483,
+        "exerciseMinutes": 60,
+        "standHours": 16,
+        "steps": 10436,
+        "distanceKm": 7.32,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-09T20:21:00+08:00",
+            "endTime": "2026-10-09T22:46:00+08:00",
+            "durationMin": 144.2,
+            "activeCalories": 315,
+            "totalCalories": 558,
+            "distanceKm": 4.17,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 370,
+              "avgHr": 103,
+              "pace": "34'34\"/km",
+              "weather": "26° 湿度70%",
+              "aqi": 64
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
