@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-08T12:45:04+08:00"
+    "updatedAt": "2026-10-09T10:32:17+08:00"
   },
   "days": [
     {
@@ -3327,14 +3327,64 @@
           "protein": 34,
           "carbs": 40,
           "fat": 18
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:COMMUNE培根奶油通心粉560+肋排3根150+炸鸡2个200",
+          "calories": 910,
+          "protein": 53,
+          "carbs": 70,
+          "fat": 44
         }
       ],
-      "intake": 470,
+      "intake": 1380,
       "macros": {
-        "protein": 34,
-        "carbs": 40,
-        "fat": 18
+        "protein": 87,
+        "carbs": 110,
+        "fat": 62
       },
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-09T10:31:00+08:00",
+        "isFinal": true,
+        "activeCalories": 665,
+        "totalCalories": 2597,
+        "exerciseMinutes": 84,
+        "standHours": 12,
+        "steps": 13842,
+        "distanceKm": 9.4,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-08T19:58:00+08:00",
+            "endTime": "2026-10-08T21:56:00+08:00",
+            "durationMin": 117.13,
+            "activeCalories": 344,
+            "totalCalories": 542,
+            "distanceKm": 5.32,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 150,
+              "avgHr": 110,
+              "pace": "22'00\"/km",
+              "weather": "26° 湿度72%",
+              "aqi": 65
+            }
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "weight": 76.75,
+      "records": [],
+      "intake": null,
+      "macros": null,
       "activity": null
     }
   ],
