@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-10T18:34:53+08:00"
+    "updatedAt": "2026-10-10T23:20:24+08:00"
   },
   "days": [
     {
@@ -3450,29 +3450,62 @@
         {
           "time": "12:30",
           "meal": "午餐",
-          "name": "午餐:Wagas鸡肉培根奶酪螺丝面(单人份)",
-          "calories": 700,
-          "protein": 35,
-          "carbs": 60,
-          "fat": 35
+          "name": "午餐:Wagas鸡肉培根奶酪螺丝面700+麦当劳薯条1/4(90)",
+          "calories": 790,
+          "protein": 36,
+          "carbs": 73,
+          "fat": 39
         },
         {
-          "time": "18:30",
+          "time": "19:30",
           "meal": "晚餐",
-          "name": "晚餐:烤牛肋条小份420+韩式豆腐蛋炒饭(小锅)360",
-          "calories": 780,
-          "protein": 42,
-          "carbs": 52,
-          "fat": 46
+          "name": "晚餐:烤牛肋条小份420+韩式豆腐蛋炒饭360+甜辣酱翅根3个300",
+          "calories": 1080,
+          "protein": 66,
+          "carbs": 60,
+          "fat": 66
         }
       ],
-      "intake": 1480,
+      "intake": 1870,
       "macros": {
-        "protein": 77,
-        "carbs": 112,
-        "fat": 81
+        "protein": 102,
+        "carbs": 133,
+        "fat": 105
       },
-      "activity": null
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-10T23:19:00+08:00",
+        "isFinal": true,
+        "activeCalories": 504,
+        "totalCalories": 2229,
+        "exerciseMinutes": 46,
+        "standHours": 8,
+        "steps": 8984,
+        "distanceKm": 6.37,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-10T20:18:00+08:00",
+            "endTime": "2026-10-10T22:18:00+08:00",
+            "durationMin": 110.53,
+            "activeCalories": 269,
+            "totalCalories": 455,
+            "distanceKm": 3.38,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 37,
+              "avgHr": 95,
+              "pace": "32'42\"/km",
+              "weather": "27° 湿度73%",
+              "aqi": 101
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
