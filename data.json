@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-10T23:20:24+08:00"
+    "updatedAt": "2026-10-11T23:24:35+08:00"
   },
   "days": [
     {
@@ -3502,6 +3502,70 @@
               "pace": "32'42\"/km",
               "weather": "27° 湿度73%",
               "aqi": 101
+            }
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-11",
+      "weight": 77.6,
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:青酱笔管面(按图吃约1/4份)",
+          "calories": 180,
+          "protein": 5,
+          "carbs": 22,
+          "fat": 8
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:Papa John's薄脆披萨10寸整张",
+          "calories": 950,
+          "protein": 42,
+          "carbs": 98,
+          "fat": 38
+        }
+      ],
+      "intake": 1130,
+      "macros": {
+        "protein": 47,
+        "carbs": 120,
+        "fat": 46
+      },
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-11T23:16:00+08:00",
+        "isFinal": true,
+        "activeCalories": 766,
+        "totalCalories": 2646,
+        "exerciseMinutes": 40,
+        "standHours": 12,
+        "steps": 16778,
+        "distanceKm": 11.52,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-11T20:39:00+08:00",
+            "endTime": "2026-10-11T22:36:00+08:00",
+            "durationMin": 117.5,
+            "activeCalories": 284,
+            "totalCalories": 483,
+            "distanceKm": 4.18,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 246,
+              "avgHr": 94,
+              "pace": "28'06\"/km",
+              "weather": "27° 湿度76%",
+              "aqi": 49
             }
           }
         ]
