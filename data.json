@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-11T23:24:35+08:00"
+    "updatedAt": "2026-10-12T00:07:43+08:00"
   },
   "days": [
     {
@@ -3514,11 +3514,11 @@
         {
           "time": "12:30",
           "meal": "午餐",
-          "name": "午餐:青酱笔管面(按图吃约1/4份)",
-          "calories": 180,
-          "protein": 5,
-          "carbs": 22,
-          "fat": 8
+          "name": "午餐:青酱笔管面整份",
+          "calories": 700,
+          "protein": 18,
+          "carbs": 80,
+          "fat": 32
         },
         {
           "time": "19:30",
@@ -3530,11 +3530,11 @@
           "fat": 38
         }
       ],
-      "intake": 1130,
+      "intake": 1650,
       "macros": {
-        "protein": 47,
-        "carbs": 120,
-        "fat": 46
+        "protein": 60,
+        "carbs": 178,
+        "fat": 70
       },
       "activity": {
         "source": "apple-fitness",
