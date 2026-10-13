@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-13T02:01:09+08:00"
+    "updatedAt": "2026-10-14T01:31:16+08:00"
   },
   "days": [
     {
@@ -3630,6 +3630,70 @@
               "pace": "24'46\"/km",
               "weather": "27° 湿度77%",
               "aqi": 59
+            }
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "weight": 77.8,
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:麦当劳人气超值四件套(麦辣鸡腿堡530+马苏里拉芝士条140+薄皮焦香V翅180+中杯可乐150)",
+          "calories": 1000,
+          "protein": 47,
+          "carbs": 108,
+          "fat": 46
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:椒盐九肚鱼7块450+白灼虾5只70+半拳米饭85+一拳青菜65+香葱炒花蛤90+普宁豆腐170",
+          "calories": 955,
+          "protein": 63,
+          "carbs": 49,
+          "fat": 51
+        }
+      ],
+      "intake": 1955,
+      "macros": {
+        "protein": 110,
+        "carbs": 157,
+        "fat": 97
+      },
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-14T01:30:00+08:00",
+        "isFinal": true,
+        "activeCalories": 446,
+        "totalCalories": 2277,
+        "exerciseMinutes": 18,
+        "standHours": 11,
+        "steps": 8221,
+        "distanceKm": 5.59,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-13T22:01:00+08:00",
+            "endTime": "2026-10-13T23:06:00+08:00",
+            "durationMin": 65.07,
+            "activeCalories": 121,
+            "totalCalories": 231,
+            "distanceKm": 1.22,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 80,
+              "avgHr": 101,
+              "pace": "53'07\"/km",
+              "weather": "27° 湿度80%",
+              "aqi": 106
             }
           }
         ]
