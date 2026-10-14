@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-14T01:31:16+08:00"
+    "updatedAt": "2026-10-14T10:46:45+08:00"
   },
   "days": [
     {
@@ -3698,6 +3698,14 @@
           }
         ]
       }
+    },
+    {
+      "date": "2026-10-14",
+      "weight": 77.55,
+      "records": [],
+      "intake": null,
+      "macros": null,
+      "activity": null
     }
   ],
   "trend": [
