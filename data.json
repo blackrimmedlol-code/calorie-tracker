@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-14T10:46:45+08:00"
+    "updatedAt": "2026-10-15T01:07:15+08:00"
   },
   "days": [
     {
@@ -3702,10 +3702,55 @@
     {
       "date": "2026-10-14",
       "weight": 77.55,
-      "records": [],
-      "intake": null,
-      "macros": null,
-      "activity": null
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:番茄涮涮锅(半拳黄牛肉80+虾柳2个60+鲜虾福袋2个110+小蛏子2只12+一拳蔬菜50+响铃卷90+锅底70)",
+          "calories": 470,
+          "protein": 38,
+          "carbs": 34,
+          "fat": 21
+        }
+      ],
+      "intake": 470,
+      "macros": {
+        "protein": 38,
+        "carbs": 34,
+        "fat": 21
+      },
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-15T01:05:00+08:00",
+        "isFinal": true,
+        "activeCalories": 678,
+        "totalCalories": 2523,
+        "exerciseMinutes": 55,
+        "standHours": 14,
+        "steps": 11777,
+        "distanceKm": 8.71,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-14T20:24:00+08:00",
+            "endTime": "2026-10-14T22:11:00+08:00",
+            "durationMin": 102.88,
+            "activeCalories": 263,
+            "totalCalories": 436,
+            "distanceKm": 3.61,
+            "intensity": "适中",
+            "extra": {
+              "elevGain": 167,
+              "avgHr": 113,
+              "pace": "28'27\"/km"
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
