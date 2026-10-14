@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-15T01:07:15+08:00"
+    "updatedAt": "2026-10-15T03:38:29+08:00"
   },
   "days": [
     {
@@ -3711,13 +3711,22 @@
           "protein": 38,
           "carbs": 34,
           "fat": 21
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:巨无霸530+中薯条330+麦麦脆汁鸡280",
+          "calories": 1140,
+          "protein": 49,
+          "carbs": 108,
+          "fat": 58
         }
       ],
-      "intake": 470,
+      "intake": 1610,
       "macros": {
-        "protein": 38,
-        "carbs": 34,
-        "fat": 21
+        "protein": 87,
+        "carbs": 142,
+        "fat": 79
       },
       "activity": {
         "source": "apple-fitness",
