@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-16T23:26:51+08:00"
+    "updatedAt": "2026-10-18T12:56:31+08:00"
   },
   "days": [
     {
@@ -3878,6 +3878,37 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-10-17",
+      "weight": 77.6,
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:乳鸽一只350+腊味饭一碗480+芥末虾球6颗300",
+          "calories": 1130,
+          "protein": 55,
+          "carbs": 82,
+          "fat": 63
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:毛豆蛋花汤2碗90+米饭一碗200+牛肉丸5颗220",
+          "calories": 510,
+          "protein": 28,
+          "carbs": 53,
+          "fat": 18
+        }
+      ],
+      "intake": 1640,
+      "macros": {
+        "protein": 83,
+        "carbs": 135,
+        "fat": 81
+      },
+      "activity": null
     }
   ],
   "trend": [
