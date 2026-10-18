@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-18T12:56:31+08:00"
+    "updatedAt": "2026-10-18T12:59:40+08:00"
   },
   "days": [
     {
@@ -3900,13 +3900,22 @@
           "protein": 28,
           "carbs": 53,
           "fat": 18
+        },
+        {
+          "time": "23:00",
+          "meal": "夜宵",
+          "name": "夜宵:麦当劳龙焰鸡腿堡四件套(龙焰鸡腿堡570+脆脆薯条330+韩式甜辣酱鸡球320+无糖可乐中杯5)+麦辣鸡翅2块190",
+          "calories": 1415,
+          "protein": 62,
+          "carbs": 130,
+          "fat": 72
         }
       ],
-      "intake": 1640,
+      "intake": 3055,
       "macros": {
-        "protein": 83,
-        "carbs": 135,
-        "fat": 81
+        "protein": 145,
+        "carbs": 265,
+        "fat": 153
       },
       "activity": null
     }
