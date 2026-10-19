@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-18T12:59:40+08:00"
+    "updatedAt": "2026-10-20T00:43:37+08:00"
   },
   "days": [
     {
@@ -3918,6 +3918,47 @@
         "fat": 153
       },
       "activity": null
+    },
+    {
+      "date": "2026-10-19",
+      "weight": 78.6,
+      "records": [],
+      "intake": null,
+      "macros": null,
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-20T00:42:00+08:00",
+        "isFinal": true,
+        "activeCalories": 595,
+        "totalCalories": 2435,
+        "exerciseMinutes": 41,
+        "standHours": 14,
+        "steps": 11429,
+        "distanceKm": 8.09,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-19T20:25:00+08:00",
+            "endTime": "2026-10-19T22:39:00+08:00",
+            "durationMin": 134.05,
+            "activeCalories": 287,
+            "totalCalories": 514,
+            "distanceKm": 4.02,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 448,
+              "avgHr": 101,
+              "pace": "33'18\"/km",
+              "weather": "28° 湿度75%",
+              "aqi": 40
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
