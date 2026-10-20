@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-20T10:55:23+08:00"
+    "updatedAt": "2026-10-20T23:39:52+08:00"
   },
   "days": [
     {
@@ -4045,10 +4045,65 @@
     {
       "date": "2026-10-20",
       "weight": 78.25,
-      "records": [],
-      "intake": null,
-      "macros": null,
-      "activity": null
+      "records": [
+        {
+          "time": "12:30",
+          "meal": "午餐",
+          "name": "午餐:安格斯牛肉饭(牛肉200g全吃+溏心蛋+饭约1/3拳)",
+          "calories": 620,
+          "protein": 60,
+          "carbs": 18,
+          "fat": 35
+        },
+        {
+          "time": "19:30",
+          "meal": "晚餐",
+          "name": "晚餐:韩式烤牛肉包生菜(约140g肉+泡菜+韩式拌饭酱)",
+          "calories": 300,
+          "protein": 31,
+          "carbs": 14,
+          "fat": 14
+        }
+      ],
+      "intake": 920,
+      "macros": {
+        "protein": 91,
+        "carbs": 32,
+        "fat": 49
+      },
+      "activity": {
+        "source": "apple-fitness",
+        "capturedAt": "2026-10-20T23:39:00+08:00",
+        "isFinal": true,
+        "activeCalories": 611,
+        "totalCalories": 2426,
+        "exerciseMinutes": 65,
+        "standHours": 13,
+        "steps": 11328,
+        "distanceKm": 8.09,
+        "floors": 2,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "Apple Watch",
+            "startTime": "2026-10-20T20:36:00+08:00",
+            "endTime": "2026-10-20T22:15:00+08:00",
+            "durationMin": 98.85,
+            "activeCalories": 292,
+            "totalCalories": 459,
+            "distanceKm": 4.64,
+            "intensity": "轻松",
+            "extra": {
+              "elevGain": 83,
+              "avgHr": 102,
+              "pace": "21'17\"/km"
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
