@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-20T10:05:12+08:00"
+    "updatedAt": "2026-10-20T10:55:23+08:00"
   },
   "days": [
     {
@@ -3886,20 +3886,20 @@
         {
           "time": "12:30",
           "meal": "午餐",
-          "name": "午餐:乳鸽一只350+腊味饭一碗480+芥末虾球6颗300",
-          "calories": 1130,
-          "protein": 55,
-          "carbs": 82,
-          "fat": 63
+          "name": "午餐:乳鸽一只380+腊味饭一碗600+芥末虾球6颗300",
+          "calories": 1280,
+          "protein": 60,
+          "carbs": 87,
+          "fat": 74
         },
         {
           "time": "19:30",
           "meal": "晚餐",
-          "name": "晚餐:毛豆蛋花汤2碗90+米饭一碗200+牛肉丸5颗220",
-          "calories": 510,
-          "protein": 28,
+          "name": "晚餐:毛豆蛋花汤2碗90+米饭一碗200+牛肉丸5颗260",
+          "calories": 550,
+          "protein": 32,
           "carbs": 53,
-          "fat": 18
+          "fat": 20
         },
         {
           "time": "23:00",
@@ -3911,11 +3911,11 @@
           "fat": 72
         }
       ],
-      "intake": 3055,
+      "intake": 3245,
       "macros": {
-        "protein": 145,
-        "carbs": 265,
-        "fat": 153
+        "protein": 154,
+        "carbs": 270,
+        "fat": 166
       },
       "activity": {
         "source": "apple-fitness",
@@ -3940,27 +3940,27 @@
         {
           "time": "12:30",
           "meal": "午餐",
-          "name": "午餐:烧鹅一块140+半拳米饭85+半拳酿豆腐160+半拳黄瓜炒牛肉140",
-          "calories": 525,
-          "protein": 36,
+          "name": "午餐:烧鹅一块160+半拳米饭85+半拳酿豆腐160+半拳黄瓜炒牛肉140",
+          "calories": 545,
+          "protein": 37,
           "carbs": 35,
-          "fat": 27
+          "fat": 29
         },
         {
           "time": "19:30",
           "meal": "晚餐",
-          "name": "晚餐:白粥一碗70+煎饺6个300+半拳炒辣椒60+半拳炒牛肉130",
-          "calories": 560,
-          "protein": 28,
-          "carbs": 54,
-          "fat": 24
+          "name": "晚餐:白粥一碗70+煎饺6个340+半拳炒辣椒60+半拳炒牛肉130",
+          "calories": 600,
+          "protein": 30,
+          "carbs": 58,
+          "fat": 25
         }
       ],
-      "intake": 1085,
+      "intake": 1145,
       "macros": {
-        "protein": 64,
-        "carbs": 89,
-        "fat": 51
+        "protein": 67,
+        "carbs": 93,
+        "fat": 54
       },
       "activity": {
         "source": "apple-fitness",
