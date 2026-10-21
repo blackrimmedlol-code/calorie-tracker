@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-21T10:00:43+08:00"
+    "updatedAt": "2026-10-22T00:50:10+08:00"
   },
   "days": [
     {
@@ -4108,10 +4108,66 @@
     {
       "date": "2026-10-21",
       "weight": 77.6,
-      "records": [],
-      "intake": null,
-      "macros": null,
-      "activity": null
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "浇椒菠菜牛腩面（老碗会大碗）",
+          "calories": 700,
+          "protein": 32,
+          "carbs": 90,
+          "fat": 22
+        },
+        {
+          "meal": "晚餐",
+          "detail": "新疆羊排手抓饭：抓饭一拳250+羊排一条280+烤牛肉串70+烤豆皮串60+鸡脆骨串80",
+          "calories": 740,
+          "protein": 30,
+          "carbs": 80,
+          "fat": 30
+        }
+      ],
+      "intake": 1440,
+      "macros": {
+        "protein": 62,
+        "carbs": 170,
+        "fat": 52
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-10-22T00:48:18+08:00",
+        "isFinal": true,
+        "activeCalories": 533,
+        "totalCalories": 2251,
+        "exerciseMinutes": 32,
+        "standHours": 13,
+        "steps": 11043,
+        "distanceKm": 7.63,
+        "floors": 1,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "apple",
+            "startTime": "2026-10-21T20:10:00+08:00",
+            "endTime": "2026-10-21T21:33:00+08:00",
+            "durationMin": 83.15,
+            "activeCalories": null,
+            "totalCalories": null,
+            "distanceKm": 3.33,
+            "intensity": "medium",
+            "extra": {
+              "elevGain": 133,
+              "avgHr": 110,
+              "pace": "24'56\"",
+              "weather": "30°C",
+              "humidity": "61%",
+              "aqi": 48
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
