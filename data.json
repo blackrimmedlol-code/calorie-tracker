@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-23T00:01:33+08:00"
+    "updatedAt": "2026-10-23T01:04:57+08:00"
   },
   "days": [
     {
@@ -4171,7 +4171,7 @@
     },
     {
       "date": "2026-10-22",
-      "weight": null,
+      "weight": 77.8,
       "records": [
         {
           "meal": "午餐",
