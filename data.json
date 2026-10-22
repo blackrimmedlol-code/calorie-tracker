@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-22T00:50:10+08:00"
+    "updatedAt": "2026-10-23T00:01:33+08:00"
   },
   "days": [
     {
@@ -4167,6 +4167,50 @@
             }
           }
         ]
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "weight": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "台式卤肉饭一碗（瘦卤肉+卤蛋+黄萝卜，饭基本吃净）650 + 盐酥鸡7块350",
+          "calories": 1000,
+          "protein": 54,
+          "carbs": 95,
+          "fat": 48
+        },
+        {
+          "meal": "晚餐",
+          "detail": "肉酱意面450 + 小鸡翅4个180 + 半份芒果大虾沙拉150 + 蔬菜汤80",
+          "calories": 860,
+          "protein": 46,
+          "carbs": 77,
+          "fat": 40
+        }
+      ],
+      "intake": 1860,
+      "macros": {
+        "protein": 100,
+        "carbs": 172,
+        "fat": 88
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-10-23T00:00:37+08:00",
+        "isFinal": true,
+        "activeCalories": 327,
+        "totalCalories": 2044,
+        "exerciseMinutes": 1,
+        "standHours": 12,
+        "steps": 5174,
+        "distanceKm": 3.56,
+        "floors": 0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
       }
     }
   ],
