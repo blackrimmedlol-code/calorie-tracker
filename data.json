@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-23T01:04:57+08:00"
+    "updatedAt": "2026-10-23T10:43:28+08:00"
   },
   "days": [
     {
@@ -4212,6 +4212,14 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-10-23",
+      "weight": 77.65,
+      "records": [],
+      "intake": null,
+      "macros": null,
+      "activity": null
     }
   ],
   "trend": [
