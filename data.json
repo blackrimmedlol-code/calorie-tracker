@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-23T10:43:28+08:00"
+    "updatedAt": "2026-10-25T12:17:36+08:00"
   },
   "days": [
     {
@@ -4216,10 +4216,90 @@
     {
       "date": "2026-10-23",
       "weight": 77.65,
-      "records": [],
-      "intake": null,
-      "macros": null,
-      "activity": null
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "Wagas鸡肉培根螺丝面（奶油培根螺旋意面，整碗）",
+          "calories": 650,
+          "protein": 28,
+          "carbs": 75,
+          "fat": 26
+        },
+        {
+          "meal": "晚餐",
+          "detail": "自选称重菜：香芹炒牛肉+豆豉蒸鱼+番茄炒蛋+煎蛋+菜心+虾2只+白馒头1个+青菜蛋花汤，基本吃净",
+          "calories": 880,
+          "protein": 68,
+          "carbs": 70,
+          "fat": 37
+        }
+      ],
+      "intake": 1530,
+      "macros": {
+        "protein": 96,
+        "carbs": 145,
+        "fat": 63
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-10-25T12:14:55+08:00",
+        "isFinal": true,
+        "activeCalories": 375,
+        "totalCalories": 2276,
+        "exerciseMinutes": 17,
+        "standHours": 14,
+        "steps": 5635,
+        "distanceKm": 3.91,
+        "floors": 6,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "weight": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "乳鸽一只380 + 酸菜炒饭一碗380 + 芥末虾球5粒250",
+          "calories": 1010,
+          "protein": 66,
+          "carbs": 68,
+          "fat": 53
+        },
+        {
+          "meal": "晚餐",
+          "detail": "米饭1拳180 + 牛肉1拳半270 + 半拳鸡蛋120 + 青菜1拳50",
+          "calories": 610,
+          "protein": 55,
+          "carbs": 44,
+          "fat": 24
+        }
+      ],
+      "intake": 1620,
+      "macros": {
+        "protein": 121,
+        "carbs": 112,
+        "fat": 77
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-10-25T12:14:55+08:00",
+        "isFinal": true,
+        "activeCalories": 462,
+        "totalCalories": 2384,
+        "exerciseMinutes": 15,
+        "standHours": 15,
+        "steps": 8040,
+        "distanceKm": 5.57,
+        "floors": 16,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
     }
   ],
   "trend": [
