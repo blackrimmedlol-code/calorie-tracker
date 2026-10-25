@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-25T12:17:36+08:00"
+    "updatedAt": "2026-10-25T12:34:29+08:00"
   },
   "days": [
     {
@@ -4300,6 +4300,27 @@
         "standGoal": 12,
         "workouts": []
       }
+    },
+    {
+      "date": "2026-10-25",
+      "weight": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "虾皇云吞牛腩竹升面（整碗吃完）",
+          "calories": 700,
+          "protein": 36,
+          "carbs": 80,
+          "fat": 23
+        }
+      ],
+      "intake": 700,
+      "macros": {
+        "protein": 36,
+        "carbs": 80,
+        "fat": 23
+      },
+      "activity": null
     }
   ],
   "trend": [
