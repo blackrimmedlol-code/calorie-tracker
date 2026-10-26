@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-25T12:34:29+08:00"
+    "updatedAt": "2026-10-26T15:37:28+08:00"
   },
   "days": [
     {
@@ -4259,7 +4259,7 @@
     },
     {
       "date": "2026-10-24",
-      "weight": null,
+      "weight": 78.08,
       "records": [
         {
           "meal": "午餐",
@@ -4303,7 +4303,7 @@
     },
     {
       "date": "2026-10-25",
-      "weight": null,
+      "weight": 78.52,
       "records": [
         {
           "meal": "午餐",
@@ -4312,13 +4312,42 @@
           "protein": 36,
           "carbs": 80,
           "fat": 23
+        },
+        {
+          "meal": "晚餐",
+          "detail": "半条清蒸鱼160 + 一碗米饭200",
+          "calories": 360,
+          "protein": 29,
+          "carbs": 45,
+          "fat": 6
         }
       ],
-      "intake": 700,
+      "intake": 1060,
       "macros": {
-        "protein": 36,
-        "carbs": 80,
-        "fat": 23
+        "protein": 65,
+        "carbs": 125,
+        "fat": 30
+      },
+      "activity": null
+    },
+    {
+      "date": "2026-10-26",
+      "weight": 78.95,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "麦当劳双层吉士汉堡450 + 小杯玉米杯70",
+          "calories": 520,
+          "protein": 25,
+          "carbs": 47,
+          "fat": 26
+        }
+      ],
+      "intake": 520,
+      "macros": {
+        "protein": 25,
+        "carbs": 47,
+        "fat": 26
       },
       "activity": null
     }
