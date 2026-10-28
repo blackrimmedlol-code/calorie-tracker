@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-28T00:06:34+08:00"
+    "updatedAt": "2026-10-29T01:32:53+08:00"
   },
   "days": [
     {
@@ -4420,6 +4420,35 @@
         "protein": 77,
         "carbs": 100,
         "fat": 58
+      },
+      "activity": null
+    },
+    {
+      "date": "2026-10-28",
+      "weight": 76.6,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "棒约翰0.1薄脆夏威夷披萨（标准尺寸整张）",
+          "calories": 900,
+          "protein": 38,
+          "carbs": 105,
+          "fat": 38
+        },
+        {
+          "meal": "晚餐",
+          "detail": "南门涮肉：羊肉两拳480+牛肉一拳230+可乐一瓶210",
+          "calories": 920,
+          "protein": 64,
+          "carbs": 55,
+          "fat": 49
+        }
+      ],
+      "intake": 1820,
+      "macros": {
+        "protein": 102,
+        "carbs": 160,
+        "fat": 87
       },
       "activity": null
     }
