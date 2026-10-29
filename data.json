@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-29T10:39:08+08:00"
+    "updatedAt": "2026-10-30T00:34:06+08:00"
   },
   "days": [
     {
@@ -4490,10 +4490,74 @@
     {
       "date": "2026-10-29",
       "weight": 78.45,
-      "records": [],
-      "intake": null,
-      "macros": null,
-      "activity": null
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "麦当劳鱼牛汉堡四件套：原味双层深海鳕鱼堡540+月下相思扭扭薯300+麦乐鸡4块170+纯牛奶140+韩式酱30",
+          "calories": 1180,
+          "protein": 43,
+          "carbs": 115,
+          "fat": 60
+        },
+        {
+          "meal": "晚餐",
+          "detail": "咖喱鱼柳饭：米饭250+炸鱼块300+荷包蛋2个180+咖喱时蔬80+蛋花汤40",
+          "calories": 850,
+          "protein": 45,
+          "carbs": 88,
+          "fat": 38
+        },
+        {
+          "meal": "宵夜",
+          "detail": "合味道海鲜风味杯面(108g)",
+          "calories": 470,
+          "protein": 9,
+          "carbs": 62,
+          "fat": 21
+        }
+      ],
+      "intake": 2500,
+      "macros": {
+        "protein": 97,
+        "carbs": 265,
+        "fat": 119
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-10-30T00:33:02+08:00",
+        "isFinal": true,
+        "activeCalories": 553,
+        "totalCalories": 2407,
+        "exerciseMinutes": 28,
+        "standHours": 13,
+        "steps": 8962,
+        "distanceKm": 6.36,
+        "floors": 0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": [
+          {
+            "name": "户外步行",
+            "source": "apple",
+            "startTime": "2026-10-29T20:03:00+08:00",
+            "endTime": "2026-10-29T22:33:00+08:00",
+            "durationMin": 149.48,
+            "activeCalories": 301,
+            "totalCalories": 554,
+            "distanceKm": 3.2,
+            "intensity": "medium",
+            "extra": {
+              "elevGain": 197,
+              "avgHr": 99,
+              "pace": "46'35\"",
+              "weather": "25°C",
+              "humidity": "76%",
+              "aqi": 54
+            }
+          }
+        ]
+      }
     }
   ],
   "trend": [
