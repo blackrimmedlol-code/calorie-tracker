@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-10-30T10:28:22+08:00"
+    "updatedAt": "2026-11-01T20:32:25+08:00"
   },
   "days": [
     {
@@ -4562,9 +4562,142 @@
     {
       "date": "2026-10-30",
       "weight": 79.35,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "麦当劳鱼牛四件套：原味双层深海鳕鱼堡540+月下相思扭扭薯300+韩式甜辣酱鸡球320+中杯可乐150",
+          "calories": 1310,
+          "protein": 42,
+          "carbs": 151,
+          "fat": 61
+        },
+        {
+          "meal": "晚餐",
+          "detail": "肯德基三件套：香辣鸡腿堡480+香辣鸡翅2块240+中杯冰百事可乐150",
+          "calories": 870,
+          "protein": 40,
+          "carbs": 95,
+          "fat": 36
+        },
+        {
+          "meal": "夜宵",
+          "detail": "大虾肉云吞8个500+半拳蔬菜25",
+          "calories": 525,
+          "protein": 30,
+          "carbs": 62,
+          "fat": 14
+        }
+      ],
+      "intake": 2705,
+      "macros": {
+        "protein": 112,
+        "carbs": 308,
+        "fat": 111
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-11-01T20:30:39+08:00",
+        "isFinal": true,
+        "activeCalories": 498,
+        "totalCalories": 2410,
+        "exerciseMinutes": 10,
+        "standHours": 12,
+        "steps": 10254,
+        "distanceKm": 7.12,
+        "floors": 0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "weight": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "Shake Shack腌肉芝士牛肉汉堡(单层)550+鸡块420+洋葱圈300",
+          "calories": 1270,
+          "protein": 56,
+          "carbs": 100,
+          "fat": 68
+        },
+        {
+          "meal": "晚餐",
+          "detail": "半拳米饭90+豉油皇炒大虾4只180+半只螃蟹120",
+          "calories": 390,
+          "protein": 44,
+          "carbs": 25,
+          "fat": 12
+        },
+        {
+          "meal": "夜宵",
+          "detail": "麦当劳四件套:鳕鱼堡540+韩式甜辣酱鸡块4个200+大薯条450+多汁柠柠180",
+          "calories": 1370,
+          "protein": 42,
+          "carbs": 171,
+          "fat": 58
+        }
+      ],
+      "intake": 3030,
+      "macros": {
+        "protein": 142,
+        "carbs": 296,
+        "fat": 138
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-11-01T20:30:39+08:00",
+        "isFinal": true,
+        "activeCalories": 485,
+        "totalCalories": 2412,
+        "exerciseMinutes": 13,
+        "standHours": 14,
+        "steps": 9336,
+        "distanceKm": 6.58,
+        "floors": 0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
+    },
+    {
+      "date": "2026-11-01",
+      "weight": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "烤鸡腿1只250+五花肉卷包心菜3片230",
+          "calories": 480,
+          "protein": 33,
+          "carbs": 6,
+          "fat": 35
+        },
+        {
+          "meal": "下午加餐",
+          "detail": "半份餐蛋肉三明治280",
+          "calories": 280,
+          "protein": 14,
+          "carbs": 28,
+          "fat": 12
+        },
+        {
+          "meal": "晚餐",
+          "detail": "蛋炒饭两碗半1000",
+          "calories": 1000,
+          "protein": 20,
+          "carbs": 140,
+          "fat": 38
+        }
+      ],
+      "intake": 1760,
+      "macros": {
+        "protein": 67,
+        "carbs": 174,
+        "fat": 85
+      },
       "activity": null
     }
   ],
