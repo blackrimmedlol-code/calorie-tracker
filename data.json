@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-01T20:32:25+08:00"
+    "updatedAt": "2026-11-02T10:36:05+08:00"
   },
   "days": [
     {
@@ -4613,7 +4613,7 @@
     },
     {
       "date": "2026-10-31",
-      "weight": null,
+      "weight": 79.35,
       "records": [
         {
           "meal": "午餐",
@@ -4665,7 +4665,7 @@
     },
     {
       "date": "2026-11-01",
-      "weight": null,
+      "weight": 79.35,
       "records": [
         {
           "meal": "午餐",
@@ -4698,6 +4698,14 @@
         "carbs": 174,
         "fat": 85
       },
+      "activity": null
+    },
+    {
+      "date": "2026-11-02",
+      "weight": 79.35,
+      "records": [],
+      "intake": null,
+      "macros": null,
       "activity": null
     }
   ],
