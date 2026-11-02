@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-02T15:01:29+08:00"
+    "updatedAt": "2026-11-02T17:45:02+08:00"
   },
   "days": [
     {
@@ -4711,13 +4711,21 @@
           "protein": 25,
           "carbs": 47,
           "fat": 26
+        },
+        {
+          "meal": "下午加餐",
+          "detail": "Gemez小鸡面(干吃面)30g",
+          "calories": 150,
+          "protein": 3,
+          "carbs": 22,
+          "fat": 6
         }
       ],
-      "intake": 520,
+      "intake": 670,
       "macros": {
-        "protein": 25,
-        "carbs": 47,
-        "fat": 26
+        "protein": 28,
+        "carbs": 69,
+        "fat": 32
       },
       "activity": null
     }
