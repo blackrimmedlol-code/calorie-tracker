@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-02T23:34:15+08:00"
+    "updatedAt": "2026-11-03T15:07:09+08:00"
   },
   "days": [
     {
@@ -4769,6 +4769,27 @@
           }
         ]
       }
+    },
+    {
+      "date": "2026-11-03",
+      "weight": 79.0,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "麦当劳巨无霸大堡口福三件套：双层脆鸡堡550+大杯玉米杯140+100%苹果汁130",
+          "calories": 820,
+          "protein": 30,
+          "carbs": 105,
+          "fat": 30
+        }
+      ],
+      "intake": 820,
+      "macros": {
+        "protein": 30,
+        "carbs": 105,
+        "fat": 30
+      },
+      "activity": null
     }
   ],
   "trend": [
