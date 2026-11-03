@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-03T15:07:09+08:00"
+    "updatedAt": "2026-11-04T00:33:35+08:00"
   },
   "days": [
     {
@@ -4781,15 +4781,38 @@
           "protein": 30,
           "carbs": 105,
           "fat": 30
+        },
+        {
+          "meal": "晚餐",
+          "detail": "二当家串串香两份(牛肉串/紫苏牛肉串/油豆腐)650+蟹柳5条180+半只牛蛙130",
+          "calories": 960,
+          "protein": 65,
+          "carbs": 45,
+          "fat": 55
         }
       ],
-      "intake": 820,
+      "intake": 1780,
       "macros": {
-        "protein": 30,
-        "carbs": 105,
-        "fat": 30
+        "protein": 93,
+        "carbs": 155,
+        "fat": 84
       },
-      "activity": null
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-11-04T00:32:41+08:00",
+        "isFinal": true,
+        "activeCalories": 399,
+        "totalCalories": 2200,
+        "exerciseMinutes": 6,
+        "standHours": 12,
+        "steps": 6120,
+        "distanceKm": 4.22,
+        "floors": 0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
     }
   ],
   "trend": [
