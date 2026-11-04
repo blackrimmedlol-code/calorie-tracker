@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-04T18:21:05+08:00"
+    "updatedAt": "2026-11-04T22:09:48+08:00"
   },
   "days": [
     {
@@ -4833,12 +4833,20 @@
           "protein": 29,
           "carbs": 38,
           "fat": 23
+        },
+        {
+          "meal": "晚上加餐",
+          "detail": "蜜雪冰城柠檬水(3分糖)+椰果",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 25,
+          "fat": 0
         }
       ],
-      "intake": 1163,
+      "intake": 1263,
       "macros": {
         "protein": 59,
-        "carbs": 123,
+        "carbs": 148,
         "fat": 48
       },
       "activity": null
