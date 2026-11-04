@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-04T10:19:54+08:00"
+    "updatedAt": "2026-11-04T18:21:05+08:00"
   },
   "days": [
     {
@@ -4817,9 +4817,30 @@
     {
       "date": "2026-11-04",
       "weight": 80.0,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "老碗会烧椒牛肉菠菜面(大碗)",
+          "calories": 680,
+          "protein": 30,
+          "carbs": 85,
+          "fat": 25
+        },
+        {
+          "meal": "晚餐",
+          "detail": "麦当劳双层吉士汉堡430(官网1796kJ)+小号玉米杯53(官网223kJ)",
+          "calories": 483,
+          "protein": 29,
+          "carbs": 38,
+          "fat": 23
+        }
+      ],
+      "intake": 1163,
+      "macros": {
+        "protein": 59,
+        "carbs": 123,
+        "fat": 48
+      },
       "activity": null
     }
   ],
