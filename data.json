@@ -3,7 +3,7 @@
     "targetLow": 1600,
     "targetHigh": 1800,
     "tdee": 2090,
-    "updatedAt": "2026-11-05T10:22:31+08:00"
+    "updatedAt": "2026-11-06T12:55:18+08:00"
   },
   "days": [
     {
@@ -4854,9 +4854,66 @@
     {
       "date": "2026-11-05",
       "weight": 79.5,
-      "records": [],
-      "intake": null,
-      "macros": null,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "麦当劳巨无霸530+薄香V翅一对(2块)180",
+          "calories": 710,
+          "protein": 38,
+          "carbs": 51,
+          "fat": 39
+        },
+        {
+          "meal": "晚餐",
+          "detail": "冬阴功汤半碗80+沙爹鸡肉串3串220+虾刺身4个70+米饭1拳180+黄咖喱牛肉1拳190",
+          "calories": 740,
+          "protein": 57,
+          "carbs": 61,
+          "fat": 29
+        }
+      ],
+      "intake": 1450,
+      "macros": {
+        "protein": 95,
+        "carbs": 112,
+        "fat": 68
+      },
+      "activity": {
+        "source": "apple",
+        "capturedAt": "2026-11-06T12:54:25+08:00",
+        "isFinal": true,
+        "activeCalories": 411,
+        "totalCalories": 2326,
+        "exerciseMinutes": 6,
+        "standHours": 12,
+        "steps": 7893,
+        "distanceKm": 5.56,
+        "floors": 0,
+        "moveGoal": 650,
+        "exerciseGoal": 30,
+        "standGoal": 12,
+        "workouts": []
+      }
+    },
+    {
+      "date": "2026-11-06",
+      "weight": 79.3,
+      "records": [
+        {
+          "meal": "午餐",
+          "detail": "台式卤肉饭一拳",
+          "calories": 350,
+          "protein": 12,
+          "carbs": 45,
+          "fat": 14
+        }
+      ],
+      "intake": 350,
+      "macros": {
+        "protein": 12,
+        "carbs": 45,
+        "fat": 14
+      },
       "activity": null
     }
   ],
